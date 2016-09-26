@@ -4,9 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { MethodologieComponent } from './methodologie/methodologie.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'méthodologie', component: MethodologieComponent },
-  { path: '**', component: HomeComponent }
+    { path: '', component: HomeComponent },
+    { path: 'méthodologie', component: MethodologieComponent },
+    { path: '**', component: HomeComponent }
 ];
 
 export const appRoutingProviders: any[] = [

@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 12px;
+}
+h2 {
+    font-size: 42px;
+    margin-bottom: 6px;
+}
+h3 {
+    font-size: 28px;
+}
+h4 {
+    font-size: 18px;
+}
+html, body {
+    /*font-size: 12px;*/
+}
+
+section {
+    overflow: auto;
+}
+.anchor {
+    padding-top: 5em;
+}
+#cover {
+    height: 100vh;
+    background-color: #bbb;
+}
+
+/* TODO: à virer une fois les chart mis en place "pour de vrai" */
+.chart {
+    border: 1px solid #bbb;
+}
+
+h1.u-center-block__content {
+    margin: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.list-unstyled {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-nav {
+    position: fixed;
+    top: 25%;
+    right: 1em;
+    z-index: 10;
+}
+
+.o-container {
+    padding-right: 3em;
+}

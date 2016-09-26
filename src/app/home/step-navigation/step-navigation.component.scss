@@ -1,0 +1,55 @@
+@import "../../shared/styles/colors";
+
+.vertical-nav {
+    background-color: white;
+    border: 1px solid $light-gray;
+    width: 2em;
+
+    &:after, &:before {
+        border: 1px solid #bbb;
+        display: block;
+        background-color: white;
+        content: "";
+        height: 2em;
+        width: 2em;
+        margin-left: -1px;
+        position: absolute;
+        z-index: -1;
+        margin-top:-1em;
+
+    }
+    &:after {
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-top: none;
+    }
+
+    &:before {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom: none;
+    }
+}
+
+
+
+.step {
+    margin-bottom: 1em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__link {
+        &--active, &:hover {
+            border-color: $black;
+        }
+        margin: auto;
+        content: "";
+        display: block;
+        width: 0.8em;
+        text-decoration: none;
+        border: 0.4em solid;
+        border-radius: 50%;
+        /*height: 1em;*/
+        border-color: #bbb;
+    }
+}
