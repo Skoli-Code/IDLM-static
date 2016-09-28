@@ -1,0 +1,13 @@
+@import '../../charts/charts';
+
+div {
+    border: 1px solid green;
+}
+
+svg > {
+    path.path {
+        fill:none;
+        stroke: blue;
+        stroke-width: 2px;
+    }
+}
