@@ -11,8 +11,7 @@
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [
-      "nodes_modules"
-    ],
-    "types": ["types.d3", "@types"]
+      "nodes_modules/@types"
+    ]
   }
 }
