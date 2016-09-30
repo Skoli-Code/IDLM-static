@@ -1,73 +1,145 @@
-import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { select, Selection } from 'd3-selection';
-import { line } from 'd3-shape';
-import { scaleLinear, Linear } from 'd3-scale';
-import { min, max } from 'd3-array';
-import { AbstractChart } from '../../charts/charts';
-
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { select } from 'd3-selection';
+import { line, stack, area } from 'd3-shape';
+import { scaleLinear, ScaleLinear, scaleQuantize, ScaleQuantize, ScaleTime } from 'd3-scale';
+import { max, range } from 'd3-array';
+import { entries } from 'd3-collection';
+import 'd3-transition';
 import * as _ from 'lodash';
+
+import { AxedChart, dateParser } from '../../charts/charts';
 
 interface Node {
     date: Date;
     value: number;
 }
 
+interface State {
+    domain: number[],
+    range: number[],
+    scale: ScaleLinear<any,any>|ScaleQuantize<any>
+};
+
+interface Period {
+    start: Date,
+    end: Date,
+    text: string
+}
+
+let FAKE_PERIODS = [
+    {
+        start: (new Date(1997, 0, 1)),
+        end: (new Date(2001, 8, 1)),
+        text: `###Période pré-11 septembre
+        Nous voyons ici que le nombre d'occurence d'islam n'est pas significatif.
+        Certains journaux comme le Figaro n'aborde quasiment pas le sujet.
+        `
+    },{
+        start: (new Date(2001, 8, 1)),
+        end: (new Date(2006, 8,  31)),
+        text: `###Le 11 septembre et ses retombées
+
+        On assiste ici à une explostion du nombre d'occurences, tout journaux
+        confondus.
+        `
+    },{
+        start: (new Date(2006, 8, 31)),
+        end: (new Date(2015, 11,  31)),
+        text: `###Je n'ai plus d'idées de périodes
+
+        Donc je met un peu n'importe quoi, l'idée c'est de mimer le comportement
+        final. Le contenu ici importe peu. Bisous.
+        `
+    }
+];
+
 @Component({
   selector: 'idlmChart-1-1',
   templateUrl: './chart-1-1.component.html',
   styleUrls: ['./chart-1-1.component.scss']
 })
-export class Chart_1_1Component extends AbstractChart implements OnInit {
-    @Input() data: Object;
+export class Chart_1_1Component extends AxedChart {
     @ViewChild('chartPlayground') svgRef: ElementRef;
-    private debug: boolean = true;
-    private _svg:  Selection;
-    private _g:    Selection;
-    private _line: Selection;
-    private size: {width:number, height:number} = { width: 500, height: 320 };
-    private valueScale: any;
+    @Input() data: Object;
+    // template attributes
+    hideFirstContent: boolean = false;
+    heightForScrollWatcher:string = "8000px";
+    periodText:string = null;
+    private areaData: any;
+    private previousPercentage: number = 0;
+    private previousPeriodNumber: number = null;
 
-    private scrollScales: {first:Linear<any>, second:Linear<any>, third:Linear<any>, fourth:Linear<any> } = {
-        // first scale, percentage of line drawing.
-        first: scaleLinear().domain([0,45]).range([0,100]),
-        // second scale is to make "musulman" line dispappear (from top to bottom);
-        second: scaleLinear().domain([45, 50]).range([0, 1000]),
-        // third scroll scale is to make stacked area appears.
-        third: scaleLinear().domain([50, 55]).range([0, 100]),
-        // fourt scroll scale is to focus some specific areas in the graph
-        // TODO: change 5 by the actual number of periods to focus on.
-        fourth: scaleLinear().domain([55, 100]).range([0, 5])
-    };
+    private _area:      any;
+    private _focusArea: any;
+    private _clip:      any;
+    private _lines:     any;
 
-    heightForScrollWatcher:string = "4000px";
+    protected yScale: ScaleLinear<any,any>;
+    protected xScale: ScaleTime<any,any>;
+    private periodsData: Array<Period>;
 
-    initChart(){
-        this.initSVG();
-        this.initData();
-        this.updateScales();
-        this.draw();
+    private states:any;
+
+    draw(){
+        super.draw();
+        this.drawLines();
+        this.drawClip();
+        this.drawStackedArea(this.areaData.values);
     }
 
-    private initSVG(){
-        this._svg = select(this.svgRef.nativeElement);
-        this._svg = this._svg
-                .attr('width',  this.size.width )
-                .attr('height', this.size.height );
-        this._g   = this._svg.append('g');
-    }
-    private initData(){
+    initData(){
         for (let i in this.data) {
             let _data = this.data[i];
-            _data.values = _data.values.map((d:Node)=>{
-                d.date = this.dateParser(d.date);
+            _data.values = _data.values.map((d)=>{
+                d.date = dateParser(d.date);
                 return d;
             });
-            this.data[i] = _data;
         }
-        console.log('data initialized: ', this.data);
+        this.areaData = this.data['islam'];
+        // TODO: une fois les périodes éditorialisées et rajoutées dans les
+        // données, les utiliser ici.
+        this.periodsData = FAKE_PERIODS;
+        this.initStates();
     }
 
-    private updateScales(){
+    private initStates(){
+        this.states = {
+            // lines scale, percentage of line drawing.
+            lines:{
+                domain: [0, 20],
+                range: [2000, 0],
+                scale: scaleLinear()
+            },
+            // removeLine scale is to make "musulman" line dispappear (from top to bottom);
+            removeLine:{
+                domain: [20, 25],
+                range: [0, -1000],
+                scale: scaleLinear()
+            },
+            // areas scroll scale is to make stacked area appears.
+            areas:{
+                domain: [20, 25],
+                range: [0, 100],
+                scale: scaleLinear()
+            },
+            // fourt scroll scale is to focus some specific areas in the graph
+            // TODO: change 5 by the actual number of periods to focus on.
+            focusPeriods:{
+                domain: [25, 100],
+                range: range(this.periodsData.length),
+                scale: scaleQuantize()
+            }
+        };
+        for(let i in this.states){
+            let state = this.states[i];
+            state.scale = state.scale
+                .domain(state.domain)
+                .range(state.range);
+        }
+
+    }
+
+    getMaxValue(){
         let maxVal = -1;
         for (let i in this.data){
             let sub = this.data[i];
@@ -75,41 +147,171 @@ export class Chart_1_1Component extends AbstractChart implements OnInit {
                 maxVal = d.value > maxVal ? d.value : maxVal;
             }
         }
-        this.dateScale = this.dateScale.range([0, this.size.width]);
-        this.valueScale = scaleLinear()
-            .domain([0, maxVal])
-            .range([this.size.height, 0]);
+        return maxVal;
     }
-    private draw(){
-        this.drawLines();
-        // this.drawArea();
+
+    getDomainForX():Date[]{
+        let minVal = null;
+        let maxVal = null;
+        for(let i in this.data){
+            let sub = this.data[i];
+            for(let d of sub.values){
+                if((minVal == null) || (d.date < minVal)){
+                    minVal = d.date;
+                }
+                if((maxVal == null) || (d.date > maxVal)){
+                    maxVal = d.date;
+                }
+            }
+        }
+        return [ minVal, maxVal ];
     }
 
     private drawLines(){
-        _.map(_.toArray(this.data), (d)=>this.drawLine(d));
+        let line_fn = line<Node>()
+            .x((d)=>{
+                return this.xScale(d.date);
+            })
+            .y((d)=>{
+                return this.yScale(d.value);
+            });
+
+        this._lines = this._g.selectAll('.line')
+            .data(entries(this.data))
+            .enter().append('g').attr('class', 'line');
+
+        this._lines
+                .append('path')
+                .attr('fill', 'none')
+                .attr('d', (d)=>{
+                    return line_fn(d.value.values);
+                })
+                .attr('stroke-dasharray', 2000)
+                .attr('stroke-dashoffset', 2000)
+                .attr('class', (d)=>{
+                    return `line ${d.key}`;
+                });
     }
 
-    private drawLine(data:any){
-        let line_fn = line()
-            .x((d:Node)=>{ return this.dateScale(d.date) })
-            .y((d:Node)=>{ return this.valueScale(d.value) });
-
-        let color_class = data.line_color_class;
-        this._line = this._g.append('path')
-            .datum(data.values)
-            .attr('fill', 'none')
-            .attr('d', line_fn)
-            .attr('class', `path ${color_class}`);
-
+    getAxesScales(){
+        return {x: this.xScale, y: this.yScale };
     }
 
-    update(data:any){
+    private stacks(data){
+        let stack_fn = stack()
+            .keys(['figaro', 'lemonde', 'liberation'])
+            .value((d,key)=>{
+                return d['sub_values'][key];
+            });
+        return stack_fn(data);
+    }
+
+    private drawStackedArea(data){
+        let stacked_data = this.stacks(data);
+        // first area draw for the "normal" area
+        this._area = this._g.append('g').attr('class', 'area-group regular');
+        this._area.selectAll('path.area.regular')
+            .data(stacked_data)
+            .enter()
+                .append('path').attr('class', (d)=>`area regular ${d.key}`)
+                .attr('d', this.drawAreaWithPerc(0));
+
+        this._focusArea = this._g.append('g').attr('class', 'area-group focus');
+        // 2nd path creation (dedicated for focus)
+        this._focusArea.selectAll('path.area.focus')
+            .data(stacked_data)
+            .enter()
+                .append('path').attr('class', (d)=>`area focus ${d.key}`)
+                .attr('clip-path', 'url(#focusClip)')
+                .style('opacity', 0)
+                .attr('d', this.drawAreaWithPerc(100));
+    }
+
+    private drawAreaWithPerc(perc:number=0){
+        perc = perc / 100;
+        let _area =  area()
+            .y1((d)=>this.yScale(d[1] * perc))
+            .y0((d)=>this.yScale(d[0] * perc))
+            .x((d,i)=>this.xScale(this.areaData.values[i].date));
+        return _area;
+    }
+
+    private drawClip(){
+        this._clip = this._g.append('clipPath')
+            .attr('id', 'focusClip')
+            .append('rect')
+                .attr('width', 0)
+                .attr('height', this.size.inner.height);
+    }
+
+    private focusPeriod(period_nb:number){
+        this._focusArea.selectAll('.area.focus').style('opacity', 1);
+        if(this.previousPeriodNumber != period_nb){
+            let period = this.periodsData[period_nb];
+            let start_x = this.xScale(period.start);
+            let width = this.xScale(period.end) - start_x;
+            this._clip.transition().duration(330)
+                .attr('width', width)
+                .attr('transform', `translate(${start_x}, 0)`);
+            this.previousPeriodNumber = period_nb;
+            this.periodText = period.text;
+        }
+    }
+
+    // draws 2 the 2 lines progressively
+    private setLinesAt(perc:number){
+        let state_perc = this.getStatePercentage(this.states.lines, perc);
+        this._g.selectAll('path.line').attr('stroke-dashoffset', state_perc);
+    }
+
+    // remove one line progressively
+    private translateLineTo(key, perc){
+        let state_perc = this.getStatePercentage(this.states.removeLine, perc);
+        this._g.select('.line.musulman')
+            .attr('transform', `translate(0, ${state_perc})`);
+    }
+
+    // make areas more or less big
+    private updateAreas(perc){
+        let state_perc = this.getStatePercentage(this.states.areas, perc);
+        this._area.selectAll('.regular').attr('d', this.drawAreaWithPerc(state_perc));
+    }
+    /**
+     * Focus a specific period (determined with scroll position)
+     * @see states.focusPeriods
+     * @see focusPeriod
+     */
+    private setFocusAt(perc){
+        let period_nb = this.getStatePercentage(this.states.focusPeriods, perc);
+        if(perc > this.states.focusPeriods.domain[0]){
+            this.hideFirstContent = true;
+            this.focusPeriod(period_nb);
+        } else {
+            this.hideFirstContent = false;
+            this._focusArea.selectAll('.area.focus').style('opacity', 0);
+        }
+    }
+
+    private getStatePercentage(state:State, perc:number){
+        let state_perc = state.range[0];
+        if(perc > state.domain[0]){
+            state_perc = state.scale(perc);
+        }
+        if(perc > state.domain[1]){
+            state_perc = state.range[1];
+        }
+        return state_perc;
     }
 
     onScroll(perc:number){
+        if(this.previousPercentage == perc){ return; }
+        // short fail to avoid computation
+        // if(perc == 0 || perc == 100){ return; }
         // major steps:
-        // - 0-45%   => draw 2 lines for our 2 dataset (islam & musulman)
-        // - 45-50%  => make "musulman"'s line disappear (translate to bottom)
-        // - 50-100% =>
+        this.setLinesAt(perc);
+        this.translateLineTo('musulman', perc);
+        this.updateAreas(perc);
+        this.setFocusAt(perc);
+        this.previousPercentage = perc;
     }
 }

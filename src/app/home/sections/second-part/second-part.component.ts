@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./second-part.component.css']
 })
 export class SecondPartComponent implements OnInit {
+    private progressPercentage:number = 0;
+    private heightForScrollWatcher:string = '4000px';
+    constructor() { }
 
-  constructor() { }
+    ngOnInit() {
+    }
 
-  ngOnInit() {
-  }
-
+    onScroll(perc:number){
+         this.progressPercentage = perc;
+    }
 }

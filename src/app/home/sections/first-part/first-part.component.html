@@ -17,42 +17,26 @@
             </div>
         </div>
     </div>
-    <!-- 1.1 -->
-    <div class="o-grid anchor" id="partie-1-1">
-        <div class="o-grid__cell o-grid__cell--width-30">
-            <h3>Occurrences des mots  “islam” et “musulman” par an dans le corpus général</h3>
-            <p>
-                Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter.
-            </p>
-            <p>
-                Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel.
-            </p>
-            <p>
-
-                Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter ad usque taedium pedibus pavimenta tergentes iactari volucriter.
-            </p>
-        </div>
-        <div class="o-grid__cell u-center-block chart">
-            <h1 class="u-center-block__content">Ici un chart</h1>
-        </div>
+    <!-- 1.1 / Line Chart + Stacked Area Chart -->
+    <div class="anchor" id="partie-1-1">
+        <idlmChart-1-1 [data]="chart_1_1_data"></idlmChart-1-1>
     </div>
     <!-- 1.2 -->
-    <div class="o-grid anchor" id="partie-1-2">
-        <div class="o-grid__cell o-grid__cell--width-30">
-            <h3>Occurrences du mot “islam” par mois dans le corpus total </h3>
-            <p>
-                Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter.
-            </p>
-            <p>
-                Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel.
-            </p>
-            <p>
+    <div [style.height]="heightForScrollWatcher">
+        <div class="o-grid anchor" id="partie-1-2" idlmScrollWatcher (onScroll)="onScrollSecondChart($event)">
+            <div class="o-grid__cell o-grid__cell--width-30">
+                <h3>Occurrences du mot “islam” par mois dans le corpus total </h3>
+                <p>
+                    Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter.
+                </p>
+                <p>
+                    Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel.
+                </p>
+                <p>
 
-                Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter ad usque taedium pedibus pavimenta tergentes iactari volucriter.
-            </p>
-        </div>
-        <div class="o-grid__cell u-center-block chart">
-            <h1 class="u-center-block__content">Ici un chart</h1>
+                    Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter ad usque taedium pedibus pavimenta tergentes iactari volucriter.
+                </p>
+            </div>
         </div>
     </div>
 </section>

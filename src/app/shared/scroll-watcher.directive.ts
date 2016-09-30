@@ -5,59 +5,68 @@
  * Adaptation for angular 2 by Pierre Bellon
  */
 
-import { Directive, ElementRef, Input, Renderer } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, Output, Renderer } from '@angular/core';
 import 'jquery';
+let requestAnimationFrame = window.requestAnimationFrame;
+let cancelAnimationFrame = window.cancelAnimationFrame;
 
-@Directive({
-    selector: '[idlmScrollWatcher]'
-})
+@Directive({ selector: '[idlmScrollWatcher]' })
 export class ScrollWatcherDirective {
     private outerId: string = Math.random().toString().replace('.', '');
-    private active: boolean = false
+    private active: boolean = false;
     private hasBeenActive: boolean = false;
     private maxedOut: boolean =  false;
     private previousPos: number = 0;
     private previousInnerHeight: number;
     private outer: ElementRef;
     private interval: number;
-
-    @Input('idlmScrollWatcher') updateCallback: Function;
+    private _el: any;
+    private $el: any;
+    private _outer: any;
+    private $outer: any;
+    @Input() navBarHeight: number=50;
+    @Output() onScroll: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(private el: ElementRef, private renderer: Renderer) {
-        this.outer = new ElementRef(el.nativeElement.parentNode);
+        this._el = this.el.nativeElement;
+        this.$el = $(this._el);
+        this.outer = new ElementRef(this._el.parentNode);
+        this._outer = this.outer.nativeElement;
+        this.$outer = $(this._outer);
         // start watching immediately
         this.start();
+    }
+
+    // starts watching for scroll movement
+    start(){
+        // sticky stuff
+        this.renderer.setElementAttribute(this._outer, 'id', this.outerId);
+        $(this._el).fixTo(this._outer, {top:this.navBarHeight});
+        this.interval = requestAnimationFrame(()=>{this.onTick()});
+        return this;
     }
 
     // check if child element is taller than window height
     // stop checking and unstick
     stop(){
-        clearInterval(this.interval);
-        this.renderer.setElementAttribute(this.outer, 'id', '');
-        $(this.el).fixTo('destroy');
+        cancelAnimationFrame(this.interval);
+        this.renderer.setElementAttribute(this._outer, 'id', '');
+        $(this._el).fixTo('destroy');
         return this;
     }
 
     // stop checking but keep stuck
     pause(){
-        clearInterval(this.interval);
-        return this;
-    }
-    // starts watching for scroll movement
-    start(){
-        // sticky stuff
-        this.renderer.setElementAttribute(this.outer, 'id', this.outerId);
-        $(this.el).fixTo('#' + this.outerId);
-        this.interval = setInterval(this.onTick, 20);
+        cancelAnimationFrame(this.interval);
         return this;
     }
 
     onTick() {
         this.checkInnerHeight();
-        var scrollDistance = this.getScrollDistance();
-        var scrollPos = this.getScrollPos(scrollDistance);
-        var cappedScrollPos = this.capPercentage(scrollPos);
-        var scrollPosMaxOrMore = ((scrollPos >= 100) || (scrollPos <= 0));
+        let scrollDistance = this.getScrollDistance();
+        let scrollPos = this.getScrollPos(scrollDistance);
+        let cappedScrollPos = this.capPercentage(scrollPos);
+        let scrollPosMaxOrMore = ((scrollPos >= 100) || (scrollPos <= 0));
 
         // 'maxedOut' is true when the scrollPos is outside of 0-100
         // and has run once at this.state maxed-out scroll position.
@@ -73,7 +82,7 @@ export class ScrollWatcherDirective {
         }
         if (!this.maxedOut) {
             // run callback function as specified by user
-            this.updateCallback(cappedScrollPos, this.outer);
+            this.onScroll.emit(cappedScrollPos);
         }
 
         if (scrollPosMaxOrMore) {
@@ -82,6 +91,7 @@ export class ScrollWatcherDirective {
             this.active = false;
         }
         this.previousPos = scrollPos;
+        this.interval = requestAnimationFrame(()=>{this.onTick()});
     }
     // gets scroll position as pixels from top of parent
     getScrollDistance() {
@@ -90,23 +100,23 @@ export class ScrollWatcherDirective {
         var supportPageOffset = window.pageXOffset !== undefined;
         var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
         var y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
-        return y - this.outer.nativeElement.getBoundingClientRect().top;
+        return y - (this.$outer.offset().top + this.navBarHeight);
     }
 
     // gets scroll position as % of container
     getScrollPos(scrollDistance) {
-        return (scrollDistance / (this.outer.nativeElement.getBoundingClientRect().height - window.innerHeight)) * 100;
+        return (scrollDistance / (this.$outer.height() - $(window).height() - this.navBarHeight)) * 100;
     }
 
     // toggles stickiness of 'inner' element
     stickUnstick(scrollPos) {
         if (scrollPos === 0) {
-            this.renderer.setElementStyle(this.el, 'position', 'relative');
+            this.renderer.setElementStyle(this._el, 'position', 'relative');
         } else if (scrollPos === 100) {
-            this.renderer.setElementStyle(this.el, 'position', 'absolute');
-            this.renderer.setElementStyle(this.el, 'bottom', '0');
+            this.renderer.setElementStyle(this._el, 'position', 'absolute');
+            this.renderer.setElementStyle(this._el, 'bottom', '0');
         } else {
-            this.renderer.setElementStyle(this.el, 'position', 'fixed');
+            this.renderer.setElementStyle(this._el, 'position', 'fixed');
         }
     }
 
@@ -121,17 +131,17 @@ export class ScrollWatcherDirective {
     }
 
     checkInnerHeight() {
-        let newInnerHeight = this.el.nativeElement.getBoundingClientRect().height;
+        let newInnerHeight = this._el.getBoundingClientRect().height;
         if (newInnerHeight === this.previousInnerHeight) {
             return;
         }
-        this.renderer.setElementStyle(this.el, 'height', 'auto');
-        newInnerHeight = this.el.nativeElement.getBoundingClientRect().height;
+        this.renderer.setElementStyle(this._el, 'height', 'auto');
+        newInnerHeight = this._el.getBoundingClientRect().height;
         let overflow = window.innerHeight - newInnerHeight;
         if (overflow >= 0) {
             newInnerHeight = window.innerHeight - (overflow + 5);
-            this.renderer.setElementStyle(this.el, 'height', newInnerHeight);
-            this.renderer.setElementStyle(this.el, 'margin-bottom', ""+overflow);
+            this.renderer.setElementStyle(this._el, 'height', newInnerHeight);
+            this.renderer.setElementStyle(this._el, 'margin-bottom', ""+overflow);
         }
         this.previousInnerHeight = newInnerHeight;
     }

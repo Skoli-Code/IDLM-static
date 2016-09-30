@@ -11,3 +11,11 @@ interface JQuery {
 interface LocationChangeEvent {
     newURL: string;
 }
+
+declare var require: any;
+
+declare module "showdown" {
+    export class Converter {
+        makeHtml(content:string):string;
+    }
+}

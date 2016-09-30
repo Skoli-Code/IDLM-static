@@ -1,17 +1,13 @@
 @import "../../shared/styles/colors";
+@import "../../shared/styles/variables";
 
 .progress {
     width: 100%;
+    height: $progress-bar-height;
+    background: $light-gray;
     &__bar {
         height: 2em;
-        border: 1px solid $black;
-        &__inner {
-            height: 2em;
-            width: 0%;
-            margin-top: -1px;
-            display: block;
-            content: "";
-            background-color: $black;
-        }
+        width: 0%;
+        background-color: $black;
     }
 }

@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { DataLoaderService } from './sections/charts/data-loader.service';
 
 @Component({
-  selector: 'idlm-home',
+  selector: 'idlmHome',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    constructor() {
+    private initialized: boolean = false;
+    constructor(private dataLoader:DataLoaderService){
     }
 
-    ngOnInit() {
+    ngOnInit(){
+        this.dataLoader.loadAllData().subscribe((data)=>{
+            this.initialized = true;
+        });
     }
 }
