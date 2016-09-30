@@ -14,8 +14,7 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "assets/blaze/blaze.min.css",
-        "styles.css"
+        "main.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

@@ -1,0 +1,5 @@
+@mixin transition($rules...){
+    -webkit-transition: $rules;
+    -moz-transition: $rules;
+    transition: $rules;
+}
