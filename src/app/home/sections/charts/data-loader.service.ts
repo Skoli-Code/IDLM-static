@@ -28,7 +28,7 @@ export class DataLoaderService {
             }));
     }
 
-    private load(key):Observable<DataType>{
+    load(key):Observable<DataType>{
         return this.http.get(`assets/data/${key}.json`)
             .map((response:Response)=>{ return response.json() });
     }
