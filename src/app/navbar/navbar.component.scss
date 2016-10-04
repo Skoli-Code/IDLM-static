@@ -1,0 +1,36 @@
+@import '../shared/styles/colors';
+@import '../shared/styles/variables';
+@import '../../../node_modules/blaze/scss/mixins/settings.global';
+
+
+nav {
+    background-color: $black;
+    position: fixed;
+    height: $navbar-height;
+    line-height: $navbar-height;
+    width: 100%;
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+    z-index: $navbar-z-index;
+    a, & {
+        color: white;
+    }
+    .skoli-link {
+        float:left;
+    }
+
+    .links {
+        float: right;
+        a {
+            margin-left: $grid-gutter;
+        }
+    }
+    .title {
+    }
+
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}

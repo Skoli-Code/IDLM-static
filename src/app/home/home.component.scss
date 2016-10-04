@@ -1,0 +1,5 @@
+@import '../shared/styles/variables';
+
+section:first-child{
+    padding-top: $navbar-height;
+}
