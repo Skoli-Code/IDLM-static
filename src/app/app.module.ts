@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -49,7 +49,10 @@ import { Chart_1_2Component } from './home/sections/first-part/chart-1-2/chart-1
     HttpModule,
     routing
   ],
-  providers: [ appRoutingProviders, DataLoaderService ],
+  providers: [
+    { provide: LOCALE_ID, useValue:'fr-FR' },
+    appRoutingProviders, DataLoaderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
