@@ -1,6 +1,6 @@
-<section class="o-container o-container--xlarge">
+<section class="o-container o-container--xlarge anchor" id="partie-2">
     <!-- INTRO  -->
-    <div class="o-grid anchor" id="partie-2-introduction">
+    <div class="o-grid">
         <div class="o-grid__cell o-grid__cell--width-30">
             <h2>Les maux de l'Islam</h2>
             <div class="introduction">
@@ -18,7 +18,7 @@
         </div>
     </div>
     <!-- 2.1  -->
-    <div class="o-grid anchor" id="partie-2-1">
+    <div class="o-grid">
         <div class="o-grid__cell o-grid__cell--width-30">
             <h3>Mots les plus présents dans le corpus total sur toute la période</h3>
             <p>
@@ -31,22 +31,8 @@
                 Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter ad usque taedium pedibus pavimenta tergentes iactari volucriter.
             </p>
         </div>
-        <div class="o-grid__cell u-center-block chart">
-            <h1 class="u-center-block__content">Ici un chart</h1>
-        </div>
+        <idlmChart-2-1></idlmChart-2-1>
     </div>
     <!-- 2.2 / Bubble chart -->
-    <div class="anchor scroll-part-holder" id="partie-2-2">
-        <div class="scroll-part-content" idlmScrollWatch (onScroll)='onScroll($event)'>
-            <div class="o-grid">
-                <div class="o-grid__cell">
-                    <!-- placer le chart ici. -->
-                </div>
-                <div class="o-grid__cell o-grid__cell--width-20">
-                    <h3>Mots les plus présents par an pour le corpus général et par sous-corpus (1997-2015)</h3>
-                </div>
-            </div>
-            <idlmProgressBar [progressPercentage]="progressPercentage"></idlmProgressBar>
-        </div>
-    </div>
+    <idlmChart-2-1></idlmChart-2-1>
 </section>
