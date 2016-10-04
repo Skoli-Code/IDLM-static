@@ -1,18 +1,13 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Renderer, ViewChild, ElementRef } from '@angular/core';
 import { select } from 'd3-selection';
 import { line, stack, area } from 'd3-shape';
 import { scaleLinear, ScaleLinear, scaleQuantize, ScaleQuantize, ScaleTime } from 'd3-scale';
 import { max, range } from 'd3-array';
 import { entries } from 'd3-collection';
 import 'd3-transition';
-import * as _ from 'lodash';
 
-import { AxedChart, dateParser } from '../../charts/charts';
-
-interface Node {
-    date: Date;
-    value: number;
-}
+import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../../charts/charts';
+import { DataLoaderService } from '../../charts/data-loader.service';
 
 interface State {
     domain: number[],
@@ -58,13 +53,13 @@ let FAKE_PERIODS = [
   templateUrl: './chart-1-1.component.html',
   styleUrls: ['./chart-1-1.component.scss']
 })
-export class Chart_1_1Component extends AxedChart {
-    @ViewChild('chartPlayground') svgRef: ElementRef;
-    @Input() data: Object;
+export class Chart_1_1Component extends AxedChart implements ScrollableChart {
+    @ViewChild('chartPlayground') chartElement: ElementRef;
     // template attributes
     hideFirstContent: boolean = false;
     heightForScrollWatcher:string = "8000px";
     periodText:string = null;
+    dataCatalogKey:string="1.1";
     private areaData: any;
     private previousPercentage: number = 0;
     private previousPeriodNumber: number = null;
@@ -80,11 +75,15 @@ export class Chart_1_1Component extends AxedChart {
 
     private states:any;
 
+    constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
+        super(renderer, dataLoader);
+    }
+
     draw(){
-        super.draw();
         this.drawLines();
         this.drawClip();
         this.drawStackedArea(this.areaData.values);
+        super.draw();
     }
 
     initData(){
@@ -136,39 +135,24 @@ export class Chart_1_1Component extends AxedChart {
                 .domain(state.domain)
                 .range(state.range);
         }
-
     }
 
-    getMaxValue(){
-        let maxVal = -1;
-        for (let i in this.data){
-            let sub = this.data[i];
-            for (let d of sub.values){
-                maxVal = d.value > maxVal ? d.value : maxVal;
-            }
-        }
-        return maxVal;
+    getMaxYValue(){
+        return 24000;
     }
 
-    getDomainForX():Date[]{
-        let minVal = null;
-        let maxVal = null;
-        for(let i in this.data){
-            let sub = this.data[i];
-            for(let d of sub.values){
-                if((minVal == null) || (d.date < minVal)){
-                    minVal = d.date;
-                }
-                if((maxVal == null) || (d.date > maxVal)){
-                    maxVal = d.date;
-                }
+    getXValues():any[]{
+        let values = [];
+        for( let i in this.data){
+            for(let d of this.data[i].values){
+                values.push(d.date);
             }
         }
-        return [ minVal, maxVal ];
+        return values;
     }
 
     private drawLines(){
-        let line_fn = line<Node>()
+        let line_fn = line<LineChartNode>()
             .x((d)=>{
                 return this.xScale(d.date);
             })
@@ -191,10 +175,6 @@ export class Chart_1_1Component extends AxedChart {
                 .attr('class', (d)=>{
                     return `line ${d.key}`;
                 });
-    }
-
-    getAxesScales(){
-        return {x: this.xScale, y: this.yScale };
     }
 
     private stacks(data){
@@ -229,11 +209,10 @@ export class Chart_1_1Component extends AxedChart {
 
     private drawAreaWithPerc(perc:number=0){
         perc = perc / 100;
-        let _area =  area()
+        return area()
             .y1((d)=>this.yScale(d[1] * perc))
             .y0((d)=>this.yScale(d[0] * perc))
             .x((d,i)=>this.xScale(this.areaData.values[i].date));
-        return _area;
     }
 
     private drawClip(){
@@ -304,6 +283,7 @@ export class Chart_1_1Component extends AxedChart {
     }
 
     onScroll(perc:number){
+        if(!this.data){ return; }
         if(this.previousPercentage == perc){ return; }
         // short fail to avoid computation
         // if(perc == 0 || perc == 100){ return; }
