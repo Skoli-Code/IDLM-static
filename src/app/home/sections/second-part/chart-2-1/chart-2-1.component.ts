@@ -4,10 +4,10 @@ import { cloud } from 'd3-cloud';
 
 @Component({
   selector: 'idlmChart-2-1',
-  templateUrl: './chart-2-2.component.html',
-  styleUrls: ['./chart-2-2.component.css']
+  templateUrl: './chart-2-1.component.html',
+  styleUrls: ['./chart-2-1.component.scss']
 })
-export class Chart_2_1Component extends BasicChart {
+export class Chart_2_1Component extends AbstractChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
     dataCatalogKey:string="2.1";
     abstract words:wordDataType[];
@@ -15,7 +15,7 @@ export class Chart_2_1Component extends BasicChart {
     initData(){
         this.words = this.data.map((d)=>{text:d[0], size:d[1]});
     }
-    
+
     updateScales(){
     }
 

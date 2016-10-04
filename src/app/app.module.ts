@@ -21,10 +21,11 @@ import { DataLoaderService } from './home/sections/charts/data-loader.service';
 import { ScrollWatcherDirective } from './shared/scroll-watcher.directive';
 import { MarkdownPipe } from './shared/markdown.pipe';
 import { Chart_1_1Component } from './home/sections/first-part/chart-1-1/chart-1-1.component';
+import { Chart_1_2Component } from './home/sections/first-part/chart-1-2/chart-1-2.component';
+import { Chart_2_1Component } from './home/sections/second-part/chart-2-1/chart-2-1.component';
 import { Chart_2_2Component } from './home/sections/second-part/chart-2-2/chart-2-2.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
-import { Chart_1_2Component } from './home/sections/first-part/chart-1-2/chart-1-2.component';
 
 @NgModule({
   declarations: [

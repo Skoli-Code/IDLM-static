@@ -26,7 +26,7 @@ export var dateParser = timeParse('%Y/%m/%d');
 type marginType = {top:number, bottom:number, left: number, right: number };
 type sizeType = {width:number, height:number};
 
-export abstract class BasicChart implements OnInit {
+export abstract class AbstractChart implements OnInit {
     protected dynamicWidth: boolean = false;
     protected size: {svg:sizeType, inner:sizeType};
     protected _svg: any;
@@ -101,7 +101,7 @@ export abstract class BasicChart implements OnInit {
 
 }
 
-export abstract class AxedChart extends BasicChart {
+export abstract class AxedChart extends AbstractChart {
     debug:boolean=false;
     // d3 axes
     protected xAxis:Axis<any>;
