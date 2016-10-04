@@ -1,8 +1,8 @@
 @import '../../../shared/styles/colors';
 @import '../../../shared/styles/mixins';
 
-g.line {
-    path {
+path {
+    &.line {
         fill:none;
         stroke: $black;
         stroke-width: 2px;
@@ -13,6 +13,52 @@ g.line {
         &.musulman {
             stroke: #BBB;
         }
+    }
+    &.event {
+        opacity: 0;
+        transition: opacity .5s ease-in;
+        &.active {
+            opacity: 1;
+            &:after, &:before {
+                content: '';
+                top: 0;
+                left:0;
+                width: 40px;
+                height: 40px;
+                background: $light-gray;
+                border-radius: 50px;
+            }
+            &:before {
+                transform: scale(1);
+                animation: pulse 3s infinite linear;
+            }
+
+            &:after {
+                animation: pulse 3s 2s infinite linear;
+            }
+        }
+    }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+.axis {
+    path.domain {
+        display: none;
     }
 }
 

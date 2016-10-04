@@ -1,9 +1,25 @@
-import { OnInit, Renderer, ViewChild, ElementRef} from '@angular/core';
+import { OnInit, Renderer, ViewChild, ElementRef, Component} from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { extent } from 'd3-array';
 import { scaleLinear, scaleTime, ScaleTime } from 'd3-scale';
 import { select, Selection } from 'd3-selection';
-import { timeParse } from 'd3-time-format';
+import { timeParse, timeFormat } from 'd3-time-format';
 import { axisLeft, axisBottom, Axis } from 'd3-axis';
-let d = (y,m,d)=>new Date(y, m, d);
+
+import { DataLoaderService } from './data-loader.service';
+
+export interface LineChartNode {
+    date: Date;
+    value: number;
+}
+
+export interface ScrollableChart {
+    onScroll(percentage:number):void;
+    heightForScrollWatcher:string;
+}
 
 export var dateParser = timeParse('%Y/%m/%d');
 
@@ -17,19 +33,26 @@ export abstract class BasicChart implements OnInit {
     protected _g:   any;
     protected margin: marginType = {top: 0, bottom: 0, left:0, right: 0};
 
-    abstract data: any;
-    abstract svgRef: ElementRef;
+    data: any;
+    abstract chartElement: ElementRef;
+    protected abstract dataCatalogKey: string;
 
     abstract draw():void;
     abstract initData():void;
     protected abstract updateScales(): void;
 
-    constructor(protected renderer:Renderer){}
-
+    constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
+        this.dataLoader = dataLoader;
+        this.renderer = renderer;
+    }
 
     ngOnInit(){
-        this.initChart();
-        this.bindEvents();
+        this.dataLoader.load(this.dataCatalogKey).subscribe((data)=>{
+            this.data = data;
+            this.initChart();
+            this.bindEvents();
+            return data;
+        });
     }
 
     bindEvents(){
@@ -50,8 +73,9 @@ export abstract class BasicChart implements OnInit {
         this.updateScales();
         this.draw();
     }
+
     setSize(){
-        let parent = this.svgRef.nativeElement.parentNode;
+        let parent = this.chartElement.nativeElement.parentNode;
         let width  = parent.getBoundingClientRect().width;
         let height = width * 0.66;
         this.size = {
@@ -67,7 +91,7 @@ export abstract class BasicChart implements OnInit {
     }
 
     initSVG(){
-        this._svg = select(this.svgRef.nativeElement);
+        this._svg = select(this.chartElement.nativeElement);
         this._svg = this._svg
                 .attr('width',  this.size.svg.width)
                 .attr('height', this.size.svg.height);
@@ -78,6 +102,7 @@ export abstract class BasicChart implements OnInit {
 }
 
 export abstract class AxedChart extends BasicChart {
+    debug:boolean=false;
     // d3 axes
     protected xAxis:Axis<any>;
     protected yAxis:Axis<any>;
@@ -88,9 +113,9 @@ export abstract class AxedChart extends BasicChart {
     protected xScale: any;
     protected yScale: any;
 
-    protected abstract getMaxValue(): number;
-    protected abstract getDomainForX(): any[];
-    protected margin: marginType = {top: 0, bottom: 20, left:50, right: 0};
+    protected abstract getMaxYValue(): number;
+    protected abstract getXValues(): any[];
+    protected margin: marginType = {top: 10, bottom: 20, left:50, right: 10};
 
     resize(e:any){
         super.resize(e);
@@ -102,28 +127,38 @@ export abstract class AxedChart extends BasicChart {
     }
 
     drawAxes(){
+        let _d = (y)=>(new Date(y, 12, 0));
+        let xTicksValues = [_d(2000), _d(2005), _d(2010), _d(2015)];
+        // TODO: improve ticks thanks to: http://fiddle.jshell.net/zUj3E/1/
         this.xAxis = axisBottom(this.xScale);
         this.yAxis = axisLeft(this.yScale);
-
         this._xAxis = this._g.append('g')
             .attr('class','axis axis--x')
             .attr('transform', `translate(0, ${this.size.inner.height})`)
-            .call(this.xAxis)
+            .call(this.xAxis
+                .tickSize(-this.size.inner.height)
+                .tickValues(xTicksValues)
+                .tickFormat(timeFormat("%Y"))
+            );
 
         this._yAxis = this._g.append('g')
             .attr('class','axis axis--y')
-            .call(this.yAxis);
+            .call(this.yAxis.tickSize(-this.size.inner.width));
     }
 
     protected updateScales(){
         this.yScale = scaleLinear()
-            .domain([0, this.getMaxValue()])
+            .domain([0, this.getMaxYValue()])
             .range([this.size.inner.height, 0]);
 
-        let xDomain = this.getDomainForX();
-        console.log('xDomain', xDomain);
-        this.xScale = scaleTime().domain(xDomain).range([0, this.size.inner.width]);
+        let xDomain = extent(this.getXValues());
+        this.xScale = scaleTime()
+            .domain(xDomain)
+            .range([0, this.size.inner.width]);
     }
 
-    updateAxis(){ }
+    updateAxis(){
+        this._xAxis.call(this.xAxis);
+        this._yAxis.call(this.yAxis);
+    }
 }
