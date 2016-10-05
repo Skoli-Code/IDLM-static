@@ -1,5 +1,6 @@
-import { Component, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, Renderer } from '@angular/core';
 import { AbstractChart } from '../../charts/charts';
+import { DataLoaderService } from '../../charts/data-loader.service';
 
 @Component({
   selector: 'idlmChart-2-2',
@@ -9,6 +10,11 @@ import { AbstractChart } from '../../charts/charts';
 export class Chart_2_2Component extends AbstractChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
     dataCatalogKey:string="2.2";
+
+
+    constructor(renderer:Renderer, dataLoader:DataLoaderService){
+        super(renderer, dataLoader);
+    }
 
     initChart(){
     }

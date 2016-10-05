@@ -23,8 +23,8 @@ export interface ScrollableChart {
 
 export var dateParser = timeParse('%Y/%m/%d');
 
-type marginType = {top:number, bottom:number, left: number, right: number };
-type sizeType = {width:number, height:number};
+export type marginType = {top:number, bottom:number, left: number, right: number };
+export type sizeType = {width:number, height:number};
 
 export abstract class AbstractChart implements OnInit {
     protected dynamicWidth: boolean = false;
@@ -49,12 +49,15 @@ export abstract class AbstractChart implements OnInit {
     ngOnInit(){
         this.dataLoader.load(this.dataCatalogKey).subscribe((data)=>{
             this.data = data;
-            this.initChart();
+            this.initData();
+            this.initSizes();
+            this.updateScales();
+            this.initSVG();
             this.bindEvents();
+            this.draw();
             return data;
         });
     }
-
     bindEvents(){
         if(this.dynamicWidth){
             this.renderer.listen(window, 'resize', (e)=>this.resize(e));
@@ -62,19 +65,11 @@ export abstract class AbstractChart implements OnInit {
     }
 
     resize(e:any){
-        this.setSize();
+        this.initSizes();
         this.updateScales();
     }
 
-    initChart(){
-        this.setSize();
-        this.initSVG();
-        this.initData();
-        this.updateScales();
-        this.draw();
-    }
-
-    setSize(){
+    initSizes(){
         let parent = this.chartElement.nativeElement.parentNode;
         let width  = parent.getBoundingClientRect().width;
         let height = width * 0.66;
@@ -120,10 +115,6 @@ export abstract class AxedChart extends AbstractChart {
     resize(e:any){
         super.resize(e);
         this.updateAxis();
-    }
-
-    draw(){
-        this.drawAxes();
     }
 
     drawAxes(){

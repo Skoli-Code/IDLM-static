@@ -83,7 +83,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this.drawLines();
         this.drawClip();
         this.drawStackedArea(this.areaData.values);
-        super.draw();
+        this.drawAxes();
     }
 
     initData(){

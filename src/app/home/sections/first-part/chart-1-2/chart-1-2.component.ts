@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
 import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../../charts/charts';
-
-import {DataLoaderService } from '../../charts/data-loader.service';
+import { DataLoaderService } from '../../charts/data-loader.service';
 
 import {line, symbol} from 'd3-shape';
 import {scaleLinear, ScaleLinear, scaleTime} from 'd3-scale';
@@ -76,10 +75,10 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     }
 
     draw(){
-        super.draw();
         this.drawVisibilityClip();
         this.drawLine();
         this.drawEvents();
+        this.drawAxes();
     }
 
     private drawVisibilityClip(){
@@ -101,7 +100,6 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
 
     private drawEvents(){
         let dates = _.uniq(_.map(this.eventsData, (d)=>d.date));
-        console.log(dates);
         this._events = this._g.selectAll('.event').data(dates)
             .enter()
             .append('path').attr('class', 'event')
@@ -136,7 +134,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         if(this.active_ts && ts > this.active_ts && ts < this.offset_ts){
             this.activeEvents = _.filter(this.eventsData, (d)=>d.date.getTime()==this.active_ts);
         }
-        if(ts > this.offset_ts){
+        if(ts > this.offset_ts || ts < this.active_ts){
             this.activeEvents = [];
         }
 
@@ -172,6 +170,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
 
 
     onScroll(percentage:number){
+        if(!this.data){ return; }
         if(percentage == this.previousPercentage){ return; }
         this.setLineAt(percentage);
         this.showEventsFor(percentage);
