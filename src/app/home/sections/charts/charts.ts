@@ -49,8 +49,8 @@ export abstract class AbstractChart implements OnInit {
     ngOnInit(){
         this.dataLoader.load(this.dataCatalogKey).subscribe((data)=>{
             this.data = data;
-            this.initData();
             this.initSizes();
+            this.initData();
             this.updateScales();
             this.initSVG();
             this.bindEvents();

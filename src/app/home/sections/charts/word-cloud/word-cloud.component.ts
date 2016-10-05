@@ -21,8 +21,9 @@ export class WordCloudComponent extends AbstractChart {
     private fontScale:ScaleLinear<number,number>;
     private fillScale:ScaleSequential<any>;
     @ViewChild('chartPlayground') chartElement: ElementRef;
+    @Input('fontScale') fontScaleDomain: number[]=[6,100];
     @Input() wordFont:string='Impact';
-    @Input() wordPadding:number=5;
+    @Input() wordPadding:number=4;
     @Input() wordRotation:number=0;
     @Input() dataCatalogKey:string;
     @Input() ratio:number=0.7;
@@ -33,8 +34,8 @@ export class WordCloudComponent extends AbstractChart {
 
     updateScales(){
         let domain = extent(this.words.map((w)=>w.size));
-        this.fontScale = scaleLinear().domain(domain).range([12, 120]);
-        this.fillScale = scaleSequential(interpolateGreys).domain([0, 150]);
+        this.fontScale = scaleLinear().domain(domain).range(this.fontScaleDomain);
+        this.fillScale = scaleSequential(interpolateGreys).domain([0, this.fontScaleDomain[1] + 30]);
     }
 
     bindEvents(){
@@ -45,7 +46,6 @@ export class WordCloudComponent extends AbstractChart {
         let _sizes = this.getSize();
         let sizes = [_sizes.width, _sizes.height];
 
-        console.log('sizes:', sizes, _sizes);
         this.cloudLayout = d3_cloud()
             .size(sizes)
             .padding(this.wordPadding)
