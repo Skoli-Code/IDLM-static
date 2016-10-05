@@ -15,4 +15,16 @@
             }
         }
     }
+    &__content {
+        .o-grid {
+            .o-grid__cell {
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
 }
