@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'idlm-second-part',
   templateUrl: './second-part.component.html',
-  styleUrls: ['./second-part.component.css']
+  styleUrls: ['./second-part.component.scss']
 })
 export class SecondPartComponent implements OnInit {
     private progressPercentage:number = 0;

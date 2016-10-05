@@ -6,7 +6,7 @@ import { DataLoaderService } from '../charts/data-loader.service';
 @Component({
     selector: 'idlm-first-part',
     templateUrl: './first-part.component.html',
-    styleUrls: ['./first-part.component.css'],
+    styleUrls: ['./first-part.component.scss'],
 })
 export class FirstPartComponent implements OnInit {
     progressPercentage: number;
