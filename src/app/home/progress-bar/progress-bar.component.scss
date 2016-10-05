@@ -6,7 +6,7 @@
     height: $progress-bar-height;
     background: $light-gray;
     &__bar {
-        height: 2em;
+        height: $progress-bar-height;
         width: 0%;
         background-color: $black;
     }
