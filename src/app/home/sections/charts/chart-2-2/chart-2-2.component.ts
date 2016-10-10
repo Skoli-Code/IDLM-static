@@ -4,7 +4,6 @@ import { DataLoaderService } from '../data-loader.service';
 import { polygonCentroid } from 'd3-polygon';
 import { line } from 'd3-shape';
 import { transition } from 'd3-transition';
-import { quadtree } from 'd3-quadtree';
 import {
     scaleLog,
     scaleLinear,
@@ -74,6 +73,8 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
         this.data = this.data.map((s)=>{
             s.tops = s.tops.map((top)=>{
                 top.date = dateParser(top.date);
+                // we just show the top 20 words
+                top.words = top.words.slice(0, 20);
                 return top;
             });
             return s;
