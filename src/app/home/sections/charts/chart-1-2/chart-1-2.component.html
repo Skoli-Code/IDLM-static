@@ -1,20 +1,19 @@
 <div class="chart-holder" [style.height]="heightForScrollWatcher">
     <div idlmScrollWatcher (onScroll)="onScroll($event)">
-        <h2>Titre de sous-partie</h2>
+        <h3 class="subpart-title text-center">Titre de sous-partie</h3>
         <div class="o-grid">
             <div class="chart chart-1-2 o-grid__cell">
                 <svg #chartPlayground></svg>
-
                 <div class="events">
-                    <div *ngFor="let event of activeEvents" class="active-event">
-                        <h4>{{event.description}}</h4>
-                        <a href="{{event.link}}" rel="nofollow">Plus d'infos</a>
+                    <div *ngFor="let event of activeEvents" class="event quote">
+                        <h5 class="event__title serif">{{event.description}}</h5>
+                        <a *ngIf="event.link != null" href="{{event.link}}" rel="nofollow">Plus d'infos</a>
                     </div>
                 </div>
             </div>
             <div class="o-grid__cell o-grid__cell--width-30">
                 <div class="chart__description">
-                    <h3>Occurrences des mots  “islam” et “musulman” par an dans le corpus général</h3>
+                    <h4>Occurrences des mots  “islam” et “musulman” par an dans le corpus général</h4>
                     <p>
                         Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter.
                     </p>

@@ -26,3 +26,16 @@
         }
     }
 }
+.events {
+    margin-left: 50px;
+    .event {
+        display: inline-block;
+        vertical-align: top;
+        max-width: 400px;
+        margin-right: 1em;
+        margin-bottom: 1em;
+        &__title {
+            margin-bottom: 0;
+        }
+    }
+}
