@@ -8,17 +8,13 @@ import { routing, appRoutingProviders } from './app.routing';
 
 import { HomeComponent } from './home/home.component';
 import { MethodologieComponent } from './methodologie/methodologie.component';
-/** The different main sections */
-import { FirstPartComponent } from './home/sections/first-part/first-part.component';
-import { SecondPartComponent } from './home/sections/second-part/second-part.component';
-import { ThirdPartComponent } from './home/sections/third-part/third-part.component';
 /** main components  */
+import { GenericSectionComponent } from './home/sections/generic-section/generic-section.component';
 import { StepNavigationComponent } from './home/step-navigation/step-navigation.component';
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
 /** Services */
 import { DataLoaderService } from './home/sections/charts/data-loader.service';
 /** Shared components  */
-import { GenericSectionComponent } from './home/sections/generic-section/generic-section.component';
 import { ScrollWatcherDirective } from './shared/scroll-watcher.directive';
 import { MarkdownPipe } from './shared/markdown.pipe';
 /** Charts */
@@ -37,9 +33,6 @@ import { AboutComponent }     from './about/about.component';
     AppComponent,
     HomeComponent,
     MethodologieComponent,
-    FirstPartComponent,
-    SecondPartComponent,
-    ThirdPartComponent,
     StepNavigationComponent,
     ScrollWatcherDirective,
     MarkdownPipe,
