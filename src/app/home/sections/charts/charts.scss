@@ -40,6 +40,43 @@ path {
     }
 }
 
+.bubble-group {
+    .bubble {
+        cursor: help;
+        circle {
+            fill: white;
+            stroke-width: 2px;
+        }
+        &.new {
+            text {
+                color: white;
+                font-family: sans-serif;
+            }
+        }
+    }
+    @each $color-name, $color in $colors {
+        &.#{$color-name} {
+            .bubble {
+                fill: $color;
+                circle {
+                    stroke: $color;
+                }
+                text {
+                }
+                &.new {
+                    circle {
+                        fill: $color;
+                    }
+                    text {
+                        fill: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 @keyframes pulse {
   0% {
     transform: scale(0.5);

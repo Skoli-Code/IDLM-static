@@ -28,6 +28,7 @@ export type sizeType = {width:number, height:number};
 
 export abstract class AbstractChart implements OnInit {
     protected dynamicWidth: boolean = false;
+    protected sizeRatio:number=0.66;
     protected size: {svg:sizeType, inner:sizeType};
     protected _svg: any;
     protected _g:   any;
@@ -72,7 +73,7 @@ export abstract class AbstractChart implements OnInit {
     initSizes(){
         let parent = this.chartElement.nativeElement.parentNode;
         let width  = parent.getBoundingClientRect().width;
-        let height = width * 0.66;
+        let height = width * this.sizeRatio;
         this.size = {
             svg: {
                 width:  width,
