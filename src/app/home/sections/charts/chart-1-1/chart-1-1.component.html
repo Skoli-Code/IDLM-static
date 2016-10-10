@@ -5,7 +5,7 @@
         </div>
         <div class="o-grid__cell o-grid__cell--width-30">
             <div *ngIf="!hideFirstContent" class="first-content">
-                <h3>Occurrences des mots  “islam” et “musulman” par an dans le corpus général</h3>
+                <h4>Occurrences des mots  “islam” et “musulman” par an dans le corpus général</h4>
                 <p>
                     Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter.
                 </p>
@@ -18,7 +18,7 @@
                 </p>
             </div>
             <div *ngIf="hideFirstContent">
-                <div [innerHTML]="periodText | markdown"></div>
+                <div [innerHTML]="periodContent | markdown"></div>
             </div>
         </div>
     </div>

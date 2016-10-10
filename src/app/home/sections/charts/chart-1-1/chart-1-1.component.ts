@@ -4,7 +4,9 @@ import { line, stack, area } from 'd3-shape';
 import { scaleLinear, ScaleLinear, scaleQuantize, ScaleQuantize, ScaleTime } from 'd3-scale';
 import { max, range } from 'd3-array';
 import { entries } from 'd3-collection';
-import 'd3-transition';
+import { transition } from 'd3-transition';
+
+import { PERIODS, IPeriod } from './periods.constant';
 
 import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
@@ -15,38 +17,6 @@ interface State {
     scale: ScaleLinear<any,any>|ScaleQuantize<any>
 };
 
-interface Period {
-    start: Date,
-    end: Date,
-    text: string
-}
-
-let FAKE_PERIODS = [
-    {
-        start: (new Date(1997, 0, 1)),
-        end: (new Date(2001, 8, 1)),
-        text: `###Période pré-11 septembre
-        Nous voyons ici que le nombre d'occurence d'islam n'est pas significatif.
-        Certains journaux comme le Figaro n'aborde quasiment pas le sujet.
-        `
-    },{
-        start: (new Date(2001, 8, 1)),
-        end: (new Date(2006, 8,  31)),
-        text: `###Le 11 septembre et ses retombées
-
-        On assiste ici à une explostion du nombre d'occurences, tout journaux
-        confondus.
-        `
-    },{
-        start: (new Date(2006, 8, 31)),
-        end: (new Date(2015, 11,  31)),
-        text: `###Je n'ai plus d'idées de périodes
-
-        Donc je met un peu n'importe quoi, l'idée c'est de mimer le comportement
-        final. Le contenu ici importe peu. Bisous.
-        `
-    }
-];
 
 @Component({
   selector: 'idlmChart-1-1',
@@ -58,20 +28,23 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     // template attributes
     hideFirstContent: boolean = false;
     heightForScrollWatcher:string = "8000px";
-    periodText:string = null;
     dataCatalogKey:string="1.1";
     private areaData: any;
     private previousPercentage: number = 0;
     private previousPeriodNumber: number = null;
 
+    // d3 graphic elements
     private _area:      any;
     private _focusArea: any;
+    private _focusRect: any;
     private _clip:      any;
     private _lines:     any;
 
     protected yScale: ScaleLinear<any,any>;
     protected xScale: ScaleTime<any,any>;
-    private periodsData: Array<Period>;
+
+    private periodsData: IPeriod[];
+    periodContent:string = null;
 
     private states:any;
 
@@ -83,6 +56,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this.drawLines();
         this.drawClip();
         this.drawStackedArea(this.areaData.values);
+        this.drawFocusRect();
         this.drawAxes();
     }
 
@@ -97,7 +71,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this.areaData = this.data['islam'];
         // TODO: une fois les périodes éditorialisées et rajoutées dans les
         // données, les utiliser ici.
-        this.periodsData = FAKE_PERIODS;
+        this.periodsData = PERIODS;
         this.initStates();
     }
 
@@ -197,6 +171,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
                 .attr('d', this.drawAreaWithPerc(0));
 
         this._focusArea = this._g.append('g').attr('class', 'area-group focus');
+
         // 2nd path creation (dedicated for focus)
         this._focusArea.selectAll('path.area.focus')
             .data(stacked_data)
@@ -215,25 +190,39 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
             .x((d,i)=>this.xScale(this.areaData.values[i].date));
     }
 
+    private drawFocusRect(){
+        this._focusRect = this._g.append('rect').attr('class', 'focus-rect')
+            .style('opacity', 0)
+            .attr('width', 0)
+            .attr('height', this.size.inner.height);
+    }
+
     private drawClip(){
         this._clip = this._g.append('clipPath')
             .attr('id', 'focusClip')
             .append('rect')
+                .attr('class', 'focus-rect')
                 .attr('width', 0)
                 .attr('height', this.size.inner.height);
     }
 
     private focusPeriod(period_nb:number){
-        this._focusArea.selectAll('.area.focus').style('opacity', 1);
+        this._focusArea.selectAll('.area.focus').style('opacity', 0.8);
+        this._focusRect.style('opacity', 0.07);
         if(this.previousPeriodNumber != period_nb){
             let period = this.periodsData[period_nb];
-            let start_x = this.xScale(period.start);
-            let width = this.xScale(period.end) - start_x;
-            this._clip.transition().duration(330)
+            if(period.dates[0] < this.xScale.domain()[0]){
+                period.dates[0] = this.xScale.domain()[0];
+            }
+            let start_x = this.xScale(period.dates[0]);
+            let width = this.xScale(period.dates[1]) - start_x;
+            console.log('start_x: ', start_x, period);
+            this._g.selectAll('.focus-rect').transition().duration(330)
                 .attr('width', width)
                 .attr('transform', `translate(${start_x}, 0)`);
+
             this.previousPeriodNumber = period_nb;
-            this.periodText = period.text;
+            this.periodContent = period.content;
         }
     }
 
@@ -261,13 +250,16 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
      * @see focusPeriod
      */
     private setFocusAt(perc){
+        let t = transition('focusTransition').duration(330);
         let period_nb = this.getStatePercentage(this.states.focusPeriods, perc);
         if(perc > this.states.focusPeriods.domain[0]){
             this.hideFirstContent = true;
             this.focusPeriod(period_nb);
+            this._lines.transition(t).style('opacity', 0);
         } else {
+            this._lines.transition(t).style('opacity', 1);
             this.hideFirstContent = false;
-            this._focusArea.selectAll('.area.focus').style('opacity', 0);
+            this._focusRect.merge(this._focusArea.selectAll('.area.focus')).transition(t).style('opacity', 0);
         }
     }
 
