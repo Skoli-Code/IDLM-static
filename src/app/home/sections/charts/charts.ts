@@ -97,6 +97,7 @@ export abstract class AbstractChart implements OnInit {
 
 }
 
+
 export abstract class AxedChart extends AbstractChart {
     debug:boolean=false;
     // d3 axes
@@ -111,7 +112,7 @@ export abstract class AxedChart extends AbstractChart {
 
     protected abstract getMaxYValue(): number;
     protected abstract getXValues(): any[];
-    protected margin: marginType = {top: 10, bottom: 20, left:50, right: 10};
+    protected margin: marginType = {top: 10, bottom: 25, left:50, right: 15};
 
     resize(e:any){
         super.resize(e);
@@ -120,22 +121,37 @@ export abstract class AxedChart extends AbstractChart {
 
     drawAxes(){
         let _d = (y)=>(new Date(y, 12, 0));
-        let xTicksValues = [_d(2000), _d(2005), _d(2010), _d(2015)];
+        let xTicksValues = [];
+        for(let i = 1997; i < 2016; i++){
+            xTicksValues.push(_d(i));
+        }
+
         // TODO: improve ticks thanks to: http://fiddle.jshell.net/zUj3E/1/
         this.xAxis = axisBottom(this.xScale);
         this.yAxis = axisLeft(this.yScale);
         this._xAxis = this._g.append('g')
             .attr('class','axis axis--x')
             .attr('transform', `translate(0, ${this.size.inner.height})`)
-            .call(this.xAxis
-                .tickSize(-this.size.inner.height)
+            .call(this.xAxis.ticks(17)
                 .tickValues(xTicksValues)
                 .tickFormat(timeFormat("%Y"))
             );
+        this._xAxis.selectAll('.tick').each(function(){
+            let tick = select(this);
+            let text = tick.select('text');
+            let val  = +text.text();
+            if(val%5==0){
+                let y = 12;
+                text.attr('y', y + 3);
+                tick.select('line').attr('y2', y);
+            } else {
+                text.remove();
+            }
+        });
 
         this._yAxis = this._g.append('g')
             .attr('class','axis axis--y')
-            .call(this.yAxis.tickSize(-this.size.inner.width));
+            .call(this.yAxis.ticks(6));
     }
 
     protected updateScales(){
