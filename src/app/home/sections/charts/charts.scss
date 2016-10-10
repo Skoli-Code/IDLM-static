@@ -40,6 +40,8 @@ path {
     }
 }
 
+
+
 .bubble-group {
     .bubble {
         cursor: help;
@@ -92,17 +94,25 @@ path {
   }
 }
 
+rect.focus-rect {
+    fill: #000;
+    opacity: 0;
+}
 
 .axis {
-    path.domain {
-        display: none;
+    .tick line, path.domain {
+        stroke: $lightest-gray !important;
+    }
+    text {
+        fill: $lightest-gray !important;
+        font-size: 12px;
     }
 }
 
 .area {
-    opacity: 0.2;
+    opacity: 0.5;
     &.focus {
-        opacity: 0.8;
+        // opacity: 1;
     }
 
     &.liberation {
