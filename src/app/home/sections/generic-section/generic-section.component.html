@@ -1,0 +1,20 @@
+<section class="section anchor" id="{{ anchor }}">
+    <!-- INTRO  -->
+    <div class="section__intro">
+        <div class="section__intro__title">
+            <div class="o-container o-container--xlarge">
+                <h3 class="serif"><ng-content select="[subtitle]"></ng-content></h3>
+                <h1><ng-content select="[title]"></ng-content></h1>
+            </div>
+        </div>
+        <div class="section__intro__content">
+            <div class="o-container o-container--xlarge">
+                <ng-content select="[introduction]"></ng-content>
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT  -->
+    <div class="section__content">
+        <ng-content select="[content]"></ng-content>
+    </div>
+</section>

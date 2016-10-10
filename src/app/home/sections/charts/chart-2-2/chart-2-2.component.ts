@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, Renderer } from '@angular/core';
-import { AbstractChart, dateParser, ScrollableChart } from '../../charts/charts';
-import { DataLoaderService } from '../../charts/data-loader.service';
+import { AbstractChart, dateParser, ScrollableChart } from '../charts';
+import { DataLoaderService } from '../data-loader.service';
 import { polygonCentroid } from 'd3-polygon';
 import { line } from 'd3-shape';
 import { transition } from 'd3-transition';

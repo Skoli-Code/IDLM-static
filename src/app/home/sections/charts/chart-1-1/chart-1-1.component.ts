@@ -6,8 +6,8 @@ import { max, range } from 'd3-array';
 import { entries } from 'd3-collection';
 import 'd3-transition';
 
-import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../../charts/charts';
-import { DataLoaderService } from '../../charts/data-loader.service';
+import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
+import { DataLoaderService } from '../data-loader.service';
 
 interface State {
     domain: number[],

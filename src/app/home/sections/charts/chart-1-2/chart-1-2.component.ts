@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
-import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../../charts/charts';
-import { DataLoaderService } from '../../charts/data-loader.service';
+import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
+import { DataLoaderService } from '../data-loader.service';
 
 import {line, symbol} from 'd3-shape';
 import {scaleLinear, ScaleLinear, scaleTime} from 'd3-scale';
