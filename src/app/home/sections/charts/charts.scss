@@ -77,6 +77,26 @@ path {
         }
     }
 }
+.chart-grid {
+    .chart-cell {
+        .axis {
+            stroke: fade-out($light-gray, 0.5);
+            stroke-width: 1px;
+        }
+        path {
+            fill: none;
+            stroke: $black;
+            stroke-width: 2px;
+        }
+        @each $color-name, $color in $colors {
+            &--#{$color-name} {
+                path {
+                    stroke: $color;
+                }
+            }
+        }
+    }
+}
 
 
 @keyframes pulse {
