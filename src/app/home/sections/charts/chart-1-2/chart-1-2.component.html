@@ -23,19 +23,19 @@
                 </div>
                 <div class="chart__contextual-data" *ngIf="contextualData">
                     <div class="o-grid">
-                        <div class="o-grid__cell o-grid__cell-width-25">
-                            {{ contextualData.date | date:'yyyy' }}
+                        <div class="o-grid__cell o-grid__cell-width-fixed">
+                            <span class="bold serif">{{ contextualData.date | date:'yyyy' }}</span>
                             {{ contextualData.date | date:'MMMM' }}
                         </div>
-                        <div class="o-grid__cell o-grid__cell-width-25">
-                            {{ contextualData.totalOccurences }}
+                        <div class="o-grid__cell o-grid__cell-width-fixed">
+                            <span class="bold serif">{{ contextualData.totalOccurences }}</span>
                             occurences
                         </div>
-                        <div class="o-grid__cell o-grid__cell-width-25">
+                        <div class="o-grid__cell o-grid__cell-width-fixed">
                             dont
                         </div>
-                        <div class="o-grid__cell o-grid__cell-width-25">
-                            {{ contextualData.titleOccurences }}
+                        <div class="o-grid__cell o-grid__cell-width-fixed">
+                            <span class="bold serif">{{ contextualData.titleOccurences }}</span>
                             titres d'articles
                         </div>
                     </div>
