@@ -1,0 +1,68 @@
+@import '../../../../shared/styles/colors';
+
+h4 {
+    margin-top: 0;
+}
+
+.chart-cell {
+    position: relative;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    padding-right: 2em;
+    &--right {
+        padding-right: 0;
+        padding-left: 2em;
+    }
+    .sep--bottom, .sep--right {
+        position: absolute;
+    }
+    .sep {
+        &--bottom {
+            width: auto;
+            right: 1em;
+            bottom: 0;
+            left: -2em;
+            &--right {
+                left: 1em;
+                right: -2em;
+            }
+        }
+        &--right {
+            height: auto;
+            top: -2em;
+            bottom: 1em;
+            &--bottom {
+                top: 0;
+                bottom: -2em;
+            }
+        }
+    }
+    h3 {
+        margin-top: 0;
+        font-weight: normal;
+    }
+    .serif {
+        font-weight: bolder;
+        margin-bottom: 1em;
+    }
+    h5 {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: $light-gray;
+    }
+
+    @each $color-name, $color in $colors {
+        &--#{$color-name}{
+            .serif {
+                color: $color;
+            }
+            .small-underline {
+                color: $color;
+                &:after {
+                    background-color: $color;
+                }
+            }
+        }
+    }
+
+}

@@ -1,3 +1,98 @@
-<p>
-  chart-3-2 works!
-</p>
+<div class="chart-3-2" [style.height]="heightForScrollWatcher">
+    <div id="chartPlayground" class="scroll-content" idlmScrollWatcher (onScroll)="onScroll($event)">
+        <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
+        <div class="pad-top"></div>
+        <div class="o-container o-container--xlarge">
+            <div class="o-grid">
+            <div class="o-grid__cell o-grid__cell--width-50">
+                <h4>Focus sur l’évolution de l’usage de 10 adjectifs</h4>
+                <div class="quote" *ngIf="active"><h4>{{ active.name | capitalize }}</h4></div>
+            </div>
+            <div class="o-grid__cell chart-grid">
+                <!-- First row -->
+                <div class="o-grid">
+                    <div class="o-grid__cell chart-cell chart-cell--global">
+                        <h3 class="small-underline">Corpus Global</h3>
+                        <div class="o-grid">
+                            <div class="o-grid__cell o-grid__cell--no-gutter">
+                                <h5>occurences:</h5>
+                                <div class="serif bold" *ngIf="active">
+                                    {{ activeFor('global').occurences }}
+                                </div>
+                            </div>
+                        </div>
+                        <h5>évolution 1997-2015</h5>
+                        <svg></svg>
+                        <div class="sep--right"></div>
+                        <div class="sep--bottom"></div>
+                    </div>
+                    <div class="o-grid__cell chart-cell--right chart-cell chart-cell--figaro">
+                        <h3 class="small-underline">Le Figaro</h3>
+                        <div class="o-grid">
+                            <div class="o-grid__cell o-grid__cell--no-gutter">
+                                <h5>occurences:</h5>
+                                <div class="serif bold" *ngIf="active">
+                                    {{ activeFor('figaro').occurences }}
+                                </div>
+                            </div>
+                            <div class="o-grid__cell o-grid__cell">
+                                <h5>rang:</h5>
+                                <div class="serif bold" *ngIf="active">
+                                    {{ activeFor('figaro').rank }}
+                                </div>
+                            </div>
+                        </div>
+                        <h5>évolution 1997-2015</h5>
+                        <svg></svg>
+                        <div class="sep--bottom sep--bottom--right"></div>
+
+                    </div>
+                </div>
+
+                <!-- Second row -->
+                <div class="o-grid">
+                    <div class="o-grid__cell chart-cell chart-cell--liberation">
+                        <h3 class="small-underline">Libération</h3>
+                        <div class="o-grid">
+                            <div class="o-grid__cell o-grid__cell--no-gutter">
+                                <h5>occurences:</h5>
+                                <div class="serif bold" *ngIf="active">
+                                    {{ activeFor('liberation').occurences }}
+                                </div>
+                            </div>
+                            <div class="o-grid__cell o-grid__cell">
+                                <h5>rang:</h5>
+                                <div class="serif bold" *ngIf="active">
+                                    {{ activeFor('liberation').rank }}
+                                </div>
+                            </div>
+                        </div>
+                        <h5>évolution 1997-2015</h5>
+                        <svg></svg>
+                        <div class="sep--right sep--right--bottom"></div>
+                    </div>
+                    <div class="o-grid__cell chart-cell--right chart-cell chart-cell--lemonde">
+                        <h3 class="small-underline">Le Monde</h3>
+                        <div class="o-grid">
+                            <div class="o-grid__cell o-grid__cell--no-gutter">
+                                <h5>occurences:</h5>
+                                <div class="serif bold" *ngIf="active">
+                                    {{ activeFor('lemonde').occurences }}
+                                </div>
+                            </div>
+                            <div class="o-grid__cell o-grid__cell">
+                                <h5>rang:</h5>
+                                <div class="serif bold" *ngIf="active">
+                                    {{ activeFor('lemonde').rank }}
+                                </div>
+                            </div>
+                        </div>
+                        <h5>évolution 1997-2015</h5>
+                        <svg></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
