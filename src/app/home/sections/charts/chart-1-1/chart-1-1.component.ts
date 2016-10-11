@@ -216,7 +216,6 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
             }
             let start_x = this.xScale(period.dates[0]);
             let width = this.xScale(period.dates[1]) - start_x;
-            console.log('start_x: ', start_x, period);
             this._g.selectAll('.focus-rect').transition().duration(330)
                 .attr('width', width)
                 .attr('transform', `translate(${start_x}, 0)`);
