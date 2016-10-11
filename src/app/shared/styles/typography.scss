@@ -1,12 +1,12 @@
 @import './mixins';
 @import './colors';
 
-@import url(http://fonts.googleapis.com/css?family=Poppins:400|Merriweather);
+@import url(http://fonts.googleapis.com/css?family=Poppins:400|PT+Serif:400,800);
 $poppins: "Poppins",sans-serif;
-$merriweather: "Merriweather", serif;
+$ptserif: "PT Serif", serif;
 
 .serif {
-    font-family: $merriweather;
+    font-family: $ptserif;
 }
 
 html, body {
@@ -22,7 +22,7 @@ h2, .h2 {
     margin-bottom: 6px;
 }
 h3, .h3 {
-    font-size: 28px;
+    font-size: 24px;
 }
 h4, .h4 {
     font-size: 18px;
@@ -40,6 +40,35 @@ h1,h2,h3,h4,h5 {
     h3,h4,h5 {
         margin: 0;
         @extend .serif;
+    }
+}
+
+.sep {
+    &--bottom {
+        width: 100%;
+        height: 2px;
+        background-color: $light-gray;
+        margin-top:2px;
+    }
+    &--right {
+        right: 0px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background-color: $light-gray;
+    }
+}
+
+.small-underline {
+    margin-bottom: 1em;
+    &:after {
+        display: block;
+        content: '';
+        position: relative;
+        bottom:-0.2em;
+        width: 1.5em;
+        height: 0.075em;
+        background-color: $black;
     }
 }
 
