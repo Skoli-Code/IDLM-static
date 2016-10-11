@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild, Renderer } from '@angular/core';
 import { AbstractChart, dateParser, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
+import { _extent } from '../utils';
+
 import { polygonCentroid } from 'd3-polygon';
 import { line } from 'd3-shape';
 import { transition } from 'd3-transition';
@@ -12,7 +14,7 @@ import {
 } from 'd3-scale';
 
 import { select } from 'd3-selection';
-import { extent, min, max } from 'd3-array';
+import { min, max } from 'd3-array';
 import {
     forceSimulation,
     forceCenter,
@@ -57,10 +59,6 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
     }
 
     updateScales(){
-        function _extent(vals:any[]):[any, any]{
-            return extent(vals);
-        }
-
         let dates = this.data[0].tops.map((t)=>t.date);
         this.yearScale = scaleTime()
             .domain(_extent(dates))
@@ -161,7 +159,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
         for (let layout of this.layouts){
             let data = this.yearTop(layout.tops);
             let scale = scaleLinear()
-                .domain(extent(data.map(d=>d[1])))
+                .domain(_extent(data.map(d=>d[1])))
                 .range([20, 70]);
 
             // check if node's words is a new one or not
