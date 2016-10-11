@@ -38,7 +38,7 @@ type pointsType = {
 export class Chart_2_2Component extends AbstractChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
     dataCatalogKey:string="2.2";
-    sizeRatio: 0.8;
+    sizeRatio: 1;
     heightForScrollWatcher='8000px';
     progress:number=0;
     drawned=false;

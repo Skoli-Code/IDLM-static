@@ -2,10 +2,10 @@
     <div class="scroll-content" idlmScrollWatcher (onScroll)="onScroll($event)">
         <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
         <div class="o-grid">
-            <div class="o-grid__cell">
+            <div class="o-grid__cell o-grid__cell--width-70">
                 <svg #chartPlayground></svg>
             </div>
-            <div class="o-grid__cell o-grid__cell--width-20">
+            <div class="o-grid__cell o-grid__cell--width-15">
                 <span class="quote"><h4>{{ currentYear }}</h4></span>
             </div>
         </div>
