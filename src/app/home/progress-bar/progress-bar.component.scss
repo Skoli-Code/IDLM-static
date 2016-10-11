@@ -4,10 +4,10 @@
 .progress {
     width: 100%;
     height: $progress-bar-height;
-    background: $light-gray;
+    background-color: fade-out($light-gray, 0.66);
     &__bar {
         height: $progress-bar-height;
         width: 0%;
-        background-color: $black;
+        background: $light-gray;
     }
 }
