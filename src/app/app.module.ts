@@ -17,6 +17,7 @@ import { DataLoaderService } from './home/sections/charts/data-loader.service';
 /** Shared components  */
 import { ScrollWatcherDirective } from './shared/scroll-watcher.directive';
 import { MarkdownPipe } from './shared/markdown.pipe';
+import { CapitalizePipe } from './shared/capitalize.pipe';
 /** Charts */
 import { Chart_1_1Component } from './home/sections/charts/chart-1-1/chart-1-1.component';
 import { Chart_1_2Component } from './home/sections/charts/chart-1-2/chart-1-2.component';
@@ -36,6 +37,7 @@ import { AboutComponent }     from './about/about.component';
     StepNavigationComponent,
     ScrollWatcherDirective,
     MarkdownPipe,
+    CapitalizePipe,
     ProgressBarComponent,
     Chart_1_1Component,
     Chart_1_2Component,
