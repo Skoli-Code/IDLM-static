@@ -72,7 +72,7 @@ export abstract class AbstractChart implements OnInit {
 
     initSizes(){
         let parent = this.chartElement.nativeElement.parentNode;
-        let width  = parent.getBoundingClientRect().width;
+        let width  = Math.floor(parent.getBoundingClientRect().width);
         let height = width * this.sizeRatio;
         this.size = {
             svg: {
