@@ -5,27 +5,37 @@
 $poppins: "Poppins",sans-serif;
 $ptserif: "PT Serif", serif;
 
+$base: 15px;
+$h1: 40px;
+$h2: 22px;
+$h3: 20px;
+$app-title: 75px;
+
 .serif {
     font-family: $ptserif;
+}
+.app-title {
+    font-size: $app-title;
 }
 
 html, body {
     font-family: $poppins;
+    font-size: $base;
 }
 
 h1, .h1 {
-    font-size: 64px;
+    font-size: $h1;
     margin-bottom: 12px;
 }
 h2, .h2 {
-    font-size: 42px;
+    font-size: $h2;
     margin-bottom: 6px;
 }
 h3, .h3 {
-    font-size: 24px;
+    font-size: $h3;
 }
-h4, .h4 {
-    font-size: 18px;
+h4, .h4, h5 {
+    font-size: $base;
 }
 
 h1,h2,h3,h4,h5 {
@@ -79,11 +89,26 @@ h1,h2,h3,h4,h5 {
 .bold {
     font-weight: bold;
 }
+.skoli-link {
+    svg {
+        height: $base;
+    }
+    path {
+        fill: white;
+    }
+}
 
 a {
-    color: $light-gray;
+    color: $black;
+    font-weight: bold;
     text-decoration: underline;
     &:hover {
-        color: darken($light-gray, 0.3);
+        color: lighten($black, 50%);
+    }
+    .event & {
+        color: $light-gray;
+        &:hover {
+            color: darken($light-gray, 50%);
+        }
     }
 }
