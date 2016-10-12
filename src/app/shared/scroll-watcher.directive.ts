@@ -39,9 +39,10 @@ export class ScrollWatcherDirective {
 
     // starts watching for scroll movement
     start(){
-        // sticky stuff
         this.renderer.setElementAttribute(this._outer, 'id', this.outerId);
-        $(this._el).fixTo(this._outer, {top:this.navBarHeight});
+        // sticky stuff
+        let native_sticky = navigator.userAgent.indexOf('Firefox') === -1;
+        $(this._el).fixTo(this._outer, {useNativeSticky:native_sticky, top:this.navBarHeight});
         this.interval = requestAnimationFrame(()=>{this.onTick()});
         return this;
     }
