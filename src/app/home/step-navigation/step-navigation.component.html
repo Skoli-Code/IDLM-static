@@ -1,7 +1,10 @@
 <nav class="vertical-nav">
     <ul class="list-unstyled">
         <li *ngFor="let step of steps" class="step">
-            <a class="step__link" [routerLink]="['/']" (click)="onStepClicked(step)" [ngClass]='{"step__link--active":isActive(step)}' fragment="{{ step.id }}"></a>
+            <a class="step__link" [routerLink]="['/']"
+                (click)="onStepClicked(step)"
+                [ngClass]='{"step__link--active":isActive(step)}'
+                fragment="{{ step.id }}"></a>
         </li>
     </ul>
 </nav>
