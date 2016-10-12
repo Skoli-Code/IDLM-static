@@ -2,15 +2,13 @@
     <!-- INTRO  -->
     <div class="section__intro">
         <div class="section__intro__title">
-            <div class="o-container o-container--xlarge">
+            <div class="o-container o-container--large">
                 <h3 class="serif"><ng-content select="[subtitle]"></ng-content></h3>
                 <h1><ng-content select="[title]"></ng-content></h1>
             </div>
         </div>
-        <div class="section__intro__content">
-            <div class="o-container o-container--xlarge">
-                <ng-content select="[introduction]"></ng-content>
-            </div>
+        <div class="section__intro__content o-container o-container--large">
+            <ng-content select="[introduction]"></ng-content>
         </div>
     </div>
     <!-- CONTENT  -->
