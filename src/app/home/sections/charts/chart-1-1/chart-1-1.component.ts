@@ -1,4 +1,6 @@
 import { Component, Input, Renderer, ViewChild, ElementRef } from '@angular/core';
+import { SafeHtml } from '@angular/platform-browser';
+// d3 imports
 import { select } from 'd3-selection';
 import { line, stack, area } from 'd3-shape';
 import { scaleLinear, ScaleLinear, scaleQuantize, ScaleQuantize, ScaleTime } from 'd3-scale';
@@ -7,11 +9,12 @@ import { entries } from 'd3-collection';
 import { transition } from 'd3-transition';
 
 import { PERIODS, IPeriod } from './periods.constant';
-
 import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
 
 interface State {
+    pageTitle:string,
+    legendTitle:string,
     domain: number[],
     range: number[],
     scale: ScaleLinear<any,any>|ScaleQuantize<any>
@@ -29,9 +32,12 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     hideFirstContent: boolean = false;
     heightForScrollWatcher:string = "8000px";
     dataCatalogKey:string="1.1";
+    currentState:State;
+
     private areaData: any;
     private previousPercentage: number = 0;
     private previousPeriodNumber: number = null;
+    private focusShown:boolean=false;
 
     // d3 graphic elements
     private _area:      any;
@@ -44,7 +50,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     protected xScale: ScaleTime<any,any>;
 
     private periodsData: IPeriod[];
-    periodContent:string = null;
+    periodContent:SafeHtml = null;
 
     private states:any;
 
@@ -79,18 +85,24 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this.states = {
             // lines scale, percentage of line drawing.
             lines:{
+                pageTitle: 'L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles.',
+                legendTitle:'Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015).',
                 domain: [0, 20],
                 range: [2000, 0],
                 scale: scaleLinear()
             },
             // removeLine scale is to make "musulman" line dispappear (from top to bottom);
             removeLine:{
+                pageTitle: '',
+                legendTitle:'',
                 domain: [20, 25],
                 range: [0, -1000],
                 scale: scaleLinear()
             },
             // areas scroll scale is to make stacked area appears.
             areas:{
+                pageTitle: '',
+                legendTitle:'',
                 domain: [20, 25],
                 range: [0, 100],
                 scale: scaleLinear()
@@ -98,6 +110,8 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
             // fourt scroll scale is to focus some specific areas in the graph
             // TODO: change 5 by the actual number of periods to focus on.
             focusPeriods:{
+                pageTitle: 'La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre.',
+                legendTitle:'Occurrences des termes contenant “islam” par an et par corpus (1997-2015).',
                 domain: [25, 100],
                 range: range(this.periodsData.length),
                 scale: scaleQuantize()
@@ -207,8 +221,6 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     }
 
     private focusPeriod(period_nb:number){
-        this._focusArea.selectAll('.area.focus').style('opacity', 0.8);
-        this._focusRect.style('opacity', 0.07);
         if(this.previousPeriodNumber != period_nb){
             let period = this.periodsData[period_nb];
             if(period.dates[0] < this.xScale.domain()[0]){
@@ -252,13 +264,21 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         let t = transition('focusTransition').duration(330);
         let period_nb = this.getStatePercentage(this.states.focusPeriods, perc);
         if(perc > this.states.focusPeriods.domain[0]){
+            if(!this.focusShown){
+                this._focusArea.selectAll('.area.focus').transition(t).style('opacity', 0.8);
+                this._focusRect.transition(t).style('opacity', 0.07);
+                this.focusShown = true;
+            }
             this.hideFirstContent = true;
             this.focusPeriod(period_nb);
             this._lines.transition(t).style('opacity', 0);
         } else {
+            if(this.focusShown){
+                this._g.selectAll('.focus-rect,.area.focus').transition(t).style('opacity', 0);
+                this.focusShown = false;
+            }
             this._lines.transition(t).style('opacity', 1);
             this.hideFirstContent = false;
-            this._focusRect.merge(this._focusArea.selectAll('.area.focus')).transition(t).style('opacity', 0);
         }
     }
 
@@ -273,6 +293,18 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         return state_perc;
     }
 
+    private updateCurrentState(percentage:number){
+        let currentState;
+        for (let state of this.states) {
+            let d = state.domain
+            if(percentage <= d[1] && percentage >= d[0]){
+                currentState = state;
+            }
+        }
+        console.log(currentState);
+        this.currentState = currentState;
+    }
+
     onScroll(perc:number){
         if(!this.data){ return; }
         if(this.previousPercentage == perc){ return; }
@@ -283,6 +315,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this.translateLineTo('musulman', perc);
         this.updateAreas(perc);
         this.setFocusAt(perc);
+        this.updateCurrentState(perc);
         this.previousPercentage = perc;
     }
 }
