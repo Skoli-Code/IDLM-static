@@ -145,3 +145,16 @@ rect.focus-rect {
         fill: $figaro;
     }
 }
+.chart-2-2 {
+    .chart__legend {
+        .hollow {
+            fill: none;
+            stroke-width: 2px;
+        }
+        @each $color-name, $color in $colors {
+            .hollow.#{$color-name} {
+                stroke: $color;
+            }
+        }
+    }
+}

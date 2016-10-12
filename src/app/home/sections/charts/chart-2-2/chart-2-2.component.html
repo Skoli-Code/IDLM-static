@@ -1,4 +1,4 @@
-<div class="scroll-holder" [style.height]="heightForScrollWatcher">
+<div class="scroll-holder chart chart-2-2" [style.height]="heightForScrollWatcher">
     <div class="scroll-content" idlmScrollWatcher (onScroll)="onScroll($event)">
         <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
         <div class="o-grid">
@@ -6,7 +6,14 @@
                 <svg #chartPlayground></svg>
             </div>
             <div class="o-grid__cell o-grid__cell--width-15">
-                <span class="quote"><h4>{{ currentYear }}</h4></span>
+                <div class="quote"><h4>{{ currentYear }}</h4></div>
+                <div class="chart__legend">
+                    <ul class="list-unstyled">
+                        <li class="hollow figaro" data="Le Figaro"></li>
+                        <li class="hollow liberation" data="Libération"></li>
+                        <li class="hollow lemonde" data="Le monde"></li>
+                        <li class="full" data="Nouveau mot"></li>
+                    </ul>
             </div>
         </div>
     </div>

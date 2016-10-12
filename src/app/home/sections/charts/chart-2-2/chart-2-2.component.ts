@@ -244,7 +244,17 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
         }
         this.drawned = true;
     }
-
+    drawLegend(){
+        select('.chart-2-2 .chart__legend').selectAll('li').each(function(){
+            let li = select(this);
+            li.append('svg')
+                .attr('width', 20)
+                .attr('height', 20)
+                .append('g')
+                .append('circle').attr('r', 6).attr('transform', `translate(7, 13)`);
+            li.append('span').text(li.attr('data'));
+        });
+    }
     draw(){
         this.bubbleAreas = this._g.selectAll('.bubble-group')
             .data(this.data);
@@ -254,6 +264,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
             .attr('class', (d)=>`bubble-group ${d.source}`);
 
         this.drawSeperator();
+        this.drawLegend();
     }
 
     onScroll(percentage:number){
