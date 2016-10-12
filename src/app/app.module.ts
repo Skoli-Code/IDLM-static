@@ -28,6 +28,8 @@ import { WordCloudComponent } from './home/sections/charts/word-cloud/word-cloud
 
 import { NavbarComponent }    from './navbar/navbar.component';
 import { AboutComponent }     from './about/about.component';
+import { LinkDirective } from './shared/link.directive';
+import { RefComponent } from './shared/ref/ref.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { AboutComponent }     from './about/about.component';
     AboutComponent,
     WordCloudComponent,
     GenericSectionComponent,
+    LinkDirective,
+    RefComponent,
   ],
   imports: [
     BrowserModule,
