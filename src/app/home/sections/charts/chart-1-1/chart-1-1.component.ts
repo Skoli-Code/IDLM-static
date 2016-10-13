@@ -15,11 +15,17 @@ import { DataLoaderService } from '../data-loader.service';
 interface State {
     pageTitle:string,
     legendTitle:string,
-    domain: number[],
-    range: number[],
+    domain: any[],
+    range: any[],
     scale: ScaleLinear<any,any>|ScaleQuantize<any>
 };
 
+interface StateObject {
+    lines: State,
+    removeLines: State,
+    areas: State,
+    focusPeriods: State
+};
 
 @Component({
   selector: 'idlmChart-1-1',
@@ -33,6 +39,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     heightForScrollWatcher:string = "8000px";
     dataCatalogKey:string="1.1";
     currentState:State;
+    states: StateObject;
 
     private areaData: any;
     private previousPercentage: number = 0;
@@ -51,8 +58,6 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
 
     private periodsData: IPeriod[];
     periodContent:SafeHtml = null;
-
-    private states:any;
 
     constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
         super(renderer, dataLoader);
@@ -84,15 +89,15 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     private initStates(){
         this.states = {
             // lines scale, percentage of line drawing.
-            lines:{
+            lines: {
                 pageTitle: 'L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles.',
                 legendTitle:'Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015).',
                 domain: [0, 20],
                 range: [2000, 0],
                 scale: scaleLinear()
             },
-            // removeLine scale is to make "musulman" line dispappear (from top to bottom);
-            removeLine:{
+            // removeLines scale is to make "musulman" line dispappear (from top to bottom);
+            removeLines: {
                 pageTitle: '',
                 legendTitle:'',
                 domain: [20, 25],
@@ -100,23 +105,23 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
                 scale: scaleLinear()
             },
             // areas scroll scale is to make stacked area appears.
-            areas:{
+            areas: {
                 pageTitle: '',
                 legendTitle:'',
                 domain: [20, 25],
                 range: [0, 100],
                 scale: scaleLinear()
             },
-            // fourt scroll scale is to focus some specific areas in the graph
-            // TODO: change 5 by the actual number of periods to focus on.
-            focusPeriods:{
+            // focus some specific areas in the graph
+            focusPeriods: {
                 pageTitle: 'La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre.',
                 legendTitle:'Occurrences des termes contenant “islam” par an et par corpus (1997-2015).',
                 domain: [25, 100],
                 range: range(this.periodsData.length),
                 scale: scaleQuantize()
             }
-        };
+        }
+
         for(let i in this.states){
             let state = this.states[i];
             state.scale = state.scale
@@ -245,7 +250,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
 
     // remove one line progressively
     private translateLineTo(key, perc){
-        let state_perc = this.getStatePercentage(this.states.removeLine, perc);
+        let state_perc = this.getStatePercentage(this.states.removeLines, perc);
         this._g.select('.line.musulman')
             .attr('transform', `translate(0, ${state_perc})`);
     }

@@ -1,0 +1,23 @@
+@import "../../../../shared/styles/colors";
+.chart {
+    &__legend {
+        margin-top: 1em;
+        margin-left: 50px;
+        .color {
+            display: inline-block;
+            height: 8px;
+            width: 1.7em;
+            margin-right: 4px;
+            border-radius: 4px;
+            // border-top-right-radius: 4px;
+            // border-bottom-right-radius: 4px;
+            // border-top-left-radius: 4px;
+            // border-bottom-left-radius: 4px;
+        }
+        @each $color-name, $color in $colors {
+            .#{$color-name} .color {
+                background-color: $color;
+            }
+        }
+    }
+}
