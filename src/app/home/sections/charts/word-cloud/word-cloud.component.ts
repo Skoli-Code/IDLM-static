@@ -81,7 +81,7 @@ export class WordCloudComponent extends AbstractChart {
         this._g.selectAll('text').data(this.words)
             .enter().append("text")
                 .style("font-size", (d)=> d.size + "px")
-                .style("font-family", "Arial")
+                .style("font-family", "PT Serif")
                 .style("fill", (d)=>this.fillScale(d.size + 30))
                 .attr("text-anchor", "middle")
                 .attr("transform", (d)=> `translate(${[d.x, d.y]})rotate(${d.rotate})`)
