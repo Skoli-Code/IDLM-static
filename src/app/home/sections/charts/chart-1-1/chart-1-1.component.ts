@@ -295,13 +295,13 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
 
     private updateCurrentState(percentage:number){
         let currentState;
-        for (let state of this.states) {
+        for (let i in this.states) {
+            let state = this.states[i];
             let d = state.domain
             if(percentage <= d[1] && percentage >= d[0]){
                 currentState = state;
             }
         }
-        console.log(currentState);
         this.currentState = currentState;
     }
 
