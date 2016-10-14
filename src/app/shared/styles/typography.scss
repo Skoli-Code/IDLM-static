@@ -5,7 +5,10 @@
 $poppins: "Poppins",sans-serif;
 $ptserif: "PT Serif", serif;
 
-$base: 15px;
+$serif: $ptserif;
+$sansserif:$poppins;
+
+$base: 14px;
 $h1: 40px;
 $h2: 22px;
 $h3: 20px;
