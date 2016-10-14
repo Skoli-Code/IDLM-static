@@ -128,6 +128,11 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
                 .domain(state.domain)
                 .range(state.range);
         }
+
+        if(this.previousPercentage == 0){
+            this.currentState = this.states.lines;
+        }
+
     }
 
     getMaxYValue(){
