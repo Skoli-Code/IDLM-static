@@ -44,6 +44,8 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
     heightForScrollWatcher='8000px';
     progress:number=0;
     drawned=false;
+    private maxBubbleSize:number=60;
+
     private currentYear:number;
     private borderPadding:number = 5;
     private layouts:any;
@@ -57,7 +59,23 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
     constructor(renderer:Renderer, dataLoader:DataLoaderService){
         super(renderer, dataLoader);
     }
+    initSizes(){
+        let parent  = this.chartElement.nativeElement.parentNode;
+        let width   = Math.floor(parent.getBoundingClientRect().width);
+        let wHeight = jQuery(window).height();
+        let height = wHeight - 60;
 
+        this.size = {
+            svg: {
+                width:  width,
+                height: height
+            },
+            inner: {
+                width:  width  - this.margin.left - this.margin.right,
+                height: height - this.margin.top  - this.margin.bottom
+            }
+        };
+    }
     updateScales(){
         let dates = this.data[0].tops.map((t)=>t.date);
         this.yearScale = scaleTime()
@@ -72,7 +90,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
             s.tops = s.tops.map((top)=>{
                 top.date = dateParser(top.date);
                 // we just show the top 20 words
-                top.words = top.words.slice(0, 20);
+                top.words = top.words.slice(0, 16);
                 return top;
             });
             return s;
@@ -118,9 +136,10 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
             }
             layout.center = center;
             layout.force = forceSimulation()
-                .alpha(0.5)
+                // .alpha(0.2)
+                .velocityDecay(0.5)
                 .force('center',  forceCenter(layout.center[0], layout.center[1]))
-                .force('polygon', forceCollidePolygon(layout.polygon).iterations(3))
+                .force('polygon', forceCollidePolygon(layout.polygon).iterations(4))
                 .force('collide', forceCollide().iterations(3))
                 .stop();
             return layout;
@@ -158,9 +177,9 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
 
         for (let layout of this.layouts){
             let data = this.yearTop(layout.tops);
-            let scale = scaleLinear()
+            let scale = scaleLog()
                 .domain(_extent(data.map(d=>d[1])))
-                .range([20, 70]);
+                .range([20, 56]);
 
             // check if node's words is a new one or not
             let isNewWord = (d)=>{
