@@ -1,41 +1,18 @@
-@import '../../../../shared/styles/colors';
 .chart {
-    &__contextual-data {
-        .o-grid__cell:first-child {
-            padding-left: 0;
-        }
-        .repartition {
-            &__name {
-                display: inline-block;
-                width: 35%;
-            }
-            &__bar {
-                display: inline-block;
-                height: 5px;
-                transition: width .22s ease-out;
-                &--figaro {
-                    background-color: $figaro;
-                }
-                &--lemonde {
-                    background-color: $lemonde;
-                }
-                &--liberation {
-                    background-color: $liberation;
-                }
-            }
-        }
-    }
 }
 .events {
     margin-left: 50px;
     .event {
         display: inline-block;
         vertical-align: top;
-        max-width: 400px;
-        margin-right: 2em;
+        max-width: 330px;
+        margin-right: 1.5em;
         margin-bottom: 1em;
         &__title {
             margin-bottom: 0;
+        }
+        &:last-child {
+            margin-right: 0;
         }
     }
 }

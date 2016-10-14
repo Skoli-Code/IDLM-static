@@ -1,17 +1,19 @@
 @import '../../../../shared/styles/colors';
 
 h4 {
-    margin-top: 0;
+    margin-top: 0.5em;
 }
-
+.chart {
+    padding-top: 3em;
+}
 .chart-cell {
     position: relative;
     margin-bottom: 1em;
-    padding-top: 1em;
     padding-right: 2em;
+    padding-left: 2em;
     &--right {
         padding-right: 0;
-        padding-left: 2em;
+        padding-left: 4em;
     }
     .sep--bottom, .sep--right {
         position: absolute;
@@ -19,21 +21,21 @@ h4 {
     .sep {
         &--bottom {
             width: auto;
-            right: 1em;
+            right: 10px;
             bottom: 0;
             left: -2em;
             &--right {
-                left: 1em;
+                left: 10px;
                 right: -2em;
             }
         }
         &--right {
             height: auto;
-            top: -2em;
-            bottom: 1em;
+            top: -1em;
+            bottom: 10px;
             &--bottom {
-                top: 0;
-                bottom: -2em;
+                top: -10px;
+                bottom: -1em;
             }
         }
     }
@@ -51,7 +53,7 @@ h4 {
         color: $light-gray;
     }
 
-    @each $color-name, $color in $colors {
+    @each $color-name, $color in $newspaper-colors {
         &--#{$color-name}{
             .serif {
                 color: $color;

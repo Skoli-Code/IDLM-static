@@ -13,15 +13,21 @@ import { transition } from 'd3-transition';
 // internal imports
 import { dateParser, AbstractChart, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
+import { Repartition } from '../repartition/repartition.component';
 import { _extent } from '../utils';
 
 type Datum = [Date,number];
+
+interface SourceDatum {
+    occurences:number,
+    source: string,
+    sub_values: Array<Datum>
+}
+
 type adjectiveType = {
-    name: string
-    values:Array<{
-        source: string,
-        sub_values: Array<Datum>
-    }>
+    name: string,
+    repartition: Repartition,
+    values:Array<SourceDatum>
 };
 
 @Component({
@@ -67,7 +73,7 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
         let _holder = select('.chart-3-2');
         this._cells = _holder.selectAll('.chart-cell');
         let node = this._cells.node();
-        let width = Math.floor(node.getBoundingClientRect().width);
+        let width = Math.floor(node.getBoundingClientRect().width) * 0.66;
         let height = width * this.sizeRatio;
         this.margins = {
             top: 20, left: 0, right: 100, bottom: 20
@@ -98,6 +104,12 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
             adj.values = adj.values.map((v,i)=>{
                 v.rank = i;
                 return v;
+            });
+            // third and final loop to compute repartition
+            let total = sum(adj.values, (d:SourceDatum)=>d.occurences);
+            adj.repartition = {};
+            adj.values.forEach((v)=>{
+                adj.repartition[v.source] = (v.occurences*100)/total;
             });
             return adj;
         });

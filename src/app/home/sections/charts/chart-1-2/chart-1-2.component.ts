@@ -6,6 +6,8 @@ import {line, symbol} from 'd3-shape';
 import {scaleLinear, ScaleLinear, scaleTime} from 'd3-scale';
 import {max} from 'd3-array';
 
+import { Repartition } from '../repartition/repartition.component';
+
 interface Event {
     description:string,
     date:Date,
@@ -19,7 +21,7 @@ interface Event {
 })
 export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
-    heightForScrollWatcher:string = "10000px";
+    heightForScrollWatcher:string = "12000px";
     activeEvents: any[];
     dataCatalogKey:string="1.2";
 
@@ -27,7 +29,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         date: Date,
         titleOccurences:number,
         totalOccurences:number,
-        corpus: {figaro:number, liberation:number, lemonde:number}
+        corpus: Repartition
     };
 
     private _visibilityClip: any;

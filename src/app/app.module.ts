@@ -30,6 +30,7 @@ import { NavbarComponent }    from './navbar/navbar.component';
 import { AboutComponent }     from './about/about.component';
 import { LinkDirective } from './shared/link.directive';
 import { RefComponent } from './shared/ref/ref.component';
+import { RepartitionComponent } from './home/sections/charts/repartition/repartition.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { RefComponent } from './shared/ref/ref.component';
     GenericSectionComponent,
     LinkDirective,
     RefComponent,
+    RepartitionComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+@import '../../../../shared/styles/colors';
+@import '../../../../shared/styles/typography';
+@import '../../../../shared/styles/variables';
+
+.repartition {
+    &__name {
+        display: inline-block;
+        width: 80px;
+    }
+
+    &__bar {
+        margin-bottom: $repartion-bar-height/2;
+        display: inline-block;
+        height: $repartion-bar-height;
+        border-radius: $repartion-bar-height/2;
+        transition: width .22s ease-out;
+        @each $color-name, $color in $newspaper-colors {
+            &--#{$color-name} {
+                background-color: $color;
+            }
+        }
+    }
+}

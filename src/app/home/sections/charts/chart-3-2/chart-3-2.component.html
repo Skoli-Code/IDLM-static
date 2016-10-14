@@ -1,14 +1,18 @@
-<div class="chart-3-2" [style.height]="heightForScrollWatcher">
+<div class="scroll-holder" [style.height]="heightForScrollWatcher">
     <div id="chartPlayground" class="scroll-content" idlmScrollWatcher (onScroll)="onScroll($event)">
         <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
-        <div class="pad-top"></div>
-        <div class="o-container o-container--xlarge">
+        <div class="chart chart-3-2 o-container o-container--xlarge">
             <div class="o-grid">
-            <div class="o-grid__cell o-grid__cell--width-50">
-                <h4>Focus sur l’évolution de l’usage de 10 adjectifs</h4>
-                <div class="quote" *ngIf="active"><h4>{{ active.name | capitalize }}</h4></div>
-            </div>
-            <div class="o-grid__cell chart-grid">
+                <div class="chart__description o-grid__cell o-grid__cell--width-35">
+                    <h4>Focus sur l’évolution de l’usage de 10 adjectifs entre 1997 et 2015</h4>
+                    <div class="adjective" *ngIf="active">
+                        <div class="quote"><h3>{{ active.name | capitalize }}</h3></div>
+                        <div class="adjective__description" [innerHTML]="active.description | markdown"></div>
+                        <div class="sep"></div>
+                        <idlmRepartitionChart [repartition]="active.repartition"></idlmRepartitionChart>
+                    </div>
+                </div>
+                <div class="o-grid__cell o-grid__cell--width-45 o-grid__cell--offset-5 o-grid__cell--no-gutter chart-grid">
                 <!-- First row -->
                 <div class="o-grid">
                     <div class="o-grid__cell chart-cell chart-cell--global">
@@ -21,7 +25,6 @@
                                 </div>
                             </div>
                         </div>
-                        <h5>évolution 1997-2015</h5>
                         <svg></svg>
                         <div class="sep--right"></div>
                         <div class="sep--bottom"></div>
@@ -42,7 +45,6 @@
                                 </div>
                             </div>
                         </div>
-                        <h5>évolution 1997-2015</h5>
                         <svg></svg>
                         <div class="sep--bottom sep--bottom--right"></div>
 
@@ -67,7 +69,6 @@
                                 </div>
                             </div>
                         </div>
-                        <h5>évolution 1997-2015</h5>
                         <svg></svg>
                         <div class="sep--right sep--right--bottom"></div>
                     </div>
@@ -87,12 +88,11 @@
                                 </div>
                             </div>
                         </div>
-                        <h5>évolution 1997-2015</h5>
                         <svg></svg>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
         </div>
     </div>
 </div>
