@@ -23,7 +23,13 @@ section {
     margin: 0;
     padding: 0;
 }
-
+.list-inline {
+    @extend .list-unstyled;
+    li {
+        display: inline-block;
+        margin-right: 1em;
+    }
+}
 .vertical-nav {
     position: fixed;
     top: 25%;
@@ -33,4 +39,17 @@ section {
 
 .pad-top {
     padding-top: 6em;
+}
+
+.sep {
+    width: 100%;
+    background-color: $light-gray;
+    height: 2px;
+}
+
+.right-gutter {
+    padding-right: 1em;
+    @media screen and (max-width: $screen-limit-super){
+        padding-right: 3em;
+    }
 }
