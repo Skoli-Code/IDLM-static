@@ -2,7 +2,6 @@
 @import '../shared/styles/variables';
 @import '../../../node_modules/blaze/scss/mixins/settings.global';
 
-
 nav {
     background-color: $black;
     position: fixed;
@@ -12,8 +11,16 @@ nav {
     padding-left: $grid-gutter;
     padding-right: $grid-gutter;
     z-index: $navbar-z-index;
-    a, & {
+    border-bottom: 1px solid $lighten($black, 20%);
+    a {
         color: white;
+        text-decoration: none;
+        &:hover {
+            color: $light-gray;
+            path {
+                fill: $light-gray;
+            }
+        }
     }
     svg path {
         fill: white;
