@@ -14,7 +14,7 @@
             // border-top-left-radius: 4px;
             // border-bottom-left-radius: 4px;
         }
-        @each $color-name, $color in $colors {
+        @each $color-name, $color in $newspaper-colors {
             .#{$color-name} .color {
                 background-color: $color;
             }

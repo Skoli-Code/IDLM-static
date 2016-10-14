@@ -1,5 +1,23 @@
 @import '../../../shared/styles/colors';
 @import '../../../shared/styles/mixins';
+@import '../../../shared/styles/typography';
+@import '../../../shared/styles/variables';
+
+.chart {
+    padding-bottom:$vertical-padding/2;
+    .subpart-title {
+        margin-top: $vertical-padding/2;
+    }
+    &__description {
+        &__title {
+            margin-top: 0;
+        }
+        .sep {
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+    }
+}
 
 path {
     &.line {
@@ -39,9 +57,6 @@ path {
         }
     }
 }
-
-
-
 .bubble-group {
     .bubble {
         cursor: help;
@@ -49,14 +64,17 @@ path {
             fill: white;
             stroke-width: 2px;
         }
+        text {
+            font-family: $sansserif;
+            font-size: $base * 0.8;
+        }
         &.new {
             text {
                 color: white;
-                font-family: sans-serif;
             }
         }
     }
-    @each $color-name, $color in $colors {
+    @each $color-name, $color in $newspaper-colors {
         &.#{$color-name} {
             .bubble {
                 fill: $color;
@@ -88,7 +106,7 @@ path {
             stroke: $black;
             stroke-width: 2px;
         }
-        @each $color-name, $color in $colors {
+        @each $color-name, $color in $newspaper-colors {
             &--#{$color-name} {
                 path {
                     stroke: $color;
@@ -97,7 +115,6 @@ path {
         }
     }
 }
-
 
 @keyframes pulse {
   0% {
@@ -151,7 +168,7 @@ rect.focus-rect {
             fill: none;
             stroke-width: 2px;
         }
-        @each $color-name, $color in $colors {
+        @each $color-name, $color in $newspaper-colors {
             .hollow.#{$color-name} {
                 stroke: $color;
             }
