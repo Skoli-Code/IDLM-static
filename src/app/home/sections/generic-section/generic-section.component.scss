@@ -3,17 +3,17 @@
 .section {
     &__intro {
         &__title {
-            padding-top: 3em;
-            padding-bottom: 3em;
+            padding-top: 4em;
             background-color: $black;
             color: white;
-            h3 {
+            h2 {
                 margin-bottom: 0;
             }
             h1 {
+                padding-bottom: 2em;
                 margin-top: 0;
             }
-            h1, h3 {
+            h1, h2 {
                 &:empty {
                     display:none;
                 }
@@ -21,6 +21,9 @@
         }
     }
     &__content {
+        &:empty {
+            display: none;
+        }
         .o-grid {
             .o-grid__cell {
                 &:first-child {
@@ -34,7 +37,10 @@
     }
 
     &__intro__content, &__content {
-        padding-top: 3em;
-        padding-bottom: 3em;
+        padding-top: 4em;
+        padding-bottom: 4em;
+        p {
+            margin-top: 0;
+        }
     }
 }
