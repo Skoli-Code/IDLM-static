@@ -11,7 +11,7 @@ nav {
     padding-left: $grid-gutter;
     padding-right: $grid-gutter;
     z-index: $navbar-z-index;
-    border-bottom: 1px solid $lighten($black, 20%);
+    border-bottom: 1px solid lighten($black, 20%);
     a {
         color: white;
         text-decoration: none;
