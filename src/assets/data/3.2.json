@@ -189,7 +189,7 @@
     ]
 },{
     "name": "radical",
-    "description":"Ce concept introduit une nouveauté dans le rapport des médias à l’islam comparé à d’autres adjectifs utilisés (pur, fondamentaliste, rigoriste): non seulement ce concept peut s’appliquer à un spectre très variable (terroriste, musulman pratiquant, etc.), mais encore il valide l’idée selon laquelle l’islam doit nécessairement être “modéré” pour être acceptable. La radicalité l’est, par rapport à qui la définit. La résurgence d’actes terroristes en France (Merah, Charlie, Paris…) redonne un souffle (+127% chez Le Figaro entre 2014 et 2015, contre +66% dans le corpus global)  à cette expression à travers ses variations “radicalisation” et “autoradicalisation”.",
+    "description":"Ce concept introduit une nouveauté dans le rapport des médias à l’islam comparé à d’autres adjectifs utilisés (pur, fondamentaliste, rigoriste): non seulement ce concept peut s’appliquer à un spectre très variable (terroriste, musulman pratiquant, etc.), mais encore il valide l’idée selon laquelle l’islam doit nécessairement être “modéré” pour être acceptable. La radicalité existe, par rapport à celui qui la définit. La résurgence d’actes terroristes en France (Merah, Charlie, Paris…) redonne un souffle (+127% chez Le Figaro entre 2014 et 2015, contre +66% dans le corpus global)  à cette expression à travers ses variations “radicalisation” et “autoradicalisation”.",
     "values": [
         {
             "source":"figaro",
