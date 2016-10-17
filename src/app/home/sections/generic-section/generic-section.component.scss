@@ -1,4 +1,5 @@
 @import '../../../shared/styles/colors';
+@import '../../../shared/styles/typography';
 
 .section {
     &__intro {
@@ -17,6 +18,15 @@
                 &:empty {
                     display:none;
                 }
+            }
+        }
+        &__content {
+            font-family: $serif;
+            &:first-letter {
+                font-size: $base * 4;
+                line-height: $base;
+                padding-left: 0.66em;
+
             }
         }
     }
