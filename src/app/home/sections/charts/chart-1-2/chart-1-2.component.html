@@ -1,17 +1,18 @@
 <div class="chart-holder" [style.height]="heightForScrollWatcher">
     <div class="chart chart-1-2" idlmScrollWatcher (onScroll)="onScroll($event)">
-        <h3 class="subpart-title text-center">Rapport à l’Etat et à l’identité : les mots du “problème”.</h3>
+        <h2 class="subpart-title text-center">Les effets de l’actualité : Un objet médiatique volatile mais intense.</h2>
         <div class="o-grid">
             <div class="o-grid__cell o-grid__cell--width-60">
                 <svg #chartPlayground></svg>
-                <div class="events">
-                    <div *ngFor="let event of activeEvents" class="event quote">
+                <div class="events" [ngStyle]="{ 'margin-left': eventsMargin + 'px' }">
+                    <div *ngFor="let event of activeEvents" class="event quote"
+                        [ngClass]='{ "event--capped": activeEvents.length > 1 }'>
                         <h5 class="event__title serif">{{event.description}}</h5>
                         <a *ngIf="event.link != null" href="{{event.link}}" rel="nofollow">Plus d'infos</a>
                     </div>
                 </div>
             </div>
-            <div class="chart__description o-grid__cell o-grid__cell--offset-5 right-gutter">
+            <div class="chart__description o-grid__cell right-gutter">
                 <h5 class="chart__description__title">Occurrences des  termes contenant “islam” par mois dans le corpus général (1997-2015).</h5>
                 <p>
                     La volatilité du sujet transparaît ici clairement, pour autant, s’il apparaît que la médiatisation de l’islam suit l’actualité (attentats, guerres, débats politiques, …), après le 11 septembre 2001, il est évident que le sujet devient un thème récurrent, un sujet de premier plan.  L’usage du terme “islam” dans la presse est extrêmement fort suite aux attentats du 11 septembre 2001, et du 7 janvier 2015 contre Charlie Hebdo (les attentats de Londres en 2005 échappent à cette médiatisation), ce qui montre bien que l’analyse de ces évènements est avant tout orientée de manière religieuse bien plus que sociale ou géopolitique.

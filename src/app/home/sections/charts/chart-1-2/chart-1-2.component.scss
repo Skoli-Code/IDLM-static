@@ -1,18 +1,20 @@
 .chart {
 }
 .events {
-    margin-left: 50px;
     .event {
         display: inline-block;
         vertical-align: top;
-        max-width: 330px;
         margin-right: 1.5em;
         margin-bottom: 1em;
-        &__title {
+        &__title, a {
             margin-bottom: 0;
+            font-size: 0.85em;
         }
         &:last-child {
             margin-right: 0;
+        }
+        &--capped {
+            max-width: 330px;
         }
     }
 }
