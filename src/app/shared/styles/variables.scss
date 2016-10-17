@@ -1,4 +1,4 @@
-@import '../../../../node_modules/blaze/scss/mixins/settings.global';
+@import "./colors";
 
 $progress-bar-height: 0.7em;
 $navbar-height: 50px;
@@ -7,3 +7,29 @@ $repartion-bar-height: 6px;
 
 // sections & content styles
 $vertical-padding: 4em;
+$vertical-nav-width: 2.5em;
+$vertical-nav-border-width: 2px;
+
+// took from blazecss
+$screen-limit-xsmall: 20em !default;
+$screen-limit-small: 30em !default;
+$screen-limit-medium: 48em !default;
+$screen-limit-large: 64em !default;
+$screen-limit-xlarge: 78em !default;
+$screen-limit-super: 116em !default;
+
+
+// took from bootstrap
+$enable-rounded:     true;
+$border-radius:      5px;
+$tooltip-max-width:  400px !default;
+$tooltip-color:      #fff !default;
+$tooltip-bg:         $black !default;
+$tooltip-opacity:    .9 !default;
+$tooltip-padding-y:  3px !default;
+$tooltip-padding-x:  8px !default;
+$tooltip-margin:     3px !default;
+$tooltip-arrow-width:5px !default;
+$tooltip-arrow-color:$tooltip-bg !default;
+
+$zindex-tooltip: 1070 !default;

@@ -1,17 +1,21 @@
 @import './mixins';
 @import './colors';
+@import './variables';
 
-@import url(http://fonts.googleapis.com/css?family=Poppins:400|PT+Serif:400,800);
+@import url(http://fonts.googleapis.com/css?family=Poppins:400|PT+Serif:400,700);
 $poppins: "Poppins",sans-serif;
 $ptserif: "PT Serif", serif;
 
 $serif: $ptserif;
 $sansserif:$poppins;
 
-$base: 15px;
+$base: 14px;
 $h1: 40px;
 $h2: 22px;
 $h3: 20px;
+$intro: $h3;
+$intro-line-height: $intro*1.5;
+
 $app-title: 75px;
 
 .rotate90 {
@@ -30,13 +34,24 @@ html, body {
     font-size: $base;
 }
 
+
 h1, .h1 {
     font-size: $h1;
-    margin-bottom: 12px;
+    margin-bottom: $h1/3;
 }
+
 h2, .h2 {
     font-size: $h2;
-    margin-bottom: 6px;
+    &.subpart-title {
+        margin-bottom: 2em;
+    }
+    @media screen and (max-width: $screen-limit-large){
+        &.subpart-title{
+            margin-bottom: 1.5em;
+            margin-top: 1.5em;
+        }
+    }
+
 }
 h3, .h3 {
     font-size: $h3;
@@ -52,7 +67,7 @@ h1,h2,h3,h4,h5 {
 }
 
 .quote {
-    border-left: 2px solid $black;
+    border-left: 3px solid $black;
     padding-left: 1em;
     h3,h4,h5 {
         margin: 0;
@@ -96,6 +111,10 @@ h1,h2,h3,h4,h5 {
 .bold {
     font-weight: bold;
 }
+.underline {
+    text-decoration: underline;
+}
+
 .skoli-link {
     svg {
         height: $base;
