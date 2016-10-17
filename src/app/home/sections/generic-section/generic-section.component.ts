@@ -8,7 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GenericSectionComponent implements OnInit {
     @Input() anchor:string;
     constructor() { }
-
     ngOnInit() {
     }
 

@@ -5,13 +5,14 @@
     &__intro {
         &__title {
             padding-top: 4em;
+            padding-bottom: 2em;
             background-color: $black;
             color: white;
             h2 {
                 margin-bottom: 0;
             }
             h1 {
-                padding-bottom: 2em;
+                padding-bottom: 1em;
                 margin-top: 0;
             }
             h1, h2 {
@@ -22,27 +23,11 @@
         }
         &__content {
             font-family: $serif;
-            &:first-letter {
-                font-size: $base * 4;
-                line-height: $base;
-                padding-left: 0.66em;
-
-            }
         }
     }
     &__content {
         &:empty {
             display: none;
-        }
-        .o-grid {
-            .o-grid__cell {
-                &:first-child {
-                    padding-left: 0;
-                }
-                &:last-child {
-                    padding-right: 0;
-                }
-            }
         }
     }
 
