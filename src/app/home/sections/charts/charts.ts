@@ -27,7 +27,7 @@ export type marginType = {top:number, bottom:number, left: number, right: number
 export type sizeType = {width:number, height:number};
 
 export abstract class AbstractChart implements OnInit {
-    protected dynamicWidth: boolean = false;
+    protected dynamicWidth: boolean = true;
     protected sizeRatio:number=0.66;
     protected size: {svg:sizeType, inner:sizeType};
     protected _svg: any;
@@ -71,9 +71,15 @@ export abstract class AbstractChart implements OnInit {
     }
 
     initSizes(){
-        let parent = this.chartElement.nativeElement.parentNode;
-        let width  = Math.floor(parent.getBoundingClientRect().width);
-        let height = width * this.sizeRatio;
+        let parent  = this.chartElement.nativeElement.parentNode;
+        let width   = Math.floor(parent.getBoundingClientRect().width);
+        let height  = width * this.sizeRatio;
+        let wHeight = jQuery(window).height();
+        let maxHeight = wHeight*0.66;
+        if(height > maxHeight){
+            height = maxHeight;
+        }
+
         this.size = {
             svg: {
                 width:  width,
@@ -152,6 +158,9 @@ export abstract class AxedChart extends AbstractChart {
         this._yAxis = this._g.append('g')
             .attr('class','axis axis--y')
             .call(this.yAxis.ticks(6));
+    }
+
+    protected update(){
     }
 
     protected updateScales(){
