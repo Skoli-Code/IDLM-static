@@ -39,6 +39,8 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     heightForScrollWatcher:string = "8000px";
     dataCatalogKey:string="1.1";
     currentState:State;
+    pageTitle: string;
+    legendTitle: string;
     states: StateObject;
 
     private areaData: any;
@@ -98,16 +100,16 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
             },
             // removeLines scale is to make "musulman" line dispappear (from top to bottom);
             removeLines: {
-                pageTitle: '',
-                legendTitle:'',
+                pageTitle: 'L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles.',
+                legendTitle:'Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015).',
                 domain: [20, 25],
                 range: [0, -1000],
                 scale: scaleLinear()
             },
             // areas scroll scale is to make stacked area appears.
             areas: {
-                pageTitle: '',
-                legendTitle:'',
+                pageTitle: 'La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre.',
+                legendTitle:'Occurrences des termes contenant “islam” par an et par corpus (1997-2015).',
                 domain: [20, 25],
                 range: [0, 100],
                 scale: scaleLinear()
@@ -313,6 +315,12 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
             }
         }
         this.currentState = currentState;
+        if(currentState.legendTitle != this.legendTitle){
+            this.legendTitle = currentState.legendTitle;
+        }
+        if(currentState.pageTitle != this.pageTitle){
+            this.pageTitle = currentState.pageTitle;
+        }
     }
 
     onScroll(perc:number){
