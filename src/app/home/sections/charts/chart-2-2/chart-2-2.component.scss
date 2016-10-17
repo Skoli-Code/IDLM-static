@@ -6,7 +6,11 @@
     }
 }
 .chart {
+    &-container {
+        padding: 1em;
+    }
     &__legend {
+        margin-top: 4em;
         svg {
             height: $base;
             width: $base;

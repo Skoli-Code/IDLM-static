@@ -2,18 +2,22 @@
     <div class="scroll-content" idlmScrollWatcher (onScroll)="onScroll($event)">
         <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
         <div class="o-grid">
-            <div class="o-grid__cell o-grid__cell--width-65">
+            <div class="chart-container o-grid__cell o-grid__cell--width-65">
                 <svg #chartPlayground></svg>
             </div>
-            <div class="o-grid__cell o-grid__cell--width-15 o-grid__cell--offset-5">
-                <div class="quote"><h4>{{ currentYear }}</h4></div>
-                <div class="chart__legend">
-                    <ul class="list-unstyled">
-                        <li class="hollow figaro" data="Le Figaro"></li>
-                        <li class="hollow liberation" data="Libération"></li>
-                        <li class="hollow lemonde" data="Le monde"></li>
-                        <li class="full" data="Nouveau mot"></li>
-                    </ul>
+            <div class="o-grid__cell o-grid__cell--width-35 chart__description u-center-block">
+                <div class="u-center-block__content">
+                    <h5 class="chart__description__title">Les 16 mots les plus présents par an et par corpus (1997-2015).</h5>
+                    <div class="quote"><h3>{{ currentYear }}</h3></div>
+                    <div class="chart__legend">
+                        <ul class="list-unstyled">
+                            <li class="hollow figaro" data="Le Figaro"></li>
+                            <li class="hollow liberation" data="Libération"></li>
+                            <li class="hollow lemonde" data="Le monde"></li>
+                            <li class="full" data="Nouveau mot"></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
