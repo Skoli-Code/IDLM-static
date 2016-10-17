@@ -6,12 +6,43 @@
 
 
 // global definitions
+@import './app/shared/styles/variables';
 @import './app/shared/styles/typography';
 @import './app/home/sections/charts/charts';
 
 /* You can add global styles to this file, and also import other style files */
 section {
     overflow: auto;
+}
+.section {
+    .o-container--full-height {
+        min-height: 100vh;
+    }
+
+    &__intro {
+        &__title {
+            h1 {
+                font-weight: normal;
+            }
+        }
+        &__content {
+            p {
+                font-size: $intro;
+                line-height: 2em;
+                &:first-child:first-letter {
+                    font-size: $intro * 3;
+                    line-height: $intro;
+                    padding-left: 0.66em;
+                }
+            }
+        }
+    }
+    &__content {
+        color: $light-gray;
+        h1,h2,h3,h4,h5,.serif {
+            color: $black;
+        }
+    }
 }
 
 .text-center {
@@ -41,6 +72,6 @@ section {
 .right-gutter {
     padding-right: 1em;
     @media screen and (max-width: $screen-limit-super){
-        padding-right: 3em;
+        padding-right: $vertical-nav-width * 2 + .5em;
     }
 }
