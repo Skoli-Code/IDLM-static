@@ -42,7 +42,7 @@
     ]
 },{
     "name": "sunnite",
-    "description":"Bien qu’elle fasse référence à l’une des deux branches majeures de l’islam, on constate l’usage de l’expression “islam sunnite” varie fortement en fonction des événements internationaux La grille confessionnelle s’intègre progressivement dans la lecture générale que font les médias ici examinés de certains phénomènes (terrorisme) et dynamiques (soulèvements arabes, conflits au Moyen-Orient) dans les pays arabo-musulmans. Cela est d’autant plus intéressant qu’une série d’acteurs régionaux (Arabie saoudite, Iran, “arc chiite, etc.) ont contribué à ériger une supposée ligne de fracture confessionnelle dans la région; ligne qui permet principalement d’occulter les rivalités de pouvoir et de lutte pour le leadership régional en cours dans la région.",
+    "description":"Référence à l’une des deux branches majeures de l’islam, on constate que l’usage de l’expression “islam sunnite” varie fortement en fonction des événements internationaux. La grille confessionnelle s’intègre progressivement dans la lecture générale de certains phénomènes (terrorisme) et dynamiques (soulèvements, conflits) dans les pays arabo-musulmans. Cela est d’autant plus intéressant qu’une série d’acteurs régionaux (Arabie saoudite, Iran, “arc chiite, etc.) ont contribué à ériger une supposée ligne de fracture confessionnelle dans la région; ligne qui permet principalement d’occulter les rivalités de pouvoir et de lutte pour le leadership régional en cours dans la région.",
     "values": [
         {
             "source":"figaro",
@@ -63,7 +63,7 @@
     ]
 },{
     "name": "moderne",
-    "description":"Cette expression est surtout employée lors des débats nationaux portant sur le voile en France (2003-2004). Un tel usage révèle le paradigme qui gouverne les débats portant sur le rapport entre islam et violence mais également entre islam et République dans le cadre franco-français. En effet, l’expression “islam moderne”, insinuant que l’islam d’alors est archaïque, renvoie à la nécessité pour cette religion de procéder à son aggiornamento à l’aune des valeurs françaises pour pouvoir être “soluble” dans la République. Tout se passe comme si le traditionnel débat sur l'intégration des “Français issus de l’immigration” s’était converti en débat portant sur la nécessité d’adopter et de promouvoir un “islam moderne”.",
+    "description":"Cette expression est surtout employée lors des débats nationaux portant sur le voile en France (2003-2004). Un tel usage révèle le paradigme qui gouverne les débats portant sur le rapport islam/violence mais également islam/République dans le cadre franco-français. En effet, l’expression “islam moderne”, insinuant que l’islam d’alors est archaïque, renvoie à la nécessité pour cette religion de procéder à son aggiornamento à l’aune des valeurs françaises pour pouvoir être “soluble” dans la République. Comme si le traditionnel débat sur l'intégration des “Français issus de l’immigration” s’était converti en débat portant sur la nécessité d’adopter et de promouvoir un “islam moderne”.",
     "values": [
         {
             "source":"figaro",
@@ -84,7 +84,7 @@
     ]
 },{
     "name": "fondamentaliste",
-    "description":"L’islam fondamentaliste renvoie à une pratique de l’islam fidèles à ses origines et fait partie de la gamme d’expressions renvoyant à une conception littéraliste et souvent violente de l’islam, tant elle a été usitée pour qualifier les talibans et les membres d’Al Qaïda. Cependant, l’islam fondamentaliste a également été utilisé pour qualifier certains individus controversés en France ou encore pour décrire les tendances religieuses dans certains “quartiers” français. L’application d’une seule expression désignant aussi bien des figures du terrorisme international que des citoyens français musulmans atteste donc de la constante transposition de lectures internationales au terrain d’analyse français.",
+    "description":"Il renvoie à une pratique de l’islam fidèle à ses origines et fait partie de la gamme d’expressions renvoyant à une conception littéraliste et souvent violente de l’islam, tant elle a été usitée pour qualifier les talibans et les membres d’Al Qaïda. Cependant, l’islam fondamentaliste a également été utilisé pour qualifier certains individus controversés en France ou encore pour décrire les tendances religieuses dans certains “quartiers” français. L’application d’une seule expression désignant aussi bien des figures du terrorisme international que des citoyens français musulmans atteste donc de la constante transposition de lectures internationales au terrain d’analyse français.",
     "values": [
         {
             "source":"figaro",
@@ -126,7 +126,7 @@
     ]
 },{
     "name": "chiite",
-    "description":"Comme pour “islam sunnite”, il s’agit d’un mode de lecture des théâtres de guerre, conflits et fractures confessionnelles au Moyen-Orient (notamment la guerre civile en Irak et la crise syrienne). De plus, les corrélations observées avec des moments forts de la politique iranienne (2005, 2009) mettent en lumière la grille de lecture employée par les médias ici étudiés pour traiter du régime iranien. Cette similarité avec les tendances de l’expression “islam sunnite” met ainsi en lumière le relatif succès des acteurs, aussi bien en France qu’au Moyen-Orient, qui ont travaillé à faire du  facteur religieux un élément fondamental dans la lecture des conflits et dynamiques qui caractérisent le Moyen-Orient.",
+    "description":"Comme pour “islam sunnite”, il s’agit d’un mode de lecture des théâtres de guerre, conflits et fractures confessionnelles au Moyen-Orient (notamment la guerre civile en Irak et la crise syrienne). Les corrélations observées avec des moments forts de la politique iranienne (2005, 2009) mettent en lumière la grille de lecture employée pour traiter du régime iranien. Cette similarité avec les tendances de l’expression “islam sunnite” souligne le relatif succès des acteurs, aussi bien en France qu’au Moyen-Orient, qui ont travaillé à faire du  facteur religieux un élément fondamental dans la lecture des conflits et dynamiques qui caractérisent le Moyen-Orient.",
     "values": [
         {
             "source":"figaro",
@@ -147,7 +147,7 @@
     ]
 },{
     "name": "politique",
-    "description": "Les niveaux sont élevés après l’intervention américaine en Irak mais aussi, et c’est révélateur, lors des débats portant sur le voile (2003-2004). L’usage de ce concept n’est pas anodin puisqu’il investit le port du foulard d’une portée politique: les débats d’alors évoquent la matérialisation d’une inégalité hommes-femmes dans l’espace public, la soumission de la femme musulmane, voire une revendication identitaire (“refus d’assimilation”) ou politique (attitude de défiance).\n\nDeux pics significatifs sont de nouveau atteints dans le contexte des “printemps arabes”, lesquels sont marqués par l’entrée en jeu de partis islamistes dans les processus de transition et réformes constitutionnelles en Afrique du Nord.",
+    "description": "Les termes sont associés après l’intervention américaine en Irak mais aussi, c’est révélateur, lors des débats portant sur le voile (2003-2004). L’usage de ce concept investit le port du foulard d’une portée politique: les débats d’alors évoquent la matérialisation d’une inégalité hommes-femmes dans l’espace public, la soumission de la femme, voire une revendication identitaire (“refus d’assimilation”) ou politique (défiance).\n\nDeux pics significatifs sont de nouveau atteints dans le contexte des “printemps arabes”, lesquels sont marqués par l’entrée en jeu de partis islamistes dans les processus de transition et réformes constitutionnelles en Afrique du Nord et au Moyen-Orient.",
     "values": [
         {
             "source":"figaro",
@@ -168,7 +168,7 @@
     ]
 },{
     "name": "pur",
-    "description":"L’”islam pur” décrit à la fois certaines mouvances violentes - salafisme jihadiste - ou non violentes  tel que le salafisme quiétiste appelant à la pratique d’un islam à l’image des premiers musulmans. Sur le plan international, sa récurrence coïncide avec les moments au cours desquels des organisations classifiées dans la première catégorie (Al Qaïda en 2001, organisation Etat islamique en 2015) font l’objet d’une médiatisation accrue du fait d’actes de violence. Elle est également employée s’agissant de l’Iran et l’Afghanistan. Sur le plan national, son apparition lors de débats relatifs à la laïcité en France témoigne des vases communicants sur le plan idéologique mettant en relation certaines tendances observées à l’international avec des enjeux nationaux.",
+    "description":"Il décrit à la fois des mouvances violentes - salafisme jihadiste - ou non violentes  tel que le salafisme quiétiste appelant à la pratique d’un islam à l’image des premiers musulmans. Sur le plan international, sa récurrence coïncide avec la médiatisation des organisations classifiées dans la première catégorie (Al Qaïda en 2001, organisation Etat islamique en 2015) du fait d’actes de violence. Elle est également employée s’agissant de l’Iran et l’Afghanistan. Sur le plan national, son apparition lors de débats relatifs à la laïcité en France témoigne des vases communicants sur le plan idéologique mettant en relation certaines tendances observées à l’international avec des enjeux nationaux.",
     "values": [
         {
             "source":"figaro",
@@ -189,7 +189,7 @@
     ]
 },{
     "name": "radical",
-    "description":"La nature même de ce concept introduit une nouveauté dans le rapport des médias à l’islam comparé à d’autres adjectifs utilisés (pur, fondamentaliste, rigoriste): non seulement ce concept peut s’appliquer à un spectre très variable (terroriste, musulman pratiquant, etc.), mais encore il valide l’idée selon laquelle l’islam doit nécessairement être “modéré” pour être acceptable. Le caractère radical étant ici laissé à la libre appréciation des auteurs et acteurs recourant à l’expression. La résurgence d’actes terroristes en France (Merah, Charlie, Paris…) redonne un souffle (principalement remarqué chez Le Figaro - +127% entre 2014 et 2015, contre +66% dans le corpus global)  à cette expression à travers ses variations “radicalisation” et “autoradicalisation”.",
+    "description":"Ce concept introduit une nouveauté dans le rapport des médias à l’islam comparé à d’autres adjectifs utilisés (pur, fondamentaliste, rigoriste): non seulement ce concept peut s’appliquer à un spectre très variable (terroriste, musulman pratiquant, etc.), mais encore il valide l’idée selon laquelle l’islam doit nécessairement être “modéré” pour être acceptable. La radicalité l’est, par rapport à qui la définit. La résurgence d’actes terroristes en France (Merah, Charlie, Paris…) redonne un souffle (+127% chez Le Figaro entre 2014 et 2015, contre +66% dans le corpus global)  à cette expression à travers ses variations “radicalisation” et “autoradicalisation”.",
     "values": [
         {
             "source":"figaro",
