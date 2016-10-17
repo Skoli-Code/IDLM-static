@@ -9,6 +9,12 @@ import 'jquery';
 // internal imports
 import { initSocials, Socials } from './socials';
 
+function isInViewPort(el){
+    let rect = el.getBoundingClientRect();
+    let wh = window.innerHeight;
+    return (rect.top <= wh*0.5) && (rect.top + rect.height) > (rect.height * 0.66);
+}
+
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -63,10 +69,8 @@ export class StepNavigationComponent implements OnInit {
 
     getVisibleAnchor(): Element {
         let scroll_top = document.body.scrollTop;
-        let _steps = _.filter(this.steps, (s) => {
-            let rect = s.getBoundingClientRect();
-            return Math.abs(rect.top) < rect.height / 10 || rect.bottom == 0;
-        });
+        let wh = $(window).height();
+        let _steps = _.filter(this.steps, isInViewPort);
         return _steps.length ? _steps[0] : null;
     }
 
