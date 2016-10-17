@@ -31,38 +31,40 @@ import { AboutComponent }     from './about/about.component';
 import { LinkDirective } from './shared/link.directive';
 import { RefComponent } from './shared/ref/ref.component';
 import { RepartitionComponent } from './home/sections/charts/repartition/repartition.component';
+import { TooltipModule } from 'ng2-tooltip';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    MethodologieComponent,
-    StepNavigationComponent,
-    ScrollWatcherDirective,
-    MarkdownPipe,
-    CapitalizePipe,
-    ProgressBarComponent,
-    Chart_1_1Component,
-    Chart_1_2Component,
-    Chart_2_2Component,
-    Chart_3_2Component,
-    NavbarComponent,
-    AboutComponent,
-    WordCloudComponent,
-    GenericSectionComponent,
-    LinkDirective,
-    RefComponent,
-    RepartitionComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpModule,
-    routing
-  ],
-  providers: [
-    { provide: LOCALE_ID, useValue:'fr-FR' },
-    appRoutingProviders, DataLoaderService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        MethodologieComponent,
+        StepNavigationComponent,
+        ScrollWatcherDirective,
+        MarkdownPipe,
+        CapitalizePipe,
+        ProgressBarComponent,
+        Chart_1_1Component,
+        Chart_1_2Component,
+        Chart_2_2Component,
+        Chart_3_2Component,
+        NavbarComponent,
+        AboutComponent,
+        WordCloudComponent,
+        GenericSectionComponent,
+        LinkDirective,
+        RefComponent,
+        RepartitionComponent,
+    ],
+    imports: [
+        TooltipModule,
+        BrowserModule,
+        HttpModule,
+        routing
+    ],
+    providers: [
+        { provide: LOCALE_ID, useValue: 'fr-FR' },
+        appRoutingProviders, DataLoaderService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

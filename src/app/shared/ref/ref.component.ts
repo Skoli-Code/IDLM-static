@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RefComponent implements OnInit {
     @Input() ref: string;
     @Input() text: string;
+    @Input() placement:string="top";
     constructor() { }
 
     ngOnInit() {

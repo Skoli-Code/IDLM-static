@@ -1,4 +1,5 @@
 // Vendor import
+@import '../node_modules/blaze/scss/components.tooltips';
 @import '../node_modules/blaze/scss/objects.containers';
 @import '../node_modules/blaze/scss/objects.grid';
 @import '../node_modules/blaze/scss/generics.global';
@@ -6,6 +7,7 @@
 
 
 // global definitions
+@import './app/shared/styles/tooltip';
 @import './app/shared/styles/variables';
 @import './app/shared/styles/typography';
 @import './app/home/sections/charts/charts';
@@ -27,13 +29,14 @@ section {
         }
         &__content {
             p {
-                font-size: $intro;
-                line-height: 2em;
                 &:first-child:first-letter {
                     font-size: $intro * 3;
                     line-height: $intro;
                     padding-left: 0.66em;
                 }
+            }
+            * {
+                font-size: $intro;
             }
         }
     }

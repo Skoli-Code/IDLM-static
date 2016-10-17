@@ -1,0 +1,16 @@
+@import '../styles/colors';
+@import '../styles/typography';
+
+:host {
+    // resolve small "gap" issue
+    font-size: 0;
+}
+
+.ref {
+    &, .tooltip {
+        font-size: $intro;
+    }
+    color: $light-gray;
+    border-bottom: 1px dashed $light-gray;
+    cursor: help;
+}
