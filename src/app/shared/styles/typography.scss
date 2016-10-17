@@ -8,12 +8,16 @@ $ptserif: "PT Serif", serif;
 $serif: $ptserif;
 $sansserif:$poppins;
 
-$base: 14px;
+$base: 15px;
 $h1: 40px;
 $h2: 22px;
 $h3: 20px;
 $app-title: 75px;
 
+.rotate90 {
+    transform: rotate(90deg);
+    display: block;
+}
 .serif {
     font-family: $ptserif;
 }

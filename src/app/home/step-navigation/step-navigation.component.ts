@@ -6,6 +6,10 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import * as _ from 'lodash';
 import 'jquery';
 
+// internal imports
+import { initSocials, Socials } from './socials';
+
+
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'idlm-step-navigation',
@@ -13,9 +17,10 @@ import 'jquery';
     styleUrls: ['./step-navigation.component.scss']
 })
 export class StepNavigationComponent implements OnInit {
+    socials: Socials;
+
     private steps: NodeListOf<Element>;
     private activeFragment: BehaviorSubject<string>;
-
     constructor(private location: PlatformLocation){
     }
 
@@ -26,6 +31,7 @@ export class StepNavigationComponent implements OnInit {
 
     ngOnInit() {
         this.steps = document.querySelectorAll('.anchor');
+        this.socials = initSocials();
     }
 
     ngAfterViewInit() {
