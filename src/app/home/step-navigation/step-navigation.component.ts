@@ -38,9 +38,6 @@ export class StepNavigationComponent implements OnInit {
     ngOnInit() {
         this.steps = document.querySelectorAll('.anchor');
         this.socials = initSocials();
-    }
-
-    ngAfterViewInit() {
         let h = '';
         this.location.onHashChange((e) => {
             let hash = (e as any).newURL.split('#')[1];
@@ -50,9 +47,10 @@ export class StepNavigationComponent implements OnInit {
         let hash = this.location.hash.substr(1);
         if (hash.length > 1) {
             h = hash;
+        } else if($(window).scrollTop() < $(window).height()) {
+            h = 'cover';
         }
         this.activeFragment = new BehaviorSubject<string>(h);
-
     }
 
     onHashChange(hash) {
@@ -65,6 +63,11 @@ export class StepNavigationComponent implements OnInit {
     isActive(anchor) {
         if(!this.activeFragment){ return false; }
         return this.activeFragment.getValue() == (anchor.id || null);
+    }
+
+    isCover(){
+        if(!this.activeFragment){ return true; }
+        return this.activeFragment.getValue() == 'cover';
     }
 
     getVisibleAnchor(): Element {

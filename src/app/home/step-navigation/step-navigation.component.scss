@@ -1,6 +1,14 @@
 @import "../../shared/styles/colors";
 @import "../../shared/styles/variables";
 
+* >>> .social {
+    &:hover {
+        path {
+            fill: $light-gray !important;
+        }
+    }
+}
+
 .vertical-nav {
     width: $vertical-nav-width;
     position: fixed;
