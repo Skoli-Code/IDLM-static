@@ -1,5 +1,5 @@
 @import '../../../shared/styles/colors';
-@import '../../../shared/styles/typography';
+@import '../../../shared/styles/variables';
 
 .section {
     &__intro {
@@ -26,6 +26,7 @@
         }
     }
     &__content {
+        overflow-x: hidden;
         &:empty {
             display: none;
         }
