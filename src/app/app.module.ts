@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { enableProdMode, NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -32,7 +32,9 @@ import { LinkDirective } from './shared/link.directive';
 import { RefComponent } from './shared/ref/ref.component';
 import { RepartitionComponent } from './home/sections/charts/repartition/repartition.component';
 import { TooltipModule } from 'ng2-tooltip';
+import { OpenModalDirective } from './shared/open-modal.directive';
 
+enableProdMode();
 @NgModule({
     declarations: [
         AppComponent,
@@ -54,6 +56,7 @@ import { TooltipModule } from 'ng2-tooltip';
         LinkDirective,
         RefComponent,
         RepartitionComponent,
+        OpenModalDirective,
     ],
     imports: [
         TooltipModule,
