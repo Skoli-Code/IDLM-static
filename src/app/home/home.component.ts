@@ -15,8 +15,9 @@ export class HomeComponent implements OnInit {
 
     goNext(){
         let target = $('#introduction');
+        let navh = $('.main-nav').height();
         $('html,body').stop().animate({
-            scrollTop: target.offset().top
+            scrollTop: target.offset().top - navh
         }, '400');
     }
 }
