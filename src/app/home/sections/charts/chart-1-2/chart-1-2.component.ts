@@ -42,9 +42,6 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     private lineDrawScale: ScaleLinear<any, any>;
     private invertDateScale: any;
     private previousPercentage: number=0;
-    private lineStrokeDasharray: number=4500;
-    debug:boolean=true;
-
 
     constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
         super(renderer, dataLoader);
@@ -67,10 +64,14 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         this.eventsData = this.data['events'];
     }
 
-    protected updateScales(){
-        super.updateScales();
+    protected initScales(){
+        super.initScales();
         this.invertDateScale = scaleTime().domain(this.xScale.domain()).range([0, 100]);
         this.lineDrawScale = scaleLinear().domain([0,100]).range([0, this.size.inner.width]);
+    }
+    protected updateScales(){
+        super.updateScales();
+        this.lineDrawScale.range([0, this.size.inner.width]);
     }
 
     getMaxYValue(){
@@ -88,35 +89,53 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         this.drawAxes();
     }
 
+    updateDraw(){
+        this._line.transition().duration(100)
+            .attr('d', this.lineFn());
+
+        this._events.attr('transform', (d)=>this.transformEvent(d));
+        this._visibilityClip.attr('height', this.size.inner.height);
+
+        this.setLineAt(this.previousPercentage);
+    }
+
     private drawVisibilityClip(){
-        this._visibilityClip = this._g.append('clipPath').attr('id', 'visibilityClip')
-            .append('rect').attr('height', this.size.inner.height).attr('width',0);
+        this._visibilityClip = this._g.append('clipPath')
+            .attr('id', 'visibilityClip')
+            .append('rect')
+            .attr('height', this.size.inner.height)
+            .attr('width',0);
+    }
+
+    private lineFn(){
+        return line<LineChartNode>()
+            .x((d)=>this.xScale(d.date))
+            .y((d)=>this.yScale(d.value));
     }
 
     private drawLine(){
-        let line_fn = line<LineChartNode>()
-            .x((d)=>this.xScale(d.date))
-            .y((d)=>this.yScale(d.value));
-
         this._line = this._g.append('path')
             .datum(this.lineData)
             .attr('class', 'line')
             .attr('clip-path', 'url(#visibilityClip)')
-            .attr('d', line_fn);
+            .attr('d', this.lineFn());
+    }
+
+    private transformEvent(d){
+        let occurence = _.find(this.lineData, (el)=>{
+            return el.date.getTime() == d.getTime();
+        }).value;
+        return `translate(${this.xScale(d)}, ${this.yScale(occurence)})`;
     }
 
     private drawEvents(){
         let dates = _.uniq(_.map(this.eventsData, (d)=>d.date));
-        this._events = this._g.selectAll('.event').data(dates)
+        this._events = this._g.selectAll('.event')
+            .data(dates)
             .enter()
             .append('path').attr('class', 'event')
             .attr('d', symbol().size(60))
-            .attr('transform', (d)=>{
-                let occurence = _.find(this.lineData, (el)=>{
-                    return el.date.getTime() == d.getTime();
-                }).value;
-                return `translate(${this.xScale(d)}, ${this.yScale(occurence)})`;
-            });
+            .attr('transform', (d)=>this.transformEvent(d));
     }
     private setLineAt(percentage:number){
         let line_percentage = this.lineDrawScale(percentage);
@@ -171,10 +190,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
             }
         }
         this.contextualData = data;
-
     }
-
-
 
     onScroll(percentage:number){
         if(!this.data){ return; }

@@ -13,8 +13,6 @@ import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts
 import { DataLoaderService } from '../data-loader.service';
 
 interface State {
-    pageTitle:string,
-    legendTitle:string,
     domain: any[],
     range: any[],
     scale: ScaleLinear<any,any>|ScaleQuantize<any>
@@ -26,6 +24,17 @@ interface StateObject {
     areas: State,
     focusPeriods: State
 };
+
+let TITLES = {
+    lines: {
+        page: 'L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles.',
+        legend: 'Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015).'
+    },
+    areas: {
+        page: 'La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre.',
+        legend: 'Occurrences des termes contenant “islam” par an et par corpus (1997-2015).'
+    }
+}
 
 @Component({
   selector: 'idlmChart-1-1',
@@ -39,8 +48,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     heightForScrollWatcher:string = "8000px";
     dataCatalogKey:string="1.1";
     currentState:State;
-    pageTitle: string;
-    legendTitle: string;
+    titles:{page:string, legend:string} = TITLES.lines;
     states: StateObject;
 
     private areaData: any;
@@ -73,6 +81,14 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this.drawAxes();
     }
 
+    updateDraw(){
+        this._lines.selectAll('path').attr('d', (d)=>this.lineFn(d.value.values));
+        this._focusRect.attr('height', this.size.inner.height);
+        this._clip.attr('height', this.size.inner.height);
+        this._focusArea.attr('d', this.drawAreaWithPerc(100));
+        this.onScroll(this.previousPercentage, true);
+    }
+
     initData(){
         for (let i in this.data) {
             let _data = this.data[i];
@@ -87,37 +103,28 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this.periodsData = PERIODS;
         this.initStates();
     }
-
     private initStates(){
         this.states = {
             // lines scale, percentage of line drawing.
             lines: {
-                pageTitle: 'L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles.',
-                legendTitle:'Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015).',
                 domain: [0, 20],
                 range: [2000, 0],
                 scale: scaleLinear()
             },
             // removeLines scale is to make "musulman" line dispappear (from top to bottom);
             removeLines: {
-                pageTitle: 'L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles.',
-                legendTitle:'Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015).',
                 domain: [20, 25],
                 range: [0, -1000],
                 scale: scaleLinear()
             },
             // areas scroll scale is to make stacked area appears.
             areas: {
-                pageTitle: 'La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre.',
-                legendTitle:'Occurrences des termes contenant “islam” par an et par corpus (1997-2015).',
                 domain: [20, 25],
                 range: [0, 100],
                 scale: scaleLinear()
             },
             // focus some specific areas in the graph
             focusPeriods: {
-                pageTitle: 'La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre.',
-                legendTitle:'Occurrences des termes contenant “islam” par an et par corpus (1997-2015).',
                 domain: [25, 100],
                 range: range(this.periodsData.length),
                 scale: scaleQuantize()
@@ -136,11 +143,9 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         }
 
     }
-
     getMaxYValue(){
         return 24000;
     }
-
     getXValues():any[]{
         let values = [];
         for( let i in this.data){
@@ -150,16 +155,16 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         }
         return values;
     }
-
-    private drawLines(){
-        let line_fn = line<LineChartNode>()
+    private lineFn(values){
+        return line<LineChartNode>()
             .x((d)=>{
                 return this.xScale(d.date);
             })
             .y((d)=>{
                 return this.yScale(d.value);
-            });
-
+            })(values);
+    }
+    private drawLines(){
         this._lines = this._g.selectAll('.line')
             .data(entries(this.data))
             .enter().append('g').attr('class', 'line');
@@ -167,16 +172,13 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this._lines
                 .append('path')
                 .attr('fill', 'none')
-                .attr('d', (d)=>{
-                    return line_fn(d.value.values);
-                })
+                .attr('d', (d)=>this.lineFn(d.value.values))
                 .attr('stroke-dasharray', 2000)
                 .attr('stroke-dashoffset', 2000)
                 .attr('class', (d)=>{
                     return `line ${d.key}`;
                 });
     }
-
     private stacks(data){
         let stack_fn = stack()
             .keys(['figaro', 'lemonde', 'liberation'])
@@ -185,7 +187,6 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
             });
         return stack_fn(data);
     }
-
     private drawStackedArea(data){
         let stacked_data = this.stacks(data);
         // first area draw for the "normal" area
@@ -196,10 +197,9 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
                 .append('path').attr('class', (d)=>`area regular ${d.key}`)
                 .attr('d', this.drawAreaWithPerc(0));
 
-        this._focusArea = this._g.append('g').attr('class', 'area-group focus');
-
         // 2nd path creation (dedicated for focus)
-        this._focusArea.selectAll('path.area.focus')
+        this._focusArea = this._g.append('g').attr('class', 'area-group focus')
+            .selectAll('path.area.focus')
             .data(stacked_data)
             .enter()
                 .append('path').attr('class', (d)=>`area focus ${d.key}`)
@@ -306,26 +306,16 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     }
 
     private updateCurrentState(percentage:number){
-        let currentState;
-        for (let i in this.states) {
-            let state = this.states[i];
-            let d = state.domain
-            if(percentage <= d[1] && percentage >= d[0]){
-                currentState = state;
-            }
-        }
-        this.currentState = currentState;
-        if(currentState.legendTitle != this.legendTitle){
-            this.legendTitle = currentState.legendTitle;
-        }
-        if(currentState.pageTitle != this.pageTitle){
-            this.pageTitle = currentState.pageTitle;
+        if(percentage <= this.states.removeLines.domain[1]){
+            this.titles = TITLES.lines;
+        } else {
+            this.titles = TITLES.areas;
         }
     }
 
-    onScroll(perc:number){
+    onScroll(perc:number, do_percentage_check=false){
         if(!this.data){ return; }
-        if(this.previousPercentage == perc){ return; }
+        if(this.previousPercentage == perc && !do_percentage_check){ return; }
         // short fail to avoid computation
         // if(perc == 0 || perc == 100){ return; }
         // major steps:
