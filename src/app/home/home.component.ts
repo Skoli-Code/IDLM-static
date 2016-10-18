@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import 'jquery';
 
 @Component({
   selector: 'idlmHome',
@@ -10,5 +11,12 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(){
+    }
+
+    goNext(){
+        let target = $('#introduction');
+        $('html,body').stop().animate({
+            scrollTop: target.offset().top
+        }, '400');
     }
 }
