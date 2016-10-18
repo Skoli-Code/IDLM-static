@@ -16,7 +16,7 @@ export interface Socials {
 
 export function initSocials(){
     let title = encodeURIComponent(getTitle());
-    let url   = encodeURIComponent(getProp('fb:link'));
+    let url   = encodeURIComponent(getProp('og:url'));
     let desc  = encodeURIComponent(getProp('description'));
     let tweet = encodeURIComponent(getProp('tweet_text'));
     return {

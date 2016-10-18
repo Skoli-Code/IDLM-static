@@ -55,8 +55,9 @@ export class StepNavigationComponent implements OnInit {
 
     onHashChange(hash) {
         let target = $('#' + hash);
+        let navh = $('.main-nav').height();
         $('html,body').stop().animate({
-            scrollTop: target.offset().top
+            scrollTop: target.offset().top - navh
         }, '400');
     }
 
