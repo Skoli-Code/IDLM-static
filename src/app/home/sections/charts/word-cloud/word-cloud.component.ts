@@ -20,6 +20,8 @@ export class WordCloudComponent extends AbstractChart {
     private words:Array<wordDataType>;
     private fontScale:ScaleLinear<number,number>;
     private fillScale:ScaleSequential<any>;
+    private _texts:any;
+
     @ViewChild('chartPlayground') chartElement: ElementRef;
     @Input('fontScale') fontScaleDomain: number[]=[6,100];
     @Input() wordFont:string='Impact';
@@ -32,18 +34,22 @@ export class WordCloudComponent extends AbstractChart {
         super(renderer, dataLoader);
     }
 
-    updateScales(){
+    initScales(){
         let domain = extent(this.words.map((w)=>w.size));
         this.fontScale = scaleLinear().domain(domain).range(this.fontScaleDomain);
         this.fillScale = scaleSequential(interpolateGreys).domain([0, this.fontScaleDomain[1] + 30]);
     }
 
+    updateScales(){
+    }
+
     bindEvents(){
+        super.bindEvents();
         this.cloudLayout.on('end', ()=>this.onLayoutDone());
     }
 
     initSVG(){
-        let _sizes = this.getSize();
+        let _sizes = this.size.svg;
         let sizes = [_sizes.width, _sizes.height];
 
         this.cloudLayout = d3_cloud()
@@ -68,24 +74,49 @@ export class WordCloudComponent extends AbstractChart {
         });
     }
 
-    getSize():sizeType{
+    initSizes(){
         let parent = this.chartElement.nativeElement.parentNode.parentNode;
         let bbox = parent.getBoundingClientRect();
-        return { width: bbox.width, height: bbox.width * this.ratio };
+        this.size = { svg: { width: bbox.width, height: bbox.width * this.ratio }};
     }
 
     draw(){
         this.cloudLayout.start();
     }
+    updateSVG(){
+        this._svg.attr('width',this.size.svg.width)
+                 .attr('height', this.size.svg.height);
+
+    }
+    updateDraw(){
+        let _sizes = this.size.svg;
+        let sizes = [_sizes.width, _sizes.height];
+
+        this.cloudLayout.size(sizes)
+            .fontSize((d)=>this.fontScale(d.size))
+            .on('end',()=>{
+                this._texts.attr('transform', (d)=>`translate(${[d.x, d.y]})rotate(${d.rotate})`)
+                    .style('fill',      (d)=>this.fillScale(d.size + 30))
+                    .style('font-size', (d)=>d.size + "px");
+            })
+            .start();
+    }
+
     onLayoutDone(){
-        this._g.selectAll('text').data(this.words)
-            .enter().append("text")
-                .style("font-size", (d)=> d.size + "px")
-                .style("font-family", "PT Serif")
-                .style("fill", (d)=>this.fillScale(d.size + 30))
-                .attr("text-anchor", "middle")
-                .attr("transform", (d)=> `translate(${[d.x, d.y]})rotate(${d.rotate})`)
-                .text(function(d) { return d.text; });
+        console.log('onLayoutDone !');
+        this._texts = this._g.selectAll('text').data(this.words);
+
+        this._texts.enter().append("text")
+            .attr('transform', (d)=> `translate(${[d.x, d.y]})rotate(${d.rotate})`)
+            .style('font-size', (d)=> d.size + 'px')
+            .style('font-family', 'PT Serif')
+            .style('fill', (d)=>this.fillScale(d.size + 30))
+            .attr('text-anchor', 'middle')
+            .text(function(d) { return d.text; })
+            .attr('transform',  (d)=>`translate(${[d.x, d.y]})rotate(${d.rotate})`)
+            .style('fill',      (d)=>this.fillScale(d.size + 30))
+            .style('font-size', (d)=>d.size + "px");
+
     }
 
 }
