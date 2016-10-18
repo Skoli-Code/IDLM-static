@@ -33,3 +33,19 @@ $tooltip-arrow-width:5px !default;
 $tooltip-arrow-color:$tooltip-bg !default;
 
 $zindex-tooltip: 1070 !default;
+
+@import url(http://fonts.googleapis.com/css?family=Poppins:400|PT+Serif:400,700);
+$poppins: "Poppins",sans-serif;
+$ptserif: "PT Serif", serif;
+
+$serif: $ptserif;
+$sansserif:$poppins;
+
+$base-font-size: 14px;
+$h1: 40px;
+$h2: 22px;
+$h3: 20px;
+$intro-font-size: $h3;
+$intro-line-height: $intro-font-size * 1.6;
+
+$app-title: 75px;
