@@ -1,6 +1,5 @@
 @import '../../../shared/styles/colors';
 @import '../../../shared/styles/mixins';
-@import '../../../shared/styles/typography';
 @import '../../../shared/styles/variables';
 
 .chart {
@@ -68,7 +67,7 @@ path {
         }
         text {
             font-family: $sansserif;
-            font-size: $base * 0.8;
+            font-size: $base-font-size * 0.8;
         }
         &.new {
             text {

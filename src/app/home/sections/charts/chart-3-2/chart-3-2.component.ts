@@ -69,7 +69,6 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
     }
 
     initSizes(){
-        // console.log(this.chartElement);
         let _holder = select('.chart-3-2');
         this._cells = _holder.selectAll('.chart-cell');
         let node = this._cells.node();
@@ -125,11 +124,15 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
         this.active = this.data.find((adj)=>adj.name == name);
     }
 
-    updateScales(){
+    initScales(){
         let dates = this.data[0].values[0].sub_values.map(d=>d[0]);
         let adjectives = this.data.map((d)=>d.name)
         this.adjScale = scaleQuantize().domain([0,100]).range(adjectives);
         this.xScale = scaleTime().domain(_extent(dates)).range([0, this.size.inner.width]);
+    }
+
+    updateScales(){
+        this.xScale.range([0, this.size.inner.width]);
     }
 
     updateCharts(){
@@ -161,6 +164,10 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
 
     draw(){
         this.updateCharts();
+    }
+
+    updateDraw(){
+
     }
 
     onScroll(percentage:number){

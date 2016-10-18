@@ -76,7 +76,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
             }
         };
     }
-    updateScales(){
+    initScales(){
         let dates = this.data[0].tops.map((t)=>t.date);
         this.yearScale = scaleTime()
             .domain(_extent(dates))
@@ -84,7 +84,8 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
 
         this.initLayouts();
     }
-
+    updateScales(){
+    }
     initData(){
         this.data = this.data.map((s)=>{
             s.tops = s.tops.map((top)=>{
@@ -284,6 +285,10 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
 
         this.drawSeperator();
         this.drawLegend();
+    }
+
+    updateDraw(){
+
     }
 
     onScroll(percentage:number){
