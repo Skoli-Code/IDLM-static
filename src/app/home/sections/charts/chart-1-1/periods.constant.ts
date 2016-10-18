@@ -10,13 +10,13 @@ export var PERIODS:IPeriod[] = [
     dates: [ d(1997), d(2001​) ],
     content:`<span class="bold underline">1997 – 2001​: attentats terroristes</span>
 
-    Durant cette période, bien que de nombreux attentats frappent en Afrique (Algérie, Egypte, Kenya, Tanzanie) et sur le continent asiatique (Afghanistan, Yémen, Inde, Indonésie), la question de l’islam n’est pas significativement traitée à la lumièrede ces événements.`
+    Durant cette période, bien que de nombreux attentats frappent en Afrique (Algérie, Egypte, Kenya, Tanzanie) et sur le continent asiatique (Afghanistan, Yémen, Inde, Indonésie), la question de l’islam n’est pas significativement traitée à la lumière de ces événements.`
 },
 {
     dates: [ d(2001), d(2004​) ],
     content:`<span class="underline">2001 – 2004​: Le 11 septembre et ses conséquences (Afghanistan, Irak, politisation </span> débat surbold  l’islam)**
 
-    Cette période est d’abord marquée par les **attentats du 11 septembre 2001** sur le sol américain. Hautement symboliques, ces attentats font connaître au grand public la nébuleuse Al Qaïda et ses leaders, au premier rang desquels figure Oussama Ben Laden. S’initie alors la « **guerre contre le terrorisme** » qui se traduit par l’intervention menée par les Etats-Unis en **Afghanistan** (2001) puis l’invasion américaine en **Irak** (2003).  En 2004, **Madrid** est frappé par un **attentat**. Des décapitations d’otages - notamment occidentaux - retenus en Irak sont mise en scènes et amplement relayées sur la toile. En France, l’islam devient un sujet politique, la question du **voile** est mise à l’agenda (Commission Stasi, affaire Alma et Lila Lévy, , loi du 15 mars 2004).`
+    Cette période est marquée par les **attentats du 11 septembre 2001** sur le sol américain. Hautement symboliques, ces attentats mettent en lumière la nébuleuse Al Qaïda et ses leaders (dont Oussama Ben Laden). S’initie alors la « **guerre contre le terrorisme** »: de l’intervention menée par les Etats-Unis en **Afghanistan** (2001) à l’invasion américaine en **Irak** (2003).  En 2004, **Madrid** est frappé par un **attentat**. Des décapitations d’otages - notamment occidentaux - retenus en Irak sont mise en scènes et amplement relayées sur la toile. En France, l’islam devient un sujet politique, la question du **voile** est mise à l’agenda (Commission Stasi, affaire Alma et Lila Lévy, loi du 15 mars 2004).`
 },
 {
     dates: [ d(2005), d(2007) ],
