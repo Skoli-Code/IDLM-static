@@ -17,10 +17,6 @@ section {
     overflow: auto;
 }
 .section {
-    .o-container--full-height {
-        min-height: 100vh;
-    }
-
     &__intro {
         &__title {
             h1 {
@@ -30,13 +26,14 @@ section {
         &__content {
             p {
                 &:first-child:first-letter {
-                    font-size: $intro * 3;
-                    line-height: $intro;
+                    font-size: $intro-font-size * 3;
+                    line-height: $intro-font-size;
                     padding-left: 0.66em;
                 }
             }
             * {
-                font-size: $intro;
+                font-size: $intro-font-size;
+                line-height: $intro-line-height;
             }
         }
     }
@@ -48,6 +45,19 @@ section {
     }
 }
 
+
+.vert {
+    position: relative;
+    &--full-height {
+        min-height: 100vh;
+    }
+    &__content {
+        position: relative;
+        // top: 50%;
+        transform: translate(0, 25%);
+    }
+
+}
 .text-center {
     text-align: center;
 }
