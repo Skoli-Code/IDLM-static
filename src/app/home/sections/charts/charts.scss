@@ -9,6 +9,7 @@
         margin-top: $vertical-padding/2;
     }
     &__description {
+        max-width: $screen-limit-small;
         &__title {
             margin-top: 0;
             margin-bottom: 1.5em;
@@ -139,10 +140,10 @@ rect.focus-rect {
 
 .axis {
     .tick line, path.domain {
-        stroke: $lightest-gray !important;
+        stroke: $light-gray !important;
     }
     text {
-        fill: $lightest-gray !important;
+        fill: $light-gray !important;
         font-size: 12px;
     }
 }
