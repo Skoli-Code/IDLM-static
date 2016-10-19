@@ -47,6 +47,9 @@
     }
     .socials {
         margin-top: 4em;
+        .social {
+            cursor: pointer;
+        }
     }
 }
 

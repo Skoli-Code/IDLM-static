@@ -45,7 +45,6 @@ export class StepNavigationComponent implements OnInit {
             method: 'share',
             href: meta.url
         };
-        console.log('openFacebookDialog',params);
         this.FB.ui(params);
     }
 
