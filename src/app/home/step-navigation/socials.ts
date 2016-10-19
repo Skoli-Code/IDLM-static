@@ -6,19 +6,19 @@ function getTitle(){
     return $('head title').text();
 }
 
-function getProp(name){
+export function getProp(name){
     return $(`meta[property="${name}"]`).attr('content');
 }
 
 export interface Socials {
     linkedin: string,
-    facebook: string,
     twitter: string
 }
-let meta = {
-    url: _enc_('http://islam-objet.mediatique.fr'),
+
+export var meta = {
+    url: 'http://islam-objet.mediatique.fr',
     twitter: {
-        tweet: _enc_('"L\'islam, objet médiatique” - Étude sur le traitement médiatique de l\'islam dans la presse française'),
+        tweet: _enc_('“L\'islam, objet médiatique” - Étude sur le traitement médiatique de l\'islam dans la presse française'),
         hashtags: ['islam', 'dataviz'].join(',')
     },
     linkedin: {
@@ -28,9 +28,9 @@ let meta = {
     }
 }
 export function initSocials(){
+    let url = _enc_(meta.url)
     return {
-        linkedin: `https://www.linkedin.com/shareArticle?url=${meta.url}&source=${meta.linkedin.source}&title=${meta.linkedin.title}&summary=${meta.linkedin.summary}&mini=true`,
-        twitter: `https://twitter.com/intent/tweet?text=${meta.twitter.tweet}&url=${meta.url}&hastags=${meta.twitter.hashtags}`,
-        facebook: `https://facebook.com/sharer.php?url=${meta.url}`
+        linkedin: `https://www.linkedin.com/shareArticle?url=${url}&source=${meta.linkedin.source}&title=${meta.linkedin.title}&summary=${meta.linkedin.summary}&mini=true`,
+        twitter: `https://twitter.com/intent/tweet?text=${meta.twitter.tweet}&url=${url}&hastags=${meta.twitter.hashtags}`
     }
 }

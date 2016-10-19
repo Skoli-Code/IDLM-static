@@ -1,13 +1,13 @@
 // ng imports
 import { AsyncPipe, PlatformLocation } from '@angular/common';
 import { Component, HostListener, OnInit, ChangeDetectionStrategy } from '@angular/core';
-// others libs
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+// others libs
 import * as _ from 'lodash';
 import 'jquery';
 
 // internal imports
-import { initSocials, Socials } from './socials';
+import { initSocials, getProp, meta, Socials } from './socials';
 
 function isInViewPort(el){
     let rect = el.getBoundingClientRect();
@@ -15,6 +15,9 @@ function isInViewPort(el){
     return (rect.top <= wh*0.5) && (rect.top + rect.height) > (rect.height * 0.66);
 }
 
+function w():any{
+    return window;
+}
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,10 +27,26 @@ function isInViewPort(el){
 })
 export class StepNavigationComponent implements OnInit {
     socials: Socials;
-
+    FB: any;
     private steps: NodeListOf<Element>;
     private activeFragment: BehaviorSubject<string>;
     constructor(private location: PlatformLocation){
+        let params = {
+            appId  : getProp('fb:app_id'),
+            xfbml  : true,
+            version: 'v2.8'
+        }
+        this.FB = w().FB;
+        this.FB.init(params);
+    }
+
+    openFacebookDialog(){
+        let params = {
+            method: 'share',
+            href: meta.url
+        };
+        console.log('openFacebookDialog',params);
+        this.FB.ui(params);
     }
 
     onStepClicked(step) {
