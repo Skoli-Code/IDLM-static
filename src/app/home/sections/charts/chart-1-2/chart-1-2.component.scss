@@ -1,11 +1,24 @@
+@import '../../../../shared/styles/variables';
+
 .chart {
+    .sep {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+    &__contextual-data {
+        margin-bottom: 2em;
+        .data {
+            font-size: $h3;
+        }
+    }
 }
+
+
 .events {
+    display: flex;
+    align-items: flex-start;
     .event {
-        display: inline-block;
-        vertical-align: top;
-        margin-right: 1.5em;
-        margin-bottom: 1em;
+        padding-right: 1.5em;
         &__title, a {
             margin-bottom: 0;
             font-size: 0.85em;

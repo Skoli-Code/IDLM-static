@@ -1,12 +1,12 @@
 <div class="chart-holder" [style.height]="heightForScrollWatcher">
     <div class="chart chart-1-2" idlmScrollWatcher (onScroll)="onScroll($event)">
-        <h2 class="subpart-title text-center">Les effets de l’actualité : Un objet médiatique volatile mais intense.</h2>
+        <h3 class="subpart-title text-center">Les effets de l’actualité : Un objet médiatique volatile mais intense.</h3>
         <div class="o-grid">
             <div class="o-grid__cell o-grid__cell--width-60">
                 <svg #chartPlayground></svg>
                 <div class="events" [style.margin-left]="margin.left + 'px'">
                     <div *ngFor="let event of activeEvents" class="event quote"
-                        [ngClass]='{ "event--capped": activeEvents.length > 1 }'>
+                        [@fadeRight]="event">
                         <h5 class="event__title serif">{{event.description}}</h5>
                         <a *ngIf="event.link != null" href="{{event.link}}" rel="nofollow">Plus d'infos</a>
                     </div>
@@ -17,32 +17,31 @@
                 <p>
                     La volatilité du sujet transparaît ici clairement, pour autant, s’il apparaît que la médiatisation de l’islam suit l’actualité (attentats, guerres, débats politiques, …), après 2001, le sujet devient un thème récurrent, un sujet de premier plan.  L’usage du terme “islam” dans la presse est extrêmement fort suite aux attentats (11 septembre, janvier 2015 contre Charlie Hebdo, les attentats de Londres en 2005 échappent à cette médiatisation), ce qui montre bien que l’analyse de ces évènements est avant tout orientée de manière religieuse bien plus que sociale ou géopolitique.
                 </p>
+                <div class="sep"></div>
                 <div class="chart__contextual-data" *ngIf="contextualData">
                     <div class="o-grid">
                         <div style='width:100px'
                             class="o-grid__cell o-grid__cell--no-gutter o-grid__cell--width-fixed">
-                            <div class="bold serif">{{ contextualData.date | date:'yyyy' }}</div>
+                            <div class="data bold serif">{{ contextualData.date | date:'yyyy' }}</div>
                             <div>
                                 {{ contextualData.date | date:'MMMM' }}
                             </div>
                         </div>
                         <div class="o-grid__cell">
-                            <div class="bold serif">{{ contextualData.totalOccurences }}</div>
+                            <div class="data bold serif">{{ contextualData.totalOccurences }}</div>
                             <div>occurences</div>
                         </div>
                         <div class="o-grid__cell">
                             dont
                         </div>
                         <div class="o-grid__cell">
-                            <div class="bold serif">{{ contextualData.titleOccurences }}</div>
+                            <div class="data bold serif">{{ contextualData.titleOccurences }}</div>
                             <div>titres</div>
                         </div>
                     </div>
-                    <div class="sep"></div>
-                    <div class="chart__legend">
-                        <idlmRepartitionChart [repartition]="contextualData.corpus"></idlmRepartitionChart>
-                    </div>
-
+                </div>
+                <div class="chart__legend" *ngIf="contextualData">
+                    <idlmRepartitionChart [repartition]="contextualData.corpus"></idlmRepartitionChart>
                 </div>
             </div>
         </div>
