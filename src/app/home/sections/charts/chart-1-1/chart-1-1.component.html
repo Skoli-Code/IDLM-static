@@ -13,7 +13,7 @@
         <div class="o-grid">
             <div class="o-grid__cell o-grid__cell--width-60">
                 <svg #chartPlayground></svg>
-                <div class="chart__legend">
+                <div class="chart__legend" [style.margin-left]="margin.left + 'px'">
                     <ul class="list-inline" *ngIf="legend == legends.areas">
                         <li class="figaro"><span class="color"></span>&nbsp;<span class="name">Le Figaro</span></li>
                         <li class="liberation"><span class="color"></span>&nbsp;<span class="name">Libération</span></li>
