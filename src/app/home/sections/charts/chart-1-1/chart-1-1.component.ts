@@ -11,6 +11,7 @@ import { transition } from 'd3-transition';
 import { PERIODS, IPeriod } from './periods.constant';
 import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
+// import { fade } from '../../animations';
 
 interface State {
     domain: any[],
@@ -28,7 +29,7 @@ interface StateObject {
 @Component({
   selector: 'idlmChart-1-1',
   templateUrl: './chart-1-1.component.html',
-  styleUrls: ['./chart-1-1.component.scss']
+  styleUrls: ['./chart-1-1.component.scss'],
 })
 export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;

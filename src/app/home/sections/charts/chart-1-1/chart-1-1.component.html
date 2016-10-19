@@ -1,20 +1,20 @@
 <div class="scroll-holder" [style.height]="heightForScrollWatcher">
     <div idlmScrollWatcher (onScroll)="onScroll($event)" class="chart chart-1-1">
         <div class="text-center">
-            <h2 class="subpart-title">
+            <h3 class="subpart-title">
                 <span *ngIf='legend == legends.lines'>
                     L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles
                 </span>
                 <span *ngIf='legend == legends.areas'>
                     La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre
                 </span>
-            </h2>
+            </h3>
         </div>
         <div class="o-grid">
             <div class="o-grid__cell o-grid__cell--width-60">
                 <svg #chartPlayground></svg>
                 <div class="chart__legend" [style.margin-left]="margin.left + 'px'">
-                    <ul class="list-inline" *ngIf="legend == legends.areas">
+                    <ul class="list-inline" *ngIf='legend == legends.areas'>
                         <li class="figaro"><span class="color"></span>&nbsp;<span class="name">Le Figaro</span></li>
                         <li class="liberation"><span class="color"></span>&nbsp;<span class="name">Libération</span></li>
                         <li class="lemonde"><span class="color"></span>&nbsp;<span class="name">Le Monde</span></li>
