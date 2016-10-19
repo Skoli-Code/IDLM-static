@@ -68,12 +68,12 @@
     <div title>Les “maux” de l’islam</div>
     <div introduction>
         <p>
-            Depuis 2001, l’islam est un objet médiatique, pourtant les raisons de la mise à l’agenda de sujets impliquant l’usage du mot “islam” sont diverses. Certes les violences qui ensanglantent le Proche ou Moyen Orient jouent pour une part dans l’usage médiatique du terme “islam”. Cependant on note aussi un usage du terme dans un cadre domestique, autour de “questions de société” mises politiquement à l’agenda (voile, halal, pain au chocolat,…). Cette étude propose une plongée dans les mots de l’islam : ils permettent de voir les préoccupations, les peurs qui sont à l’oeuvre dans cette médiatisation et de mesurer ce que <idlmRef [ref]="'R. Liogier, Le mythe de l\'islamisation, Essai sur une obsession collective, Editions du Seuil, 2012'" [text]="'Raphaël Liogier'"></idlmRef> nomme une “ambiance collective paranoïde”.
+            Depuis 2001, l’islam est un objet médiatique, pourtant les raisons de la mise à l’agenda de sujets impliquant l’usage du mot “islam” sont diverses. Certes les violences qui ensanglantent le Proche ou Moyen Orient jouent pour une part dans l’usage médiatique du terme “islam”. Cependant on note aussi un usage du terme dans un cadre domestique, autour de “questions de société” mises politiquement à l’agenda (voile, halal, pain au chocolat,…). Cette étude propose une plongée dans les mots de l’islam : ils permettent de voir les préoccupations, les peurs qui sont à l’oeuvre dans cette médiatisation et de mesurer ce que <idlmRef [ref]="'R. Liogier, Le mythe de l\'islamisation, Essai sur une obsession collective, Editions du Seuil, 2012'" [text]="'Raphaël Liogier'"></idlmRef>&nbsp;nomme une “ambiance collective paranoïde”.
         </p>
     </div>
     <!-- 2.1  -->
     <div content>
-        <div class="o-container o-container--super vert--full-height">
+        <div class="o-container o-container--xlarge vert--full-height">
             <div class="text-center">
                 <h3 class="subpart-title">Rapport à l’Etat et à l’identité : les mots du “problème”.</h3>
             </div>
@@ -106,26 +106,24 @@
         </p>
     </div>
     <div content>
-        <div class="vert--full-height vert">
-            <div class="vert__content">
-                <div class="o-container o-container--super">
-                    <div class="text-center">
-                        <h3 class="subpart-title">L’islam, un objet défini de l’extérieur</h3>
+        <div class="vert--full-height vert o-container o-container--xlarge">
+            <div class="text-center">
+                <h3 class="subpart-title">L’islam, un objet défini de l’extérieur</h3>
+            </div>
+            <div class="o-grid">
+                <div class="chart__description o-grid__cell o-grid__cell--width-30 vert">
+                    <div class="vert__content">
+                        <h5 class="chart__description">Co-occurrences du terme “islam” avec un adjectif dans le corpus total</h5>
+                        <p>
+                            La co-occurrence de ces adjectifs avec le lemme “islam” permet de mesurer les affections éprouvées par la presse face à cet objet. Ainsi, les adjectifs présents donnent une image assez anxiogène de l’islam. Si les évènements liés (ou attribués) à l’islam ces dernières années ne poussent pas à l’insouciance, la charge émotionnelle des adjectifs présents avec le terme islam est clairement négative.
+                        </p>
+                        <p>
+                            On peut mesurer le tournant que fut le 11 septembre 2001 à la lumière de l’explosion de l’usage des qualificatifs de l’islam dans la presse, mais plus généralement de la médiatisation de l’islam ou des musulmans.
+                        </p>
                     </div>
-                    <div class="o-grid">
-                        <div class="chart__description o-grid__cell o-grid__cell--width-30">
-                            <h5 class="chart__description">Co-occurrences du terme “islam” avec un adjectif dans le corpus total</h5>
-                            <p>
-                                La co-occurrence de ces adjectifs avec le lemme “islam” permet de mesurer les affections éprouvées par la presse face à cet objet. Ainsi, les adjectifs présents donnent une image assez anxiogène de l’islam. Si les évènements liés (ou attribués) à l’islam ces dernières années ne poussent pas à l’insouciance, la charge émotionnelle des adjectifs présents avec le terme islam est clairement négative.
-                            </p>
-                            <p>
-                                On peut mesurer le tournant que fut le 11 septembre 2001 à la lumière de l’explosion de l’usage des qualificatifs de l’islam dans la presse, mais plus généralement de la médiatisation de l’islam ou des musulmans.
-                            </p>
-                        </div>
-                        <div class="o-grid__cell">
-                            <idlmWordCloud [fontScale]="[15, 120]" [dataCatalogKey]="'3.1'" [ratio]="0.5"></idlmWordCloud>
-                        </div>
-                    </div>
+                </div>
+                <div class="o-grid__cell vert">
+                    <idlmWordCloud class="vert__content"[fontScale]="[15, 120]" [dataCatalogKey]="'3.1'" [ratio]="0.8"></idlmWordCloud>
                 </div>
             </div>
         </div>
