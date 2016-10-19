@@ -24,7 +24,6 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     heightForScrollWatcher:string = "12000px";
     activeEvents: any[];
     dataCatalogKey:string="1.2";
-    eventsMargin:number;
     contextualData: {
         date: Date,
         titleOccurences:number,
@@ -45,11 +44,6 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
 
     constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
         super(renderer, dataLoader);
-    }
-
-    initSizes(){
-        super.initSizes();
-        this.eventsMargin = this.margin.left;
     }
 
     initData(){

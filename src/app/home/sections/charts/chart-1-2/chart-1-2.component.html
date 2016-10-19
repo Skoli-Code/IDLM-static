@@ -4,7 +4,7 @@
         <div class="o-grid">
             <div class="o-grid__cell o-grid__cell--width-60">
                 <svg #chartPlayground></svg>
-                <div class="events" [ngStyle]="{ 'margin-left': eventsMargin + 'px' }">
+                <div class="events" [style.margin-left]="margin.left + 'px'">
                     <div *ngFor="let event of activeEvents" class="event quote"
                         [ngClass]='{ "event--capped": activeEvents.length > 1 }'>
                         <h5 class="event__title serif">{{event.description}}</h5>
