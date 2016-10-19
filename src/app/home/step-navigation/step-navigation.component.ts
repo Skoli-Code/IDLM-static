@@ -32,7 +32,7 @@ export class StepNavigationComponent implements OnInit {
     private activeFragment: BehaviorSubject<string>;
     constructor(private location: PlatformLocation){
         let params = {
-            appId  : getProp('fb:app_id'),
+            appId  : 1939376526289572,
             xfbml  : true,
             version: 'v2.8'
         }
