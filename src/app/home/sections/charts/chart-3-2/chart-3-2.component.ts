@@ -16,6 +16,8 @@ import { DataLoaderService } from '../data-loader.service';
 import { Repartition } from '../repartition/repartition.component';
 import { _extent } from '../utils';
 
+import { fadeRight } from '../../animations';
+
 type Datum = [Date,number];
 
 interface SourceDatum {
@@ -33,7 +35,8 @@ type adjectiveType = {
 @Component({
   selector: 'idlmChart-3-2',
   templateUrl: './chart-3-2.component.html',
-  styleUrls: ['./chart-3-2.component.scss']
+  styleUrls: ['./chart-3-2.component.scss'],
+  animations: [ fadeRight ]
 })
 export class Chart_3_2Component extends AbstractChart implements ScrollableChart {
     chartElement:any=null;
@@ -88,6 +91,7 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
     }
 
     initData(){
+        this.data = this.data.sort((a,b)=>a.order > b.order);
         this.data = this.data.map((adj)=>{
             // first loop to compute all total occurences & change structure
             adj.values = adj.values.map((src)=>{
@@ -97,12 +101,6 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
                 });
                 src.occurences = sum(src.sub_values, (v)=>v[1]);
                 return src;
-            });
-            //second loop to comptue ranks
-            adj.values = adj.values.sort((a,b)=>a.occurences < b.occurences);
-            adj.values = adj.values.map((v,i)=>{
-                v.rank = i;
-                return v;
             });
             // third and final loop to compute repartition
             let total = sum(adj.values, (d:SourceDatum)=>d.occurences);
