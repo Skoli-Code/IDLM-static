@@ -8,10 +8,8 @@
 }
 
 .ref {
-    &, .tooltip {
-        font-size: $intro-font-size;
-        line-height: $intro-line-height;
-    }
+    font-size: $intro-font-size;
+    line-height: $intro-line-height;
     color: $light-gray;
     border-bottom: 1px dashed $light-gray;
     cursor: help;
