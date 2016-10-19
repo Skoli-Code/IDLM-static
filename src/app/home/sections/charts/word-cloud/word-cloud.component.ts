@@ -103,7 +103,6 @@ export class WordCloudComponent extends AbstractChart {
     }
 
     onLayoutDone(){
-        console.log('onLayoutDone !');
         this._texts = this._g.selectAll('text').data(this.words);
 
         this._texts.enter().append("text")
