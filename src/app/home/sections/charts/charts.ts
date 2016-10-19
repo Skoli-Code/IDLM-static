@@ -155,33 +155,21 @@ export abstract class AxedChart extends AbstractChart {
     }
 
     updateAxes(){
-        let _d = (y)=>(new Date(y, 1, 0));
-        let xTicksValues = [];
-        for(let i = 1997; i < 2016; i++){
-            xTicksValues.push(_d(i));
-        }
-
         this._xAxis.attr('transform', `translate(0, ${this.size.inner.height})`)
-            .call(this.xAxis.ticks(17)
-                .tickValues(xTicksValues)
-                .tickFormat(timeFormat("%Y"))
-            );
+            .call(this.xAxis.ticks(17));
 
         this._xAxis.selectAll('.tick').each(function(){
             let tick = select(this);
             let text = tick.select('text');
+            // shortfail, if we don't have text to remove we stop here
             if(!!!(text && text.size())){ return; }
-            try {
-                let val  = +text.text();
-                if(val%5==0){
-                    let y = 12;
-                    text.attr('y', y + 3);
-                    tick.select('line').attr('y2', y);
-                } else {
-                    text.remove();
-                }
-            } catch(e){
-                debugger;
+            let val  = +text.text();
+            if(val%5==0){
+                let y = 12;
+                text.attr('y', y + 3);
+                tick.select('line').attr('y2', y);
+            } else {
+                text.remove();
             }
         });
         this._yAxis.call(this.yAxis.ticks(6));
