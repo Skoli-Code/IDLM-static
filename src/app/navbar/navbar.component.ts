@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import 'jquery';
 
 @Component({
-  selector: 'idlmNavbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+    selector: 'idlmNavbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+    }
+    scrollToTop() {
+        $('html,body').animate({
+            scrollTop: 0
+        }, 400);
+    }
 }
