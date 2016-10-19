@@ -5,13 +5,21 @@
  * Adaptation for angular 2 by Pierre Bellon
  */
 
-import { Directive, ElementRef, EventEmitter, Input, Output, Renderer } from '@angular/core';
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Input,
+    Output,
+    Renderer,
+    OnInit
+} from '@angular/core';
 import 'jquery';
 let requestAnimationFrame = window.requestAnimationFrame;
 let cancelAnimationFrame = window.cancelAnimationFrame;
 
 @Directive({ selector: '[idlmScrollWatcher]' })
-export class ScrollWatcherDirective {
+export class ScrollWatcherDirective implements OnInit {
     private outerId: string = Math.random().toString().replace('.', '');
     private active: boolean = false;
     private hasBeenActive: boolean = false;
@@ -24,7 +32,7 @@ export class ScrollWatcherDirective {
     private $el: any;
     private _outer: any;
     private $outer: any;
-    @Input() navBarHeight: number=50;
+    private navBarHeight: number=50;
     @Output() onScroll: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(private el: ElementRef, private renderer: Renderer) {
@@ -37,12 +45,18 @@ export class ScrollWatcherDirective {
         this.start();
     }
 
+    ngOnInit(){
+        this.navBarHeight = $('.main-nav').height();
+    }
+
     // starts watching for scroll movement
     start(){
         this.renderer.setElementAttribute(this._outer, 'id', this.outerId);
         // sticky stuff
-        let native_sticky = navigator.userAgent.indexOf('Firefox') === -1;
-        $(this._el).fixTo(this._outer, {useNativeSticky:native_sticky, top:this.navBarHeight});
+        // let native_sticky = navigator.userAgent.indexOf('Firefox') === -1;
+        $(this._el).fixTo(this._outer, {
+            useNativeSticky:false, mind:'.main-nav'
+        });
         this.interval = requestAnimationFrame(()=>{this.onTick()});
         return this;
     }
@@ -68,7 +82,6 @@ export class ScrollWatcherDirective {
         let scrollPos = this.getScrollPos(scrollDistance);
         let cappedScrollPos = this.capPercentage(scrollPos);
         let scrollPosMaxOrMore = ((scrollPos >= 100) || (scrollPos <= 0));
-
         // 'maxedOut' is true when the scrollPos is outside of 0-100
         // and has run once at this.state maxed-out scroll position.
         // It improves performance by only running the callback when necessary
@@ -101,12 +114,12 @@ export class ScrollWatcherDirective {
         var supportPageOffset = window.pageXOffset !== undefined;
         var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
         var y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
-        return y - (this.$outer.offset().top + this.navBarHeight);
+        return y - this.$outer.offset().top;
     }
 
     // gets scroll position as % of container
     getScrollPos(scrollDistance) {
-        return (scrollDistance / (this.$outer.height() - $(window).height() - this.navBarHeight)) * 100;
+        return (scrollDistance / (this.$outer.height() - $(window).height())) * 100;
     }
 
     // toggles stickiness of 'inner' element
