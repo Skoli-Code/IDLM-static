@@ -16,6 +16,7 @@
 section {
     overflow: auto;
 }
+
 .section {
     &__intro {
         &__title {
@@ -41,6 +42,15 @@ section {
         color: $light-gray;
         h1,h2,h3,h4,h5,.serif {
             color: $black;
+        }
+    }
+    @each $size-name, $size in $screen-sizes {
+        .o-container--#{$size-name} {
+            @media screen and (max-width: $size){
+                .right-gutter {
+                    padding-right: $vertical-nav-width * 2 + .5em;
+                }
+            }
         }
     }
 }
@@ -80,11 +90,4 @@ section {
     width: 100%;
     background-color: $light-gray;
     height: 2px;
-}
-
-.right-gutter {
-    padding-right: 1em;
-    @media screen and (max-width: $screen-limit-super){
-        padding-right: $vertical-nav-width * 2 + .5em;
-    }
 }
