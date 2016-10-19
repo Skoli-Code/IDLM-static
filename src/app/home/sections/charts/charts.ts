@@ -156,7 +156,7 @@ export abstract class AxedChart extends AbstractChart {
 
     updateAxes(){
         this._xAxis.attr('transform', `translate(0, ${this.size.inner.height})`)
-            .call(this.xAxis.ticks(17));
+            .call(this.xAxis.ticks(19));
 
         this._xAxis.selectAll('.tick').each(function(){
             let tick = select(this);
