@@ -25,17 +25,6 @@ interface StateObject {
     focusPeriods: State
 };
 
-let TITLES = {
-    lines: {
-        page: 'L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles.',
-        legend: 'Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015).'
-    },
-    areas: {
-        page: 'La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre.',
-        legend: 'Occurrences des termes contenant “islam” par an et par corpus (1997-2015).'
-    }
-}
-
 @Component({
   selector: 'idlmChart-1-1',
   templateUrl: './chart-1-1.component.html',
@@ -48,8 +37,12 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     heightForScrollWatcher:string = "8000px";
     dataCatalogKey:string="1.1";
     currentState:State;
-    titles:{page:string, legend:string} = TITLES.lines;
     states: StateObject;
+    legends = {
+        lines: 0,
+        areas: 1
+    };
+    legend:number;
 
     private areaData: any;
     private previousPercentage: number = 0;
@@ -307,9 +300,9 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
 
     private updateCurrentState(percentage:number){
         if(percentage <= this.states.removeLines.domain[1]){
-            this.titles = TITLES.lines;
+            this.legend = this.legends.lines;
         } else {
-            this.titles = TITLES.areas;
+            this.legend = this.legends.areas;
         }
     }
 

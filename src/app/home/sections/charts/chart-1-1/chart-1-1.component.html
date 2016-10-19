@@ -1,13 +1,20 @@
 <div class="scroll-holder" [style.height]="heightForScrollWatcher">
     <div idlmScrollWatcher (onScroll)="onScroll($event)" class="chart chart-1-1">
         <div class="text-center">
-            <h2 class="subpart-title">{{ titles.page }}</h2>
+            <h2 class="subpart-title">
+                <span *ngIf='legend == legends.lines'>
+                    L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles
+                </span>
+                <span *ngIf='legend == legends.areas'>
+                    La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre
+                </span>
+            </h2>
         </div>
         <div class="o-grid">
             <div class="o-grid__cell o-grid__cell--width-60">
                 <svg #chartPlayground></svg>
-                <div *ngIf="currentState && currentState === states.focusPeriods" class="chart__legend">
-                    <ul class="list-inline">
+                <div class="chart__legend">
+                    <ul class="list-inline" *ngIf="legend == legends.areas">
                         <li class="figaro"><span class="color"></span>&nbsp;<span class="name">Le Figaro</span></li>
                         <li class="liberation"><span class="color"></span>&nbsp;<span class="name">Libération</span></li>
                         <li class="lemonde"><span class="color"></span>&nbsp;<span class="name">Le Monde</span></li>
@@ -15,7 +22,14 @@
                 </div>
             </div>
             <div class="chart__description o-grid__cell right-gutter">
-                <h5 class="chart__description__title bold">{{ titles.legend }}</h5>
+                <h5 class="chart__description__title bold">
+                    <span *ngIf='legend == legends.lines'>
+                        Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015)
+                    </span>
+                    <span *ngIf='legend == legends.areas'>
+                        Occurrences des termes contenant “islam” par an et par corpus (1997-2015)
+                    </span>
+                </h5>
                 <div *ngIf="!hideFirstContent" class="first-content">
                     <p>
                         Sans être étonnante, la corrélation entre les occurrences des termes contenant “islam” ou “musulman” pose des questions. Ainsi à la vue du “parallélisme” des courbes, il est intéressant de noter que, dans le corpus analysé, parler de l’islam revient à parler de ses fidèles. Les écarts entre les deux courbes fluctuent et appellent à une analyse plus approfondie, cependant, notons que le terme “islam” et ses dérivés (jusqu’à “islamikaze” sous la plume de P.A Taguieff) sont plus fréquents que ceux du terme “musulman”. Aussi avons nous décidé, étant donnée la proximité d’usage des deux termes de nous concentrer sur celui d’”islam”.
