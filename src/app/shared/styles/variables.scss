@@ -18,6 +18,15 @@ $screen-limit-large: 64em !default;
 $screen-limit-xlarge: 78em !default;
 $screen-limit-super: 116em !default;
 
+$screen-sizes: (
+    xsmall: $screen-limit-xsmall,
+    small: $screen-limit-small,
+    medium: $screen-limit-medium,
+    large: $screen-limit-large,
+    xlarge: $screen-limit-xlarge,
+    super: $screen-limit-super
+);
+
 
 // took from bootstrap
 $enable-rounded:     true;
