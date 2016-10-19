@@ -34,7 +34,7 @@ import { RepartitionComponent } from './home/sections/charts/repartition/reparti
 import { TooltipModule } from 'ng2-tooltip';
 import { OpenModalDirective } from './shared/open-modal.directive';
 
-enableProdMode();
+// enableProdMode();
 @NgModule({
     declarations: [
         AppComponent,
