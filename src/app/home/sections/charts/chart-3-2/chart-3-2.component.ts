@@ -74,6 +74,7 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
     initSizes(){
         let _holder = select('.chart-3-2');
         this._cells = _holder.selectAll('.chart-cell');
+        this._cells.selectAll('svg').attr('width', 0).attr('height', 0);
         let node = this._cells.node();
         let width = Math.floor(node.getBoundingClientRect().width) * 0.66;
         let height = width * this.sizeRatio;
@@ -165,7 +166,11 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
     }
 
     updateDraw(){
-
+        this._g.selectAll('line.axis')
+            .attr('x1', 0)
+            .attr('x2', this.size.inner.width)
+            .attr('y1', this.size.inner.height)
+            .attr('y2', this.size.inner.height);
     }
 
     onScroll(percentage:number){

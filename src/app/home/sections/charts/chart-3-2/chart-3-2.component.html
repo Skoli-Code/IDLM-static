@@ -2,7 +2,7 @@
     <div id="chartPlayground" class="scroll-content" idlmScrollWatcher (onScroll)="onScroll($event)">
         <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
         <div class="chart chart-3-2 o-container o-container--xlarge">
-            <div class="o-grid">
+            <div class="o-grid right-gutter">
                 <div class="chart__description o-grid__cell o-grid__cell--width-35">
                     <h4>Focus sur l’évolution de l’usage de 10 adjectifs entre 1997 et 2015</h4>
                     <div class="adjective" *ngIf="active" [@fadeRight]="active">
@@ -12,7 +12,7 @@
                         <idlmRepartitionChart [repartition]="active.repartition"></idlmRepartitionChart>
                     </div>
                 </div>
-                <div class="o-grid__cell o-grid__cell--width-45 o-grid__cell--offset-5 o-grid__cell--no-gutter chart-grid">
+                <div class="o-grid__cell o-grid__cell--width-65 o-grid__cell--offset-5 o-grid__cell--no-gutter chart-grid">
                 <!-- First row -->
                 <div class="o-grid">
                     <div class="o-grid__cell chart-cell chart-cell--global">
