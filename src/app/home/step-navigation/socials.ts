@@ -2,14 +2,6 @@ import 'jquery';
 
 let _enc_ = encodeURIComponent;
 
-function getTitle(){
-    return $('head title').text();
-}
-
-export function getProp(name){
-    return $(`meta[property="${name}"]`).attr('content');
-}
-
 export interface Socials {
     linkedin: string,
     twitter: string
