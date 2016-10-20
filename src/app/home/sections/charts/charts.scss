@@ -81,7 +81,7 @@ path {
             }
         }
     }
-    @each $color-name, $color in $newspaper-colors {
+    @each $color-name, $color in $charts-colors {
         &.#{$color-name} {
             .bubble {
                 fill: $color;
@@ -113,7 +113,7 @@ path {
             stroke: $black;
             stroke-width: 2px;
         }
-        @each $color-name, $color in $newspaper-colors {
+        @each $color-name, $color in $charts-colors {
             &--#{$color-name} {
                 path {
                     stroke: $color;
@@ -175,7 +175,7 @@ rect.focus-rect {
             fill: none;
             stroke-width: 2px;
         }
-        @each $color-name, $color in $newspaper-colors {
+        @each $color-name, $color in $charts-colors {
             .hollow.#{$color-name} {
                 stroke: $color;
             }

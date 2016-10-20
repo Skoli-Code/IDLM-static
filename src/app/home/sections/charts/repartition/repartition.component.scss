@@ -13,7 +13,7 @@
         height: $repartion-bar-height;
         border-radius: $repartion-bar-height/2;
         transition: width .22s ease-out;
-        @each $color-name, $color in $newspaper-colors {
+        @each $color-name, $color in $charts-colors {
             &--#{$color-name} {
                 background-color: $color;
             }

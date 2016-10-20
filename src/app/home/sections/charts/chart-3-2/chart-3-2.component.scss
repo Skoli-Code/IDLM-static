@@ -53,7 +53,7 @@ h4 {
         color: $light-gray;
     }
 
-    @each $color-name, $color in $newspaper-colors {
+    @each $color-name, $color in $charts-colors {
         &--#{$color-name}{
             .serif {
                 color: $color;
