@@ -16,7 +16,7 @@ import { DataLoaderService } from '../data-loader.service';
 import { Repartition } from '../repartition/repartition.component';
 import { _extent } from '../utils';
 
-import { fadeRight } from '../../animations';
+import { fadeRight } from '../../../../shared/animations';
 
 type Datum = [Date,number];
 

@@ -16,7 +16,7 @@ import { min } from 'd3-array';
 
 import { Repartition } from '../repartition/repartition.component';
 
-import { fadeRight } from '../../animations';
+import { fadeRight } from '../../../../shared/animations';
 
 interface Event {
     description: string,
