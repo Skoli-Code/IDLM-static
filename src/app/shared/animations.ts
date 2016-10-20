@@ -18,6 +18,19 @@ export var fadeRight = trigger('fadeRight', [
         animate(200, style({opacity: 0, transform: 'translateX(100%)'}))
     ])
 ]);
+export function fadeDown(duration:number=defaultDuration){
+    return trigger('fadeDown', [
+        transition('void => *', [
+            style({position:'absolute', opacity: 0, transform: 'translateY(-100%)'}),
+            animate(200, style({opacity: 1, transform: 'translateY(0)'}))
+        ]),
+        transition('* => void', [
+            style({position:'absolute',opacity: 1, transform: 'translateY(0%)'}),
+            animate(200, style({opacity: 0, transform: 'translateY(100%)'}))
+        ])
+    ]);
+}
+export var fadeUp = trigger('fadeUp', [])
 
 export function slideRight(duration:number=defaultDuration){
     return trigger('slideRight', [
@@ -31,9 +44,3 @@ export function slideRight(duration:number=defaultDuration){
         ])
     ]);
 }
-
-export var fadeDown = trigger('fadeDown', [
-
-]);
-
-export var fadeUp = trigger('fadeUp', [])
