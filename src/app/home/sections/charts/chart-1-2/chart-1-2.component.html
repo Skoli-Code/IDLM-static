@@ -8,7 +8,7 @@
                     <div *ngFor="let event of activeEvents" class="event quote"
                         [@fadeRight]="event">
                         <h5 class="event__title serif">{{event.description}}</h5>
-                        <a *ngIf="event.link != null" href="{{event.link}}" rel="nofollow">Plus d'infos</a>
+                        <a idlmLink *ngIf="event.link != null" href="{{event.link}}" target="_blank" rel="nofollow">Plus d'infos</a>
                     </div>
                 </div>
             </div>

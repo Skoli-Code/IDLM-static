@@ -21,7 +21,7 @@
         padding-right: 1.5em;
         &__title, a {
             margin-bottom: 0;
-            font-size: 0.85em;
+            font-size: $event-font-size;
         }
         &:last-child {
             margin-right: 0;
