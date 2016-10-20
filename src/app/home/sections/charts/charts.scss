@@ -9,6 +9,12 @@
     }
     &__description {
         max-width: $screen-limit-small;
+        strong, .bold {
+            color: darken($light-gray, 10%);
+        }
+        h5.bold {
+            color: $black;
+        }
         &__title {
             margin-top: 0;
             margin-bottom: 1.5em;
