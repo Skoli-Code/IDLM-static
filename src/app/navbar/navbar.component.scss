@@ -4,14 +4,14 @@
 
 nav {
     background-color: $black;
-    position: fixed;
+    border-bottom: 1px solid lighten($black, 20%);
     height: $navbar-height;
     line-height: $navbar-height;
-    width: 100%;
     padding-left: $grid-gutter;
     padding-right: $grid-gutter;
+    position: fixed;
+    width: 100%;
     z-index: $navbar-z-index;
-    border-bottom: 1px solid lighten($black, 20%);
     a {
         color: white;
         text-decoration: none;
@@ -33,12 +33,19 @@ nav {
         float: right;
         a {
             font-weight: normal;
-            margin-left: $grid-gutter;
+            &:after {
+                content: '·';
+                display: inline-block;
+                width: 1.5em;
+                font-weight: bold;
+                text-align: center;
+            }
+            &:last-child:after {
+                display: none;
+            }
+
         }
     }
-    .title {
-    }
-
     &:after {
         content: '';
         display: table;
