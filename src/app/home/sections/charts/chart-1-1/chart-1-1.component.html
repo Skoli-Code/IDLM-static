@@ -2,10 +2,10 @@
     <div idlmScrollWatcher (onScroll)="onScroll($event)" class="chart chart-1-1">
         <div class="text-center">
             <h3 class="subpart-title">
-                <span *ngIf='legend == legends.lines'>
+                <span *ngIf='isLines()'>
                     L’usage des termes “islam” et “musulman” dans la PQN : deux tendances parallèles
                 </span>
-                <span *ngIf='legend == legends.areas'>
+                <span *ngIf='isAreas()'>
                     La publicisation de l’islam : un sujet devenu prépondérant après le 11 septembre
                 </span>
             </h3>
@@ -14,19 +14,23 @@
             <div class="o-grid__cell o-grid__cell--width-60">
                 <svg #chartPlayground></svg>
                 <div class="chart__legend" [style.margin-left]="margin.left + 'px'">
-                    <ul class="list-inline" *ngIf='legend == legends.areas'>
+                    <ul class="list-inline" *ngIf='isAreas()' [@fadeDown]="isAreas()">
                         <li class="figaro"><span class="color"></span>&nbsp;<span class="name">Le Figaro</span></li>
                         <li class="liberation"><span class="color"></span>&nbsp;<span class="name">Libération</span></li>
                         <li class="lemonde"><span class="color"></span>&nbsp;<span class="name">Le Monde</span></li>
+                    </ul>
+                    <ul class="list-inline" *ngIf='isLines()' [@fadeDown]="isLines()">
+                        <li class="islam"><span class="color"></span>&nbsp;<span class="name">islam</span></li>
+                        <li class="musulman"><span class="color"></span>&nbsp;<span class="name">musulman</span></li>
                     </ul>
                 </div>
             </div>
             <div class="chart__description o-grid__cell right-gutter">
                 <h5 class="chart__description__title bold">
-                    <span *ngIf='legend == legends.lines'>
+                    <span *ngIf='isLines()'>
                         Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (1997-2015)
                     </span>
-                    <span *ngIf='legend == legends.areas'>
+                    <span *ngIf='isAreas()'>
                         Occurrences des termes contenant “islam” par an et par corpus (1997-2015)
                     </span>
                 </h5>

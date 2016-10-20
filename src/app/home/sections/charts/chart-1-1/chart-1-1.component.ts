@@ -8,9 +8,11 @@ import { max, range } from 'd3-array';
 import { entries } from 'd3-collection';
 import { transition } from 'd3-transition';
 
+// internal
 import { PERIODS, IPeriod } from './periods.constant';
 import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
+import { fadeDown } from '../../../../shared/animations';
 
 interface State {
     domain: any[],
@@ -29,6 +31,7 @@ interface StateObject {
   selector: 'idlmChart-1-1',
   templateUrl: './chart-1-1.component.html',
   styleUrls: ['./chart-1-1.component.scss'],
+  animations: [ fadeDown() ]
 })
 export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
@@ -64,6 +67,14 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
 
     constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
         super(renderer, dataLoader);
+    }
+
+    isLines(){
+        return this.legend == this.legends.lines
+    }
+
+    isAreas(){
+        return this.legend == this.legends.areas
     }
 
     draw(){
