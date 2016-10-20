@@ -16,7 +16,16 @@
 section {
     overflow: auto;
 }
-
+svg.external-link {
+    path {
+        fill: $light-gray;
+    }
+    .section__intro & {
+        path {
+            fill: $black;
+        }
+    }
+}
 .section {
     &__intro {
         &__title {
@@ -32,9 +41,20 @@ section {
                     padding-left: 0.66em;
                 }
             }
-            p, li {
+            p, li, .signature, .signature h5 {
                 font-size: $intro-font-size;
                 line-height: $intro-line-height;
+            }
+            .sep {
+                margin-top: $intro-font-size * 8;
+                margin-bottom: $intro-font-size;
+            }
+            .signature {
+                font-family: $sansserif;
+                margin-bottom: $intro-font-size * 2;
+                h5 {
+                    margin: 0;
+                }
             }
         }
     }
