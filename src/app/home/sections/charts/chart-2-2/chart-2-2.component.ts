@@ -43,7 +43,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
     sizeRatio: 1;
     heightForScrollWatcher='8000px';
     progress:number=0;
-    drawned=false;
+    drawned:boolean=false;
     private maxBubbleSize:number=60;
 
     private currentYear:number;
@@ -76,6 +76,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
             }
         };
     }
+
     initScales(){
         let dates = this.data[0].tops.map((t)=>t.date);
         this.yearScale = scaleTime()
@@ -84,8 +85,11 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
 
         this.initLayouts();
     }
+
     updateScales(){
+        this.initLayouts();
     }
+
     initData(){
         this.data = this.data.map((s)=>{
             s.tops = s.tops.map((top)=>{
@@ -152,6 +156,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
         let path = [ points.g, points.h, points.e, points.h, points.f ];
         this._g.append('path')
             .datum(path)
+            .attr('class', 'separator')
             .attr('d', line().x((d)=>d[0]).y((d)=>d[1]))
             .attr('fill', 'none')
             .attr('stroke', '#bbb')
@@ -178,9 +183,13 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
 
         for (let layout of this.layouts){
             let data = this.yearTop(layout.tops);
+            let maxSize = this.size.inner.width / 15;
+            if(this.size.inner.width > this.size.inner.height){
+                maxSize = this.size.inner.height / 10;
+            }
             let scale = scaleLog()
                 .domain(_extent(data.map(d=>d[1])))
-                .range([20, 56]);
+                .range([20, maxSize]);
 
             // check if node's words is a new one or not
             let isNewWord = (d)=>{
@@ -288,7 +297,11 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
     }
 
     updateDraw(){
-
+        this.drawned = false;
+        this._g.select('.separator').remove();
+        this._g.selectAll('.bubble-group').selectAll('.bubble').remove();
+        this.drawSeperator();
+        this.drawPointsFor(this.currentYear);
     }
 
     onScroll(percentage:number){
