@@ -2,7 +2,7 @@ import { OnInit, Renderer, ViewChild, ElementRef, Component} from '@angular/core
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/throttleTime';
+import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
 
 import { extent } from 'd3-array';
@@ -67,7 +67,7 @@ export abstract class AbstractChart implements OnInit {
     bindEvents(){
         if(this.dynamicWidth){
             Observable.fromEvent(window, 'resize')
-                .throttleTime(250)
+                .debounceTime(330)
                 .subscribe((e)=>this.resize(e));
         }
     }
