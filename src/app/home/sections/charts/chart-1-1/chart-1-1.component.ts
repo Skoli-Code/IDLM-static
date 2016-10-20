@@ -11,7 +11,6 @@ import { transition } from 'd3-transition';
 import { PERIODS, IPeriod } from './periods.constant';
 import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
-// import { fade } from '../../animations';
 
 interface State {
     domain: any[],
