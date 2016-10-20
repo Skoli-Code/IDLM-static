@@ -8,7 +8,7 @@ export interface Socials {
 }
 
 export var meta = {
-    url: 'http://islam-objet.mediatique.fr',
+    url: 'http://islam-objet-mediatique.fr',
     twitter: {
         tweet: _enc_('“L\'islam, objet médiatique” - Étude sur le traitement médiatique de l\'islam dans la presse française'),
         hashtags: ['islam', 'dataviz'].join(',')
