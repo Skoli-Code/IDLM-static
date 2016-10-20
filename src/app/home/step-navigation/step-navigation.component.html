@@ -1,4 +1,4 @@
-<nav class="vertical-nav" [hidden]="isCover()">
+<nav class="vertical-nav" *ngIf="!isCover()" [@slideRight]="!isCover()">
     <ul class="list-unstyled steps">
         <li *ngFor="let step of steps" class="step">
             <a class="step__link" [routerLink]="['/']"

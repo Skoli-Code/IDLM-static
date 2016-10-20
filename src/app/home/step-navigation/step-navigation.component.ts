@@ -2,12 +2,14 @@
 import { AsyncPipe, PlatformLocation } from '@angular/common';
 import { Component, HostListener, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 // others libs
 import * as _ from 'lodash';
 import 'jquery';
 
 // internal imports
-import { initSocials, getProp, meta, Socials } from './socials';
+import { initSocials, meta, Socials } from './socials';
+import { slideRight } from '../../shared/animations';
 
 function isInViewPort(el){
     let rect = el.getBoundingClientRect();
@@ -23,7 +25,8 @@ function w():any{
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'idlm-step-navigation',
     templateUrl: './step-navigation.component.html',
-    styleUrls: ['./step-navigation.component.scss']
+    styleUrls: ['./step-navigation.component.scss'],
+    animations: [ slideRight(100) ]
 })
 export class StepNavigationComponent implements OnInit {
     socials: Socials;
