@@ -16,16 +16,7 @@
 section {
     overflow: auto;
 }
-svg.external-link {
-    path {
-        fill: $light-gray;
-    }
-    .section__intro & {
-        path {
-            fill: $black;
-        }
-    }
-}
+
 .section {
     &__intro {
         &__title {

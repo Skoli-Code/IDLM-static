@@ -17,7 +17,29 @@ html, body {
     font-family: $poppins;
     font-size: $base-font-size;
 }
-
+svg.external-link {
+    $arrow-height: 6px;
+    display: inline-block;
+    margin-left: 0.15em;
+    height: $arrow-height;
+    margin-bottom: $arrow-height;
+    path {
+        fill: $light-gray;
+        stroke: $light-gray;
+        stroke-width: 1px;
+    }
+    a:hover & {
+        path {
+            stroke: $black;
+            fill: $black;
+        }
+    }
+    .section__intro & {
+        path {
+            fill: $black;
+        }
+    }
+}
 
 h1, .h1 {
     font-size: $h1;
