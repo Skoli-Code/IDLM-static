@@ -6,6 +6,8 @@ import {
     animate
 } from '@angular/core';
 
+var defaultDuration:number=200;
+
 export var fadeRight = trigger('fadeRight', [
     transition('void => *', [
         style({position:'absolute', opacity: 0, transform: 'translateX(-100%)'}),
@@ -17,8 +19,18 @@ export var fadeRight = trigger('fadeRight', [
     ])
 ]);
 
-
-
+export function slideRight(duration:number=defaultDuration){
+    return trigger('slideRight', [
+        transition('void => *', [
+            style({transform: 'translateX(100%)'}),
+            animate(duration, style({transform: 'translateX(0%)'}))
+        ]),
+        transition('* => void', [
+            style({transform: 'translateX(0%)'}),
+            animate(duration, style({transform: 'translateX(100%)'}))
+        ])
+    ]);
+}
 
 export var fadeDown = trigger('fadeDown', [
 
