@@ -26,6 +26,7 @@ export class WordCloudComponent extends AbstractChart {
     @Input() wordFont:string='Impact';
     @Input() wordPadding:number=4;
     @Input() wordRotation:number=0;
+    @Input() wordScale:[number, number];
     @Input() dataCatalogKey:string;
     @Input() ratio:number=0.7;
 
@@ -34,6 +35,9 @@ export class WordCloudComponent extends AbstractChart {
     }
 
     fontScaleRange(){
+        if(this.wordScale){
+            return this.wordScale;
+        }
         let maxFontSize = this.size.svg.width / 8;
         return [6, maxFontSize];
     }
@@ -81,20 +85,20 @@ export class WordCloudComponent extends AbstractChart {
     }
 
     initSizes(){
-        let style = window.getComputedStyle(this.chartElement.nativeElement.parentNode.parentNode, null);
+        let style = window.getComputedStyle(this.chartElement.nativeElement.parentNode, null);
         let width = +style.width.slice(0, -2);
+        let height= +style.height.slice(0, -2);
         width -= +style.paddingLeft.slice(0, -2);
         width -= +style.paddingRight.slice(0, -2);
-        let height = width * this.ratio;
-        if(height < 500){
-            height = width;
+        let innerHeight = width * this.ratio;
+        if(width < 610){
+            innerHeight = height;
         }
-
-        this.size = { svg: { width: width, height: height }};
+        this.size = { svg: { width: width, height: height }, inner: { width: width, height: innerHeight }};
     }
 
     cloud(){
-        let sizes = [this.size.svg.width, this.size.svg.height];
+        let sizes = [this.size.inner.width, this.size.inner.height];
         return d3_cloud()
             .size(sizes)
             .font('PT Serif')

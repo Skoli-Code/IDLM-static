@@ -73,24 +73,14 @@
     </div>
     <!-- 2.1  -->
     <div content>
-        <div class="o-container o-container--xlarge vert--full-height">
-            <!-- <div class="text-center">
-                <h3 class="subpart-title">Rapport à l’Etat et à l’identité : les mots du “problème”.</h3>
-            </div> -->
-            <div class="o-grid">
-                <div class="chart__description o-grid__cell o-grid__cell--width-30 vert">
-                    <div class="vert__content">
-                        <h5 class="chart__description__title">Mots les plus présents dans le corpus total sur toute la période</h5>
-                        <p>
-                            Une fois les termes les plus récurrents de la langue française retranchés, le décompte des mots les plus présents dans le corpus permet de comprendre les raisons de la médiatisation de l’islam. Il apparaît que les guerres américaines au Moyen-Orient et les attentats perpétrés par les organisations se réclamant de l’islam sont les premiers sujets à propos desquels la question de l’islam est abordée. En France, l’islam est abordé lors les débats concernant le port du voile, ou l’identité nationale.
-                        </p>
-                    </div>
-                </div>
-                <div class="o-grid__cell o-grid__cell--width-70 right-gutter">
-                    <idlmWordCloud [wordPadding]="4" [dataCatalogKey]="'2.1'" [ratio]="0.66"></idlmWordCloud>
-                </div>
+        <idlmWordCloud [wordPadding]="4" [dataCatalogKey]="'2.1'" [ratio]="0.66">
+            <div chart__description>
+                <h5>Mots les plus présents dans le corpus total sur toute la période</h5>
+                <p>
+                    Une fois les termes les plus récurrents de la langue française retranchés, le décompte des mots les plus présents dans le corpus permet de comprendre les raisons de la médiatisation de l’islam. Il apparaît que les guerres américaines au Moyen-Orient et les attentats perpétrés par les organisations se réclamant de l’islam sont les premiers sujets à propos desquels la question de l’islam est abordée. En France, l’islam est abordé lors les débats concernant le port du voile, ou l’identité nationale.
+                </p>
             </div>
-        </div>
+        </idlmWordCloud>
         <!-- 2.2 / Bubble chart -->
         <idlmChart-2-2></idlmChart-2-2>
     </div>
@@ -106,27 +96,17 @@
         </p>
     </div>
     <div content>
-        <div class="vert--full-height vert o-container o-container--xlarge">
-            <!-- <div class="text-center">
-                <h3 class="subpart-title">L’islam, un objet défini de l’extérieur</h3>
-            </div> -->
-            <div class="o-grid">
-                <div class="chart__description o-grid__cell o-grid__cell--width-30 vert">
-                    <div class="vert__content">
-                        <h5 class="chart__description">Co-occurrences du terme “islam” avec un adjectif dans le corpus total sur toute la période</h5>
-                        <p>
-                            La co-occurrence de ces adjectifs avec le mot “islam” et ses dérivés permet de mesurer les affections éprouvées par la presse face à cet objet. Ainsi, les adjectifs présents donnent une image assez anxiogène de l’islam. Si les évènements liés ou attribués à l’islam ces dernières années ne poussent pas à l’insouciance, la charge émotionnelle des adjectifs présents avec le terme islam est clairement négative.
-                        </p>
-                        <p>
-                            On peut mesurer une fois encore le tournant que fut le 11 septembre 2001 à la lumière de l’explosion de l’usage des qualificatifs de l’islam dans la presse, mais plus généralement de la médiatisation de l’islam ou des musulmans.
-                        </p>
-                    </div>
-                </div>
-                <div class="o-grid__cell vert right-gutter">
-                    <idlmWordCloud class="vert__content" [dataCatalogKey]="'3.1'" [ratio]="0.8"></idlmWordCloud>
-                </div>
+        <idlmWordCloud class="vert__content" [wordScale]="[15, 100]" [dataCatalogKey]="'3.1'" [ratio]="0.8">
+            <div chart__description>
+                <h5 class="bold">Co-occurrences du terme “islam” avec un adjectif dans le corpus total sur toute la période</h5>
+                <p>
+                    La co-occurrence de ces adjectifs avec le mot “islam” et ses dérivés permet de mesurer les affections éprouvées par la presse face à cet objet. Ainsi, les adjectifs présents donnent une image assez anxiogène de l’islam. Si les évènements liés ou attribués à l’islam ces dernières années ne poussent pas à l’insouciance, la charge émotionnelle des adjectifs présents avec le terme islam est clairement négative.
+                </p>
+                <p>
+                    On peut mesurer une fois encore le tournant que fut le 11 septembre 2001 à la lumière de l’explosion de l’usage des qualificatifs de l’islam dans la presse, mais plus généralement de la médiatisation de l’islam ou des musulmans.
+                </p>
             </div>
-        </div>
+        </idlmWordCloud>
         <idlmChart-3-2></idlmChart-3-2>
     </div>
 </idlmSection>

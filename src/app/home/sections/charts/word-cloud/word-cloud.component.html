@@ -1,1 +1,12 @@
-<svg #chartPlayground></svg>
+<div class="o-container o-container--xlarge vert--full-height">
+    <div class="o-grid">
+        <div class="chart__description o-grid__cell o-grid__cell--width-30 vert">
+            <div class="vert__content">
+                <ng-content select="[chart__description]"></ng-content>
+            </div>
+        </div>
+        <div class="o-grid__cell o-grid__cell--width-70 right-gutter vert--full-height">
+            <svg #chartPlayground></svg>
+        </div>
+    </div>
+</div>
