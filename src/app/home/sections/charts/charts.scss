@@ -8,6 +8,7 @@
         margin-top: 1.5em;
     }
     &__description {
+        background-color: white;
         strong, .bold {
             color: darken($light-gray, 10%);
         }

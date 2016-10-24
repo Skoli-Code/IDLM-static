@@ -10,11 +10,11 @@ var defaultDuration:number=200;
 
 export var fadeRight = trigger('fadeRight', [
     transition('void => *', [
-        style({position:'absolute', opacity: 0, transform: 'translateX(-100%)'}),
+        style({position:'relative', 'z-index': -1,  opacity: 0, transform: 'translateX(-100%)'}),
         animate(200, style({opacity: 1, transform: 'translateX(0)'}))
     ]),
     transition('* => void', [
-        style({position:'absolute',opacity: 1, transform: 'translateX(0%)'}),
+        style({position:'relative', 'z-index': -1, opacity: 1, transform: 'translateX(0%)'}),
         animate(200, style({opacity: 0, transform: 'translateX(100%)'}))
     ])
 ]);
