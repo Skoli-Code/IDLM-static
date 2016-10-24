@@ -40,4 +40,12 @@
             margin-top: 0;
         }
     }
+    &#conclusion {
+        .section__content {
+            display: none;
+        }
+        .section__intro__content {
+            padding-bottom: 0;
+        }
+    }
 }
