@@ -46,10 +46,9 @@ export abstract class AbstractChart implements OnInit {
     protected abstract updateScales(): void;
     protected abstract updateDraw(): void;
 
-    constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService, protected el: ElementRef){
+    constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
         this.dataLoader = dataLoader;
         this.renderer = renderer;
-        this.el = el;
     }
 
     ngOnInit(){
@@ -165,7 +164,6 @@ export abstract class AxedChart extends AbstractChart {
             // shortfail, if we don't have text to remove we stop here
             if(!!!(text && text.size())){ return; }
             let year = +text.text().split('.')[2];
-            console.log('year:', year);
             if(year%5==0){
                 let y = 12;
                 text.attr('y', y + 3);
