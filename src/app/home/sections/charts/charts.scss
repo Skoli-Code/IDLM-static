@@ -8,7 +8,6 @@
         margin-top: 1.5em;
     }
     &__description {
-        max-width: $screen-limit-small;
         strong, .bold {
             color: darken($light-gray, 10%);
         }
