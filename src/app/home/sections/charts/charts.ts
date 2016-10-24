@@ -38,7 +38,7 @@ export abstract class AbstractChart implements OnInit {
 
     data: any;
     abstract chartElement: ElementRef;
-    protected abstract dataCatalogKey: string;
+    abstract dataCatalogKey: string;
 
     abstract draw():void;
     abstract initData():void;
@@ -46,9 +46,10 @@ export abstract class AbstractChart implements OnInit {
     protected abstract updateScales(): void;
     protected abstract updateDraw(): void;
 
-    constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
+    constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService, protected el: ElementRef){
         this.dataLoader = dataLoader;
         this.renderer = renderer;
+        this.el = el;
     }
 
     ngOnInit(){
@@ -156,15 +157,16 @@ export abstract class AxedChart extends AbstractChart {
 
     updateAxes(){
         this._xAxis.attr('transform', `translate(0, ${this.size.inner.height})`)
-            .call(this.xAxis.ticks(19));
+            .call(this.xAxis.ticks(19, '%d.%m.%y'));
 
         this._xAxis.selectAll('.tick').each(function(){
             let tick = select(this);
             let text = tick.select('text');
             // shortfail, if we don't have text to remove we stop here
             if(!!!(text && text.size())){ return; }
-            let val  = +text.text();
-            if(val%5==0){
+            let year = +text.text().split('.')[2];
+            console.log('year:', year);
+            if(year%5==0){
                 let y = 12;
                 text.attr('y', y + 3);
                 tick.select('line').attr('y2', y);
