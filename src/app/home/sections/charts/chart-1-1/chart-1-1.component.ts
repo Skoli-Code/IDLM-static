@@ -39,7 +39,6 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     hideFirstContent: boolean = false;
     heightForScrollWatcher:string = "8000px";
     dataCatalogKey:string="1.1";
-    currentState:State;
     states: StateObject;
     legends = {
         lines: 0,
@@ -70,11 +69,11 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     }
 
     isLines(){
-        return this.legend == this.legends.lines
+        return (this.legend || this.legends.lines) == this.legends.lines
     }
 
     isAreas(){
-        return this.legend == this.legends.areas
+        return (this.legend || this.legends.lines) == this.legends.areas
     }
 
     draw(){
@@ -140,10 +139,6 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
             state.scale = state.scale
                 .domain(state.domain)
                 .range(state.range);
-        }
-
-        if(this.previousPercentage == 0){
-            this.currentState = this.states.lines;
         }
 
     }
