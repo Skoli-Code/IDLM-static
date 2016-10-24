@@ -32,7 +32,7 @@ interface Event {
 })
 export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
-    heightForScrollWatcher: string = "12000px";
+    heightForScrollWatcher: string = "20000px";
     activeEvents: any[];
     dataCatalogKey: string = "1.2";
     contextualData: {
