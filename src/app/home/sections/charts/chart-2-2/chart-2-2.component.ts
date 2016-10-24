@@ -183,9 +183,9 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
 
         for (let layout of this.layouts){
             let data = this.yearTop(layout.tops);
-            let maxSize = this.size.inner.width / 15;
+            let maxSize = this.size.inner.width / 16;
             if(this.size.inner.width > this.size.inner.height){
-                maxSize = this.size.inner.height / 10;
+                maxSize = this.size.inner.height / 12;
             }
             let scale = scaleLog()
                 .domain(_extent(data.map(d=>d[1])))
