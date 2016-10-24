@@ -33,9 +33,16 @@ svg.external-link {
             stroke: $black;
             fill: $black;
         }
+        .section__intro & {
+            path {
+                stroke: $light-gray;
+                fill: $light-gray;
+            }
+        }
     }
     .section__intro & {
         path {
+            stroke: $black;
             fill: $black;
         }
     }
@@ -142,5 +149,43 @@ a {
         &:hover {
             color: darken($light-gray, 50%);
         }
+    }
+}
+
+
+
+.section__intro__content {
+    p {
+        &:first-child:first-letter {
+            font-size: $intro-font-size * 3;
+            line-height: $intro-font-size;
+            padding-left: 0.66em;
+        }
+    }
+    p, li, .signature, .signature h5 {
+        font-size: $intro-font-size;
+        line-height: $intro-line-height;
+    }
+    .sep {
+        margin-top: $intro-font-size * 8;
+        margin-bottom: $intro-font-size;
+    }
+    .signature {
+        font-family: $sansserif;
+        margin-bottom: $intro-font-size * 2;
+        h5 {
+            margin: 0;
+        }
+    }
+
+    h2 {
+        font-size: $intro-font-size * 2;
+    }
+    h3 {
+        font-size: $intro-font-size * 1.33;
+    }
+    h4,h5 {
+        font-weight: bold;
+        font-size: $intro-font-size;
     }
 }

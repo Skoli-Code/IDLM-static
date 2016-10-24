@@ -24,30 +24,6 @@ section {
                 font-weight: normal;
             }
         }
-        &__content {
-            p {
-                &:first-child:first-letter {
-                    font-size: $intro-font-size * 3;
-                    line-height: $intro-font-size;
-                    padding-left: 0.66em;
-                }
-            }
-            p, li, .signature, .signature h5 {
-                font-size: $intro-font-size;
-                line-height: $intro-line-height;
-            }
-            .sep {
-                margin-top: $intro-font-size * 8;
-                margin-bottom: $intro-font-size;
-            }
-            .signature {
-                font-family: $sansserif;
-                margin-bottom: $intro-font-size * 2;
-                h5 {
-                    margin: 0;
-                }
-            }
-        }
     }
     &__content {
         color: $light-gray;
