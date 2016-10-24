@@ -1,3 +1,204 @@
-<p>
-  methodologie works!
-</p>
+<idlmSection [anchor]="'methodologie'" [topPadding]='true'>
+    <div subtitle>L'islam, objet médiatique</div>
+    <div title>Note méthodologique</div>
+    <div introduction>
+        <h2>1. Introduction</h2>
+        <h3>1.1 Définitions</h3>
+        <p>
+            <b>Corpus</b> : Un ensemble de textes servant de base à l'analyse textuelle.<br>
+            <b>Occurrence d’un terme</b> : désigne le nombre de fois où ce terme apparaît dans un document ou un ensemble de documents.<br>
+            <b>Lemme</b>: chaîne de signes formant une unité sémantique
+        </p>
+        <h3>1.2. Objectif</h3>
+        <p>
+            Cette notice méthodologique vise à publier l’ensemble des traitements ayant permis d’obtenir les données présentées dans cette étude. Ces méthodes comportent certains biais, ceux-ci sont, dans la mesure du possible explicités dans les paragraphes afférents
+            aux parties qu’ils affectent.
+        </p>
+
+        <h2>2. Constitution du corpus</h2>
+        <p>
+            Le corpus ici analysé comporte l’ensemble des articles de presse contenant les termes “islam” ou “musulman” entre le 01.01.1997 et le 31.12.2015 et publiés par les rédactions de Libération, du Monde et du Figaro.<br> Nous entendons par corpus
+            l’ensemble des articles de presse des trois quotidiens et publiés sur l’ensemble de la période.<br> Nous entendons par sous-corpus les articles de presse publiés sur l’ensemble de la période mais attachés à l’un des trois quotidiens uniquement.
+        </p>
+        <p>
+            Le corpus analysé ne contient pas le titre, la rubrique de publication ou la qualité du contenu (reportage, analyse, éditorial…).
+        </p>
+        <p>
+            Ces bornes temporelles permettent d’avoir le recul nécessaire pour mesurer l’impact des attentats du 11 septembre 2001 qui ont marqué un tournant dans le traitement de l’islam dans les médias.
+        </p>
+        <p>
+            Le choix des médias répond à la volonté de mesurer d’éventuelles différences de traitement au sein des trois “grands” quotidiens français : Le Monde, considéré comme “le journal de référence”, Le Figaro marqué à droite de l’échiquier politique et Libération
+            plutôt situé à gauche. Ce corpus n’est pas exhaustif et ne prend pas en compte l’ensemble du spectre idéologique de la presse quotidienne généraliste (L’Humanité, La Croix, L’Opinion, Les Echos, Le Parisien Aujourd’hui en France), les conclusions
+            qui en découlent n’ont donc pas vocation à être extrapolées, elles constituent néanmoins une bonne première approche à cette question. Il permet néanmoins d’avoir une vision large des orientations de la presse concernant le traitement de l’islam.
+        </p>
+        <h2>3. Nettoyage du corpus</h2>
+        <p>
+            Le corpus constitué comporte des doublons. Afin d’éviter au maximum les biais et augmentations artificielles du fait de modifications mineures du contenu, nous avons supprimé les articles dupliqués du corpus d’étude.
+        </p>
+        <p>
+            Considérant deux articles ayant leurs contenus similaires à 70% et publiés à moins de 3 jours d’écart comme des doublons, nous n’avons gardé que celui ayant la date de publication la plus récente.
+        </p>
+
+        <p>
+            Afin de faciliter le traitement analytique du corpus, des opérations ont été effectuées sur celui ci :
+        </p>
+        <ul>
+            <li>Toute opération sur le corpus est insensible à la casse (majuscule/minuscule).</li>
+            <li>Une liste de mots non pertinents a été ôtée du corpus (voir mots d’arrêts, annexe 7.1)</li>
+            <li>Suppression de la ponctuation.</li>
+        </ul>
+
+        <h2>4. Traitement du corpus</h2>
+        <p>
+            Dans le cadre de cette étude, un certain nombre d’opérations ont été effectuées sur le corpus, elles sont détaillées ici. L’organisation du document ci-dessous reprend le découpage éditorial de l’étude. Il ne s’agit pas d’un traitement exhaustif du corpus
+            qui pourrait faire l’objet d’analyses plus fines et plus précises.
+        </p>
+
+        <h3>4.1 Calcul d'occurrence des termes comprenant “islam” et “musulman”</h3>
+        <p>
+            Etude temporelle de l'occurrence des termes contenant “islam” et “musulman” réalisée à l’aide de Python Pandas et indépendamment de la casse. Agrégation par année afin de mesurer l’existence ou non d’une tendance.
+        </p>
+
+        <h3>4.2 Calcul d'occurrence des termes comprenant “islam” par mois (dont proportion de titres)</h3>
+        <p>
+
+            Etude temporelle de l'occurrence des termes contenant “islam” dans les sous-corpus (Le Monde, Le Figaro, Libération) réalisée à l’aide de Python Pandas et indépendamment de la casse. Précision : le sous-corpus Le Monde (19 981 documents) est quantitativement
+            plus important que celui de Libération (9 641 documents) ou du Figaro (11 037 documents). Ici est aussi mesurée la proportion d’apparition des termes contenant “islam” dans les titres.
+        </p>
+
+        <h3>4.3 Les mots les plus présents dans le corpus général</h3>
+        <p>
+            Après avoir été annoté afin de lui associer sa forme lemmatique (Part-of-Speech Tagging), ainsi que sa forme grammaticale, le corpus a fait l’objet d’un traitement matriciel (DTM, Document-Term Matrix) via la librairie python Sklearn, permettant de compter
+            le nombre d'occurrences pour chaque lemme. Sont ensuite sélectionnés les lemmes les plus utilisés.
+        </p>
+
+        <h3>4.4 Les mots les plus présents par sous-corpus et par an.</h3>
+        <p>
+            Voir 4.3, ici la matrice est filtrée par année et par sous corpus.
+        </p>
+
+        <h3>4.5. Les adjectifs associés au terme “islam” dans le corpus général.</h3>
+        <p>
+            La matrice (voir 4.3) répertorie les termes (ainsi que leur forme grammaticale et lemmatique), mais aussi des associations de termes (ou ngrams). Sont ici identifiés les adjectifs les plus utilisés à 1 mot d’intervalle maximum avant ou après le lemme
+            “islam”.
+        </p>
+        <p>
+            Il est ici impossible de garantir que ces adjectifs qualifient directement le lemme “islam”, cependant leur co-occurrence est porteuse de sens, en ce qu’ils déterminent sinon l’islam directement (c’est majoritairement le cas) du moins des éléments s’y
+            rapportant étant donnée la proximité avec le terme “islam”.
+        </p>
+        <p>
+            Seul les 300 adjectifs les plus employés ont fait l’objet d’un traitement éditorial (agrégation des résultats et sélection).
+        </p>
+
+        <h3>4.6. Focus sur les évolutions par adjectifs et par sous corpus.</h3>
+        <p>
+            Les adjectifs sélectionnés parmi les plus co-occurrents avec le lemme islam font ici l’objet d’une analyse permettant de mesurer leur occurrence annuelle ainsi que leur place au rang des adjectifs les plus utilisés par les journaux. La sélection des adjectifs
+            est subjective, elle correspond à la fois à la prise en compte des biais énoncés en 4.5, mais aussi à l’intérêt supposé de chaque terme.
+        </p>
+
+        <h2>5. Constitution et visualisation des données finales</h2>
+        <p>
+            Une fois les opérations effectuées sur le corpus, les résultats de celles-ci sont exportées au format ouvert JSON, leur utilisation pour la visualisation des données est facilitée par ce format.
+        </p>
+
+        <p>
+            Sont ici mentionnés des traitements des données à des fins de visualisation.
+        </p>
+        <ul>
+            <li>Occurrences des termes contenant “islam” et “musulman” par an dans le corpus général (31/12/1997 - 31/12/2015). Les indications temporelles en abscisse sont placées au 1er janvier de chaque année.</li>
+            <li>Occurrences des termes contenant “islam” par an et par corpus ( 31/12/1997 - 31/12/2015). Les indications temporelles en abscisse sont placées au 1er janvier de chaque année.</li>
+            <li>Occurrences des termes contenant “islam” par mois dans le corpus général (1997-2015).</li>
+            <li>Les 170 mots les plus présents dans le corpus général (1997-2015).</li>
+            <li>Les 16 mots les plus présents par an et par corpus (1997-2015). L’échelle est ici logarithmique afin de pouvoir présenter un nombre plus conséquent de termes.</li>
+            <li>Les 69 adjectifs les plus associés au terme “islam” dans le corpus général (1997-2015).</li>
+            <li>Focus sur l’évolution de l’usage de 10 adjectifs associés au terme islam. Le graphique d’évolution vise à dégager une tendance quant à l’usage des adjectifs, d’où l’absence d’un axe des ordonnées.</li>
+        </ul>
+
+
+        <h2>6. Librairies et technologies utilisées</h2>
+        <h3>Analyse</h3>
+        <ul>
+            <li>Part-of-speech tagging: <a href="" idlmLink rel="nofollow" target="_blank">TreeTagger</a> (avec le corpus français)</li>
+            <li>Compte d’occurrence: <a href="" idlmLink rel="nofollow" targe="_blank">Pandas</a> (python)</li>
+            <li>Constitution des matrices Document-Terme: <a href="" idlmLink rel="nofollow" target="_blank">Sci-Kit Learn</a> (python)</li>
+        </ul>
+
+        <h3>Visualisation</h3>
+        <ul>
+            <li><a href="http://d3js.org" rel="nofollow" target="_blank" idlmLink>d3.js</a></li>
+        </ul>
+
+        <h3>Interface de publication</h3>
+        <ul>
+            <li><a href="http://angular.io" rel="nofollow" target="_blank" idlmLink>Angular 2</a></li>
+        </ul>
+
+        <h2>7. Annexes</h2>
+        <h3>7.1. Liste des mots d’arrêts.</h3>
+        <pre>
+    de
+    et
+    en
+    dans
+    que
+    pour
+    par
+    sur
+    mais
+    avec
+    ou
+    et
+    entre
+    comme
+    sans
+    depuis
+    vers
+    si
+    ni
+    selon
+    pour
+    quand
+    chez
+    pendant
+    devant
+    parce
+    car
+    parmi
+    ainsi
+    lorsque
+    </pre>
+
+
+
+        <h3>7.2. Mots supprimés de la visualisation: Les 16 mots les plus présents par an et par corpus (1997-2015).</h3>
+
+        <pre>
+    an
+    deux
+    aussi
+    depuis
+    avant
+    pas
+    ne
+    plus
+    autre
+    grand
+    contre
+    bien
+    nouveau
+    tout
+    un
+    comme
+    jour
+    trois
+    alors
+    sous
+    encore
+    non
+    </pre>
+
+
+
+
+    </div>
+</idlmSection>
