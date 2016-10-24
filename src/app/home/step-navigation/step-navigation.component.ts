@@ -30,20 +30,14 @@ function w():any{
 })
 export class StepNavigationComponent implements OnInit {
     socials: Socials;
-    FB: any;
+    private FB: any;
     private steps: NodeListOf<Element>;
     private activeFragment: BehaviorSubject<string>;
     constructor(private location: PlatformLocation){
-        let params = {
-            appId  : 1939376526289572,
-            xfbml  : true,
-            version: 'v2.8'
-        }
-        this.FB = w().FB;
-        this.FB.init(params);
     }
 
     openFacebookDialog(){
+        if(!this.FB){ return; }
         let params = {
             method: 'share',
             href: meta.url
@@ -57,6 +51,18 @@ export class StepNavigationComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.FB = w().FB;
+        if(this.FB){
+            let params = {
+                appId  : 1939376526289572,
+                xfbml  : true,
+                version: 'v2.8'
+            }
+            this.FB.init(params);
+        } else {
+            console.error('Facebook SDK is not loaded !');
+        }
+
         this.steps = document.querySelectorAll('.anchor');
         this.socials = initSocials();
         let h = '';
