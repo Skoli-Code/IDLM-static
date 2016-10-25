@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(){
+        $(window).scrollTop(0);
     }
 
     goNext(){
