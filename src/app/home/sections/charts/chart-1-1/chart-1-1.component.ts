@@ -31,7 +31,7 @@ interface StateObject {
   selector: 'idlmChart-1-1',
   templateUrl: './chart-1-1.component.html',
   styleUrls: ['./chart-1-1.component.scss'],
-  animations: [ fadeDown(), fade(), fadeRight(), fadeInOut(330) ]
+  animations: [ fadeDown(), fade(), fadeRight(), fadeInOut(400) ]
 })
 export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
