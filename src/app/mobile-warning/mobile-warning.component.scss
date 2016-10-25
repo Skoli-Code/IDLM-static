@@ -5,11 +5,12 @@
         margin-bottom: 0;
     }
     display: none;
+    position: fixed;
     &.hidden {
         display: none;
     }
 
-    @media screen and (max-width: $screen-limit-large - 8em){
+    @media (max-width: $screen-limit-large - 8em), (max-height: $screen-limit-small){
         display: block;
     }
 }
