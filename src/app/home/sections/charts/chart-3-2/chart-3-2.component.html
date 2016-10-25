@@ -6,8 +6,10 @@
                 <div class="chart__description o-grid__cell o-grid__cell--width-35">
                     <h5 class="bold">Focus sur l’évolution de l’usage de 10 adjectifs entre 1997 et 2015</h5>
                     <div class="adjective" *ngIf="active">
-                        <div class="quote"><h3>{{ active.name | capitalize }}</h3></div>
-                        <div class="adjective__description" [innerHTML]="active.description | markdown"></div>
+                        <div class="quote"><h3><span [@fadeInOut]="active.name">{{ active.name | capitalize }}</span>&nbsp;</h3></div>
+                        <div class="adjective__description">
+                            <div [@fadeInOut]="active.description" [innerHTML]="active.description | markdown"></div>
+                        </div>
                         <div class="sep"></div>
                         <idlmRepartitionChart [repartition]="active.repartition"></idlmRepartitionChart>
                     </div>

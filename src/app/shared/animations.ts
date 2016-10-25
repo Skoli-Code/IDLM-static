@@ -10,7 +10,7 @@ var defaultDuration:number=200;
 export var fixedWidthFadeRight = trigger('fixedWidthFadeRight', [
     transition('void => *', [
         style({
-            'z-index': -1, 
+            'z-index': -1,
             position:'absolute', width: '400px', opacity: 0, transform: 'translate(-100%, 0)'
         }),
         animate(200, style({
@@ -19,7 +19,7 @@ export var fixedWidthFadeRight = trigger('fixedWidthFadeRight', [
     ]),
     transition('* => void', [
         style({
-            'z-index': -1, 
+            'z-index': -1,
             position: 'absolute', width: '400px', opacity: 1, transform: 'translate(0%, 0)'
         }),
         animate(200, style({
@@ -28,18 +28,70 @@ export var fixedWidthFadeRight = trigger('fixedWidthFadeRight', [
     ]),
 ]);
 
-export function fade(duration:number=defaultDuration){
-    return trigger('fade', [
+export function fadeRight(duration:number=defaultDuration){
+    return trigger('fadeRight', [
         transition('void => *', [
-            style({opacity:0, position: "absolute"}),
-            animate(duration, style({position: 'absolute', opacity: 1}))
+            style({
+                position:'absolute', top:0, opacity: 0, transform: 'translate(-100%, 0)'
+            }),
+            animate(duration, style({
+                opacity: 1, transform: 'translate(0%, 0)'
+            }))
         ]),
         transition('* => void', [
-            style({opacity:1, position: 'absolute'}),
-            animate(duration, style({position: 'absolute', opacity: 0}))
+            style({
+                position: 'absolute', top:0, opacity: 1, transform: 'translate(0%, 0)'
+            }),
+            animate(duration, style({
+                opacity: 0, transform: 'translate(100%, 0)'
+            }))
         ])
     ]);
+};
+export function fadeFromRight(duration:number=defaultDuration){
+    return trigger('fadeFromRight', [
+        transition('void => *', [
+            style({
+                position:'absolute', top:0, opacity: 0, transform: 'translate(100%, 0)'
+            }),
+            animate(duration, style({
+                opacity: 1, transform: 'translate(0%, 0)'
+            }))
+        ]),
+        transition('* => void', [
+            style({
+                position: 'absolute', top:0, opacity: 1, transform: 'translate(0%, 0)'
+            }),
+            animate(duration, style({
+                opacity: 0, transform: 'translate(100%, 0)'
+            }))
+        ])
+    ]);
+};
+export function fadeInOut(duration:number=defaultDuration){
+    return trigger('fadeInOut', [
+        transition('* => *', [
+            style({opacity: 0}),
+            animate(duration, style({opacity: 1}))
+        ]),
+    ])
 }
+
+export function fade(duration:number=defaultDuration){
+    return trigger('fade', [
+        // state('true',  style({opacity: 1})),
+        // state('false', style({opacity: 0})),
+        transition('void => *', [
+            style({opacity: 0}),
+            animate(duration, style({opacity: 1}))
+        ]),
+        transition('* => void', [
+            // style({opacity:1}),
+            animate(duration, style({opacity: 0}))
+        ]),
+    ]);
+}
+
 export function fadeDown(duration:number=defaultDuration){
     return trigger('fadeDown', [
         transition('void => *', [
@@ -68,7 +120,6 @@ export function fadeDown(duration:number=defaultDuration){
         ])
     ]);
 }
-export var fadeUp = trigger('fadeUp', [])
 
 export function slideRight(duration:number=defaultDuration){
     return trigger('slideRight', [

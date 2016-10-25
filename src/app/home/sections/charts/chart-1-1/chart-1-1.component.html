@@ -7,33 +7,33 @@
             <div class="o-grid__cell o-grid__cell--width-60">
                 <svg #chartPlayground></svg>
                 <div class="chart__legend" [style.margin-left]="margin.left + 'px'">
-                    <ul class="list-inline" *ngIf='isAreas()' [@fadeDown]="isAreas()">
+                    <ul class="list-inline" *ngIf='isAreas()' [@fade]="isAreas()">
                         <li class="figaro"><span class="color"></span>&nbsp;<span class="name">Le Figaro</span></li>
                         <li class="liberation"><span class="color"></span>&nbsp;<span class="name">Libération</span></li>
                         <li class="lemonde"><span class="color"></span>&nbsp;<span class="name">Le Monde</span></li>
                     </ul>
-                    <ul class="list-inline" *ngIf='isLines()' [@fadeDown]="isLines()">
+                    <ul class="list-inline" *ngIf='isLines()' [@fade]="isLines()">
                         <li class="islam"><span class="color"></span>&nbsp;<span class="name">islam</span></li>
                         <li class="musulman"><span class="color"></span>&nbsp;<span class="name">musulman</span></li>
                     </ul>
                 </div>
             </div>
             <div class="chart__description o-grid__cell right-gutter">
-                <h5 class="chart__description__title bold">
-                    <span *ngIf='isLines()' [@fadeDown]='isLines()'>
+                <h5 class="chart__description__title rel bold" style="min-height: 2em">
+                    <span class="inner" *ngIf='isLines()' [@fade]='isLines()'>
                         Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (31.12.1997-31.12.2015)
                     </span>
-                    <span *ngIf='isAreas()' [@fadeDown]='isAreas()'>
+                    <span class="inner" *ngIf='isAreas()' [@fade]='isAreas()'>
                         Occurrences des termes contenant “islam” par an et par corpus (31.12.1997-31.12.2015)
                     </span>
                 </h5>
-                <div *ngIf="!hideFirstContent" class="first-content" [@fadeDown]="!hideFirstContent">
-                    <p>
+                <div class="rel">
+                    <p *ngIf="!hideFirstContent" class="inner" [@fade]="!hideFirstContent" style="top:1.5em">
                         Sans être étonnante, la corrélation entre les occurrences des termes contenant “islam” ou “musulman” pose des questions. Ainsi à la vue du “parallélisme” des courbes, il semblerait que, dans le corpus analysé, parler de l’islam reviendrait à parler de ses fidèles. Les écarts entre les deux courbes fluctuent et appellent à une analyse plus approfondie, cependant, notons que le terme “islam” et ses dérivés (jusqu’à “islamikaze” sous la plume de P.A Taguieff) sont plus fréquents que ceux du terme “musulman”. Aussi avons nous décidé, étant donnée la proximité d’usage des deux termes de nous concentrer sur celui d’”islam”.
                     </p>
-                </div>
-                <div *ngIf="hideFirstContent">
-                    <div *ngIf="periodContent" [@fadeDown]="periodContent" [innerHTML]="periodContent | markdown"></div>
+                    <div class="inner" *ngIf="hideFirstContent" [@fade]="hideFirstContent">
+                        <div *ngIf="periodContent" [@fadeInOut]="periodContent" [innerHTML]="periodContent | markdown"></div>
+                    </div>
                 </div>
             </div>
         </div>
