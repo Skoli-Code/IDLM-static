@@ -35,7 +35,7 @@ export var PERIODS:IPeriod[] = [
     dates: [ start(2011), end(2013) ],
     content:`<span class="bold underline">2011 – 2013: Printemps arabes, hivers islamistes. La France en guerres</span>
 
-    Au cours de cette période, lesdits « **printemps arabes** » sont très suivis par les médias français. Et ce, d’autant plus avec l’entrée en jeu d’acteurs islamistes dans les processus de transition et les débats autour de certaine s réformes constitutionnelles (égalité hommes femmes, question de la shari’a). Divers conflits (**crise syrienne**) et **interventions militaires** menées par la France (Libye, Mali) éclatent dans cet intervalle. Parallèlement, la **campagne pour la présidentielle** française met à l’agenda la question de l’islam (polémique sur le **halal**, affaire **Babyloup**). 2012 est encore marquée par l'affaire **Merah**. L'islam redevient un sujet médiatique de premier ordre`
+    Au cours de cette période, lesdits « **printemps arabes** » sont très suivis par les médias français. Et ce, d’autant plus avec l’entrée en jeu d’acteurs islamistes dans les processus de transition et les débats autour de certaine s réformes constitutionnelles (égalité hommes femmes, question de la shari’a). Divers conflits (**crise syrienne**) et **interventions militaires** menées par la France (Libye, Mali) éclatent dans cet intervalle. Parallèlement, la **campagne pour la présidentielle** française met à l’agenda la question de l’islam (polémique sur le **halal**, affaire **Babyloup**). 2012 est encore marquée par l'affaire **Merah**. L'islam redevient un sujet médiatique de premier ordre.`
 },
 {
     dates: [ start(2014), end(2015) ],
