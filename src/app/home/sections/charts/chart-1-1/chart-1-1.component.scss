@@ -1,5 +1,8 @@
 @import "../../../../shared/styles/colors";
+@import "../../../../shared/styles/variables";
+
 .chart {
+    margin-bottom: $chart-padding-top * 2;
     .rel {
         .inner {
             position: absolute;

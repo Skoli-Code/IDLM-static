@@ -33,6 +33,7 @@ import { RefComponent } from './shared/ref/ref.component';
 import { RepartitionComponent } from './home/sections/charts/repartition/repartition.component';
 import { TooltipModule } from 'ng2-tooltip';
 import { OpenModalDirective } from './shared/open-modal.directive';
+import { MobileWarningComponent } from './mobile-warning/mobile-warning.component';
 
 // enableProdMode();
 @NgModule({
@@ -57,6 +58,7 @@ import { OpenModalDirective } from './shared/open-modal.directive';
         RefComponent,
         RepartitionComponent,
         OpenModalDirective,
+        MobileWarningComponent,
     ],
     imports: [
         TooltipModule,

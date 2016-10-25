@@ -1,6 +1,9 @@
 // Vendor import
+@import '../node_modules/blaze/scss/components.buttons';
+@import '../node_modules/blaze/scss/components.cards';
 @import '../node_modules/blaze/scss/components.tooltips';
 @import '../node_modules/blaze/scss/objects.containers';
+@import '../node_modules/blaze/scss/objects.modals';
 @import '../node_modules/blaze/scss/objects.grid';
 @import '../node_modules/blaze/scss/generics.global';
 @import '../node_modules/blaze/scss/utilities.alignment';
@@ -47,10 +50,6 @@ section {
             }
         }
     }
-}
-
-.pad-top {
-    padding-top: 4em;
 }
 
 .rel {

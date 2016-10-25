@@ -1,0 +1,16 @@
+<div class="o-modal mobile-warning" [ngClass]="{hidden:hidden}">
+    <div class="c-card">
+        <header class="c-card__header">
+            <button type="button" class="c-button c-button--close" (click)="hide()">×</button>
+            <h2 class="c-heading">Affichage non optimisé</h2>
+        </header>
+        <div class="c-card__body">
+            <p>
+                Attention, ce site web est optimisé pour les écrans large et risque de mal fonctionner sur mobile.
+            </p>
+        </div>
+        <footer class="c-card__footer">
+            <button type="button" class="c-button c-button--brand"(click)="hide()">Compris</button>
+        </footer>
+    </div>
+</div>

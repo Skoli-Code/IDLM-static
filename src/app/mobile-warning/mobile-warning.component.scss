@@ -1,0 +1,15 @@
+@import '../shared/styles/variables';
+
+.mobile-warning {
+    h2 {
+        margin-bottom: 0;
+    }
+    display: none;
+    &.hidden {
+        display: none;
+    }
+
+    @media screen and (max-width: $screen-limit-small){
+        display: block;
+    }
+}
