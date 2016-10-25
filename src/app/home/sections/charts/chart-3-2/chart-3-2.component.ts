@@ -16,8 +16,6 @@ import { DataLoaderService } from '../data-loader.service';
 import { Repartition } from '../repartition/repartition.component';
 import { _extent } from '../utils';
 
-import { fadeRight } from '../../../../shared/animations';
-
 type Datum = [Date,number];
 
 interface SourceDatum {
@@ -36,7 +34,6 @@ type adjectiveType = {
   selector: 'idlmChart-3-2',
   templateUrl: './chart-3-2.component.html',
   styleUrls: ['./chart-3-2.component.scss'],
-  animations: [ fadeRight ]
 })
 export class Chart_3_2Component extends AbstractChart implements ScrollableChart {
     chartElement:any=null;

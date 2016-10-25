@@ -16,7 +16,7 @@ import { min } from 'd3-array';
 
 import { Repartition } from '../repartition/repartition.component';
 
-import { fadeRight } from '../../../../shared/animations';
+import { fixedWidthFadeRight } from '../../../../shared/animations';
 
 interface Event {
     description: string,
@@ -28,7 +28,7 @@ interface Event {
     selector: 'idlmChart-1-2',
     templateUrl: './chart-1-2.component.html',
     styleUrls: ['./chart-1-2.component.scss'],
-    animations: [ fadeRight ]
+    animations: [ fixedWidthFadeRight ]
 })
 export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
