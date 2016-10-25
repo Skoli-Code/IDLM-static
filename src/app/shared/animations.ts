@@ -10,7 +10,7 @@ var defaultDuration:number=200;
 export var fixedWidthFadeRight = trigger('fixedWidthFadeRight', [
     transition('void => *', [
         style({
-            opacity: 0, transform: 'translate(-100%, 0)',
+            width: '400px', opacity: 0, transform: 'translate(-100%, 0)',
             '-webkit-transform': 'translate(-100%, 0)'
         }),
         animate(200, style({
