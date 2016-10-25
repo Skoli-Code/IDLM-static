@@ -62,6 +62,14 @@ path {
         }
     }
 }
+// 3-2
+.chart-2-2 {
+    path.separator {
+        fill: none;
+        stroke: $light-gray;
+        stroke-width: 1px;
+    }
+}
 .bubble-group {
     .bubble {
         cursor: help;

@@ -157,10 +157,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
         this._g.append('path')
             .datum(path)
             .attr('class', 'separator')
-            .attr('d', line().x((d)=>d[0]).y((d)=>d[1]))
-            .attr('fill', 'none')
-            .attr('stroke', '#bbb')
-            .attr('stroke-width', 2);
+            .attr('d', line().x((d)=>d[0]).y((d)=>d[1]));
     }
 
     yearTop(tops){
