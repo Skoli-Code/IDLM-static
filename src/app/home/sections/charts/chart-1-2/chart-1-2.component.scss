@@ -4,8 +4,8 @@
     &__description {
         background-color: white;
     }
-    &-holder {
-        $events-height: 300px;
+    &-left-holder {
+        $events-height: 200px;
         position: relative;
         padding-bottom: $events-height;
         .events {

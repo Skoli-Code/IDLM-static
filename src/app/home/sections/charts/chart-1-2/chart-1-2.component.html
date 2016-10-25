@@ -1,10 +1,11 @@
 <div class="chart-holder cancel-margin-left"
     [style.margin-left]="-margin.left + 'px'"
     [style.height]="heightForScrollWatcher">
-    <div class="chart chart-1-2" idlmScrollWatcher (onScroll)="onScroll($event)">
-        <!-- <h3 class="subpart-title text-center">Les effets de l’actualité : Un objet médiatique volatile mais intense.</h3> -->
+    <div class="chart chart-1-2"
+        idlmScrollWatcher
+        (onScroll)="onScroll($event)">
         <div class="o-grid">
-            <div class="o-grid__cell o-grid__cell--width-60 chart-holder">
+            <div class="o-grid__cell o-grid__cell--width-60 chart-left-holder">
                 <svg #chartPlayground></svg>
                 <div class="events"
                     [style.margin-left]="margin.left + 'px'"
