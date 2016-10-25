@@ -19,7 +19,7 @@
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
         "assets/fixto.min.js",
-        "assets/web-animations.min.js"
+        "assets/web-animations-js/web-animations.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
