@@ -10,7 +10,13 @@ import 'jquery';
 // internal imports
 import { initSocials, meta, Socials } from './socials';
 import { slideRight } from '../../shared/animations';
-import { isInViewPort } from '../../shared/utils';
+
+function isInViewPort(el){
+    let rect = el.getBoundingClientRect();
+    let wh = window.innerHeight;
+    return (rect.top <= wh*0.5) && (rect.top + rect.height) > (rect.height * 0.66);
+}
+
 
 function w():any{
     return window;
