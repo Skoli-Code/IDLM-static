@@ -1,6 +1,34 @@
 @import '../../../../shared/styles/variables';
 
 .chart {
+    &__description {
+        background-color: white;
+    }
+    &-holder {
+        $events-height: 200px;
+        position: relative;
+        padding-bottom: $events-height;
+        .events {
+            width: 100%;
+            overflow: hidden;
+            z-index: -1;
+            position: absolute;
+            height: $events-height;
+            bottom: 0;
+            display: flex;
+            align-items: flex-start;
+            .event {
+                padding-right: 1.5em;
+                &__title, a {
+                    margin-bottom: 0;
+                    font-size: $event-font-size;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
     .sep {
         margin-top: 1em;
         margin-bottom: 1em;
@@ -9,25 +37,6 @@
         margin-bottom: 1em;
         .data {
             font-size: $h3;
-        }
-    }
-}
-
-
-.events {
-    display: flex;
-    align-items: flex-start;
-    .event {
-        padding-right: 1.5em;
-        &__title, a {
-            margin-bottom: 0;
-            font-size: $event-font-size;
-        }
-        &:last-child {
-            margin-right: 0;
-        }
-        &--capped {
-            max-width: 330px;
         }
     }
 }

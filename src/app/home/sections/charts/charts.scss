@@ -3,16 +3,14 @@
 @import '../../../shared/styles/variables';
 
 .chart {
-    padding-bottom:$vertical-padding/2;
-    .subpart-title {
-        margin-top: 1.5em;
-    }
+    padding-top:$chart-padding-top;
     &__description {
         background-color: white;
         strong, .bold {
             color: darken($light-gray, 10%);
         }
-        h5.bold {
+        h5.bold, h5 {
+            margin-top:0;
             color: $black;
         }
         &__title {

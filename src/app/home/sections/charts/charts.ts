@@ -134,7 +134,7 @@ export abstract class AxedChart extends AbstractChart {
 
     protected abstract getMaxYValue(): number;
     protected abstract getXValues(): any[];
-    protected margin: marginType = {top: 15, bottom: 40, left:55, right: 50};
+    protected margin: marginType = {top: 7, bottom: 40, left:55, right: 50};
 
     resize(e:any){
         super.resize(e);

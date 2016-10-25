@@ -9,13 +9,13 @@ import {
 var defaultDuration:number=200;
 export var fadeRight = trigger('fadeRight', [
     transition('void => *', [
-        style({position:'relative', 'z-index': -1,  opacity: 0, transform: 'translateX(-100%)'}),
-        animate(200, style({opacity: 1, transform: 'translateX(0)'}))
+        style({ opacity: 0, transform: 'translate(-100%, 0)'}),
+        animate(200, style({ opacity: 1, transform: 'translate(0%, 0)'}))
     ]),
     transition('* => void', [
-        style({position:'relative', 'z-index': -1, opacity: 1, transform: 'translateX(0%)'}),
-        animate(200, style({opacity: 0, transform: 'translateX(100%)'}))
-    ])
+        style({opacity: 1, transform: 'translate(0%, 0)'}),
+        animate(200, style({opacity: 0, transform: 'translate(100%, 0)'}))
+    ]),
 ]);
 
 export function fade(duration:number=defaultDuration){

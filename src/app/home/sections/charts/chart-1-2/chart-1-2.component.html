@@ -3,13 +3,13 @@
     [style.height]="heightForScrollWatcher">
     <div class="chart chart-1-2" idlmScrollWatcher (onScroll)="onScroll($event)">
         <!-- <h3 class="subpart-title text-center">Les effets de l’actualité : Un objet médiatique volatile mais intense.</h3> -->
-        <div class="pad-top"></div>
         <div class="o-grid">
-            <div class="o-grid__cell o-grid__cell--width-60">
+            <div class="o-grid__cell o-grid__cell--width-60 chart-holder">
                 <svg #chartPlayground></svg>
-                <div class="events" [style.margin-left]="margin.left + 'px'">
-                    <div *ngFor="let event of activeEvents" class="event quote"
-                        [@fadeRight]="event">
+                <div class="events"
+                    [style.margin-left]="margin.left + 'px'"
+                    [style.padding-right]="margin.left + 'px'">
+                    <div *ngFor="let event of activeEvents" [@fadeRight]="event" class="event quote">
                         <h5 class="event__title serif">{{event.description}}</h5>
                         <a idlmLink *ngIf="event.link != null" href="{{event.link}}" target="_blank" rel="nofollow">Plus d'infos</a>
                     </div>

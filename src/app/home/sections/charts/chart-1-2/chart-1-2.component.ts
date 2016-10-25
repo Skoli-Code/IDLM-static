@@ -104,7 +104,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         this.setLineAt(this.previousPercentage);
     }
 
-    private drawVisibilityClip() {
+    private drawVisibilityClip(){
         this._visibilityClip = this._g.append('clipPath')
             .attr('id', 'visibilityClip')
             .append('rect')
@@ -169,7 +169,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
             this.activeEvents = [];
         }
 
-        let _activeEvents = this._events.classed('active', (d) => {
+        this._events.classed('active', (d) => {
             if (this.active_ts) {
                 return d.getTime() == this.active_ts && date.getTime() <= this.offset_ts && ts > this.active_ts;
             } else {
