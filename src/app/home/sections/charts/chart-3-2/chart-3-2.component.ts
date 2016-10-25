@@ -17,9 +17,6 @@ import { Repartition } from '../repartition/repartition.component';
 import { _extent } from '../utils';
 import { fadeInOut } from '../../../../shared/animations';
 
-interface StateObject {
-
-
 type Datum = [Date,number];
 
 interface SourceDatum {
