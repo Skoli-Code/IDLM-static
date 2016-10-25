@@ -12,7 +12,7 @@ import { transition } from 'd3-transition';
 import { PERIODS, IPeriod } from './periods.constant';
 import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
-import { fadeDown } from '../../../../shared/animations';
+import { fade, fadeDown } from '../../../../shared/animations';
 
 interface State {
     domain: any[],
@@ -31,7 +31,7 @@ interface StateObject {
   selector: 'idlmChart-1-1',
   templateUrl: './chart-1-1.component.html',
   styleUrls: ['./chart-1-1.component.scss'],
-  animations: [ fadeDown() ]
+  animations: [ fadeDown(), fade() ]
 })
 export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
@@ -63,6 +63,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
 
     private periodsData: IPeriod[];
     periodContent:SafeHtml = null;
+    previousContent:SafeHtml = null;
 
     constructor(protected renderer:Renderer, protected dataLoader:DataLoaderService){
         super(renderer, dataLoader);
@@ -244,6 +245,11 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
                 .attr('transform', `translate(${start_x}, 0)`);
 
             this.previousPeriodNumber = period_nb;
+            if(!this.periodContent){
+                this.previousContent = period.content;
+            } else {
+                this.previousContent = this.periodContent;
+            }
             this.periodContent = period.content;
         }
     }

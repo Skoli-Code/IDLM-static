@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 
 var defaultDuration:number=200;
-
 export var fadeRight = trigger('fadeRight', [
     transition('void => *', [
         style({position:'relative', 'z-index': -1,  opacity: 0, transform: 'translateX(-100%)'}),
@@ -18,15 +17,35 @@ export var fadeRight = trigger('fadeRight', [
         animate(200, style({opacity: 0, transform: 'translateX(100%)'}))
     ])
 ]);
+
+export function fade(duration:number=defaultDuration){
+    return trigger('fade', [
+        transition('void => *', [
+            style({opacity:0, position: "absolute"}),
+            animate(duration, style({position: 'absolute', opacity: 1}))
+        ]),
+        // transition('* => *', [
+        //
+        // ]),
+        transition('* => void', [
+            style({opacity:1, position: 'absolute'}),
+            animate(duration, style({position: 'absolute', opacity: 0}))
+        ])
+    ]);
+}
 export function fadeDown(duration:number=defaultDuration){
     return trigger('fadeDown', [
         transition('void => *', [
             style({position:'absolute', opacity: 0, transform: 'translateY(-100%)'}),
-            animate(200, style({opacity: 1, transform: 'translateY(0)'}))
+            animate(duration, style({opacity: 1, transform: 'translateY(0)'}))
+        ]),
+        transition('* => *', [
+            style({position:'absolute', opacity: 0, transform: 'translateY(-100%)'}),
+            animate(duration, style({opacity: 1, transform: 'translateY(0)'}))
         ]),
         transition('* => void', [
             style({position:'absolute',opacity: 1, transform: 'translateY(0%)'}),
-            animate(200, style({opacity: 0, transform: 'translateY(100%)'}))
+            animate(duration, style({opacity: 0, transform: 'translateY(100%)'}))
         ])
     ]);
 }
