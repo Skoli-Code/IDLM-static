@@ -9,7 +9,7 @@
         display: none;
     }
 
-    @media screen and (max-width: $screen-limit-small){
+    @media screen and (max-width: $screen-limit-large - 8em){
         display: block;
     }
 }
