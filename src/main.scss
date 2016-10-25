@@ -53,13 +53,17 @@ section {
     padding-top: 4em;
 }
 
+.rel {
+    position: relative;
+}
+
 .vert {
     position: relative;
     &--full-height {
         min-height: 100vh;
     }
     &__content {
-        position: relative;
+        position: absolute;
         top: 50%;
         transform: translate(0, -50%);
     }
