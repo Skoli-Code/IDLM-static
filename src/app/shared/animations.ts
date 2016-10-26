@@ -11,7 +11,7 @@ export var fixedWidthFadeRight = trigger('fixedWidthFadeRight', [
     transition('void => *', [
         style({
             'z-index': -1,
-            position:'absolute', width: '400px', opacity: 0, transform: 'translate(-100%, 0)'
+            width: '500px', opacity: 0, transform: 'translate(-100%, 0)'
         }),
         animate(200, style({
             opacity: 1, transform: 'translate(0%, 0)'
@@ -20,7 +20,7 @@ export var fixedWidthFadeRight = trigger('fixedWidthFadeRight', [
     transition('* => void', [
         style({
             'z-index': -1,
-            position: 'absolute', width: '400px', opacity: 1, transform: 'translate(0%, 0)'
+            width: '500px', opacity: 1, transform: 'translate(0%, 0)'
         }),
         animate(200, style({
             opacity: 0, transform: 'translate(100%, 0)'
@@ -48,26 +48,6 @@ export function fadeRight(duration:number=defaultDuration){
         ])
     ]);
 };
-export function fadeFromRight(duration:number=defaultDuration){
-    return trigger('fadeFromRight', [
-        transition('void => *', [
-            style({
-                position:'absolute', top:0, opacity: 0, transform: 'translate(100%, 0)'
-            }),
-            animate(duration, style({
-                opacity: 1, transform: 'translate(0%, 0)'
-            }))
-        ]),
-        transition('* => void', [
-            style({
-                position: 'absolute', top:0, opacity: 1, transform: 'translate(0%, 0)'
-            }),
-            animate(duration, style({
-                opacity: 0, transform: 'translate(100%, 0)'
-            }))
-        ])
-    ]);
-};
 export function fadeInOut(duration:number=defaultDuration){
     return trigger('fadeInOut', [
         transition('* => *', [
@@ -79,14 +59,11 @@ export function fadeInOut(duration:number=defaultDuration){
 
 export function fade(duration:number=defaultDuration){
     return trigger('fade', [
-        // state('true',  style({opacity: 1})),
-        // state('false', style({opacity: 0})),
         transition('void => *', [
             style({opacity: 0}),
             animate(duration, style({opacity: 1}))
         ]),
         transition('* => void', [
-            // style({opacity:1}),
             animate(duration, style({opacity: 0}))
         ]),
     ]);
