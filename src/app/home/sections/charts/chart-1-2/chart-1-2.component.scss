@@ -7,13 +7,13 @@
     &-left-holder {
         $events-height: 120px;
         position: relative;
-        padding-bottom: $events-height;
+        // padding-bottom: $events-height;
         .events {
             width: 100%;
             overflow: hidden;
-            position: absolute;
+            // position: absolute;
             height: $events-height;
-            bottom: 0;
+            // bottom: 0;
             display: flex;
             align-items: flex-start;
             .event {
