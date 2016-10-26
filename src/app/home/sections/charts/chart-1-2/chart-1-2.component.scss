@@ -5,7 +5,7 @@
         background-color: white;
     }
     &-left-holder {
-        $events-height: 200px;
+        $events-height: 120px;
         position: relative;
         padding-bottom: $events-height;
         .events {
@@ -19,6 +19,7 @@
             .event {
                 z-index: 1;
                 padding-right: 1.5em;
+                max-height: $events-height;
                 &__title, a {
                     margin-bottom: 0;
                     font-size: $event-font-size;

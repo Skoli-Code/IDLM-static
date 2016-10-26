@@ -2,104 +2,106 @@
     <div id="chartPlayground" class="scroll-content" idlmScrollWatcher (onScroll)="onScroll($event)">
         <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
         <div class="chart chart-3-2 o-container o-container--xlarge">
-            <div class="o-grid right-gutter">
-                <div class="chart__description o-grid__cell o-grid__cell--width-35">
-                    <h5 class="bold">Focus sur l’évolution de l’usage de 10 adjectifs entre 1997 et 2015</h5>
-                    <div class="adjective" *ngIf="active">
-                        <div class="quote"><h3><span [@fadeInOut]="active.name">{{ active.name | capitalize }}</span>&nbsp;</h3></div>
-                        <div class="adjective__description">
-                            <div [@fadeInOut]="active.description" [innerHTML]="active.description | markdown"></div>
+            <div class="vert vert--full-height vert--full-width">
+                <div class="vert__content o-grid right-gutter">
+                    <div class="chart__description o-grid__cell o-grid__cell--width-35">
+                        <h5 class="bold">Focus sur l’évolution de l’usage de 10 adjectifs entre 1997 et 2015</h5>
+                        <div class="adjective" *ngIf="active">
+                            <div class="quote"><h3><span [@fadeInOut]="active.name">{{ active.name | capitalize }}</span>&nbsp;</h3></div>
+                            <div class="adjective__description">
+                                <div [@fadeInOut]="active.description" [innerHTML]="active.description | markdown"></div>
+                            </div>
+                            <div class="sep"></div>
+                            <idlmRepartitionChart [repartition]="active.repartition"></idlmRepartitionChart>
                         </div>
-                        <div class="sep"></div>
-                        <idlmRepartitionChart [repartition]="active.repartition"></idlmRepartitionChart>
                     </div>
-                </div>
-                <div class="o-grid__cell o-grid__cell--width-65 o-grid__cell--offset-5 o-grid__cell--no-gutter chart-grid">
-                <!-- First row -->
-                <div class="o-grid">
-                    <div class="o-grid__cell chart-cell chart-cell--global">
-                        <h3 class="small-underline">Corpus Global</h3>
-                        <div class="o-grid">
-                            <div class="o-grid__cell o-grid__cell--no-gutter">
-                                <h5>occurences:</h5>
-                                <div class="serif bold" *ngIf="active">
-                                    {{ activeFor('global').occurences }}
+                    <div class="o-grid__cell o-grid__cell--width-65 o-grid__cell--offset-5 o-grid__cell--no-gutter chart-grid">
+                    <!-- First row -->
+                    <div class="o-grid">
+                        <div class="o-grid__cell chart-cell chart-cell--global">
+                            <h3 class="small-underline">Corpus Global</h3>
+                            <div class="o-grid">
+                                <div class="o-grid__cell o-grid__cell--no-gutter">
+                                    <h5>occurences:</h5>
+                                    <div class="serif bold" *ngIf="active">
+                                        {{ activeFor('global').occurences }}
+                                    </div>
+                                </div>
+                                <div class="o-grid__cell o-grid__cell">
+                                    <h5>rang:</h5>
+                                    <div class="serif bold" *ngIf="active">
+                                        {{ activeFor('global').rank }}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="o-grid__cell o-grid__cell">
-                                <h5>rang:</h5>
-                                <div class="serif bold" *ngIf="active">
-                                    {{ activeFor('global').rank }}
-                                </div>
-                            </div>
+                            <svg></svg>
+                            <div class="sep--right"></div>
+                            <div class="sep--bottom"></div>
                         </div>
-                        <svg></svg>
-                        <div class="sep--right"></div>
-                        <div class="sep--bottom"></div>
-                    </div>
-                    <div class="o-grid__cell chart-cell--right chart-cell chart-cell--figaro">
-                        <h3 class="small-underline">Le Figaro</h3>
-                        <div class="o-grid">
-                            <div class="o-grid__cell o-grid__cell--no-gutter">
-                                <h5>occurences:</h5>
-                                <div class="serif bold" *ngIf="active">
-                                    {{ activeFor('figaro').occurences }}
+                        <div class="o-grid__cell chart-cell--right chart-cell chart-cell--figaro">
+                            <h3 class="small-underline">Le Figaro</h3>
+                            <div class="o-grid">
+                                <div class="o-grid__cell o-grid__cell--no-gutter">
+                                    <h5>occurences:</h5>
+                                    <div class="serif bold" *ngIf="active">
+                                        {{ activeFor('figaro').occurences }}
+                                    </div>
+                                </div>
+                                <div class="o-grid__cell o-grid__cell">
+                                    <h5>rang:</h5>
+                                    <div class="serif bold" *ngIf="active">
+                                        {{ activeFor('figaro').rank }}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="o-grid__cell o-grid__cell">
-                                <h5>rang:</h5>
-                                <div class="serif bold" *ngIf="active">
-                                    {{ activeFor('figaro').rank }}
-                                </div>
-                            </div>
-                        </div>
-                        <svg></svg>
-                        <div class="sep--bottom sep--bottom--right"></div>
+                            <svg></svg>
+                            <div class="sep--bottom sep--bottom--right"></div>
 
+                        </div>
                     </div>
-                </div>
 
-                <!-- Second row -->
-                <div class="o-grid">
-                    <div class="o-grid__cell chart-cell chart-cell--liberation">
-                        <h3 class="small-underline">Libération</h3>
-                        <div class="o-grid">
-                            <div class="o-grid__cell o-grid__cell--no-gutter">
-                                <h5>occurences:</h5>
-                                <div class="serif bold" *ngIf="active">
-                                    {{ activeFor('liberation').occurences }}
+                    <!-- Second row -->
+                    <div class="o-grid">
+                        <div class="o-grid__cell chart-cell chart-cell--liberation">
+                            <h3 class="small-underline">Libération</h3>
+                            <div class="o-grid">
+                                <div class="o-grid__cell o-grid__cell--no-gutter">
+                                    <h5>occurences:</h5>
+                                    <div class="serif bold" *ngIf="active">
+                                        {{ activeFor('liberation').occurences }}
+                                    </div>
+                                </div>
+                                <div class="o-grid__cell o-grid__cell">
+                                    <h5>rang:</h5>
+                                    <div class="serif bold" *ngIf="active">
+                                        {{ activeFor('liberation').rank }}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="o-grid__cell o-grid__cell">
-                                <h5>rang:</h5>
-                                <div class="serif bold" *ngIf="active">
-                                    {{ activeFor('liberation').rank }}
-                                </div>
-                            </div>
+                            <svg></svg>
+                            <div class="sep--right sep--right--bottom"></div>
                         </div>
-                        <svg></svg>
-                        <div class="sep--right sep--right--bottom"></div>
-                    </div>
-                    <div class="o-grid__cell chart-cell--right chart-cell chart-cell--lemonde">
-                        <h3 class="small-underline">Le Monde</h3>
-                        <div class="o-grid">
-                            <div class="o-grid__cell o-grid__cell--no-gutter">
-                                <h5>occurences:</h5>
-                                <div class="serif bold" *ngIf="active">
-                                    {{ activeFor('lemonde').occurences }}
+                        <div class="o-grid__cell chart-cell--right chart-cell chart-cell--lemonde">
+                            <h3 class="small-underline">Le Monde</h3>
+                            <div class="o-grid">
+                                <div class="o-grid__cell o-grid__cell--no-gutter">
+                                    <h5>occurences:</h5>
+                                    <div class="serif bold" *ngIf="active">
+                                        {{ activeFor('lemonde').occurences }}
+                                    </div>
+                                </div>
+                                <div class="o-grid__cell o-grid__cell">
+                                    <h5>rang:</h5>
+                                    <div class="serif bold" *ngIf="active">
+                                        {{ activeFor('lemonde').rank }}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="o-grid__cell o-grid__cell">
-                                <h5>rang:</h5>
-                                <div class="serif bold" *ngIf="active">
-                                    {{ activeFor('lemonde').rank }}
-                                </div>
-                            </div>
+                            <svg></svg>
                         </div>
-                        <svg></svg>
                     </div>
                 </div>
-            </div>
+                </div>
             </div>
         </div>
     </div>

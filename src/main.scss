@@ -61,6 +61,12 @@ section {
     &--full-height {
         min-height: 100vh;
     }
+    &--full-width {
+        .vert__content {
+            width: 100%;
+            margin-top: -$navbar-height;
+        }
+    }
     &__content {
         position: absolute;
         top: 50%;

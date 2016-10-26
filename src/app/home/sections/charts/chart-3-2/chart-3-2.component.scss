@@ -4,6 +4,11 @@ h4 {
     margin-top: 0.5em;
 }
 .chart {
+    &__description {
+        h5 {
+            margin-top: 9px;
+        }
+    }
     &-grid {
         padding-left: 3em;
         padding-right: 3em;
@@ -69,5 +74,4 @@ h4 {
             }
         }
     }
-
 }

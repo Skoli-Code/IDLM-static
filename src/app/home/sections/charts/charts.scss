@@ -3,7 +3,11 @@
 @import '../../../shared/styles/variables';
 
 .chart {
-    padding-top:$chart-padding-top;
+    &-1-2 {
+        div.vert__content {
+            margin-top: 0;
+        }
+    }
     &__description {
         background-color: white;
         strong, .bold {
