@@ -1,6 +1,5 @@
 {
     "islam": {
-        "line_color_class":"green",
         "values": [
             { "date": "1997/12/31", "value": 3122,  "sub_values": { "figaro": 68,     "liberation":848,  "lemonde": 2206  }},
             { "date": "1998/12/31", "value": 3152,  "sub_values": { "figaro": 22,     "liberation":849,  "lemonde": 2281  }},
@@ -24,7 +23,6 @@
         ]
     },
     "musulman": {
-        "line_color_class":"blue",
         "values": [
             { "date": "1997/12/31","value": 2587  },
             { "date": "1998/12/31","value": 2613  },
