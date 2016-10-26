@@ -3,7 +3,7 @@
 # compiled output
 /dist
 /tmp
-
+src/assets/data/export/
 # dependencies
 node_modules/
 
