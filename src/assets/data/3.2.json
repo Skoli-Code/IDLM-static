@@ -1,7 +1,7 @@
 [{
     "name": "religieux",
     "order":3,
-    "description":"L’usage de l’expression “islam religieux” est récurrente dans un contexte marqué sur le plan national, par les questions liées aux débats sur les rapports de l’islam à la laïcité et aux valeurs républicaines: débat autour du voile, des caricatures et discours de Ratisbonne (2006) ainsi qu’en 2009 lors du débat sur l’identité nationale. Sur la période examinée, l’usage de cette expression - qui renvoie à la dimension première de l’islam - est minime comparativement aux adjectifs qui qualifient la dimension politique, littéraliste ou violente de l’islam. Ce contraste met en exergue les conceptions prédominantes de l’islam dans le traitement médiatique ici étudié.",
+    "description":"L’usage de l’expression “islam religieux” est récurrente dans un contexte marqué, sur le plan national, par les questions liées aux débats sur les rapports de l’islam à la laïcité et aux valeurs républicaines: débat autour du voile, des caricatures et discours de Ratisbonne (2006) ainsi qu’en 2009 lors du débat sur l’identité nationale. Sur la période examinée, l’usage de cette expression - qui renvoie à la dimension première de l’islam - est minime comparativement aux adjectifs qui qualifient la dimension politique, littéraliste ou violente de l’islam. Ce contraste met en exergue les conceptions prédominantes de l’islam dans le traitement médiatique ici étudié.",
     "values": [
         {
             "source":"figaro",
@@ -27,7 +27,7 @@
 },{
     "name": "vrai",
     "order":8,
-    "description":"Cette expression connaît des pics lors des débats sur le voile (2003-2004), lors des soulèvements arabes (2011-2012) puis lors de l’ascension médiatique de l’Etat Islamique (2014-2015).  Ce qui conduit à penser qu’une telle expression s’inscrit dans la dichotomie “islam vrai/moderne” versus “islam violent/traditionnel”, cherchant à distinguer “les musulmans” en général des auteurs d’actes de violence revendiqués au nom de l’islam. Enfin, dans le cas de la France, l’”islam vrai” est mobilisé par les discours normatifs visant à définir les critères d’un “islam acceptable” car compatible avec les valeurs républicaines.",
+    "description":"Cette expression connaît des pics lors des débats sur le voile (2003-2004), lors des soulèvements arabes (2011-2012) puis lors de l’ascension médiatique de l’Etat Islamique (2014-2015).  Ce qui conduit à penser qu’une telle expression s’inscrit dans la dichotomie “islam vrai/moderne” versus “islam violent/traditionnel”, cherchant à différencier “les musulmans” en général des auteurs d’actes de violence revendiqués au nom de l’islam. Enfin, dans le cas de la France, l’”islam vrai” est mobilisé par les discours normatifs visant à définir les critères d’un “islam acceptable” car compatible avec les valeurs républicaines.",
     "values": [
         {
             "source":"figaro",
@@ -131,7 +131,7 @@
 },{
     "name": "rigoriste",
     "order":6,
-    "description":"L’islam rigoriste fait également référence à un courant littéraliste et qui vise à revenir à un “islam originel”. Il s’agit là principalement de qualifier un islam non violent mais fondamentaliste ou, dans le jargon médiatique, “radical”. Si son usage connaît des fluctuations à la faveur d’événements internationaux, il est intéressant de noter que les médias ici analysés y recourent régulièrement à diverses occasions dans le cadre de l’actualité nationale: débats sur le voile, affaire Merah, campagne présidentielle de 2012 et diverses affaires mettant en jeu des personnalités (imams) ou groupes d’individus (“islam des banlieues”).",
+    "description":"L’islam rigoriste fait également référence à un courant littéraliste qui vise à revenir à un “islam originel”. Il s’agit là principalement de qualifier un islam non violent mais fondamentaliste ou, dans le jargon médiatique, “radical”. Si son usage connaît des fluctuations à la faveur d’événements internationaux, il est intéressant de noter que les médias ici analysés y recourent régulièrement à diverses occasions dans le cadre de l’actualité nationale: débats sur le voile, affaire Merah, campagne présidentielle de 2012 et diverses affaires mettant en jeu des personnalités (imams) ou groupes d’individus (“islam des banlieues”).",
     "values": [
         {
             "source":"figaro",
@@ -157,7 +157,7 @@
 },{
     "name": "chiite",
     "order":5,
-    "description":"Comme pour “islam sunnite”, il s’agit d’un mode de lecture des théâtres de guerre, conflits et fractures confessionnelles au Moyen-Orient (notamment la guerre civile en Irak et la crise syrienne). Les corrélations observées avec des moments forts de la politique iranienne (2005, 2009) mettent en lumière la grille de lecture employée pour traiter du régime iranien. Cette similarité avec les tendances de l’expression “islam sunnite” souligne le relatif succès des acteurs, aussi bien en France qu’au Moyen-Orient, qui ont travaillé à faire du  facteur religieux un élément fondamental dans la lecture des conflits et dynamiques qui caractérisent le Moyen-Orient.",
+    "description":"Comme pour “islam sunnite”, il s’agit d’un mode de lecture des théâtres de guerre, conflits et fractures confessionnelles au Moyen-Orient (notamment la guerre civile en Irak et la crise syrienne). Les corrélations observées avec des moments forts de la politique iranienne (2005, 2009) mettent en lumière la prévalence du religieux dans la grille de lecture employée pour traiter du régime iranien. Cette similarité avec les tendances de l’expression “islam sunnite” souligne le relatif succès des acteurs, aussi bien en France qu’au Moyen-Orient, qui ont travaillé à faire du  facteur religieux un élément fondamental dans la lecture des conflits et dynamiques qui caractérisent le Moyen-Orient.",
     "values": [
         {
             "source":"figaro",
@@ -183,7 +183,7 @@
 },{
     "name": "politique",
     "order":2,
-    "description": "Les termes sont associés après l’intervention américaine en Irak mais aussi, c’est révélateur, lors des débats portant sur le voile (2003-2004). L’usage de ce concept investit le port du foulard d’une portée politique: les débats d’alors évoquent la matérialisation d’une inégalité hommes-femmes dans l’espace public, la soumission de la femme, voire une revendication identitaire (“refus d’assimilation”) ou politique (défiance).\n\nDeux pics significatifs sont de nouveau atteints dans le contexte des “printemps arabes”, lesquels sont marqués par l’entrée en jeu de partis islamistes dans les processus de transition et réformes constitutionnelles en Afrique du Nord et au Moyen-Orient.",
+    "description": "Les termes sont associés après l’intervention américaine en Irak mais aussi, c’est révélateur, lors des débats portant sur le voile (2003-2004). L’usage de ce concept investit le port du foulard d’une portée politique: les débats d’alors évoquent la matérialisation d’une inégalité hommes-femmes dans l’espace public, la soumission de la femme, voire une revendication identitaire (“refus d’assimilation”) ou politique (défiance).\nDeux pics significatifs sont de nouveau atteints dans le contexte des “printemps arabes”, lesquels sont marqués par l’entrée en jeu de partis islamistes dans les processus de transition et réformes constitutionnelles en Afrique du Nord et au Moyen-Orient.",
     "values": [
         {
             "source":"figaro",
