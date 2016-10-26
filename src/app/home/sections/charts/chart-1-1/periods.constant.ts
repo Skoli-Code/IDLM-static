@@ -11,7 +11,7 @@ export var PERIODS:IPeriod[] = [
     dates: [ start(1997), end(2000​) ],
     content:`<span class="bold underline">1997 – 2000​: attentats terroristes</span>
 
-    Durant cette période, bien que de nombreux attentats frappent en Afrique (Algérie, Egypte, Kenya, Tanzanie) et le continent asiatique (Afghanistan, Yémen, Inde, Indonésie),  ces évènements ne sont pas significativement traités à travers le prisme religieux. Sur cette période l’islam demeure un sujet médiatique marginal.`
+    Durant cette période, bien que de nombreux attentats frappent l' Afrique (Algérie, Egypte, Kenya, Tanzanie) et le continent asiatique (Afghanistan, Yémen, Inde, Indonésie),  ces évènements ne sont pas significativement traités à travers le prisme religieux. Sur cette période l’islam demeure un sujet médiatique marginal.`
 },
 {
     dates: [ start(2001), end(2004​) ],
