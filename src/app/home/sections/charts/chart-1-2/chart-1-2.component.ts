@@ -150,7 +150,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         let _i = this.invertDateScale.invert;
         let _d = (d) => (new Date(d.getFullYear(), d.getMonth(), 0));
         let date = _i(percentage);
-        this.updateContextalValues(_d(date));
+        this.updateContextialValues(date);
 
         let ts = date.getTime();
         // first filtering to guess what the next events will be
@@ -177,12 +177,12 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         });
     }
 
-    private updateContextalValues(date) {
+    private updateContextialValues(date) {
+        let sameMonth = (d1,d2)=>(d1.getMonth() == d2.getMonth()) && (d1.getFullYear() == d2.getFullYear())
         let data = null;
         let minDate = min(this.getXValues())
         date = date < minDate ? minDate : date;
-
-        let values = _.find(this.lineData, (d) => d.date.getTime() == date.getTime());
+        let values = _.find(this.lineData, (d) => sameMonth(d.date, date));
         let percScale = scaleLinear().domain([0, 1]).range([0, 70]);
         if (values) {
             data = {
