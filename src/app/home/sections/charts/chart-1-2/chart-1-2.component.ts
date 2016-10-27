@@ -23,6 +23,10 @@ interface Event {
     link: string
 }
 
+let sameMonth = (d1,d2)=>{
+    return (d1.getMonth() == d2.getMonth()) && (d1.getFullYear() == d2.getFullYear());
+};
+
 @Component({
     selector: 'idlmChart-1-2',
     templateUrl: './chart-1-2.component.html',
@@ -32,7 +36,6 @@ interface Event {
 export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
     heightForScrollWatcher: string = "20000px";
-    activeEvents: any[];
     dataCatalogKey: string = "1.2";
     contextualData: {
         date: Date,
@@ -43,11 +46,16 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
 
     private _visibilityClip: any;
     private _line: any;
-    private _events: any;
     private lineData: any[];
+    // events data and internal mixture
     private eventsData: any[];
-    private active_ts: number;
-    private offset_ts: number;
+    private _events: any;
+
+    activeEvents: any[]=[];
+    // active timestamp used to show events based on scroll position
+    private activeTS: number = -1;
+    // offset timestamp used to show events for a longer range of scrolling
+    private offsetTS: number = -1;
     private lineDrawScale: ScaleLinear<any, any>;
     private invertDateScale: any;
     private previousPercentage: number = 0;
@@ -147,38 +155,38 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     }
 
     private showEventsFor(percentage: number) {
-        let _i = this.invertDateScale.invert;
-        let _d = (d) => (new Date(d.getFullYear(), d.getMonth(), 0));
-        let date = _i(percentage);
+        let isActive = (date, ts)=>{
+            let ets = date.getTime();
+            return sameMonth(new Date(this.activeTS), date) && ets >= ts;
+        };
+
+        let date = this.invertDateScale.invert(percentage);
+        let ts = date.getTime();
+        let offsetTS = 120 * 86400 * 1000;
         this.updateContextialValues(date);
 
-        let ts = date.getTime();
         // first filtering to guess what the next events will be
-        let events = _.filter(this.eventsData, (d) => {
-            return d.date.getTime() == _d(date).getTime()
-        });
+        let events = _.filter(this.eventsData, (d) => sameMonth(d.date, date));
         if (events.length) {
-            this.active_ts = events[0].date.getTime();
-            this.offset_ts = this.active_ts + 120 * 86400 * 1000; // nb of days * a day in seconds * 1000ms
-        }
-        if (this.active_ts && ts > this.active_ts && ts < this.offset_ts) {
-            this.activeEvents = _.filter(this.eventsData, (d) => d.date.getTime() == this.active_ts);
-        }
-        if (ts > this.offset_ts || ts < this.active_ts) {
-            this.activeEvents = [];
+            this.activeTS = ts;
+            this.offsetTS = this.activeTS + offsetTS; // nb of days * a day in seconds * 1000ms
         }
 
-        this._events.classed('active', (d) => {
-            if (this.active_ts) {
-                return d.getTime() == this.active_ts && date.getTime() <= this.offset_ts && ts > this.active_ts;
-            } else {
-                return false;
-            }
-        });
+        // 2. we need to show the events actually after reaching their points :3
+        this.activeEvents = _.filter(this.eventsData, (e)=>isActive(e.date, ts));
+        this._events.classed('active',(e)=>isActive(e, ts));
+
+        // 3. If we go too far away from the limits we need to hide events
+        if(ts > this.offsetTS || ts < this.activeTS){
+            this.activeEvents = [];
+            this.activeTS = -1;
+            this.offsetTS = -1;
+            this._events.classed('active',false);
+        }
+
     }
 
     private updateContextialValues(date) {
-        let sameMonth = (d1,d2)=>(d1.getMonth() == d2.getMonth()) && (d1.getFullYear() == d2.getFullYear())
         let data = null;
         let minDate = min(this.getXValues())
         date = date < minDate ? minDate : date;
