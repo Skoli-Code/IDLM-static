@@ -35,7 +35,7 @@ import { TooltipModule } from 'ng2-tooltip';
 import { OpenModalDirective } from './shared/open-modal.directive';
 import { MobileWarningComponent } from './mobile-warning/mobile-warning.component';
 
-// enableProdMode();
+enableProdMode();
 @NgModule({
     declarations: [
         AppComponent,
