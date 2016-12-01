@@ -13,7 +13,7 @@
                     [style.padding-right]="margin.left + 'px'">
                     <div *ngFor="let event of activeEvents" [@fixedWidthFadeRight]="event" class="event quote">
                         <h5 class="event__title serif">{{event.description}}</h5>
-                        <a idlmLink *ngIf="event.link != null" href="{{event.link}}" target="_blank" rel="nofollow">Plus d'infos</a>
+                        <a idlmLink *ngIf="event.link != null" href="{{event.link}}" target="_blank" rel="nofollow">More</a>
                     </div>
                 </div>
             </div>
