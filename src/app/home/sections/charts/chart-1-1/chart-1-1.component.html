@@ -14,22 +14,22 @@
                     </ul>
                     <ul class="list-inline" *ngIf='isLines()' [@fade]="isLines()">
                         <li class="islam"><span class="color"></span>&nbsp;<span class="name">islam</span></li>
-                        <li class="musulman"><span class="color"></span>&nbsp;<span class="name">musulman</span></li>
+                        <li class="musulman"><span class="color"></span>&nbsp;<span class="name">muslim</span></li>
                     </ul>
                 </div>
             </div>
             <div class="chart__description o-grid__cell right-gutter">
                 <h5 class="chart__description__title rel bold" style="min-height: 2em">
                     <span class="inner" *ngIf='isLines()' [@fade]='isLines()'>
-                        Occurrences des termes  contenant “islam” et “musulman” par an dans le corpus général (31.12.1997-31.12.2015)
+                        Occurrences of terms containing “Islam” and “Muslim” by year in the documents (31.12.1997-31.12.2015)
                     </span>
                     <span class="inner" *ngIf='isAreas()' [@fade]='isAreas()'>
-                        Occurrences des termes contenant “islam” par an et par corpus (31.12.1997-31.12.2015)
+                        Occurrences of terms containing “Islam” by year per corpus (31.12.1997-31.12.2015)
                     </span>
                 </h5>
                 <div class="rel">
                     <p *ngIf="!hideFirstContent" class="inner" [@fade]="!hideFirstContent" style="top:1.5em">
-                        Sans être étonnante, la corrélation entre les occurrences des termes contenant “islam” ou “musulman” pose des questions. Ainsi, la vue du “parallélisme” des courbes laisse penser que ces deux termes sont devenus interchangeables. Et ce, pour qualifier un fait qui a trait à la religion musulmane ou implique des personnes réellement ou supposément musulmanes (terrorisme, délits, polémiques diverses). Les écarts entre les deux courbes fluctuent et appellent à une analyse plus approfondie. Cependant, notons que le terme “islam” et ses dérivés ("islamogauchiste", "islamofasciste" ou encore “islamikaze”) sont plus fréquents que ceux du terme “musulman”. Aussi avons nous décidé, étant donné la proximité d’usage des deux termes, de nous concentrer sur celui d’”islam”.
+                        Though not surprising, the correlation between the occurrences of terms containing “Islam” or “Muslim” raises questions. Thus, the view of the “parallelism” of the curves leads us to believe that the two terms have become interchangeable. They are employed to describe a fact that concerns the Muslim religion or involves people who are really or supposedly Muslim (terrorism, crime, various controversies). The differences between the two curves fluctuates and demands deeper analysis. However, we note that the term “islam” and its derivations, for example, “islamogauchiste” (Islamoleftist), “islamofasciste” (Islamofascist) and even “islamikaze”, are used more frequently than those of the term “Muslim”. Given the similarity in the usage of the two terms, we therefore decided to concentrate on that of “Islam”.
                     </p>
                     <div class="inner" *ngIf="hideFirstContent" [@fade]="hideFirstContent">
                         <div *ngIf="periodContent" [@fadeInOut]="periodContent" [innerHTML]="periodContent | markdown"></div>

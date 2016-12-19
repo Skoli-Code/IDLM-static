@@ -10,12 +10,12 @@ export interface Socials {
 export var meta = {
     url: 'http://islam-objet-mediatique.fr',
     twitter: {
-        tweet: _enc_('“L\'islam, objet médiatique” - Étude sur le traitement médiatique de l\'islam dans la presse française'),
+        tweet: _enc_('“Islam, media subject" - Islam in the French daily national press - 1997-2015'),
         hashtags: ['islam', 'dataviz'].join(',')
     },
     linkedin: {
-        title: _enc_('“L\'islam, objet médiatique” - Étude sur le traitement médiatique de l’islam dans la presse française (1997-2015)'),
-        summary: _enc_('Analyse de données textuelles et datavisualisations sur le traitement de l\'islam dans la presse, à partir des archives de trois grands quotidiens. Par Skoli et M.Bourekba.'),
+        title: _enc_('“Islam, media subject" - Islam in the French daily national press - 1997-2015'),
+        summary: _enc_('Analysis of textual data and datavisualizations on the treatment of Islam in the press, from the archives of three major french newspapers. By Skoli and M.Bourekba.'),
         source: _enc_('Skoli')
     }
 }
