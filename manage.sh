@@ -2,18 +2,32 @@
 
 updatePages(){
     # args:
-    # 0 - updatePages
     # 1 - CNAME
+    # 2 - remote URL
+    # 3 - remote branch to use
+    cname=${@[1]:-islam-objet-mediatique.fr}
+    remote_url=${@[2]:-git\@github.com\:Skoli-Code\/IDLM-static.git}
+    branch=${@[3]:-gh-pages}
+    echo "CNAME: $cname"
+    echo "repository URL: $remote_url"
+    echo "Remote branch to use for pages: $branch"
     ng build
     cd dist
-    echo "islam-objet-mediatique.fr" > CNAME
+    echo $cname > CNAME
     cp ../src/404.html .
     git init && git add --all
-    git commit -m "Update"
-    git remote add origin git@github.com:Skoli-Code/IDLM-static.git
-    git push origin master:gh-pages --force
+    git commit -m " Update"
+    git remote add origin $remote_url
+    git push origin master:$branch
     echo "Udpate done !"
     cd ..
+}
+
+updateEnglishPages(){
+    git checkout english
+    remote_url="git@github.com:Skoli-Code/IDLM-english.git"
+    updatePages "en.islam-objet-mediatique.fr" $remote_url master
+    git checkout master
 }
 
 run(){
