@@ -67,7 +67,7 @@ enableProdMode();
         routing
     ],
     providers: [
-        { provide: LOCALE_ID, useValue: 'fr-FR' },
+        { provide: LOCALE_ID, useValue: 'en-US' },
         appRoutingProviders, DataLoaderService
     ],
     bootstrap: [AppComponent]
