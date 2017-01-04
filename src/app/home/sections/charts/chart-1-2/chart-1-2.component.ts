@@ -16,6 +16,7 @@ import { min } from 'd3-array';
 import { Repartition } from '../repartition/repartition.component';
 
 import { fixedWidthFadeRight } from '../../../../shared/animations';
+import * as _ from 'lodash'
 
 interface Event {
     description: string,

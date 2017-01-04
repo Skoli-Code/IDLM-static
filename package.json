@@ -21,7 +21,7 @@
     "core-js": "^2.4.1",
     "css-loader": "^0.25.0",
     "d3-array": "^1.0.1",
-    "d3-axis": "^1.0.3",
+    "d3-axis": "^1.0.4",
     "d3-cloud": "^1.2.1",
     "d3-collection": "^1.0.1",
     "d3-force": "^1.0.2",
@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@types/d3-array": "^1.0.5",
+    "@types/d3-axis": "^1.0.6",
     "@types/d3-collection": "^1.0.4",
     "@types/d3-force": "^1.0.5",
     "@types/d3-polygon": "^1.0.4",
