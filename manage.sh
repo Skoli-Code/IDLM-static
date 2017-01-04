@@ -8,10 +8,10 @@ updatePages(){
     cd dist
     echo "islam-objet-mediatique.fr" > CNAME
     cp ../src/404.html .
-    git init && ga --all
-    gc -m "Update"
+    git init && git add --all
+    git commit -m "Update"
     git remote add origin git@github.com:Skoli-Code/IDLM-static.git
-    gp origin master:gh-pages --force
+    git push origin master:gh-pages --force
     echo "Udpate done !"
     cd ..
 }
