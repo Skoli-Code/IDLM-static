@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, Renderer } from '@angular/core';
 import { AbstractChart, dateParser, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
 import { _extent } from '../utils';
+import { EventType } from '../../../../shared/scroll-watcher.directive';
 
 import { polygonCentroid } from 'd3-polygon';
 import { line } from 'd3-shape';
@@ -301,7 +302,8 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
         this.drawPointsFor(this.currentYear);
     }
 
-    onScroll(percentage:number){
+    onScroll(event:EventType){
+        const percentage = event.percentage;
         this.progress = percentage;
         if(!this.yearScale && !this.layouts){ return; }
         let year = this.yearScale.invert(percentage);

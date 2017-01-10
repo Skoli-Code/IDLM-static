@@ -16,6 +16,8 @@ import { min } from 'd3-array';
 import { Repartition } from '../repartition/repartition.component';
 
 import { fixedWidthFadeRight } from '../../../../shared/animations';
+import { EventType } from '../../../../shared/scroll-watcher.directive';
+
 import * as _ from 'lodash'
 
 interface Event {
@@ -209,7 +211,8 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         this.contextualData = data;
     }
 
-    onScroll(percentage: number) {
+    onScroll(event:EventType) {
+        const percentage = event.percentage;
         if (!this.data) { return; }
         if (percentage == this.previousPercentage) { return; }
         this.progress = percentage;

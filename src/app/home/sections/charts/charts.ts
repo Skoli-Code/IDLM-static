@@ -12,6 +12,7 @@ import { timeParse, timeFormat } from 'd3-time-format';
 import { axisLeft, axisBottom, Axis } from 'd3-axis';
 
 import { DataLoaderService } from './data-loader.service';
+import { EventType } from '../../../shared/scroll-watcher.directive';
 
 export interface LineChartNode {
     date: Date;
@@ -19,7 +20,7 @@ export interface LineChartNode {
 }
 
 export interface ScrollableChart {
-    onScroll(percentage:number):void;
+    onScroll(event:EventType):void;
     heightForScrollWatcher:string;
 }
 
