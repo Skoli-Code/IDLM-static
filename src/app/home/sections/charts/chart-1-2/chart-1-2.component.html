@@ -1,55 +1,53 @@
-<div class="chart-holder cancel-margin-left"
-    [style.margin-left]="-margin.left + 'px'"
-    [style.height]="heightForScrollWatcher">
-    <div class="chart chart-1-2"
-        idlmScrollWatcher
-        (onScroll)="onScroll($event)">
+<div class="chart-holder cancel-margin-left" [style.margin-left]="-margin.left + 'px'" [style.height]="heightForScrollWatcher">
+    <div idlmScrollWatcher (onScroll)="onScroll($event)">
+        <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
+        <div class="chart chart-1-2">
         <div class="vert vert--full-height vert--full-width">
             <div class="vert__content o-grid">
-            <div class="o-grid__cell o-grid__cell--width-60 chart-left-holder">
-                <svg #chartPlayground></svg>
-                <div class="events"
-                    [style.margin-left]="margin.left + 'px'"
-                    [style.padding-right]="margin.left + 'px'">
-                    <div *ngFor="let event of activeEvents" [@fixedWidthFadeRight]="event" class="event quote">
-                        <h5 class="event__title serif">{{event.description}}</h5>
-                        <a idlmLink *ngIf="event.link != null" href="{{event.link}}" target="_blank" rel="nofollow">Plus d'infos</a>
+                <div class="o-grid__cell o-grid__cell--width-60 chart-left-holder">
+                    <svg #chartPlayground></svg>
+                    <div class="events" [style.margin-left]="margin.left + 'px'" [style.padding-right]="margin.left + 'px'">
+                        <div *ngFor="let event of activeEvents" [@fixedWidthFadeRight]="event" class="event quote">
+                            <h5 class="event__title serif">{{event.description}}</h5>
+                            <a idlmLink *ngIf="event.link != null" href="{{event.link}}" target="_blank" rel="nofollow">Plus d'infos</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="chart__description o-grid__cell right-gutter">
-                <h5 class="chart__description__title">Occurrences des  termes contenant “islam” par mois dans le corpus général (1997-2015).</h5>
-                <p>
-                    La volatilité du sujet transparaît ici clairement. Il apparaît toutefois que la médiatisation de l’islam suit l’actualité (attentats, guerres, débats politiques, …) à partir de 2001. Après les attentats du 11 septembre, ce sujet  est récurrent. L’usage du terme “islam” dans la presse est extrêmement fréquent suite aux attentats (11 septembre, janvier 2015 contre Charlie Hebdo, les attentats de Londres en 2005 échappent à cette médiatisation), ce qui montre bien que le prisme religieux prévaut sur les approches sociales ou géopolitiques s'agissant de l’analyse de ces événements.
-                </p>
-                <div class="sep"></div>
-                <div class="chart__contextual-data" *ngIf="contextualData">
-                    <div class="o-grid">
-                        <div style='width:100px'
-                            class="o-grid__cell o-grid__cell--no-gutter o-grid__cell--width-fixed">
-                            <div class="data bold serif">{{ contextualData.date | date:'yyyy' }}</div>
-                            <div>
-                                {{ contextualData.date | date:'MMMM' }}
+                <div class="chart__description o-grid__cell right-gutter">
+                    <h5 class="chart__description__title">Occurrences des  termes contenant “islam” par mois dans le corpus général (1997-2015).</h5>
+                    <p>
+                        La volatilité du sujet transparaît ici clairement. Il apparaît toutefois que la médiatisation de l’islam suit l’actualité (attentats, guerres, débats politiques, …) à partir de 2001. Après les attentats du 11 septembre, ce sujet est récurrent. L’usage
+                        du terme “islam” dans la presse est extrêmement fréquent suite aux attentats (11 septembre, janvier 2015 contre Charlie Hebdo, les attentats de Londres en 2005 échappent à cette médiatisation), ce qui montre bien que le prisme
+                        religieux prévaut sur les approches sociales ou géopolitiques s'agissant de l’analyse de ces événements.
+                    </p>
+                    <div class="sep"></div>
+                    <div class="chart__contextual-data" *ngIf="contextualData">
+                        <div class="o-grid">
+                            <div style='width:100px' class="o-grid__cell o-grid__cell--no-gutter o-grid__cell--width-fixed">
+                                <div class="data bold serif">{{ contextualData.date | date:'yyyy' }}</div>
+                                <div>
+                                    {{ contextualData.date | date:'MMMM' }}
+                                </div>
+                            </div>
+                            <div class="o-grid__cell">
+                                <div class="data bold serif">{{ contextualData.totalOccurences }}</div>
+                                <div>occurences</div>
+                            </div>
+                            <div class="o-grid__cell">
+                                dont
+                            </div>
+                            <div class="o-grid__cell">
+                                <div class="data bold serif">{{ contextualData.titleOccurences }}</div>
+                                <div>titres</div>
                             </div>
                         </div>
-                        <div class="o-grid__cell">
-                            <div class="data bold serif">{{ contextualData.totalOccurences }}</div>
-                            <div>occurences</div>
-                        </div>
-                        <div class="o-grid__cell">
-                            dont
-                        </div>
-                        <div class="o-grid__cell">
-                            <div class="data bold serif">{{ contextualData.titleOccurences }}</div>
-                            <div>titres</div>
-                        </div>
                     </div>
-                </div>
-                <div class="chart__legend" *ngIf="contextualData">
-                    <idlmRepartitionChart [repartition]="contextualData.corpus"></idlmRepartitionChart>
+                    <div class="chart__legend" *ngIf="contextualData">
+                        <idlmRepartitionChart [repartition]="contextualData.corpus"></idlmRepartitionChart>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     </div>
 </div>
