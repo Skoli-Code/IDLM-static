@@ -16,15 +16,15 @@ export var PERIODS:IPeriod[] = [
 },
 {
     dates: [ start(2001), end(2004​) ],
-    content:`<span class="bold underline">2001 – 2004​: The 11th of September 2001 and its consequences (Afghanistan, Iraq, the politicisation of the debate on Islam).</span>
+    content:`<span class="bold underline">2001 – 2004​: The September 11 attacks and its consequences (Afghanistan, Iraq, the politicisation of Islam).</span>
 
-    This period is marked by the **11th of September 2001 attacks**. Highly symbolic, they bring to light the nebulous Al-Qaeda and its leaders (among them Osama bin Laden). The **“War on Terror”** begins – from the intervention led by the United States in **Afghanistan** (2001) to the US invasion of **Iraq** (2003). In 2004, **Madrid** is hit by an **attack**. The decapitation of hostages – particularly Westerners – captured in Iraq is filmed and relayed on the internet. In France, Islam becomes a political subject, the issue of the **veil** comes on to the agenda (Commission Stasi, the Alma and Lila Lévy affair, the 15 March 2004 law).`
+    This period is marked by the **September 11 attacks**. Highly symbolic, they bring to light the nebulous Al-Qaeda and its leaders (among them Osama bin Laden). The **“War on Terror”** begins – from the intervention led by the United States in **Afghanistan** (2001) to the US invasion of **Iraq** (2003). In 2004, **Madrid** is hit by an **attack**. The decapitation of hostages – particularly Westerners – captured in Iraq is filmed and relayed on the internet. In France, Islam becomes a political issue, the issue of the **headscarf** comes on to the agenda (Commission Stasi, the Alma and Lila Lévy affair, the 15 March 2004 law).`
 },
 {
     dates: [ start(2005), end(2007) ],
-    content:`<span class="bold underline">2005 – 2007​: Tense international context, growing discontent in France.</span>
+    content:`<span class="bold underline">2005 – 2007​: Tensions at the international level, growing malaise in France.</span>
 
-    2005 is marked by the **attacks on London**. In France, the consecutive reactions to the publication of the **cartoons of the Prophet Mohammed** by Charlie Hebdo and the **Regensburg address** given by Pope Benedict XVI question the relationship between Islam and freedom of expression. At the same time, in **Iraq** there is a bloody civil war with religious overtones while the **Iranian nuclear dossier** is at a stalemate. During this period, the media coverage of Islam sees a net decline.`
+    2005 is marked by the **7 July London bombings**. In France, the consecutive reactions to the publication of the **cartoons of the prophet Muhammad** by Charlie Hebdo and the **Regensburg address** given by Pope Benedict XVI question the relationship between Islam and freedom of expression. At the same time, in **Iraq** there is a bloody civil war with religious overtones while the **Iranian nuclear dossier** is at a stalemate. During this period, the media coverage of Islam sees a net decline.`
 },
 {
     dates: [ start(2009), end(2010) ],
@@ -35,7 +35,7 @@ export var PERIODS:IPeriod[] = [
 },
 {
     dates: [ start(2011), end(2013) ],
-    content:`<span class="bold underline">2011 – 2013​: Arab Springs, Islamist winters. France at war.</span>
+    content:`<span class="bold underline">2011 – 2013​: "Arab Spring", "Islamist winter". France at war.</span>
 
     Throughout this period, the so-called “**Arab Spring**” is closely followed by the French media. All the more so when Islamist actors come into play in the transition processes and the debates around certain constitutional reforms (male-female equality, the issue of sharia law). Various conflicts (**Syria crisis**) and **military interventions** led by France (Libya, Mali) break out in this period. In parallel, the **French presidential campaign** puts the issue of Islam on the agenda (**halal controversy**, **Babyloup** affair). 2012 is still marked by the **Merah** affair. Islam once again becomes a primary media subject.`
 },

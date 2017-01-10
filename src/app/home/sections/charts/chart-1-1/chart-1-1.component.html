@@ -13,8 +13,8 @@
                         <li class="lemonde"><span class="color"></span>&nbsp;<span class="name">Le Monde</span></li>
                     </ul>
                     <ul class="list-inline" *ngIf='isLines()' [@fade]="isLines()">
-                        <li class="islam"><span class="color"></span>&nbsp;<span class="name">islam</span></li>
-                        <li class="musulman"><span class="color"></span>&nbsp;<span class="name">muslim</span></li>
+                        <li class="islam"><span class="color"></span>&nbsp;<span class="name">Islam</span></li>
+                        <li class="musulman"><span class="color"></span>&nbsp;<span class="name">Muslim</span></li>
                     </ul>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 </h5>
                 <div class="rel">
                     <p *ngIf="!hideFirstContent" class="inner" [@fade]="!hideFirstContent" style="top:1.5em">
-                        Though not surprising, the correlation between the occurrences of terms containing “Islam” or “Muslim” raises questions. Thus, the view of the “parallelism” of the curves leads us to believe that the two terms have become interchangeable. They are employed to describe a fact that concerns the Muslim religion or involves people who are really or supposedly Muslim (terrorism, crime, various controversies). The differences between the two curves fluctuates and demands deeper analysis. However, we note that the term “islam” and its derivations, for example, “islamogauchiste” (Islamoleftist), “islamofasciste” (Islamofascist) and even “islamikaze”, are used more frequently than those of the term “Muslim”. Given the similarity in the usage of the two terms, we therefore decided to concentrate on that of “Islam”.
+                        Though not surprising, the correlation between the occurrences of terms containing “Islam” or “Muslim” raises questions. Thus, the view of the “parallelism” of the curves leads us to believe that the two terms have become interchangeable. They are employed to describe a fact that concerns the Muslim religion or involves people who are really or supposedly Muslim (terrorism, crime, various controversies). The differences between the two curves fluctuates and demands deeper analysis. However, we note that the term “Islam” and its derivations, for example, “islamogauchiste” (Islamoleftist), “islamofasciste” (Islamofascist) and even “islamikaze”, are used more frequently than those of the term “Muslim”. Given the similarity in the usage of the two terms, we therefore decided to concentrate on that of “Islam”.
                     </p>
                     <div class="inner" *ngIf="hideFirstContent" [@fade]="hideFirstContent">
                         <div *ngIf="periodContent" [@fadeInOut]="periodContent" [innerHTML]="periodContent | markdown"></div>
