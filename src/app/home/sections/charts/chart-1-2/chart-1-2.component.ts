@@ -10,7 +10,7 @@ import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts
 import { DataLoaderService } from '../data-loader.service';
 
 import { line, symbol } from 'd3-shape';
-import { scaleLinear, ScaleLinear, scaleTime } from 'd3-scale';
+import { scaleLinear, ScaleLinear, scaleTime, scaleSequential } from 'd3-scale';
 import { min } from 'd3-array';
 
 import { Repartition } from '../repartition/repartition.component';
@@ -30,6 +30,50 @@ let sameMonth = (d1,d2)=>{
     return (d1.getMonth() == d2.getMonth()) && (d1.getFullYear() == d2.getFullYear());
 };
 
+let stepScale = function(steps, invertDateScale){
+    let percentagesSteps = steps.map((step)=>{
+        const p = invertDateScale(step.date);
+        const domain = [p, p+2];
+        return { domain: domain, scale:function(p){ return domain[0]; }};
+    });
+
+    console.log('stepScale: ', percentagesSteps);
+
+
+    let _steps = [];
+
+    for(let i in percentagesSteps){
+        let step = percentagesSteps[i];
+        console.log('i',i,step);
+        let nextStep = +i+1 < percentagesSteps.length ? percentagesSteps[+i+1]:null;
+
+        let nextStepRange =  [step.domain[0], nextStep ? nextStep.domain[0]:100 ];
+        let nextStepDomain = [step.domain[1], nextStep ? nextStep.domain[0]:100 ];
+        // linear, from step.range[0]
+
+        _steps.push({
+            domain: nextStepDomain,
+            scale: scaleLinear().domain(nextStepDomain).range(nextStepRange)
+        });
+        if(+i === 0){
+            const previousStepDomain = [0, step.domain[0]];
+            _steps.push({
+                domain:previousStepDomain, scale: function(x){ return x; }
+            });
+        }
+        _steps.push(step);
+    }
+    console.log('COMPUTED steps', _steps);
+
+    // in 0 - 100
+    // out 0 - 100
+    return scaleSequential((p)=>{
+        let step = _steps.find(function(step){ return p < step.domain[1] && p >= step.domain[0] });
+        console.log('step:', step);
+        return step ? step.scale(p) : p;
+    });
+};
+
 @Component({
     selector: 'idlmChart-1-2',
     templateUrl: './chart-1-2.component.html',
@@ -47,6 +91,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         totalOccurences: number,
         corpus: Repartition
     };
+    stepScale:any;
 
     private _visibilityClip: any;
     private _line: any;
@@ -83,6 +128,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     protected initScales() {
         super.initScales();
         this.invertDateScale = scaleTime().domain(this.xScale.domain()).range([0, 100]);
+        this.stepScale = stepScale(this.eventsData, this.invertDateScale);
         this.lineDrawScale = scaleLinear().domain([0, 100]).range([0, this.size.inner.width]);
     }
     protected updateScales() {
@@ -154,8 +200,11 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
             .attr('transform', (d) => this.transformEvent(d));
     }
     private setLineAt(percentage: number) {
-        let line_percentage = this.lineDrawScale(percentage);
+        let stepped_percentage = this.stepScale(percentage);
+        let line_percentage = this.lineDrawScale(stepped_percentage);
         this._visibilityClip.attr('width', line_percentage);
+        this.showEventsFor(stepped_percentage);
+
     }
 
     private showEventsFor(percentage: number) {
@@ -165,28 +214,28 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         };
 
         let date = this.invertDateScale.invert(percentage);
-        let ts = date.getTime();
-        let offsetTS = 120 * 86400 * 1000;
+        // let ts = date.getTime();
+        // let offsetTS = 120 * 86400 * 1000;
         this.updateContextialValues(date);
 
         // first filtering to guess what the next events will be
-        let events = _.filter(this.eventsData, (d) => sameMonth(d.date, date));
-        if (events.length) {
-            this.activeTS = ts;
-            this.offsetTS = this.activeTS + offsetTS; // nb of days * a day in seconds * 1000ms
-        }
+        // let events = _.filter(this.eventsData, (d) => sameMonth(d.date, date));
+        // if (events.length) {
+        //     this.activeTS = ts;
+        //     this.offsetTS = this.activeTS + offsetTS; // nb of days * a day in seconds * 1000ms
+        // }
 
+        this._events.classed('active',(e)=>sameMonth(e,date));
         // 2. we need to show the events actually after reaching their points :3
-        this.activeEvents = _.filter(this.eventsData, (e)=>isActive(e.date, ts));
-        this._events.classed('active',(e)=>isActive(e, ts));
+        this.activeEvents = _.filter(this.eventsData, (e)=>sameMonth(e.date, date));
 
         // 3. If we go too far away from the limits we need to hide events
-        if(ts > this.offsetTS || ts < this.activeTS){
-            this.activeEvents = [];
-            this.activeTS = -1;
-            this.offsetTS = -1;
-            this._events.classed('active',false);
-        }
+        // if(ts > this.offsetTS || ts < this.activeTS){
+        //     this.activeEvents = [];
+        //     this.activeTS = -1;
+        //     this.offsetTS = -1;
+        //     this._events.classed('active',false);
+        // }
 
     }
 
