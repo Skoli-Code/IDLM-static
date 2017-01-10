@@ -18,6 +18,8 @@ import 'jquery';
 let requestAnimationFrame = window.requestAnimationFrame;
 let cancelAnimationFrame = window.cancelAnimationFrame;
 
+export type EventType = {percentage: number, isActive:boolean};
+
 @Directive({ selector: '[idlmScrollWatcher]' })
 export class ScrollWatcherDirective implements OnInit {
     private outerId: string = Math.random().toString().replace('.', '');
@@ -33,7 +35,7 @@ export class ScrollWatcherDirective implements OnInit {
     private _outer: any;
     private $outer: any;
     private navBarHeight: number=50;
-    @Output() onScroll: EventEmitter<number> = new EventEmitter<number>();
+    @Output() onScroll: EventEmitter<EventType> = new EventEmitter<EventType>();
 
     constructor(private el: ElementRef, private renderer: Renderer) {
         this._el = this.el.nativeElement;
@@ -96,13 +98,16 @@ export class ScrollWatcherDirective implements OnInit {
         }
         if (!this.maxedOut) {
             // run callback function as specified by user
-            this.onScroll.emit(cappedScrollPos);
+            this.onScroll.emit({percentage: cappedScrollPos, isActive: this.active});
         }
 
         if (scrollPosMaxOrMore) {
             this.maxedOut = true;
             // 'active' property is for external API
-            this.active = false;
+            if(this.active){
+                this.active = false;
+                this.onScroll.emit({ percentage: cappedScrollPos, isActive: this.active});
+            }
         }
         this.previousPos = scrollPos;
         this.interval = requestAnimationFrame(()=>{this.onTick()});

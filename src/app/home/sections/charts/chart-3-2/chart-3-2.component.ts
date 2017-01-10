@@ -16,6 +16,8 @@ import { DataLoaderService } from '../data-loader.service';
 import { Repartition } from '../repartition/repartition.component';
 import { _extent } from '../utils';
 import { fadeInOut } from '../../../../shared/animations';
+import { EventType } from '../../../../shared/scroll-watcher.directive';
+
 
 type Datum = [Date,number];
 
@@ -172,7 +174,8 @@ export class Chart_3_2Component extends AbstractChart implements ScrollableChart
             .attr('y2', this.size.inner.height);
     }
 
-    onScroll(percentage:number){
+    onScroll(event:EventType){
+        const percentage = event.percentage;
         this.progress = percentage;
         if(!this.adjScale){ return; }
         var adj = this.adjScale(percentage);

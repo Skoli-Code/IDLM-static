@@ -13,6 +13,7 @@ import { PERIODS, IPeriod } from './periods.constant';
 import { AxedChart, dateParser, LineChartNode, ScrollableChart } from '../charts';
 import { DataLoaderService } from '../data-loader.service';
 import { fade, fadeDown, fadeRight, fadeInOut } from '../../../../shared/animations';
+import { EventType } from '../../../../shared/scroll-watcher.directive';
 
 interface State {
     domain: any[],
@@ -21,6 +22,7 @@ interface State {
 };
 
 interface StateObject {
+    scrollMessage: State,
     lines: State,
     removeLines: State,
     areas: State,
@@ -37,16 +39,18 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
     // template attributes
     hideFirstContent: boolean = false;
-    heightForScrollWatcher:string = "8000px";
+    heightForScrollWatcher:string = "7500px";
     dataCatalogKey:string="1.1";
     states: StateObject;
     progress:number=0;
+    scrollMessageOpacity:number=0;
+
     legends = {
         lines: 0,
         areas: 1
     };
     legend:number;
-
+    private isFixed: boolean=false;
     private areaData: any;
     private previousPercentage: number = 0;
     private previousPeriodNumber: number = null;
@@ -91,7 +95,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         this._focusRect.attr('height', this.size.inner.height);
         this._clip.attr('height', this.size.inner.height);
         this._focusArea.attr('d', this.drawAreaWithPerc(100));
-        this.onScroll(this.previousPercentage, true);
+        this.onScroll({ percentage: this.previousPercentage, isActive:this.isFixed }, true);
     }
 
     initData(){
@@ -109,26 +113,31 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     private initStates(){
         this.states = {
             // lines scale, percentage of line drawing.
+            scrollMessage: {
+                domain: [0, 10],
+                range: [100, 0],
+                scale: scaleLinear()
+            },
             lines: {
-                domain: [0, 20],
+                domain: [10, 35],
                 range: [2000, 0],
                 scale: scaleLinear()
             },
             // removeLines scale is to make "musulman" line dispappear (from top to bottom);
             removeLines: {
-                domain: [20, 25],
+                domain: [35, 40],
                 range: [0, -1000],
                 scale: scaleLinear()
             },
             // areas scroll scale is to make stacked area appears.
             areas: {
-                domain: [20, 25],
+                domain: [40, 45],
                 range: [0, 100],
                 scale: scaleLinear()
             },
             // focus some specific areas in the graph
             focusPeriods: {
-                domain: [25, 100],
+                domain: [45, 100],
                 range: range(this.periodsData.length),
                 scale: scaleQuantize()
             }
@@ -309,6 +318,20 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         return state_perc;
     }
 
+    private showScrollMessageAt(percentage:number){
+        // f(x) = x < a ? x : a - (x - a)
+        const state = this.states.scrollMessage;
+        let opacity = this.getStatePercentage(state, percentage);
+        if(percentage < state.domain[0]){
+            if(this.isFixed){
+                opacity = 100;
+            } else {
+                opacity = 0;
+            }
+        }
+        this.scrollMessageOpacity = opacity / 100;
+    }
+
     private updateCurrentState(percentage:number){
         if(percentage <= this.states.removeLines.domain[1]){
             this.legend = this.legends.lines;
@@ -317,7 +340,10 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         }
     }
 
-    onScroll(percentage:number, do_percentage_check=false){
+    onScroll(event:EventType, do_percentage_check=false){
+        const percentage = event.percentage;
+        const isActive = event.isActive;
+        this.isFixed = isActive;
         if(!this.data){ return; }
         if(this.previousPercentage == percentage && !do_percentage_check){
             return;
@@ -326,6 +352,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         // if(perc == 0 || perc == 100){ return; }
         // major steps:
         this.progress = percentage;
+        this.showScrollMessageAt(percentage);
         this.setLinesAt(percentage);
         this.translateLineTo('musulman', percentage);
         this.updateAreas(percentage);
