@@ -38,6 +38,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     @ViewChild('chartPlayground') chartElement: ElementRef;
     heightForScrollWatcher: string = "20000px";
     dataCatalogKey: string = "1.2";
+    progress:number=0;
     contextualData: {
         date: Date,
         titleOccurences: number,
@@ -211,6 +212,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     onScroll(percentage: number) {
         if (!this.data) { return; }
         if (percentage == this.previousPercentage) { return; }
+        this.progress = percentage;
         this.setLineAt(percentage);
         this.showEventsFor(percentage);
         this.previousPercentage = percentage;

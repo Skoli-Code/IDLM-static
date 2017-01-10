@@ -1,42 +1,46 @@
-<div class="scroll-holder cancel-margin-left"
-    [style.margin-left]="-margin.left + 'px'"
-    [style.height]="heightForScrollWatcher">
-    <div idlmScrollWatcher (onScroll)="onScroll($event)" class="chart chart-1-1">
-        <div class="vert vert--full-height vert--full-width">
-            <div class="o-grid vert__content">
-            <div class="o-grid__cell o-grid__cell--width-60">
-                <svg #chartPlayground></svg>
-                <div class="chart__legend" [style.margin-left]="margin.left + 'px'">
-                    <ul class="list-inline" *ngIf='isAreas()' [@fade]="isAreas()">
-                        <li class="figaro"><span class="color"></span>&nbsp;<span class="name">Le Figaro</span></li>
-                        <li class="liberation"><span class="color"></span>&nbsp;<span class="name">Libération</span></li>
-                        <li class="lemonde"><span class="color"></span>&nbsp;<span class="name">Le Monde</span></li>
-                    </ul>
-                    <ul class="list-inline" *ngIf='isLines()' [@fade]="isLines()">
-                        <li class="islam"><span class="color"></span>&nbsp;<span class="name">islam</span></li>
-                        <li class="musulman"><span class="color"></span>&nbsp;<span class="name">muslim</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="chart__description o-grid__cell right-gutter">
-                <h5 class="chart__description__title rel bold" style="min-height: 2em">
-                    <span class="inner" *ngIf='isLines()' [@fade]='isLines()'>
-                        Occurrences of terms containing “Islam” and “Muslim” by year in the documents (31.12.1997-31.12.2015)
-                    </span>
-                    <span class="inner" *ngIf='isAreas()' [@fade]='isAreas()'>
-                        Occurrences of terms containing “Islam” by year per corpus (31.12.1997-31.12.2015)
-                    </span>
-                </h5>
-                <div class="rel">
-                    <p *ngIf="!hideFirstContent" class="inner" [@fade]="!hideFirstContent" style="top:1.5em">
-                        Though not surprising, the correlation between the occurrences of terms containing “Islam” or “Muslim” raises questions. Thus, the view of the “parallelism” of the curves leads us to believe that the two terms have become interchangeable. They are employed to describe a fact that concerns the Muslim religion or involves people who are really or supposedly Muslim (terrorism, crime, various controversies). The differences between the two curves fluctuates and demands deeper analysis. However, we note that the term “islam” and its derivations, for example, “islamogauchiste” (Islamoleftist), “islamofasciste” (Islamofascist) and even “islamikaze”, are used more frequently than those of the term “Muslim”. Given the similarity in the usage of the two terms, we therefore decided to concentrate on that of “Islam”.
-                    </p>
-                    <div class="inner" *ngIf="hideFirstContent" [@fade]="hideFirstContent">
-                        <div *ngIf="periodContent" [@fadeInOut]="periodContent" [innerHTML]="periodContent | markdown"></div>
+<div class="scroll-holder cancel-margin-left" [style.margin-left]="-margin.left + 'px'" [style.height]="heightForScrollWatcher">
+    <div idlmScrollWatcher (onScroll)="onScroll($event)">
+        <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
+        <div class="chart chart-1-1">
+            <div class="vert vert--full-height vert--full-width">
+                <div class="o-grid vert__content">
+                    <div class="o-grid__cell o-grid__cell--width-60">
+                        <svg #chartPlayground></svg>
+                        <div class="chart__legend" [style.margin-left]="margin.left + 'px'">
+                            <ul class="list-inline" *ngIf='isAreas()' [@fade]="isAreas()">
+                                <li class="figaro"><span class="color"></span>&nbsp;<span class="name">Le Figaro</span></li>
+                                <li class="liberation"><span class="color"></span>&nbsp;<span class="name">Libération</span></li>
+                                <li class="lemonde"><span class="color"></span>&nbsp;<span class="name">Le Monde</span></li>
+                            </ul>
+                            <ul class="list-inline" *ngIf='isLines()' [@fade]="isLines()">
+                                <li class="islam"><span class="color"></span>&nbsp;<span class="name">islam</span></li>
+                                <li class="musulman"><span class="color"></span>&nbsp;<span class="name">muslim</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="chart__description o-grid__cell right-gutter">
+                        <h5 class="chart__description__title rel bold" style="min-height: 2em">
+                            <span class="inner" *ngIf='isLines()' [@fade]='isLines()'>
+                                Occurrences of terms containing “Islam” and “Muslim” by year in the documents (31.12.1997-31.12.2015)
+                            </span>
+                            <span class="inner" *ngIf='isAreas()' [@fade]='isAreas()'>
+                                Occurrences of terms containing “Islam” by year per corpus (31.12.1997-31.12.2015)
+                            </span>
+                        </h5>
+                        <div class="rel">
+                            <p *ngIf="!hideFirstContent" class="inner" [@fade]="!hideFirstContent" style="top:1.5em">
+                                Though not surprising, the correlation between the occurrences of terms containing “Islam” or “Muslim” raises questions. Thus, the view of the “parallelism” of the curves leads us to believe that the two terms have become interchangeable. They are employed
+                                to describe a fact that concerns the Muslim religion or involves people who are really or supposedly Muslim (terrorism, crime, various controversies). The differences between the two curves fluctuates and demands deeper
+                                analysis. However, we note that the term “islam” and its derivations, for example, “islamogauchiste” (Islamoleftist), “islamofasciste” (Islamofascist) and even “islamikaze”, are used more frequently than those of the term
+                                “Muslim”. Given the similarity in the usage of the two terms, we therefore decided to concentrate on that of “Islam”.
+                            </p>
+                            <div class="inner" *ngIf="hideFirstContent" [@fade]="hideFirstContent">
+                                <div *ngIf="periodContent" [@fadeInOut]="periodContent" [innerHTML]="periodContent | markdown"></div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
-</div>

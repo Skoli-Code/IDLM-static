@@ -40,6 +40,7 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
     heightForScrollWatcher:string = "8000px";
     dataCatalogKey:string="1.1";
     states: StateObject;
+    progress:number=0;
     legends = {
         lines: 0,
         areas: 1
@@ -102,8 +103,6 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
             });
         }
         this.areaData = this.data['islam'];
-        // TODO: une fois les périodes éditorialisées et rajoutées dans les
-        // données, les utiliser ici.
         this.periodsData = PERIODS;
         this.initStates();
     }
@@ -318,17 +317,20 @@ export class Chart_1_1Component extends AxedChart implements ScrollableChart {
         }
     }
 
-    onScroll(perc:number, do_percentage_check=false){
+    onScroll(percentage:number, do_percentage_check=false){
         if(!this.data){ return; }
-        if(this.previousPercentage == perc && !do_percentage_check){ return; }
+        if(this.previousPercentage == percentage && !do_percentage_check){
+            return;
+        }
         // short fail to avoid computation
         // if(perc == 0 || perc == 100){ return; }
         // major steps:
-        this.setLinesAt(perc);
-        this.translateLineTo('musulman', perc);
-        this.updateAreas(perc);
-        this.setFocusAt(perc);
-        this.updateCurrentState(perc);
-        this.previousPercentage = perc;
+        this.progress = percentage;
+        this.setLinesAt(percentage);
+        this.translateLineTo('musulman', percentage);
+        this.updateAreas(percentage);
+        this.setFocusAt(percentage);
+        this.updateCurrentState(percentage);
+        this.previousPercentage = percentage;
     }
 }

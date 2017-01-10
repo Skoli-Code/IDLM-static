@@ -1,55 +1,52 @@
-<div class="chart-holder cancel-margin-left"
-    [style.margin-left]="-margin.left + 'px'"
-    [style.height]="heightForScrollWatcher">
-    <div class="chart chart-1-2"
-        idlmScrollWatcher
-        (onScroll)="onScroll($event)">
-        <div class="vert vert--full-height vert--full-width">
-            <div class="vert__content o-grid">
-            <div class="o-grid__cell o-grid__cell--width-60 chart-left-holder">
-                <svg #chartPlayground></svg>
-                <div class="events"
-                    [style.margin-left]="margin.left + 'px'"
-                    [style.padding-right]="margin.left + 'px'">
-                    <div *ngFor="let event of activeEvents" [@fixedWidthFadeRight]="event" class="event quote">
-                        <h5 class="event__title serif">{{event.description}}</h5>
-                        <a idlmLink *ngIf="event.link != null" href="{{event.link}}" target="_blank" rel="nofollow">More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="chart__description o-grid__cell right-gutter">
-                <h5 class="chart__description__title">Occurrence of terms containing “Islam” by month in the documents (1997-2015)</h5>
-                <p>
-                    The subject’s volatility comes through clearly here. It appears that since 2001 the media coverage of Islam has followed the news (attacks, wars, political debates, etc.). Since the 11th September 2001 attacks, the subject has been recurrent. Use of the term “Islam” in the press is extremely frequent following attacks (11 September 2001, January 2015 on Charlie Hebdo; the 2005 attacks in London escape this media coverage), clearly showing that the religious prism prevails over social and geopolitical approaches in the analysis of these events.
-                </p>
-                <div class="sep"></div>
-                <div class="chart__contextual-data" *ngIf="contextualData">
-                    <div class="o-grid">
-                        <div style='width:100px'
-                            class="o-grid__cell o-grid__cell--no-gutter o-grid__cell--width-fixed">
-                            <div class="data bold serif">{{ contextualData.date | date:'yyyy' }}</div>
-                            <div>
-                                {{ contextualData.date | date:'MMMM' }}
+<div class="chart-holder cancel-margin-left" [style.margin-left]="-margin.left + 'px'" [style.height]="heightForScrollWatcher">
+    <div idlmScrollWatcher (onScroll)="onScroll($event)">
+        <idlmProgressBar [progressPercentage]="progress"></idlmProgressBar>
+        <div class="chart chart-1-2">
+            <div class="vert vert--full-height vert--full-width">
+                <div class="vert__content o-grid">
+                    <div class="o-grid__cell o-grid__cell--width-60 chart-left-holder">
+                        <svg #chartPlayground></svg>
+                        <div class="events" [style.margin-left]="margin.left + 'px'" [style.padding-right]="margin.left + 'px'">
+                            <div *ngFor="let event of activeEvents" [@fixedWidthFadeRight]="event" class="event quote">
+                                <h5 class="event__title serif">{{event.description}}</h5>
+                                <a idlmLink *ngIf="event.link != null" href="{{event.link}}" target="_blank" rel="nofollow">More</a>
                             </div>
                         </div>
-                        <div class="o-grid__cell">
-                            <div class="data bold serif">{{ contextualData.totalOccurences }}</div>
-                            <div>occurences</div>
-                        </div>
-                        <div class="o-grid__cell">
-                            of which
-                        </div>
-                        <div class="o-grid__cell">
-                            <div class="data bold serif">{{ contextualData.titleOccurences }}</div>
-                            <div>titles</div>
+                    </div>
+                    <div class="chart__description o-grid__cell right-gutter">
+                        <h5 class="chart__description__title">Occurrence of terms containing “Islam” by month in the documents (1997-2015)</h5>
+                        <p>
+                            The subject’s volatility comes through clearly here. It appears that since 2001 the media coverage of Islam has followed the news (attacks, wars, political debates, etc.). Since the 11th September 2001 attacks, the subject has been recurrent. Use of the
+                            term “Islam” in the press is extremely frequent following attacks (11 September 2001, January 2015 on Charlie Hebdo; the 2005 attacks in London escape this media coverage), clearly showing that the religious prism prevails
+                            over social and geopolitical approaches in the analysis of these events.
+                        </p>
+                        <div class="sep"></div>
+                        <div class="chart__contextual-data" *ngIf="contextualData">
+                            <div class="o-grid">
+                                <div style='width:100px' class="o-grid__cell o-grid__cell--no-gutter o-grid__cell--width-fixed">
+                                    <div class="data bold serif">{{ contextualData.date | date:'yyyy' }}</div>
+                                    <div>
+                                        {{ contextualData.date | date:'MMMM' }}
+                                    </div>
+                                </div>
+                                <div class="o-grid__cell">
+                                    <div class="data bold serif">{{ contextualData.totalOccurences }}</div>
+                                    <div>occurences</div>
+                                </div>
+                                <div class="o-grid__cell">
+                                    of which
+                                </div>
+                                <div class="o-grid__cell">
+                                    <div class="data bold serif">{{ contextualData.titleOccurences }}</div>
+                                    <div>titles</div>
+                                </div>
+                            </div>
+                            <div class="chart__legend" *ngIf="contextualData">
+                                <idlmRepartitionChart [repartition]="contextualData.corpus"></idlmRepartitionChart>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="chart__legend" *ngIf="contextualData">
-                    <idlmRepartitionChart [repartition]="contextualData.corpus"></idlmRepartitionChart>
-                </div>
             </div>
         </div>
-        </div>
     </div>
-</div>
