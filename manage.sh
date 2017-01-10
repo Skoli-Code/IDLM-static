@@ -18,7 +18,7 @@ updatePages(){
     git init && git add --all
     git commit -m " Update"
     git remote add origin $remote_url
-    git push origin master:$branch
+    git push origin master:$branch -f 
     echo "Udpate done !"
     cd ..
 }
