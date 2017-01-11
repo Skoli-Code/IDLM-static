@@ -26,25 +26,24 @@ interface Event {
     link: string
 }
 
-let sameMonth = (d1,d2)=>{
-    return (d1.getMonth() == d2.getMonth()) && (d1.getFullYear() == d2.getFullYear());
+const eqDates = (d1, d2)=>{ return d1.getTime() === d2.getTime()}
+
+let sameMonth = (date1,date2)=>{
+    return (date1.getMonth() == date2.getMonth()) && (date1.getFullYear() == date2.getFullYear());
 };
+
+let beginingOfTheMonth = (date)=>new Date(date.getFullYear(), date.getMonth(), 1);
 
 let stepScale = function(steps, invertDateScale){
     let percentagesSteps = steps.map((step)=>{
         const p = invertDateScale(step.date);
         const domain = [p, p+2];
-        return { domain: domain, scale:function(p){ return domain[0]; }};
+        return { static: true, domain: domain, scale:function(p){ return domain[0]; }};
     });
-
-    console.log('stepScale: ', percentagesSteps);
-
-
     let _steps = [];
 
     for(let i in percentagesSteps){
         let step = percentagesSteps[i];
-        console.log('i',i,step);
         let nextStep = +i+1 < percentagesSteps.length ? percentagesSteps[+i+1]:null;
 
         let nextStepRange =  [step.domain[0], nextStep ? nextStep.domain[0]:100 ];
@@ -63,13 +62,8 @@ let stepScale = function(steps, invertDateScale){
         }
         _steps.push(step);
     }
-    console.log('COMPUTED steps', _steps);
-
-    // in 0 - 100
-    // out 0 - 100
     return scaleSequential((p)=>{
         let step = _steps.find(function(step){ return p < step.domain[1] && p >= step.domain[0] });
-        console.log('step:', step);
         return step ? step.scale(p) : p;
     });
 };
@@ -116,9 +110,10 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     initData() {
         for (let i in this.data) {
             let sub = this.data[i];
-            sub = sub.map((d) => {
-                d.date = dateParser(d.date);
-                return d;
+            sub = sub.map((node) => {
+                const date = dateParser(node.date);
+                node.date = date;
+                return node;
             });
         }
         this.lineData = this.data['occurrences'];
@@ -155,7 +150,7 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         this._line.transition().duration(100)
             .attr('d', this.lineFn());
 
-        this._events.attr('transform', (d) => this.transformEvent(d));
+        this._events.attr('transform', (date) => this.transformEvent(date));
         this._visibilityClip.attr('height', this.size.inner.height);
 
         this.setLineAt(this.previousPercentage);
@@ -183,24 +178,25 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
             .attr('d', this.lineFn());
     }
 
-    private transformEvent(d) {
-        let occurence = _.find(this.lineData, (el) => {
-            return el.date.getTime() == d.getTime();
+    private transformEvent(event) {
+        let occurence = _.find(this.lineData, (node) => {
+            return eqDates(node.date, event.date);
         }).value;
-        return `translate(${this.xScale(d)}, ${this.yScale(occurence)})`;
+        return `translate(${this.xScale(event.date)}, ${this.yScale(occurence)})`;
     }
 
     private drawEvents() {
-        let dates = _.uniq(_.map(this.eventsData, (d) => d.date));
+        // let dates = _.uniq(_.map(this.eventsData, (d) => d.date));
         this._events = this._g.selectAll('.event')
-            .data(dates)
+            .data(this.eventsData)
             .enter()
             .append('path').attr('class', 'event')
             .attr('d', symbol().size(60))
-            .attr('transform', (d) => this.transformEvent(d));
+            .attr('transform', (event) => this.transformEvent(event));
     }
     private setLineAt(percentage: number) {
         let stepped_percentage = this.stepScale(percentage);
+        console.log('in', percentage, stepped_percentage);
         let line_percentage = this.lineDrawScale(stepped_percentage);
         this._visibilityClip.attr('width', line_percentage);
         this.showEventsFor(stepped_percentage);
@@ -208,35 +204,16 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     }
 
     private showEventsFor(percentage: number) {
-        let isActive = (date, ts)=>{
-            let ets = date.getTime();
-            return sameMonth(new Date(this.activeTS), date) && ets >= ts;
-        };
+        // let isActive = (date, ts)=>{
+        //     let ets = date.getTime();
+        //     return sameMonth(new Date(this.activeTS), date) && ets >= ts;
+        // };
 
-        let date = this.invertDateScale.invert(percentage);
-        // let ts = date.getTime();
-        // let offsetTS = 120 * 86400 * 1000;
-        this.updateContextialValues(date);
-
-        // first filtering to guess what the next events will be
-        // let events = _.filter(this.eventsData, (d) => sameMonth(d.date, date));
-        // if (events.length) {
-        //     this.activeTS = ts;
-        //     this.offsetTS = this.activeTS + offsetTS; // nb of days * a day in seconds * 1000ms
-        // }
-
-        this._events.classed('active',(e)=>sameMonth(e,date));
-        // 2. we need to show the events actually after reaching their points :3
-        this.activeEvents = _.filter(this.eventsData, (e)=>sameMonth(e.date, date));
-
-        // 3. If we go too far away from the limits we need to hide events
-        // if(ts > this.offsetTS || ts < this.activeTS){
-        //     this.activeEvents = [];
-        //     this.activeTS = -1;
-        //     this.offsetTS = -1;
-        //     this._events.classed('active',false);
-        // }
-
+        let activeDate = this.invertDateScale.invert(percentage);
+        this.updateContextialValues(activeDate);
+        let activeEvents = this._events.filter((event)=>eqDates(event.date, activeDate));
+        this.activeEvents = activeEvents.data();
+        this._events.classed('active',(event)=>eqDates(event.date, activeDate));
     }
 
     private updateContextialValues(date) {
@@ -266,7 +243,6 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
         if (percentage == this.previousPercentage) { return; }
         this.progress = percentage;
         this.setLineAt(percentage);
-        this.showEventsFor(percentage);
         this.previousPercentage = percentage;
     }
 }
