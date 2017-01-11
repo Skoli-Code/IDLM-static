@@ -1,0 +1,48 @@
+{
+    "islam": {
+        "values": [
+            { "date": "1997/12/31", "value": 3122,  "sub_values": { "figaro": 68,     "liberation":848,  "lemonde": 2206  }},
+            { "date": "1998/12/31", "value": 3152,  "sub_values": { "figaro": 22,     "liberation":849,  "lemonde": 2281  }},
+            { "date": "1999/12/31", "value": 3521,  "sub_values": { "figaro": 26,     "liberation":1184, "lemonde": 2311  }},
+            { "date": "2000/12/31", "value": 3869,  "sub_values": { "figaro": 102,    "liberation":1313, "lemonde": 2454  }},
+            { "date": "2001/12/31", "value": 22187, "sub_values": { "figaro": 5094,   "liberation":3568, "lemonde": 13525 }},
+            { "date": "2002/12/31", "value": 16377, "sub_values": { "figaro": 5703,   "liberation":3140, "lemonde": 7534  }},
+            { "date": "2003/12/31", "value": 16242, "sub_values": { "figaro": 5936,   "liberation":3229, "lemonde": 7077  }},
+            { "date": "2004/12/31", "value": 18369, "sub_values": { "figaro": 6544,   "liberation":3561, "lemonde": 8264  }},
+            { "date": "2005/12/31", "value": 12360, "sub_values": { "figaro": 4151,   "liberation":2595, "lemonde": 5614  }},
+            { "date": "2006/12/31", "value": 9512,  "sub_values": { "figaro": 4457,   "liberation":2989, "lemonde": 2066  }},
+            { "date": "2007/12/31", "value": 9605,  "sub_values": { "figaro": 2978,   "liberation":2315, "lemonde": 4312  }},
+            { "date": "2008/12/31", "value": 6430,  "sub_values": { "figaro": 1704,   "liberation":1606, "lemonde": 3120  }},
+            { "date": "2009/12/31", "value": 7829,  "sub_values": { "figaro": 2077,   "liberation":1620, "lemonde": 4117  }},
+            { "date": "2010/12/31", "value": 7249,  "sub_values": { "figaro": 2078,   "liberation":1617, "lemonde": 3554  }},
+            { "date": "2011/12/31", "value": 13025, "sub_values": { "figaro": 3098,   "liberation":2589, "lemonde": 7333  }},
+            { "date": "2012/12/31", "value": 13495, "sub_values": { "figaro": 3286,   "liberation":4029, "lemonde": 6179  }},
+            { "date": "2013/12/31", "value": 13080, "sub_values": { "figaro": 2989,   "liberation":4066, "lemonde": 6025  }},
+            { "date": "2014/12/31", "value": 11621, "sub_values": { "figaro": 2784,   "liberation":3693, "lemonde": 5096  }},
+            { "date": "2015/12/31", "value": 16957, "sub_values": { "figaro": 4435,   "liberation":4645, "lemonde": 7806  }}
+        ]
+    },
+    "musulman": {
+        "values": [
+            { "date": "1997/12/31","value": 2587  },
+            { "date": "1998/12/31","value": 2613  },
+            { "date": "1999/12/31","value": 3218  },
+            { "date": "2000/12/31","value": 4184  },
+            { "date": "2001/12/31","value": 14673 },
+            { "date": "2002/12/31","value": 12162 },
+            { "date": "2003/12/31","value": 14077 },
+            { "date": "2004/12/31","value": 16794 },
+            { "date": "2005/12/31","value": 10566 },
+            { "date": "2006/12/31","value": 8690  },
+            { "date": "2007/12/31","value": 6932  },
+            { "date": "2008/12/31","value": 5673  },
+            { "date": "2009/12/31","value": 7504  },
+            { "date": "2010/12/31","value": 7268  },
+            { "date": "2011/12/31","value": 9841  },
+            { "date": "2012/12/31","value": 10926 },
+            { "date": "2013/12/31","value": 8726  },
+            { "date": "2014/12/31","value": 9414  },
+            { "date": "2015/12/31","value": 17309 }
+        ]
+    }
+}

@@ -1,0 +1,261 @@
+[{
+    "name": "religieux",
+    "order":3,
+    "description":"L’usage de l’expression “islam religieux” est récurrente dans un contexte marqué, sur le plan national, par les questions liées aux débats sur les rapports de l’islam à la laïcité et aux valeurs républicaines: débat autour du voile, des caricatures et discours de Ratisbonne (2006) ainsi qu’en 2009 lors du débat sur l’identité nationale. Sur la période examinée, l’usage de cette expression - qui renvoie à la dimension première de l’islam - est minime comparativement aux adjectifs qui qualifient la dimension politique, littéraliste ou violente de l’islam. Ce contraste met en exergue les conceptions prédominantes de l’islam dans le traitement médiatique ici étudié.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank": 9,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",7],["2002/12/31",4],["2003/12/31",8],["2004/12/31",4],["2005/12/31",1],["2006/12/31",6],["2007/12/31",2],["2008/12/31",3],["2009/12/31",1],["2010/12/31",3],["2011/12/31",3],["2012/12/31",6],["2013/12/31",3],["2014/12/31",1],["2015/12/31",3]]
+        },
+        {
+            "source":"global",
+            "rank": 8,
+            "sub_values": [["1997/12/31",1],["1998/12/31",1],["1999/12/31",6],["2000/12/31",4],["2001/12/31",25],["2002/12/31",20],["2003/12/31",22],["2004/12/31",15],["2005/12/31",8],["2006/12/31",10],["2007/12/31",6],["2008/12/31",11],["2009/12/31",11],["2010/12/31",8],["2011/12/31",11],["2012/12/31",8],["2013/12/31",8],["2014/12/31",4],["2015/12/31",3]]
+        },
+        {
+            "source":"liberation",
+            "rank": 15,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",1],["2000/12/31",1],["2001/12/31",1],["2002/12/31",2],["2003/12/31",5],["2004/12/31",1],["2005/12/31",6],["2006/12/31",2],["2007/12/31",0],["2008/12/31",0],["2009/12/31",1],["2010/12/31",0],["2011/12/31",1],["2012/12/31",0],["2013/12/31",0],["2014/12/31",0],["2015/12/31",0]]
+        },
+        {
+            "source":"lemonde",
+            "rank": 6,
+            "sub_values": [["1997/12/31",1],["1998/12/31",1],["1999/12/31",5],["2000/12/31",3],["2001/12/31",17],["2002/12/31",14],["2003/12/31",9],["2004/12/31",10],["2005/12/31",1],["2006/12/31",2],["2007/12/31",4],["2008/12/31",8],["2009/12/31",9],["2010/12/31",5],["2011/12/31",7],["2012/12/31",2],["2013/12/31",5],["2014/12/31",3],["2015/12/31",0]]
+        }
+    ]
+},{
+    "name": "vrai",
+    "order":8,
+    "description":"Cette expression connaît des pics lors des débats sur le voile (2003-2004), lors des soulèvements arabes (2011-2012) puis lors de l’ascension médiatique de l’Etat Islamique (2014-2015).  Ce qui conduit à penser qu’une telle expression s’inscrit dans la dichotomie “islam vrai/moderne” versus “islam violent/traditionnel”, cherchant à différencier “les musulmans” en général des auteurs d’actes de violence revendiqués au nom de l’islam. Enfin, dans le cas de la France, l’”islam vrai” est mobilisé par les discours normatifs visant à définir les critères d’un “islam acceptable” car compatible avec les valeurs républicaines.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank": 12,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",2],["2002/12/31",8],["2003/12/31",6],["2004/12/31",4],["2005/12/31",7],["2006/12/31",3],["2007/12/31",3],["2008/12/31",0],["2009/12/31",1],["2010/12/31",3],["2011/12/31",4],["2012/12/31",2],["2013/12/31",2],["2014/12/31",4],["2015/12/31",8]]
+        },
+        {
+            "source":"global",
+            "rank": 9,
+            "sub_values": [["1997/12/31",2],["1998/12/31",4],["1999/12/31",1],["2000/12/31",1],["2001/12/31",26],["2002/12/31",24],["2003/12/31",12],["2004/12/31",18],["2005/12/31",11],["2006/12/31",9],["2007/12/31",6],["2008/12/31",3],["2009/12/31",3],["2010/12/31",5],["2011/12/31",13],["2012/12/31",10],["2013/12/31",7],["2014/12/31",19],["2015/12/31",22]]
+        },
+        {
+            "source":"liberation",
+            "rank": 13,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",2],["2002/12/31",2],["2003/12/31",1],["2004/12/31",2],["2005/12/31",1],["2006/12/31",1],["2007/12/31",0],["2008/12/31",0],["2009/12/31",0],["2010/12/31",1],["2011/12/31",0],["2012/12/31",2],["2013/12/31",1],["2014/12/31",6],["2015/12/31",5]]
+        },
+        {
+            "source":"lemonde",
+            "rank": 9,
+            "sub_values": [["1997/12/31",2],["1998/12/31",4],["1999/12/31",1],["2000/12/31",1],["2001/12/31",22],["2002/12/31",14],["2003/12/31",5],["2004/12/31",12],["2005/12/31",3],["2006/12/31",5],["2007/12/31",3],["2008/12/31",3],["2009/12/31",2],["2010/12/31",1],["2011/12/31",9],["2012/12/31",6],["2013/12/31",4],["2014/12/31",9],["2015/12/31",9]]
+        }
+    ]
+},{
+    "name": "sunnite",
+    "order":4,
+    "description":"Référence à l’une des deux branches majeures de l’islam, on constate que l’usage de l’expression “islam sunnite” varie fortement en fonction des événements internationaux. La grille confessionnelle s’intègre progressivement dans la lecture générale de certains phénomènes (terrorisme) et dynamiques (soulèvements, conflits) dans les pays arabo-musulmans. Cela est d’autant plus intéressant qu’une série d’acteurs régionaux (Arabie saoudite, Iran, “arc chiite“, etc.) ont contribué à ériger une supposée ligne de fracture confessionnelle dans la région; ligne qui permet principalement d’occulter les rivalités de pouvoir et de lutte pour le leadership régional en cours dans la région.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank":3,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",8],["2002/12/31",5],["2003/12/31",9],["2004/12/31",21],["2005/12/31",11],["2006/12/31",8],["2007/12/31",7],["2008/12/31",5],["2009/12/31",6],["2010/12/31",2],["2011/12/31",9],["2012/12/31",11],["2013/12/31",16],["2014/12/31",10],["2015/12/31",17]]
+        },
+        {
+            "source":"global",
+            "rank":3,
+            "sub_values": [["1997/12/31",14],["1998/12/31",15],["1999/12/31",13],["2000/12/31",12],["2001/12/31",45],["2002/12/31",32],["2003/12/31",35],["2004/12/31",43],["2005/12/31",31],["2006/12/31",15],["2007/12/31",18],["2008/12/31",13],["2009/12/31",11],["2010/12/31",13],["2011/12/31",30],["2012/12/31",42],["2013/12/31",36],["2014/12/31",21],["2015/12/31",29]]
+        },
+        {
+            "source":"liberation",
+            "rank":3,
+            "sub_values": [["1997/12/31",3],["1998/12/31",5],["1999/12/31",1],["2000/12/31",2],["2001/12/31",6],["2002/12/31",13],["2003/12/31",5],["2004/12/31",6],["2005/12/31",6],["2006/12/31",5],["2007/12/31",0],["2008/12/31",3],["2009/12/31",0],["2010/12/31",0],["2011/12/31",2],["2012/12/31",3],["2013/12/31",0],["2014/12/31",0],["2015/12/31",2]]
+        },
+        {
+            "source":"lemonde",
+            "rank":3,
+            "sub_values": [["1997/12/31",11],["1998/12/31",10],["1999/12/31",12],["2000/12/31",10],["2001/12/31",31],["2002/12/31",14],["2003/12/31",21],["2004/12/31",16],["2005/12/31",14],["2006/12/31",2],["2007/12/31",11],["2008/12/31",5],["2009/12/31",5],["2010/12/31",11],["2011/12/31",19],["2012/12/31",28],["2013/12/31",20],["2014/12/31",11],["2015/12/31",10]]
+        }
+    ]
+},{
+    "name": "moderne",
+    "order":10,
+    "description":"Cette expression est surtout employée lors des débats nationaux portant sur le voile en France (2003-2004). Un tel usage révèle le paradigme qui gouverne les débats portant sur le rapport islam/violence mais également islam/République dans le cadre franco-français. En effet, l’expression “islam moderne”, insinuant que l’islam d’alors est archaïque, renvoie à la nécessité pour cette religion de procéder à son aggiornamento à l’aune des valeurs françaises pour pouvoir être “soluble” dans la République. Comme si le traditionnel débat sur l'intégration des “français issus de l’immigration” s’était converti en débat portant sur la nécessité d’adopter et de promouvoir un “islam moderne”.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank":14,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",2],["2002/12/31",8],["2003/12/31",11],["2004/12/31",5],["2005/12/31",0],["2006/12/31",0],["2007/12/31",4],["2008/12/31",1],["2009/12/31",0],["2010/12/31",3],["2011/12/31",0],["2012/12/31",1],["2013/12/31",1],["2014/12/31",3],["2015/12/31",1]]
+        },
+        {
+            "source":"global",
+            "rank":19,
+            "sub_values": [["1997/12/31",3],["1998/12/31",7],["1999/12/31",1],["2000/12/31",2],["2001/12/31",10],["2002/12/31",24],["2003/12/31",21],["2004/12/31",10],["2005/12/31",1],["2006/12/31",0],["2007/12/31",7],["2008/12/31",5],["2009/12/31",5],["2010/12/31",4],["2011/12/31",0],["2012/12/31",4],["2013/12/31",2],["2014/12/31",6],["2015/12/31",2]]
+        },
+        {
+            "source":"liberation",
+            "rank":8,
+            "sub_values": [["1997/12/31",2],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",4],["2002/12/31",3],["2003/12/31",5],["2004/12/31",2],["2005/12/31",1],["2006/12/31",0],["2007/12/31",2],["2008/12/31",4],["2009/12/31",1],["2010/12/31",0],["2011/12/31",0],["2012/12/31",2],["2013/12/31",0],["2014/12/31",2],["2015/12/31",0]]
+        },
+        {
+            "source":"lemonde",
+            "rank":25,
+            "sub_values": [["1997/12/31",1],["1998/12/31",7],["1999/12/31",1],["2000/12/31",2],["2001/12/31",4],["2002/12/31",13],["2003/12/31",5],["2004/12/31",3],["2005/12/31",0],["2006/12/31",0],["2007/12/31",1],["2008/12/31",0],["2009/12/31",4],["2010/12/31",1],["2011/12/31",0],["2012/12/31",1],["2013/12/31",1],["2014/12/31",1],["2015/12/31",1]]
+        }
+    ]
+},{
+    "name": "fondamentaliste",
+    "order":7,
+    "description":"Il renvoie à une pratique de l’islam fidèle à ses origines et fait partie de la gamme d’expressions renvoyant à une conception littéraliste et souvent violente de l’islam, tant elle a été utilisée pour qualifier les talibans et les membres d’Al Qaïda. Cependant, l’adjectif “fondamentaliste“ a également été utilisé pour qualifier certains individus controversés en France ou encore pour décrire les tendances religieuses dans certains “quartiers” français. L’application d’une seule expression désignant aussi bien des figures du terrorisme international que des citoyens français musulmans atteste donc de la constante transposition de lectures internationales au terrain d’analyse français.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank":8,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",2],["2002/12/31",14],["2003/12/31",7],["2004/12/31",9],["2005/12/31",5],["2006/12/31",3],["2007/12/31",1],["2008/12/31",0],["2009/12/31",5],["2010/12/31",4],["2011/12/31",2],["2012/12/31",3],["2013/12/31",2],["2014/12/31",2],["2015/12/31",3]]
+        },
+        {
+            "source":"global",
+            "rank":10,
+            "sub_values": [["1997/12/31",1],["1998/12/31",2],["1999/12/31",4],["2000/12/31",0],["2001/12/31",22],["2002/12/31",35],["2003/12/31",22],["2004/12/31",24],["2005/12/31",10],["2006/12/31",5],["2007/12/31",2],["2008/12/31",4],["2009/12/31",7],["2010/12/31",10],["2011/12/31",3],["2012/12/31",6],["2013/12/31",5],["2014/12/31",4],["2015/12/31",10]]
+        },
+        {
+            "source":"liberation",
+            "rank":4,
+            "sub_values": [["1997/12/31",0],["1998/12/31",1],["1999/12/31",2],["2000/12/31",0],["2001/12/31",5],["2002/12/31",6],["2003/12/31",9],["2004/12/31",9],["2005/12/31",3],["2006/12/31",2],["2007/12/31",1],["2008/12/31",2],["2009/12/31",0],["2010/12/31",0],["2011/12/31",0],["2012/12/31",1],["2013/12/31",0],["2014/12/31",1],["2015/12/31",5]]
+        },
+        {
+            "source":"lemonde",
+            "rank":18,
+            "sub_values": [["1997/12/31",1],["1998/12/31",1],["1999/12/31",2],["2000/12/31",0],["2001/12/31",15],["2002/12/31",15],["2003/12/31",6],["2004/12/31",6],["2005/12/31",2],["2006/12/31",0],["2007/12/31",0],["2008/12/31",2],["2009/12/31",2],["2010/12/31",6],["2011/12/31",1],["2012/12/31",2],["2013/12/31",3],["2014/12/31",1],["2015/12/31",2]]
+        }
+    ]
+},{
+    "name": "rigoriste",
+    "order":6,
+    "description":"L’islam rigoriste fait également référence à un courant littéraliste qui vise à revenir à un “islam originel”. Il s’agit là principalement de qualifier un islam non violent mais fondamentaliste ou, dans le jargon médiatique, “radical”. Si son usage connaît des fluctuations à la faveur d’événements internationaux, il est intéressant de noter que les médias ici analysés y recourent régulièrement à diverses occasions dans le cadre de l’actualité nationale: débats sur le voile, affaire Merah, campagne présidentielle de 2012 et diverses affaires mettant en jeu des personnalités (imams) ou groupes d’individus (“islam des banlieues”).",
+    "values": [
+        {
+            "source":"figaro",
+            "rank":4,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",3],["2002/12/31",1],["2003/12/31",6],["2004/12/31",5],["2005/12/31",7],["2006/12/31",6],["2007/12/31",6],["2008/12/31",2],["2009/12/31",9],["2010/12/31",1],["2011/12/31",1],["2012/12/31",8],["2013/12/31",5],["2014/12/31",3],["2015/12/31",15]]
+        },
+        {
+            "source":"global",
+            "rank":4,
+            "sub_values": [["1997/12/31",1],["1998/12/31",2],["1999/12/31",1],["2000/12/31",1],["2001/12/31",19],["2002/12/31",12],["2003/12/31",15],["2004/12/31",18],["2005/12/31",14],["2006/12/31",14],["2007/12/31",11],["2008/12/31",16],["2009/12/31",13],["2010/12/31",14],["2011/12/31",18],["2012/12/31",28],["2013/12/31",30],["2014/12/31",11],["2015/12/31",28]]
+        },
+        {
+            "source":"liberation",
+            "rank":6,
+            "sub_values": [["1997/12/31",0],["1998/12/31",1],["1999/12/31",1],["2000/12/31",1],["2001/12/31",0],["2002/12/31",2],["2003/12/31",3],["2004/12/31",5],["2005/12/31",3],["2006/12/31",6],["2007/12/31",0],["2008/12/31",3],["2009/12/31",0],["2010/12/31",0],["2011/12/31",3],["2012/12/31",1],["2013/12/31",5],["2014/12/31",0],["2015/12/31",1]]
+        },
+        {
+            "source":"lemonde",
+            "rank":4,
+            "sub_values": [["1997/12/31",1],["1998/12/31",1],["1999/12/31",0],["2000/12/31",0],["2001/12/31",16],["2002/12/31",9],["2003/12/31",6],["2004/12/31",8],["2005/12/31",4],["2006/12/31",2],["2007/12/31",5],["2008/12/31",11],["2009/12/31",4],["2010/12/31",13],["2011/12/31",14],["2012/12/31",19],["2013/12/31",20],["2014/12/31",8],["2015/12/31",12]]
+        }
+    ]
+},{
+    "name": "chiite",
+    "order":5,
+    "description":"Comme pour “islam sunnite”, il s’agit d’un mode de lecture des théâtres de guerre, conflits et fractures confessionnelles au Moyen-Orient (notamment la guerre civile en Irak et la crise syrienne). Les corrélations observées avec des moments forts de la politique iranienne (2005, 2009) mettent en lumière la prévalence du religieux dans la grille de lecture employée pour traiter du régime iranien. Cette similarité avec les tendances de l’expression “islam sunnite” souligne le relatif succès des acteurs, aussi bien en France qu’au Moyen-Orient, qui ont travaillé à faire du  facteur religieux un élément fondamental dans la lecture des conflits et dynamiques qui caractérisent le Moyen-Orient.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank":10,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",0],["2002/12/31",0],["2003/12/31",6],["2004/12/31",7],["2005/12/31",3],["2006/12/31",1],["2007/12/31",5],["2008/12/31",5],["2009/12/31",12],["2010/12/31",1],["2011/12/31",2],["2012/12/31",1],["2013/12/31",0],["2014/12/31",2],["2015/12/31",6]]
+        },
+        {
+            "source":"global",
+            "rank":5,
+            "sub_values": [["1997/12/31",2],["1998/12/31",4],["1999/12/31",5],["2000/12/31",5],["2001/12/31",16],["2002/12/31",2],["2003/12/31",26],["2004/12/31",36],["2005/12/31",16],["2006/12/31",7],["2007/12/31",12],["2008/12/31",15],["2009/12/31",24],["2010/12/31",16],["2011/12/31",21],["2012/12/31",9],["2013/12/31",14],["2014/12/31",19],["2015/12/31",11]]
+        },
+        {
+            "source":"liberation",
+            "rank":7,
+            "sub_values": [["1997/12/31",1],["1998/12/31",1],["1999/12/31",1],["2000/12/31",3],["2001/12/31",2],["2002/12/31",2],["2003/12/31",7],["2004/12/31",6],["2005/12/31",4],["2006/12/31",2],["2007/12/31",0],["2008/12/31",0],["2009/12/31",0],["2010/12/31",0],["2011/12/31",4],["2012/12/31",0],["2013/12/31",0],["2014/12/31",0],["2015/12/31",1]]
+        },
+        {
+            "source":"lemonde",
+            "rank":5,
+            "sub_values": [["1997/12/31",1],["1998/12/31",3],["1999/12/31",4],["2000/12/31",2],["2001/12/31",14],["2002/12/31",0],["2003/12/31",13],["2004/12/31",23],["2005/12/31",9],["2006/12/31",4],["2007/12/31",7],["2008/12/31",10],["2009/12/31",12],["2010/12/31",15],["2011/12/31",15],["2012/12/31",8],["2013/12/31",14],["2014/12/31",17],["2015/12/31",4]]
+        }
+    ]
+},{
+    "name": "politique",
+    "order":2,
+    "description": "Les termes sont associés après l’intervention américaine en Irak mais aussi, c’est révélateur, lors des débats portant sur le voile (2003-2004). L’usage de ce concept investit le port du foulard d’une portée politique: les débats d’alors évoquent la matérialisation d’une inégalité hommes-femmes dans l’espace public, la soumission de la femme, voire une revendication identitaire (“refus d’assimilation”) ou politique (défiance).\nDeux pics significatifs sont de nouveau atteints dans le contexte des “printemps arabes”, lesquels sont marqués par l’entrée en jeu de partis islamistes dans les processus de transition et réformes constitutionnelles en Afrique du Nord et au Moyen-Orient.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank":2,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",1],["2001/12/31",24],["2002/12/31",39],["2003/12/31",29],["2004/12/31",19],["2005/12/31",19],["2006/12/31",6],["2007/12/31",28],["2008/12/31",10],["2009/12/31",9],["2010/12/31",24],["2011/12/31",41],["2012/12/31",37],["2013/12/31",57],["2014/12/31",36],["2015/12/31",37]]
+        },
+        {
+            "source":"global",
+            "rank":2,
+            "sub_values": [["1997/12/31",24],["1998/12/31",16],["1999/12/31",26],["2000/12/31",16],["2001/12/31",141],["2002/12/31",98],["2003/12/31",78],["2004/12/31",88],["2005/12/31",61],["2006/12/31",44],["2007/12/31",73],["2008/12/31",34],["2009/12/31",40],["2010/12/31",38],["2011/12/31",125],["2012/12/31",89],["2013/12/31",165],["2014/12/31",61],["2015/12/31",67]]
+        },
+        {
+            "source":"liberation",
+            "rank":1,
+            "sub_values": [["1997/12/31",2],["1998/12/31",0],["1999/12/31",1],["2000/12/31",5],["2001/12/31",17],["2002/12/31",21],["2003/12/31",14],["2004/12/31",23],["2005/12/31",8],["2006/12/31",25],["2007/12/31",11],["2008/12/31",5],["2009/12/31",1],["2010/12/31",0],["2011/12/31",3],["2012/12/31",4],["2013/12/31",1],["2014/12/31",5],["2015/12/31",6]]
+        },
+        {
+            "source":"lemonde",
+            "rank":2,
+            "sub_values": [["1997/12/31",22],["1998/12/31",16],["1999/12/31",25],["2000/12/31",10],["2001/12/31",100],["2002/12/31",38],["2003/12/31",35],["2004/12/31",46],["2005/12/31",34],["2006/12/31",13],["2007/12/31",34],["2008/12/31",19],["2009/12/31",30],["2010/12/31",14],["2011/12/31",81],["2012/12/31",48],["2013/12/31",107],["2014/12/31",20],["2015/12/31",24]]
+        }
+    ]
+},{
+    "name": "pur",
+    "order":9,
+    "description":"Il décrit à la fois des mouvances violentes (salafisme jihadiste) et non violentes (salafisme quiétiste) appelant à la pratique d’un islam à l’image des premiers musulmans. Sur le plan international, sa récurrence coïncide avec la médiatisation des organisations classifiées dans la première catégorie (Al Qaïda en 2001, organisation Etat islamique en 2015) du fait d’actes de violence. Elle est également employée s’agissant de l’Iran et l’Afghanistan. Sur le plan national, son apparition lors de débats relatifs à la laïcité en France témoigne des vases communicants sur le plan idéologique mettant en relation certaines tendances observées à l’international avec des enjeux nationaux.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank":15,
+            "sub_values": [["1997/12/31",0],["1998/12/31",1],["1999/12/31",0],["2000/12/31",0],["2001/12/31",5],["2002/12/31",1],["2003/12/31",5],["2004/12/31",3],["2005/12/31",7],["2006/12/31",4],["2007/12/31",1],["2008/12/31",1],["2009/12/31",0],["2010/12/31",0],["2011/12/31",0],["2012/12/31",1],["2013/12/31",3],["2014/12/31",1],["2015/12/31",3]]
+        },
+        {
+            "source":"global",
+            "rank":17,
+            "sub_values": [["1997/12/31",0],["1998/12/31",3],["1999/12/31",3],["2000/12/31",4],["2001/12/31",31],["2002/12/31",11],["2003/12/31",8],["2004/12/31",12],["2005/12/31",12],["2006/12/31",7],["2007/12/31",1],["2008/12/31",4],["2009/12/31",2],["2010/12/31",2],["2011/12/31",1],["2012/12/31",2],["2013/12/31",7],["2014/12/31",2],["2015/12/31",10]]
+        },
+        {
+            "source":"liberation",
+            "rank":14,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",2],["2000/12/31",1],["2001/12/31",1],["2002/12/31",3],["2003/12/31",0],["2004/12/31",2],["2005/12/31",1],["2006/12/31",3],["2007/12/31",0],["2008/12/31",1],["2009/12/31",2],["2010/12/31",1],["2011/12/31",1],["2012/12/31",0],["2013/12/31",1],["2014/12/31",0],["2015/12/31",4]]
+        },
+        {
+            "source":"lemonde",
+            "rank":20,
+            "sub_values": [["1997/12/31",0],["1998/12/31",2],["1999/12/31",1],["2000/12/31",3],["2001/12/31",25],["2002/12/31",7],["2003/12/31",3],["2004/12/31",7],["2005/12/31",4],["2006/12/31",0],["2007/12/31",0],["2008/12/31",2],["2009/12/31",0],["2010/12/31",1],["2011/12/31",0],["2012/12/31",1],["2013/12/31",3],["2014/12/31",1],["2015/12/31",3]]
+        }
+    ]
+},{
+    "name": "radical",
+    "order":1,
+    "description":"Ce concept introduit une particularité dans le rapport des médias à l’islam comparé à d’autres adjectifs utilisés (pur, fondamentaliste, rigoriste): non seulement ce concept peut s’appliquer à un spectre très variable (terroriste, musulman pratiquant, etc.), mais encore il valide l’idée selon laquelle l’islam doit nécessairement être “modéré” pour être acceptable. La radicalité existe par rapport à celui qui la définit. La résurgence d’actes terroristes en France (Merah, Charlie, Paris…) redonne un souffle (+127% chez Le Figaro entre 2014 et 2015, contre +66% dans le corpus global)  à cette expression et à ses variations “radicalisation” et “autoradicalisation”.",
+    "values": [
+        {
+            "source":"figaro",
+            "rank":1,
+            "sub_values": [["1997/12/31",0],["1998/12/31",0],["1999/12/31",0],["2000/12/31",0],["2001/12/31",22],["2002/12/31",38],["2003/12/31",17],["2004/12/31",64],["2005/12/31",47],["2006/12/31",16],["2007/12/31",38],["2008/12/31",12],["2009/12/31",20],["2010/12/31",49],["2011/12/31",33],["2012/12/31",84],["2013/12/31",49],["2014/12/31",90],["2015/12/31",205]]
+        },
+        {
+            "source":"global",
+            "rank":1,
+            "sub_values": [["1997/12/31",8],["1998/12/31",2],["1999/12/31",9],["2000/12/31",8],["2001/12/31",58],["2002/12/31",100],["2003/12/31",56],["2004/12/31",143],["2005/12/31",123],["2006/12/31",52],["2007/12/31",83],["2008/12/31",56],["2009/12/31",61],["2010/12/31",87],["2011/12/31",76],["2012/12/31",179],["2013/12/31",134],["2014/12/31",157],["2015/12/31",262]]
+        },
+        {
+            "source":"liberation",
+            "rank":2,
+            "sub_values": [["1997/12/31",3],["1998/12/31",0],["1999/12/31",6],["2000/12/31",1],["2001/12/31",3],["2002/12/31",9],["2003/12/31",3],["2004/12/31",18],["2005/12/31",17],["2006/12/31",12],["2007/12/31",15],["2008/12/31",3],["2009/12/31",6],["2010/12/31",2],["2011/12/31",1],["2012/12/31",12],["2013/12/31",3],["2014/12/31",4],["2015/12/31",20]]
+        },
+        {
+            "source":"lemonde",
+            "rank":1,
+            "sub_values": [["1997/12/31",5],["1998/12/31",2],["1999/12/31",3],["2000/12/31",7],["2001/12/31",33],["2002/12/31",53],["2003/12/31",36],["2004/12/31",61],["2005/12/31",59],["2006/12/31",24],["2007/12/31",30],["2008/12/31",41],["2009/12/31",35],["2010/12/31",36],["2011/12/31",42],["2012/12/31",83],["2013/12/31",82],["2014/12/31",63],["2015/12/31",37]]
+        }
+    ]
+}]

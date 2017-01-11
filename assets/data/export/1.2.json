@@ -1,0 +1,2044 @@
+[{
+    "date": "1997/02/28",
+    "sub_values": {
+        "figaro": 1,
+        "lemonde": 156,
+        "liberation": 28
+    },
+    "title_value": 11,
+    "value": 185
+}, {
+    "date": "1997/03/31",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 140,
+        "liberation": 45
+    },
+    "title_value": 9,
+    "value": 188
+}, {
+    "date": "1997/04/30",
+    "sub_values": {
+        "figaro": 1,
+        "lemonde": 110,
+        "liberation": 36
+    },
+    "title_value": 4,
+    "value": 147
+}, {
+    "date": "1997/05/31",
+    "sub_values": {
+        "figaro": 18,
+        "lemonde": 93,
+        "liberation": 42
+    },
+    "title_value": 7,
+    "value": 153
+}, {
+    "date": "1997/06/30",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 89,
+        "liberation": 38
+    },
+    "title_value": 11,
+    "value": 130
+}, {
+    "date": "1997/07/31",
+    "sub_values": {
+        "figaro": 8,
+        "lemonde": 67,
+        "liberation": 26
+    },
+    "title_value": 8,
+    "value": 101
+}, {
+    "date": "1997/08/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 152,
+        "liberation": 18
+    },
+    "title_value": 5,
+    "value": 170
+}, {
+    "date": "1997/09/30",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 70,
+        "liberation": 25
+    },
+    "title_value": 5,
+    "value": 95
+}, {
+    "date": "1997/10/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 62,
+        "liberation": 44
+    },
+    "title_value": 8,
+    "value": 106
+}, {
+    "date": "1997/11/30",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 167,
+        "liberation": 80
+    },
+    "title_value": 19,
+    "value": 250
+}, {
+    "date": "1997/12/31",
+    "sub_values": {
+        "figaro": 5,
+        "lemonde": 106,
+        "liberation": 55
+    },
+    "title_value": 10,
+    "value": 166
+}, {
+    "date": "1998/01/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 194,
+        "liberation": 58
+    },
+    "title_value": 9,
+    "value": 252
+}, {
+    "date": "1998/02/28",
+    "sub_values": {
+        "figaro": 2,
+        "lemonde": 131,
+        "liberation": 36
+    },
+    "title_value": 9,
+    "value": 169
+}, {
+    "date": "1998/03/31",
+    "sub_values": {
+        "figaro": 4,
+        "lemonde": 87,
+        "liberation": 27
+    },
+    "title_value": 5,
+    "value": 118
+}, {
+    "date": "1998/04/30",
+    "sub_values": {
+        "figaro": 2,
+        "lemonde": 68,
+        "liberation": 51
+    },
+    "title_value": 6,
+    "value": 121
+}, {
+    "date": "1998/05/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 59,
+        "liberation": 55
+    },
+    "title_value": 6,
+    "value": 114
+}, {
+    "date": "1998/06/30",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 135,
+        "liberation": 42
+    },
+    "title_value": 7,
+    "value": 177
+}, {
+    "date": "1998/07/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 59,
+        "liberation": 18
+    },
+    "title_value": 5,
+    "value": 77
+}, {
+    "date": "1998/08/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 134,
+        "liberation": 58
+    },
+    "title_value": 11,
+    "value": 192
+}, {
+    "date": "1998/09/30",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 135,
+        "liberation": 35
+    },
+    "title_value": 6,
+    "value": 173
+}, {
+    "date": "1998/10/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 55,
+        "liberation": 17
+    },
+    "title_value": 5,
+    "value": 72
+}, {
+    "date": "1998/11/30",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 74,
+        "liberation": 29
+    },
+    "title_value": 6,
+    "value": 103
+}, {
+    "date": "1998/12/31",
+    "sub_values": {
+        "figaro": 1,
+        "lemonde": 112,
+        "liberation": 28
+    },
+    "title_value": 7,
+    "value": 141
+}, {
+    "date": "1999/01/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 111,
+        "liberation": 59
+    },
+    "title_value": 11,
+    "value": 170
+}, {
+    "date": "1999/02/28",
+    "sub_values": {
+        "figaro": 9,
+        "lemonde": 117,
+        "liberation": 27
+    },
+    "title_value": 6,
+    "value": 153
+}, {
+    "date": "1999/03/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 67,
+        "liberation": 44
+    },
+    "title_value": 6,
+    "value": 111
+}, {
+    "date": "1999/04/30",
+    "sub_values": {
+        "figaro": 4,
+        "lemonde": 118,
+        "liberation": 68
+    },
+    "title_value": 12,
+    "value": 190
+}, {
+    "date": "1999/05/31",
+    "sub_values": {
+        "figaro": 2,
+        "lemonde": 54,
+        "liberation": 34
+    },
+    "title_value": 7,
+    "value": 90
+}, {
+    "date": "1999/06/30",
+    "sub_values": {
+        "figaro": 13,
+        "lemonde": 111,
+        "liberation": 25
+    },
+    "title_value": 9,
+    "value": 149
+}, {
+    "date": "1999/07/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 118,
+        "liberation": 38
+    },
+    "title_value": 10,
+    "value": 156
+}, {
+    "date": "1999/08/31",
+    "sub_values": {
+        "figaro": 1,
+        "lemonde": 88,
+        "liberation": 82
+    },
+    "title_value": 6,
+    "value": 171
+}, {
+    "date": "1999/09/30",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 134,
+        "liberation": 59
+    },
+    "title_value": 6,
+    "value": 193
+}, {
+    "date": "1999/10/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 104,
+        "liberation": 51
+    },
+    "title_value": 6,
+    "value": 155
+}, {
+    "date": "1999/11/30",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 119,
+        "liberation": 66
+    },
+    "title_value": 9,
+    "value": 185
+}, {
+    "date": "1999/12/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 158,
+        "liberation": 35
+    },
+    "title_value": 7,
+    "value": 193
+}, {
+    "date": "2000/01/31",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 129,
+        "liberation": 64
+    },
+    "title_value": 12,
+    "value": 196
+}, {
+    "date": "2000/02/29",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 139,
+        "liberation": 43
+    },
+    "title_value": 9,
+    "value": 185
+}, {
+    "date": "2000/03/31",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 115,
+        "liberation": 53
+    },
+    "title_value": 10,
+    "value": 171
+}, {
+    "date": "2000/04/30",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 113,
+        "liberation": 42
+    },
+    "title_value": 10,
+    "value": 158
+}, {
+    "date": "2000/05/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 117,
+        "liberation": 52
+    },
+    "title_value": 8,
+    "value": 169
+}, {
+    "date": "2000/06/30",
+    "sub_values": {
+        "figaro": 1,
+        "lemonde": 114,
+        "liberation": 44
+    },
+    "title_value": 5,
+    "value": 159
+}, {
+    "date": "2000/07/31",
+    "sub_values": {
+        "figaro": 27,
+        "lemonde": 123,
+        "liberation": 48
+    },
+    "title_value": 7,
+    "value": 198
+}, {
+    "date": "2000/08/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 93,
+        "liberation": 131
+    },
+    "title_value": 9,
+    "value": 224
+}, {
+    "date": "2000/09/30",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 127,
+        "liberation": 16
+    },
+    "title_value": 4,
+    "value": 143
+}, {
+    "date": "2000/10/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 97,
+        "liberation": 52
+    },
+    "title_value": 4,
+    "value": 149
+}, {
+    "date": "2000/11/30",
+    "sub_values": {
+        "figaro": 15,
+        "lemonde": 96,
+        "liberation": 64
+    },
+    "title_value": 9,
+    "value": 175
+}, {
+    "date": "2000/12/31",
+    "sub_values": {
+        "figaro": 10,
+        "lemonde": 102,
+        "liberation": 26
+    },
+    "title_value": 3,
+    "value": 138
+}, {
+    "date": "2001/01/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 106,
+        "liberation": 37
+    },
+    "title_value": 7,
+    "value": 143
+}, {
+    "date": "2001/02/28",
+    "sub_values": {
+        "figaro": 1,
+        "lemonde": 158,
+        "liberation": 28
+    },
+    "title_value": 6,
+    "value": 187
+}, {
+    "date": "2001/03/31",
+    "sub_values": {
+        "figaro": 3,
+        "lemonde": 253,
+        "liberation": 50
+    },
+    "title_value": 8,
+    "value": 306
+}, {
+    "date": "2001/04/30",
+    "sub_values": {
+        "figaro": 8,
+        "lemonde": 126,
+        "liberation": 19
+    },
+    "title_value": 7,
+    "value": 153
+}, {
+    "date": "2001/05/31",
+    "sub_values": {
+        "figaro": 15,
+        "lemonde": 209,
+        "liberation": 26
+    },
+    "title_value": 7,
+    "value": 250
+}, {
+    "date": "2001/06/30",
+    "sub_values": {
+        "figaro": 1,
+        "lemonde": 245,
+        "liberation": 20
+    },
+    "title_value": 12,
+    "value": 266
+}, {
+    "date": "2001/07/31",
+    "sub_values": {
+        "figaro": 0,
+        "lemonde": 83,
+        "liberation": 76
+    },
+    "title_value": 5,
+    "value": 159
+}, {
+    "date": "2001/08/31",
+    "sub_values": {
+        "figaro": 80,
+        "lemonde": 94,
+        "liberation": 32
+    },
+    "title_value": 6,
+    "value": 206
+}, {
+    "date": "2001/09/30",
+    "sub_values": {
+        "figaro": 958,
+        "lemonde": 1564,
+        "liberation": 564
+    },
+    "title_value": 74,
+    "value": 3086
+}, {
+    "date": "2001/10/31",
+    "sub_values": {
+        "figaro": 999,
+        "lemonde": 2141,
+        "liberation": 550
+    },
+    "title_value": 80,
+    "value": 3690
+}, {
+    "date": "2001/11/30",
+    "sub_values": {
+        "figaro": 379,
+        "lemonde": 1005,
+        "liberation": 168
+    },
+    "title_value": 32,
+    "value": 1552
+}, {
+    "date": "2001/12/31",
+    "sub_values": {
+        "figaro": 243,
+        "lemonde": 924,
+        "liberation": 158
+    },
+    "title_value": 22,
+    "value": 1325
+}, {
+    "date": "2002/01/31",
+    "sub_values": {
+        "figaro": 292,
+        "lemonde": 333,
+        "liberation": 105
+    },
+    "title_value": 18,
+    "value": 730
+}, {
+    "date": "2002/02/28",
+    "sub_values": {
+        "figaro": 185,
+        "lemonde": 230,
+        "liberation": 63
+    },
+    "title_value": 11,
+    "value": 478
+}, {
+    "date": "2002/03/31",
+    "sub_values": {
+        "figaro": 125,
+        "lemonde": 213,
+        "liberation": 31
+    },
+    "title_value": 10,
+    "value": 369
+}, {
+    "date": "2002/04/30",
+    "sub_values": {
+        "figaro": 139,
+        "lemonde": 270,
+        "liberation": 69
+    },
+    "title_value": 12,
+    "value": 478
+}, {
+    "date": "2002/05/31",
+    "sub_values": {
+        "figaro": 171,
+        "lemonde": 309,
+        "liberation": 94
+    },
+    "title_value": 34,
+    "value": 574
+}, {
+    "date": "2002/06/30",
+    "sub_values": {
+        "figaro": 208,
+        "lemonde": 180,
+        "liberation": 66
+    },
+    "title_value": 16,
+    "value": 454
+}, {
+    "date": "2002/07/31",
+    "sub_values": {
+        "figaro": 221,
+        "lemonde": 92,
+        "liberation": 48
+    },
+    "title_value": 8,
+    "value": 361
+}, {
+    "date": "2002/08/31",
+    "sub_values": {
+        "figaro": 122,
+        "lemonde": 111,
+        "liberation": 203
+    },
+    "title_value": 13,
+    "value": 436
+}, {
+    "date": "2002/09/30",
+    "sub_values": {
+        "figaro": 379,
+        "lemonde": 512,
+        "liberation": 206
+    },
+    "title_value": 28,
+    "value": 1097
+}, {
+    "date": "2002/10/31",
+    "sub_values": {
+        "figaro": 509,
+        "lemonde": 562,
+        "liberation": 260
+    },
+    "title_value": 57,
+    "value": 1331
+}, {
+    "date": "2002/11/30",
+    "sub_values": {
+        "figaro": 288,
+        "lemonde": 630,
+        "liberation": 166
+    },
+    "title_value": 32,
+    "value": 1084
+}, {
+    "date": "2002/12/31",
+    "sub_values": {
+        "figaro": 329,
+        "lemonde": 427,
+        "liberation": 223
+    },
+    "title_value": 48,
+    "value": 979
+}, {
+    "date": "2003/01/31",
+    "sub_values": {
+        "figaro": 170,
+        "lemonde": 249,
+        "liberation": 51
+    },
+    "title_value": 22,
+    "value": 470
+}, {
+    "date": "2003/02/28",
+    "sub_values": {
+        "figaro": 165,
+        "lemonde": 278,
+        "liberation": 104
+    },
+    "title_value": 19,
+    "value": 547
+}, {
+    "date": "2003/03/31",
+    "sub_values": {
+        "figaro": 212,
+        "lemonde": 438,
+        "liberation": 109
+    },
+    "title_value": 18,
+    "value": 759
+}, {
+    "date": "2003/04/30",
+    "sub_values": {
+        "figaro": 389,
+        "lemonde": 390,
+        "liberation": 146
+    },
+    "title_value": 33,
+    "value": 925
+}, {
+    "date": "2003/05/31",
+    "sub_values": {
+        "figaro": 282,
+        "lemonde": 254,
+        "liberation": 91
+    },
+    "title_value": 17,
+    "value": 627
+}, {
+    "date": "2003/06/30",
+    "sub_values": {
+        "figaro": 322,
+        "lemonde": 313,
+        "liberation": 76
+    },
+    "title_value": 27,
+    "value": 711
+}, {
+    "date": "2003/07/31",
+    "sub_values": {
+        "figaro": 142,
+        "lemonde": 101,
+        "liberation": 109
+    },
+    "title_value": 9,
+    "value": 352
+}, {
+    "date": "2003/08/31",
+    "sub_values": {
+        "figaro": 163,
+        "lemonde": 214,
+        "liberation": 110
+    },
+    "title_value": 13,
+    "value": 487
+}, {
+    "date": "2003/09/30",
+    "sub_values": {
+        "figaro": 197,
+        "lemonde": 208,
+        "liberation": 127
+    },
+    "title_value": 15,
+    "value": 532
+}, {
+    "date": "2003/10/31",
+    "sub_values": {
+        "figaro": 365,
+        "lemonde": 353,
+        "liberation": 160
+    },
+    "title_value": 34,
+    "value": 878
+}, {
+    "date": "2003/11/30",
+    "sub_values": {
+        "figaro": 354,
+        "lemonde": 348,
+        "liberation": 255
+    },
+    "title_value": 30,
+    "value": 957
+}, {
+    "date": "2003/12/31",
+    "sub_values": {
+        "figaro": 323,
+        "lemonde": 561,
+        "liberation": 238
+    },
+    "title_value": 27,
+    "value": 1122
+}, {
+    "date": "2004/01/31",
+    "sub_values": {
+        "figaro": 392,
+        "lemonde": 353,
+        "liberation": 303
+    },
+    "title_value": 28,
+    "value": 1048
+}, {
+    "date": "2004/02/29",
+    "sub_values": {
+        "figaro": 276,
+        "lemonde": 303,
+        "liberation": 141
+    },
+    "title_value": 16,
+    "value": 720
+}, {
+    "date": "2004/03/31",
+    "sub_values": {
+        "figaro": 502,
+        "lemonde": 550,
+        "liberation": 115
+    },
+    "title_value": 36,
+    "value": 1167
+}, {
+    "date": "2004/04/30",
+    "sub_values": {
+        "figaro": 359,
+        "lemonde": 396,
+        "liberation": 107
+    },
+    "title_value": 25,
+    "value": 862
+}, {
+    "date": "2004/05/31",
+    "sub_values": {
+        "figaro": 370,
+        "lemonde": 306,
+        "liberation": 138
+    },
+    "title_value": 22,
+    "value": 814
+}, {
+    "date": "2004/06/30",
+    "sub_values": {
+        "figaro": 273,
+        "lemonde": 231,
+        "liberation": 112
+    },
+    "title_value": 25,
+    "value": 616
+}, {
+    "date": "2004/07/31",
+    "sub_values": {
+        "figaro": 218,
+        "lemonde": 186,
+        "liberation": 79
+    },
+    "title_value": 14,
+    "value": 483
+}, {
+    "date": "2004/08/31",
+    "sub_values": {
+        "figaro": 215,
+        "lemonde": 367,
+        "liberation": 53
+    },
+    "title_value": 16,
+    "value": 635
+}, {
+    "date": "2004/09/30",
+    "sub_values": {
+        "figaro": 505,
+        "lemonde": 634,
+        "liberation": 245
+    },
+    "title_value": 39,
+    "value": 1384
+}, {
+    "date": "2004/10/31",
+    "sub_values": {
+        "figaro": 155,
+        "lemonde": 274,
+        "liberation": 105
+    },
+    "title_value": 13,
+    "value": 534
+}, {
+    "date": "2004/11/30",
+    "sub_values": {
+        "figaro": 252,
+        "lemonde": 299,
+        "liberation": 181
+    },
+    "title_value": 18,
+    "value": 732
+}, {
+    "date": "2004/12/31",
+    "sub_values": {
+        "figaro": 286,
+        "lemonde": 302,
+        "liberation": 197
+    },
+    "title_value": 28,
+    "value": 785
+}, {
+    "date": "2005/01/31",
+    "sub_values": {
+        "figaro": 237,
+        "lemonde": 229,
+        "liberation": 94
+    },
+    "title_value": 16,
+    "value": 560
+}, {
+    "date": "2005/02/28",
+    "sub_values": {
+        "figaro": 259,
+        "lemonde": 247,
+        "liberation": 51
+    },
+    "title_value": 18,
+    "value": 557
+}, {
+    "date": "2005/03/31",
+    "sub_values": {
+        "figaro": 238,
+        "lemonde": 210,
+        "liberation": 182
+    },
+    "title_value": 24,
+    "value": 630
+}, {
+    "date": "2005/04/30",
+    "sub_values": {
+        "figaro": 208,
+        "lemonde": 178,
+        "liberation": 82
+    },
+    "title_value": 11,
+    "value": 468
+}, {
+    "date": "2005/05/31",
+    "sub_values": {
+        "figaro": 228,
+        "lemonde": 284,
+        "liberation": 119
+    },
+    "title_value": 22,
+    "value": 631
+}, {
+    "date": "2005/06/30",
+    "sub_values": {
+        "figaro": 183,
+        "lemonde": 264,
+        "liberation": 121
+    },
+    "title_value": 17,
+    "value": 568
+}, {
+    "date": "2005/07/31",
+    "sub_values": {
+        "figaro": 340,
+        "lemonde": 337,
+        "liberation": 122
+    },
+    "title_value": 28,
+    "value": 799
+}, {
+    "date": "2005/08/31",
+    "sub_values": {
+        "figaro": 221,
+        "lemonde": 241,
+        "liberation": 113
+    },
+    "title_value": 17,
+    "value": 575
+}, {
+    "date": "2005/09/30",
+    "sub_values": {
+        "figaro": 222,
+        "lemonde": 166,
+        "liberation": 65
+    },
+    "title_value": 17,
+    "value": 453
+}, {
+    "date": "2005/10/31",
+    "sub_values": {
+        "figaro": 155,
+        "lemonde": 213,
+        "liberation": 178
+    },
+    "title_value": 16,
+    "value": 546
+}, {
+    "date": "2005/11/30",
+    "sub_values": {
+        "figaro": 176,
+        "lemonde": 192,
+        "liberation": 94
+    },
+    "title_value": 17,
+    "value": 462
+}, {
+    "date": "2005/12/31",
+    "sub_values": {
+        "figaro": 224,
+        "lemonde": 289,
+        "liberation": 86
+    },
+    "title_value": 27,
+    "value": 599
+}, {
+    "date": "2006/01/31",
+    "sub_values": {
+        "figaro": 218,
+        "lemonde": 59,
+        "liberation": 129
+    },
+    "title_value": 15,
+    "value": 406
+}, {
+    "date": "2006/02/28",
+    "sub_values": {
+        "figaro": 351,
+        "lemonde": 137,
+        "liberation": 278
+    },
+    "title_value": 26,
+    "value": 766
+}, {
+    "date": "2006/03/31",
+    "sub_values": {
+        "figaro": 160,
+        "lemonde": 36,
+        "liberation": 112
+    },
+    "title_value": 15,
+    "value": 308
+}, {
+    "date": "2006/04/30",
+    "sub_values": {
+        "figaro": 215,
+        "lemonde": 52,
+        "liberation": 49
+    },
+    "title_value": 16,
+    "value": 316
+}, {
+    "date": "2006/05/31",
+    "sub_values": {
+        "figaro": 212,
+        "lemonde": 53,
+        "liberation": 135
+    },
+    "title_value": 14,
+    "value": 400
+}, {
+    "date": "2006/06/30",
+    "sub_values": {
+        "figaro": 162,
+        "lemonde": 171,
+        "liberation": 75
+    },
+    "title_value": 22,
+    "value": 408
+}, {
+    "date": "2006/07/31",
+    "sub_values": {
+        "figaro": 117,
+        "lemonde": 44,
+        "liberation": 35
+    },
+    "title_value": 6,
+    "value": 196
+}, {
+    "date": "2006/08/31",
+    "sub_values": {
+        "figaro": 155,
+        "lemonde": 65,
+        "liberation": 50
+    },
+    "title_value": 8,
+    "value": 270
+}, {
+    "date": "2006/09/30",
+    "sub_values": {
+        "figaro": 470,
+        "lemonde": 230,
+        "liberation": 295
+    },
+    "title_value": 35,
+    "value": 995
+}, {
+    "date": "2006/10/31",
+    "sub_values": {
+        "figaro": 246,
+        "lemonde": 119,
+        "liberation": 159
+    },
+    "title_value": 24,
+    "value": 524
+}, {
+    "date": "2006/11/30",
+    "sub_values": {
+        "figaro": 316,
+        "lemonde": 51,
+        "liberation": 150
+    },
+    "title_value": 15,
+    "value": 517
+}, {
+    "date": "2006/12/31",
+    "sub_values": {
+        "figaro": 289,
+        "lemonde": 67,
+        "liberation": 115
+    },
+    "title_value": 13,
+    "value": 471
+}, {
+    "date": "2007/01/31",
+    "sub_values": {
+        "figaro": 121,
+        "lemonde": 173,
+        "liberation": 113
+    },
+    "title_value": 16,
+    "value": 407
+}, {
+    "date": "2007/02/28",
+    "sub_values": {
+        "figaro": 156,
+        "lemonde": 195,
+        "liberation": 151
+    },
+    "title_value": 24,
+    "value": 502
+}, {
+    "date": "2007/03/31",
+    "sub_values": {
+        "figaro": 112,
+        "lemonde": 189,
+        "liberation": 109
+    },
+    "title_value": 14,
+    "value": 410
+}, {
+    "date": "2007/04/30",
+    "sub_values": {
+        "figaro": 133,
+        "lemonde": 185,
+        "liberation": 70
+    },
+    "title_value": 10,
+    "value": 388
+}, {
+    "date": "2007/05/31",
+    "sub_values": {
+        "figaro": 275,
+        "lemonde": 253,
+        "liberation": 74
+    },
+    "title_value": 31,
+    "value": 602
+}, {
+    "date": "2007/06/30",
+    "sub_values": {
+        "figaro": 209,
+        "lemonde": 294,
+        "liberation": 77
+    },
+    "title_value": 26,
+    "value": 580
+}, {
+    "date": "2007/07/31",
+    "sub_values": {
+        "figaro": 204,
+        "lemonde": 217,
+        "liberation": 72
+    },
+    "title_value": 28,
+    "value": 493
+}, {
+    "date": "2007/08/31",
+    "sub_values": {
+        "figaro": 161,
+        "lemonde": 280,
+        "liberation": 160
+    },
+    "title_value": 29,
+    "value": 601
+}, {
+    "date": "2007/09/30",
+    "sub_values": {
+        "figaro": 163,
+        "lemonde": 259,
+        "liberation": 107
+    },
+    "title_value": 36,
+    "value": 529
+}, {
+    "date": "2007/10/31",
+    "sub_values": {
+        "figaro": 115,
+        "lemonde": 212,
+        "liberation": 104
+    },
+    "title_value": 24,
+    "value": 431
+}, {
+    "date": "2007/11/30",
+    "sub_values": {
+        "figaro": 104,
+        "lemonde": 133,
+        "liberation": 99
+    },
+    "title_value": 13,
+    "value": 336
+}, {
+    "date": "2007/12/31",
+    "sub_values": {
+        "figaro": 116,
+        "lemonde": 253,
+        "liberation": 66
+    },
+    "title_value": 15,
+    "value": 435
+}, {
+    "date": "2008/01/31",
+    "sub_values": {
+        "figaro": 104,
+        "lemonde": 131,
+        "liberation": 48
+    },
+    "title_value": 13,
+    "value": 283
+}, {
+    "date": "2008/02/29",
+    "sub_values": {
+        "figaro": 119,
+        "lemonde": 192,
+        "liberation": 104
+    },
+    "title_value": 20,
+    "value": 415
+}, {
+    "date": "2008/03/31",
+    "sub_values": {
+        "figaro": 132,
+        "lemonde": 221,
+        "liberation": 137
+    },
+    "title_value": 27,
+    "value": 490
+}, {
+    "date": "2008/04/30",
+    "sub_values": {
+        "figaro": 64,
+        "lemonde": 183,
+        "liberation": 60
+    },
+    "title_value": 20,
+    "value": 307
+}, {
+    "date": "2008/05/31",
+    "sub_values": {
+        "figaro": 75,
+        "lemonde": 139,
+        "liberation": 51
+    },
+    "title_value": 12,
+    "value": 265
+}, {
+    "date": "2008/06/30",
+    "sub_values": {
+        "figaro": 63,
+        "lemonde": 166,
+        "liberation": 66
+    },
+    "title_value": 15,
+    "value": 295
+}, {
+    "date": "2008/07/31",
+    "sub_values": {
+        "figaro": 87,
+        "lemonde": 112,
+        "liberation": 69
+    },
+    "title_value": 8,
+    "value": 268
+}, {
+    "date": "2008/08/31",
+    "sub_values": {
+        "figaro": 41,
+        "lemonde": 49,
+        "liberation": 63
+    },
+    "title_value": 0,
+    "value": 153
+}, {
+    "date": "2008/09/30",
+    "sub_values": {
+        "figaro": 92,
+        "lemonde": 184,
+        "liberation": 90
+    },
+    "title_value": 15,
+    "value": 366
+}, {
+    "date": "2008/10/31",
+    "sub_values": {
+        "figaro": 52,
+        "lemonde": 62,
+        "liberation": 19
+    },
+    "title_value": 8,
+    "value": 133
+}, {
+    "date": "2008/11/30",
+    "sub_values": {
+        "figaro": 74,
+        "lemonde": 130,
+        "liberation": 75
+    },
+    "title_value": 7,
+    "value": 279
+}, {
+    "date": "2008/12/31",
+    "sub_values": {
+        "figaro": 75,
+        "lemonde": 152,
+        "liberation": 116
+    },
+    "title_value": 11,
+    "value": 343
+}, {
+    "date": "2009/01/31",
+    "sub_values": {
+        "figaro": 49,
+        "lemonde": 117,
+        "liberation": 60
+    },
+    "title_value": 5,
+    "value": 226
+}, {
+    "date": "2009/02/28",
+    "sub_values": {
+        "figaro": 55,
+        "lemonde": 118,
+        "liberation": 46
+    },
+    "title_value": 5,
+    "value": 219
+}, {
+    "date": "2009/03/31",
+    "sub_values": {
+        "figaro": 61,
+        "lemonde": 98,
+        "liberation": 68
+    },
+    "title_value": 5,
+    "value": 227
+}, {
+    "date": "2009/04/30",
+    "sub_values": {
+        "figaro": 112,
+        "lemonde": 224,
+        "liberation": 59
+    },
+    "title_value": 10,
+    "value": 395
+}, {
+    "date": "2009/05/31",
+    "sub_values": {
+        "figaro": 117,
+        "lemonde": 132,
+        "liberation": 99
+    },
+    "title_value": 6,
+    "value": 348
+}, {
+    "date": "2009/06/30",
+    "sub_values": {
+        "figaro": 128,
+        "lemonde": 410,
+        "liberation": 141
+    },
+    "title_value": 16,
+    "value": 679
+}, {
+    "date": "2009/07/31",
+    "sub_values": {
+        "figaro": 89,
+        "lemonde": 275,
+        "liberation": 113
+    },
+    "title_value": 11,
+    "value": 477
+}, {
+    "date": "2009/08/31",
+    "sub_values": {
+        "figaro": 49,
+        "lemonde": 99,
+        "liberation": 88
+    },
+    "title_value": 5,
+    "value": 236
+}, {
+    "date": "2009/09/30",
+    "sub_values": {
+        "figaro": 84,
+        "lemonde": 122,
+        "liberation": 69
+    },
+    "title_value": 7,
+    "value": 275
+}, {
+    "date": "2009/10/31",
+    "sub_values": {
+        "figaro": 115,
+        "lemonde": 233,
+        "liberation": 98
+    },
+    "title_value": 17,
+    "value": 446
+}, {
+    "date": "2009/11/30",
+    "sub_values": {
+        "figaro": 79,
+        "lemonde": 154,
+        "liberation": 102
+    },
+    "title_value": 11,
+    "value": 335
+}, {
+    "date": "2009/12/31",
+    "sub_values": {
+        "figaro": 157,
+        "lemonde": 371,
+        "liberation": 119
+    },
+    "title_value": 24,
+    "value": 647
+}, {
+    "date": "2010/01/31",
+    "sub_values": {
+        "figaro": 140,
+        "lemonde": 195,
+        "liberation": 224
+    },
+    "title_value": 15,
+    "value": 559
+}, {
+    "date": "2010/02/28",
+    "sub_values": {
+        "figaro": 72,
+        "lemonde": 139,
+        "liberation": 80
+    },
+    "title_value": 8,
+    "value": 291
+}, {
+    "date": "2010/03/31",
+    "sub_values": {
+        "figaro": 66,
+        "lemonde": 170,
+        "liberation": 116
+    },
+    "title_value": 14,
+    "value": 352
+}, {
+    "date": "2010/04/30",
+    "sub_values": {
+        "figaro": 78,
+        "lemonde": 175,
+        "liberation": 76
+    },
+    "title_value": 15,
+    "value": 329
+}, {
+    "date": "2010/05/31",
+    "sub_values": {
+        "figaro": 64,
+        "lemonde": 115,
+        "liberation": 75
+    },
+    "title_value": 6,
+    "value": 254
+}, {
+    "date": "2010/06/30",
+    "sub_values": {
+        "figaro": 118,
+        "lemonde": 174,
+        "liberation": 104
+    },
+    "title_value": 15,
+    "value": 396
+}, {
+    "date": "2010/07/31",
+    "sub_values": {
+        "figaro": 76,
+        "lemonde": 119,
+        "liberation": 56
+    },
+    "title_value": 7,
+    "value": 251
+}, {
+    "date": "2010/08/31",
+    "sub_values": {
+        "figaro": 72,
+        "lemonde": 150,
+        "liberation": 83
+    },
+    "title_value": 9,
+    "value": 305
+}, {
+    "date": "2010/09/30",
+    "sub_values": {
+        "figaro": 124,
+        "lemonde": 280,
+        "liberation": 116
+    },
+    "title_value": 21,
+    "value": 520
+}, {
+    "date": "2010/10/31",
+    "sub_values": {
+        "figaro": 83,
+        "lemonde": 178,
+        "liberation": 68
+    },
+    "title_value": 7,
+    "value": 329
+}, {
+    "date": "2010/11/30",
+    "sub_values": {
+        "figaro": 103,
+        "lemonde": 166,
+        "liberation": 49
+    },
+    "title_value": 14,
+    "value": 318
+}, {
+    "date": "2010/12/31",
+    "sub_values": {
+        "figaro": 72,
+        "lemonde": 219,
+        "liberation": 120
+    },
+    "title_value": 18,
+    "value": 411
+}, {
+    "date": "2011/01/31",
+    "sub_values": {
+        "figaro": 134,
+        "lemonde": 350,
+        "liberation": 288
+    },
+    "title_value": 28,
+    "value": 772
+}, {
+    "date": "2011/02/28",
+    "sub_values": {
+        "figaro": 241,
+        "lemonde": 579,
+        "liberation": 281
+    },
+    "title_value": 46,
+    "value": 1101
+}, {
+    "date": "2011/03/31",
+    "sub_values": {
+        "figaro": 191,
+        "lemonde": 566,
+        "liberation": 226
+    },
+    "title_value": 48,
+    "value": 983
+}, {
+    "date": "2011/04/30",
+    "sub_values": {
+        "figaro": 125,
+        "lemonde": 475,
+        "liberation": 165
+    },
+    "title_value": 30,
+    "value": 765
+}, {
+    "date": "2011/05/31",
+    "sub_values": {
+        "figaro": 103,
+        "lemonde": 276,
+        "liberation": 152
+    },
+    "title_value": 5,
+    "value": 531
+}, {
+    "date": "2011/06/30",
+    "sub_values": {
+        "figaro": 107,
+        "lemonde": 204,
+        "liberation": 56
+    },
+    "title_value": 13,
+    "value": 367
+}, {
+    "date": "2011/07/31",
+    "sub_values": {
+        "figaro": 73,
+        "lemonde": 180,
+        "liberation": 155
+    },
+    "title_value": 10,
+    "value": 408
+}, {
+    "date": "2011/08/31",
+    "sub_values": {
+        "figaro": 124,
+        "lemonde": 178,
+        "liberation": 35
+    },
+    "title_value": 12,
+    "value": 337
+}, {
+    "date": "2011/09/30",
+    "sub_values": {
+        "figaro": 141,
+        "lemonde": 332,
+        "liberation": 110
+    },
+    "title_value": 19,
+    "value": 583
+}, {
+    "date": "2011/10/31",
+    "sub_values": {
+        "figaro": 163,
+        "lemonde": 468,
+        "liberation": 212
+    },
+    "title_value": 33,
+    "value": 843
+}, {
+    "date": "2011/11/30",
+    "sub_values": {
+        "figaro": 133,
+        "lemonde": 409,
+        "liberation": 151
+    },
+    "title_value": 30,
+    "value": 693
+}, {
+    "date": "2011/12/31",
+    "sub_values": {
+        "figaro": 99,
+        "lemonde": 411,
+        "liberation": 144
+    },
+    "title_value": 29,
+    "value": 654
+}, {
+    "date": "2012/01/31",
+    "sub_values": {
+        "figaro": 133,
+        "lemonde": 265,
+        "liberation": 158
+    },
+    "title_value": 21,
+    "value": 556
+}, {
+    "date": "2012/02/29",
+    "sub_values": {
+        "figaro": 120,
+        "lemonde": 224,
+        "liberation": 91
+    },
+    "title_value": 16,
+    "value": 435
+}, {
+    "date": "2012/03/31",
+    "sub_values": {
+        "figaro": 149,
+        "lemonde": 465,
+        "liberation": 186
+    },
+    "title_value": 27,
+    "value": 800
+}, {
+    "date": "2012/04/30",
+    "sub_values": {
+        "figaro": 173,
+        "lemonde": 353,
+        "liberation": 227
+    },
+    "title_value": 37,
+    "value": 753
+}, {
+    "date": "2012/05/31",
+    "sub_values": {
+        "figaro": 104,
+        "lemonde": 355,
+        "liberation": 153
+    },
+    "title_value": 23,
+    "value": 612
+}, {
+    "date": "2012/06/30",
+    "sub_values": {
+        "figaro": 79,
+        "lemonde": 229,
+        "liberation": 157
+    },
+    "title_value": 13,
+    "value": 465
+}, {
+    "date": "2012/07/31",
+    "sub_values": {
+        "figaro": 143,
+        "lemonde": 261,
+        "liberation": 204
+    },
+    "title_value": 22,
+    "value": 608
+}, {
+    "date": "2012/08/31",
+    "sub_values": {
+        "figaro": 83,
+        "lemonde": 137,
+        "liberation": 140
+    },
+    "title_value": 11,
+    "value": 360
+}, {
+    "date": "2012/09/30",
+    "sub_values": {
+        "figaro": 367,
+        "lemonde": 598,
+        "liberation": 484
+    },
+    "title_value": 81,
+    "value": 1449
+}, {
+    "date": "2012/10/31",
+    "sub_values": {
+        "figaro": 214,
+        "lemonde": 339,
+        "liberation": 165
+    },
+    "title_value": 42,
+    "value": 718
+}, {
+    "date": "2012/11/30",
+    "sub_values": {
+        "figaro": 83,
+        "lemonde": 198,
+        "liberation": 164
+    },
+    "title_value": 16,
+    "value": 445
+}, {
+    "date": "2012/12/31",
+    "sub_values": {
+        "figaro": 124,
+        "lemonde": 188,
+        "liberation": 237
+    },
+    "title_value": 13,
+    "value": 549
+}, {
+    "date": "2013/01/31",
+    "sub_values": {
+        "figaro": 122,
+        "lemonde": 291,
+        "liberation": 235
+    },
+    "title_value": 20,
+    "value": 648
+}, {
+    "date": "2013/02/28",
+    "sub_values": {
+        "figaro": 136,
+        "lemonde": 190,
+        "liberation": 210
+    },
+    "title_value": 17,
+    "value": 536
+}, {
+    "date": "2013/03/31",
+    "sub_values": {
+        "figaro": 107,
+        "lemonde": 257,
+        "liberation": 98
+    },
+    "title_value": 12,
+    "value": 462
+}, {
+    "date": "2013/04/30",
+    "sub_values": {
+        "figaro": 121,
+        "lemonde": 281,
+        "liberation": 163
+    },
+    "title_value": 11,
+    "value": 565
+}, {
+    "date": "2013/05/31",
+    "sub_values": {
+        "figaro": 196,
+        "lemonde": 393,
+        "liberation": 152
+    },
+    "title_value": 19,
+    "value": 741
+}, {
+    "date": "2013/06/30",
+    "sub_values": {
+        "figaro": 194,
+        "lemonde": 298,
+        "liberation": 205
+    },
+    "title_value": 19,
+    "value": 697
+}, {
+    "date": "2013/07/31",
+    "sub_values": {
+        "figaro": 235,
+        "lemonde": 483,
+        "liberation": 389
+    },
+    "title_value": 36,
+    "value": 1107
+}, {
+    "date": "2013/08/31",
+    "sub_values": {
+        "figaro": 174,
+        "lemonde": 249,
+        "liberation": 373
+    },
+    "title_value": 23,
+    "value": 796
+}, {
+    "date": "2013/09/30",
+    "sub_values": {
+        "figaro": 139,
+        "lemonde": 297,
+        "liberation": 270
+    },
+    "title_value": 19,
+    "value": 706
+}, {
+    "date": "2013/10/31",
+    "sub_values": {
+        "figaro": 92,
+        "lemonde": 246,
+        "liberation": 208
+    },
+    "title_value": 17,
+    "value": 546
+}, {
+    "date": "2013/11/30",
+    "sub_values": {
+        "figaro": 99,
+        "lemonde": 297,
+        "liberation": 112
+    },
+    "title_value": 11,
+    "value": 508
+}, {
+    "date": "2013/12/31",
+    "sub_values": {
+        "figaro": 80,
+        "lemonde": 155,
+        "liberation": 61
+    },
+    "title_value": 6,
+    "value": 296
+}, {
+    "date": "2014/01/31",
+    "sub_values": {
+        "figaro": 138,
+        "lemonde": 315,
+        "liberation": 160
+    },
+    "title_value": 17,
+    "value": 613
+}, {
+    "date": "2014/02/28",
+    "sub_values": {
+        "figaro": 65,
+        "lemonde": 115,
+        "liberation": 64
+    },
+    "title_value": 5,
+    "value": 244
+}, {
+    "date": "2014/03/31",
+    "sub_values": {
+        "figaro": 49,
+        "lemonde": 122,
+        "liberation": 128
+    },
+    "title_value": 8,
+    "value": 299
+}, {
+    "date": "2014/04/30",
+    "sub_values": {
+        "figaro": 57,
+        "lemonde": 126,
+        "liberation": 116
+    },
+    "title_value": 9,
+    "value": 299
+}, {
+    "date": "2014/05/31",
+    "sub_values": {
+        "figaro": 67,
+        "lemonde": 217,
+        "liberation": 152
+    },
+    "title_value": 5,
+    "value": 436
+}, {
+    "date": "2014/06/30",
+    "sub_values": {
+        "figaro": 149,
+        "lemonde": 273,
+        "liberation": 205
+    },
+    "title_value": 21,
+    "value": 627
+}, {
+    "date": "2014/07/31",
+    "sub_values": {
+        "figaro": 122,
+        "lemonde": 259,
+        "liberation": 197
+    },
+    "title_value": 17,
+    "value": 578
+}, {
+    "date": "2014/08/31",
+    "sub_values": {
+        "figaro": 126,
+        "lemonde": 171,
+        "liberation": 217
+    },
+    "title_value": 19,
+    "value": 514
+}, {
+    "date": "2014/09/30",
+    "sub_values": {
+        "figaro": 336,
+        "lemonde": 491,
+        "liberation": 472
+    },
+    "title_value": 54,
+    "value": 1299
+}, {
+    "date": "2014/10/31",
+    "sub_values": {
+        "figaro": 211,
+        "lemonde": 319,
+        "liberation": 193
+    },
+    "title_value": 36,
+    "value": 723
+}, {
+    "date": "2014/11/30",
+    "sub_values": {
+        "figaro": 152,
+        "lemonde": 294,
+        "liberation": 258
+    },
+    "title_value": 13,
+    "value": 704
+}, {
+    "date": "2014/12/31",
+    "sub_values": {
+        "figaro": 211,
+        "lemonde": 254,
+        "liberation": 163
+    },
+    "title_value": 15,
+    "value": 628
+}, {
+    "date": "2015/01/31",
+    "sub_values": {
+        "figaro": 741,
+        "lemonde": 1531,
+        "liberation": 934
+    },
+    "title_value": 76,
+    "value": 3206
+}, {
+    "date": "2015/02/28",
+    "sub_values": {
+        "figaro": 447,
+        "lemonde": 762,
+        "liberation": 505
+    },
+    "title_value": 67,
+    "value": 1714
+}, {
+    "date": "2015/03/31",
+    "sub_values": {
+        "figaro": 197,
+        "lemonde": 409,
+        "liberation": 262
+    },
+    "title_value": 26,
+    "value": 868
+}, {
+    "date": "2015/04/30",
+    "sub_values": {
+        "figaro": 192,
+        "lemonde": 360,
+        "liberation": 273
+    },
+    "title_value": 24,
+    "value": 825
+}, {
+    "date": "2015/05/31",
+    "sub_values": {
+        "figaro": 171,
+        "lemonde": 442,
+        "liberation": 171
+    },
+    "title_value": 25,
+    "value": 784
+}, {
+    "date": "2015/06/30",
+    "sub_values": {
+        "figaro": 349,
+        "lemonde": 359,
+        "liberation": 264
+    },
+    "title_value": 45,
+    "value": 972
+}, {
+    "date": "2015/07/31",
+    "sub_values": {
+        "figaro": 173,
+        "lemonde": 189,
+        "liberation": 200
+    },
+    "title_value": 18,
+    "value": 562
+}, {
+    "date": "2015/08/31",
+    "sub_values": {
+        "figaro": 117,
+        "lemonde": 211,
+        "liberation": 148
+    },
+    "title_value": 17,
+    "value": 476
+}, {
+    "date": "2015/09/30",
+    "sub_values": {
+        "figaro": 142,
+        "lemonde": 306,
+        "liberation": 118
+    },
+    "title_value": 7,
+    "value": 566
+}, {
+    "date": "2015/10/31",
+    "sub_values": {
+        "figaro": 155,
+        "lemonde": 360,
+        "liberation": 197
+    },
+    "title_value": 21,
+    "value": 712
+}, {
+    "date": "2015/11/30",
+    "sub_values": {
+        "figaro": 416,
+        "lemonde": 768,
+        "liberation": 428
+    },
+    "title_value": 52,
+    "value": 1612
+}, {
+    "date": "2015/12/31",
+    "sub_values": {
+        "figaro": 326,
+        "lemonde": 421,
+        "liberation": 250
+    },
+    "title_value": 24,
+    "value": 997
+}]

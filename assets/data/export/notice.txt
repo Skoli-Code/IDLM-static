@@ -1,0 +1,133 @@
+Notice
+======
+
+## Préambule:
+
+Les données présentes dans ce dossier sont celles visualisées dans l'application
+"Islam, objet médiatique", conçue par l'agence Skoli (http://skoli.fr) et
+disponible à l'adresse http://islam-objet-mediatique.fr.
+Elles au format ouvert JSON. L'indice présent dans le nom de ces fichiers (1.1
+/ 2.1 / …) renvoie à la position qu'ils occupent dans le déroulé de
+l'application.
+
+
+## Propriété intellectuelle:
+
+Sauf mention contraire, l’ensemble du site et des réalisations qu’il présente
+sont sous licence “Creative Commons Attribution Pas d'Utilisation Commerciale
+Partage à l'Identique 4.0 International” (CC-BY-NC-SA-4.0).
+
+## Formatage des données:
+### Notions générales
+
+- Les dates sont formaté au format `<année>/<mois>/<jour>`
+- Les différents sous-corpus sont représentés par les valeurs "lemonde",
+  "liberation", "figaro" ou "global" dans le cas du corpus entier.
+- Le code source de l'application étant en anglais, la structure des données
+  suit ce formalisme.
+
+
+### 1.1 / Évolution du nombre d'occurrences des termes contenant "islam" ou "musulman"
+
+```
+{
+    <terme>: [
+        {
+            "date": <date>, // date au 31 décembre de l'année concernée,
+            "value": <nombre d'occurrences>,
+            // répartition par sous-corpus de ces occurrences. Cette répartition
+            // n'est disponible que pour le terme "islam"
+            "sub_values": {
+                <sous-corpus>: <nombre d'occurrences> // occurrences/sous-corpus
+            }
+        },
+        ...
+    ]
+}
+```
+
+
+### 1.2 / Occurrences des termes contenant "islam" par mois et par sous-corpus.
+
+```
+[
+    {
+        "date": <date>, // date au dernier jour du mois concerné
+        "value": <nombre d'occurrences total (dans le contenu)>,
+        "title_value": <nombre d'occurrences dans les titres>,
+        "sub_values":{
+            // répartition par sous-corpus
+            <sous-corpus ou 'title'>: <nombre d'occurrences (dans le contenu)>
+        }
+    },
+    ...
+]
+```
+
+### 2.1 / Mot les plus employés dans le corpus
+
+```
+[
+    [ <terme>, <nombre d'occurrences> ],
+    ...
+]
+```
+
+
+### 2.2 / Mot les plus employés par sous-corpus et par an.
+
+```
+[
+    {
+        "source": <source>
+        "tops": [
+            {
+                "date": <date> // date au 31 décembre de l'année concernée.
+                "words": [
+                    [ <terme>, <nombre d'occurrences> ]
+                ]
+
+            },
+            ...
+        ]
+    },
+    ...
+]
+```
+
+### 3.1 / Adjectifs les plus utilisés sur l'ensemble du corpus
+```
+[
+    [ <terme>, <nombre d'occurrences> ],
+    ...
+]
+```
+
+### 3.2 / Évolutions d'une sélection d'adjectifs par corpus et par ans
+
+Le but ici est d'étudier l'évolution d'une poignée d'adjectifs sélectionnés et
+de voir si leur emploi varie en fonction du temps et du journal.
+
+```
+[
+    {
+        "name": <adjectif étudié>,
+        "values": [
+            {
+                "source": <nom de la source>,
+                // le rang nous renseigne sur la place de l'adjectif dans les
+                // adjectifs les plus utilisé
+                "rank": <rang de l'adjectif pour cette source>,
+                // les sous-valeurs permettent d'étudier l'évolution dans le
+                // temps de l'emploi de cet adjectif dans la source en question
+                "sub_values": [
+                    [ <date au 31 décembre>, <nombre d'occurrences> ],
+                    ...
+                ]
+            },
+            ...
+        ]
+    },
+    ...
+]
+```
