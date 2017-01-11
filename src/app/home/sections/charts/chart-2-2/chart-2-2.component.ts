@@ -14,7 +14,9 @@ import {
     scaleTime
 } from 'd3-scale';
 
-import { select } from 'd3-selection';
+import { select, event } from 'd3-selection';
+let d3Event = event;
+
 import { min, max } from 'd3-array';
 import {
     forceSimulation,
@@ -53,6 +55,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
     private bubbleAreas: any;
     private bubbleAreasEnter: any;
     private bubbles: any;
+    private tooltip: any;
     private yearScale: any;
     private points:any;
     private years:Date[];
@@ -225,7 +228,7 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
                 .style('text-anchor', 'middle')
                 .text((d)=>truncateText(d[0], scale(d[1])));
 
-            bubblesEnter.append('svg:title').text((d)=>d[0]);
+            // bubblesEnter.append('svg:title').text((d)=>d[0]);
 
             // UPDATE
             // accessor for updated node: accessing it directly with d[0] do
@@ -249,10 +252,16 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
                 .style('opacity', 0)
                 .remove();
 
-            bubblesEnter.merge(bubbles).on('mouseover', function(){
-                let sel = select(this);
-                sel.select('text')
-            });
+            bubblesEnter.on("mouseover", (d)=>{
+                this.tooltip.text(d[0]);
+                this.tooltip.style("visibility", "visible");
+              })
+              .on("mousemove", (event)=>{
+                  return this.tooltip.style("top", (event.y-10)+"px").style("left",(event.x+10)+"px");
+              })
+              .on("mouseout", ()=>{
+                  return this.tooltip.style("visibility", "hidden");
+              });
 
             let fradius = (d)=>{
                 return scale(d[1]) + 5;
@@ -282,7 +291,25 @@ export class Chart_2_2Component extends AbstractChart implements ScrollableChart
             li.append('span').text(li.attr('data'));
         });
     }
+
+    drawTooltip(){
+        this.tooltip = select('.chart .scroll-content')
+            .append('div')
+            .style("position", "absolute")
+            .style("z-index", "1000")
+            .style("pointer-events", "none")
+            .style("visibility", "hidden")
+            .style("color", "white")
+            .style("padding", "8px")
+            .style("background-color", "rgba(0, 0, 0, 0.95)")
+            .style("border-radius", "6px")
+            .style("font", "12px sans-serif")
+            .text("tooltip");
+
+    }
+
     draw(){
+        this.drawTooltip();
         this.bubbleAreas = this._g.selectAll('.bubble-group')
             .data(this.data);
 
