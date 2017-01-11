@@ -196,7 +196,6 @@ export class Chart_1_2Component extends AxedChart implements ScrollableChart {
     }
     private setLineAt(percentage: number) {
         let stepped_percentage = this.stepScale(percentage);
-        console.log('in', percentage, stepped_percentage);
         let line_percentage = this.lineDrawScale(stepped_percentage);
         this._visibilityClip.attr('width', line_percentage);
         this.showEventsFor(stepped_percentage);
